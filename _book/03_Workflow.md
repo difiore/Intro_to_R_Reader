@@ -557,7 +557,9 @@ LongTemps %>%
 ```
 
 ### Tibbles
-As I mentioned earlier, data in R is stored in _dataframes_. However, you may have noticed that the dataframe outputs from tidyverse functions look pretty different (I'd even say nicer) than our raw datasets! That's because of another useful tidyverse package, ```tibble```. 
+As I mentioned earlier, data in R is stored in _dataframes_. However, you may have noticed that the dataframe outputs from tidyverse functions look pretty different in your R session (I'd even say nicer) than our raw datasets! That's because of another useful tidyverse package, ```tibble```. 
+
+Of course, the outputs in this book are pretty much the same - the technology I'm using to publish this isn't quite that advanced, yet.
 
 We don't need to get too far into the mechanics of this package - if you load the tidyverse, any new dataframes you make will be converted into tibbles by default. If you want to force any old dataframe into this format, use ```as.tibble()```; if you need the basic dataframe, use ```as.data.frame()```.
 
@@ -626,7 +628,7 @@ iris[1, ]
 ## 1         5.10        3.50         1.40       0.200 setosa
 ```
 
-If we wanted several rows, we can specify them with ```c()``` or, if they're consecutive, ```:``` - 
+If we wanted several rows, we can specify them with ```c()``` or, if they're consecutive, ```:```. For instance:
 
 
 ```r

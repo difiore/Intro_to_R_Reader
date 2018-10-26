@@ -150,6 +150,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>5</b> Exploratory Data Analysis</a><ul>
 <li class="chapter" data-level="5.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#work-in-progress"><i class="fa fa-check"></i><b>5.1</b> Work in progress</a></li>
+<li class="chapter" data-level="5.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#statistical-computing"><i class="fa fa-check"></i><b>5.2</b> Statistical Computing</a></li>
+<li class="chapter" data-level="5.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#functional-programming"><i class="fa fa-check"></i><b>5.3</b> Functional Programming</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#column-names"><i class="fa fa-check"></i><b>5.3.1</b> Column Names</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -496,7 +500,8 @@ Numbers <span class="op">%&gt;%</span>
 </div>
 <div id="tibbles" class="section level3">
 <h3><span class="header-section-number">3.6.2</span> Tibbles</h3>
-<p>As I mentioned earlier, data in R is stored in <em>dataframes</em>. However, you may have noticed that the dataframe outputs from tidyverse functions look pretty different (I’d even say nicer) than our raw datasets! That’s because of another useful tidyverse package, <code>tibble</code>.</p>
+<p>As I mentioned earlier, data in R is stored in <em>dataframes</em>. However, you may have noticed that the dataframe outputs from tidyverse functions look pretty different in your R session (I’d even say nicer) than our raw datasets! That’s because of another useful tidyverse package, <code>tibble</code>.</p>
+<p>Of course, the outputs in this book are pretty much the same - the technology I’m using to publish this isn’t quite that advanced, yet.</p>
 <p>We don’t need to get too far into the mechanics of this package - if you load the tidyverse, any new dataframes you make will be converted into tibbles by default. If you want to force any old dataframe into this format, use <code>as.tibble()</code>; if you need the basic dataframe, use <code>as.data.frame()</code>.</p>
 </div>
 <div id="subsetting-data" class="section level3">
@@ -540,7 +545,7 @@ iris</code></pre></div>
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
 ## 1         5.10        3.50         1.40       0.200 setosa</code></pre>
-<p>If we wanted several rows, we can specify them with <code>c()</code> or, if they’re consecutive, <code>:</code> -</p>
+<p>If we wanted several rows, we can specify them with <code>c()</code> or, if they’re consecutive, <code>:</code>. For instance:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), ]</code></pre></div>
 <pre><code>## # A tibble: 4 x 5
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
