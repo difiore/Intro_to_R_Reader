@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="unit-one-introduction-to-r-and-data-visualization.html">
-<link rel="next" href="unit-2-r-functions-and-workflow.html">
+<link rel="prev" href="unit-2-r-functions-and-workflow.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -165,41 +165,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="r-basics-and-visualizations-exercises" class="section level1">
-<h1><span class="header-section-number">2</span> R Basics and Visualizations Exercises</h1>
-<div id="calculate-the-following" class="section level2">
-<h2><span class="header-section-number">2.1</span> Calculate the following:</h2>
+<div id="r-functions-and-workflow-exercises" class="section level1">
+<h1><span class="header-section-number">4</span> R Functions and Workflow Exercises</h1>
+<div id="do-the-following" class="section level2">
+<h2><span class="header-section-number">4.1</span> Do the following:</h2>
 <ol style="list-style-type: decimal">
-<li>The product of 9 * 9</li>
-<li>9 squared</li>
-<li>The remainder from dividing 27 by 2</li>
-<li>The remainder of 27 divided by 2, divided by 2</li>
-<li>FALSE divided by TRUE. Why did you get this answer?</li>
+<li>What class is the vector <code>c(1, TRUE, 3)</code>? Why is it not a character vector?</li>
+<li>Make and print this tibble. What do the abbreviations under each column name mean?</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),
+       <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>),
+       <span class="dt">z =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>))</code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Inspect the <code>smiths</code> dataset (loaded with the tidyverse - you can access it like <code>iris</code>). How can you fix those missing values?</li>
 </ol>
 </div>
-<div id="graph-the-following" class="section level2">
-<h2><span class="header-section-number">2.2</span> Graph the following:</h2>
+<div id="work-with-other-datasets" class="section level2">
+<h2><span class="header-section-number">4.2</span> Work with other datasets:</h2>
 <ol style="list-style-type: decimal">
-<li>A boxplot of the iris data, with species on the x axis and sepal length on the y</li>
-<li>A scatterplot of the iris data, plotting sepal length against width, where the points get bigger as sepal width increases</li>
-<li>Can you change the color of the boxes in the graph you made for problem 1? Can you change the color of the lines?</li>
-</ol>
-</div>
-<div id="use-a-new-dataset" class="section level2">
-<h2><span class="header-section-number">2.3</span> Use a new dataset:</h2>
-<p>Also included in ggplot is the <code>mpg</code> dataset, containing fuel economy data for 38 different models of car.</p>
-<ol style="list-style-type: decimal">
-<li>Use <code>head()</code> to examine the data. You can also type <code>?mpg</code> to get documentation on what each variable represents.</li>
-<li>Is engine displacement (<code>displ</code>) correlated with highway miles per gallon (<code>hwy</code>)? Make a scatterplot to find out.</li>
-<li>What variables could we use to group the data? Does coloring points by any of these help explain the scatterplot from problem 2?</li>
-<li>What does the scatterplot look like if you make a scatterplot for <code>cty</code> plotted against <code>hwy</code>? Why? What geom could we use to better represent the data?</li>
-</ol>
-</div>
-<div id="looking-ahead" class="section level2">
-<h2><span class="header-section-number">2.4</span> Looking ahead:</h2>
-<ol style="list-style-type: decimal">
-<li>What happens if you type in <code>summary(mpg)</code>? What do you think this output represents?</li>
-<li>What happens if you type in <code>mpg[1]</code>? How does this compare to <code>mpg[[1]]</code>?</li>
+<li><code>spread()</code> the <code>iris</code> dataset so that each species’ petal width is in its own column. Then <code>gather()</code> the table back together. What’s different about this dataframe?</li>
+<li>Select all the rows of <code>iris</code> where the species is setosa. Now select all the rows where the species <em>isn’t</em> setosa.</li>
+<li>What’s the mean price for each cut of diamond in the <code>diamonds</code> dataset?</li>
 </ol>
 
 </div>
@@ -209,8 +195,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="unit-one-introduction-to-r-and-data-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="unit-2-r-functions-and-workflow.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="unit-2-r-functions-and-workflow.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

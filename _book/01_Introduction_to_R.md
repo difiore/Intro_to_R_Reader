@@ -15,8 +15,6 @@ Or rather, a very _literal_ machine - if you do things out of order, or misspell
 
 If that sounds frustrating, well... it sometimes is! But getting good at coding is mostly learning to be okay with being frustrated - and learning what to do when your code is being frustrated.
 
-For this class, remember that you can always email me - <mike.mahoney.218@gmail.com> - or swing by office hours for help with your code. We'll go over strategies to fix your code outside of this class later on in the semester.
-
 
 ## Conventions of the course (and this reader)  
 We'll go over standard code styles a bit later in the course - there is a Right Way**^tm^** to code, but we won't worry about that for a few more weeks. But so you can understand a few basics, here's a few styles we'll use in the text:
@@ -310,7 +308,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ------------------------------------------------------------------------ tidyverse 1.2.1 --
+## -- Attaching packages --------------------------------------- tidyverse 1.2.1 --
 ```
 
 ```
@@ -321,7 +319,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts --------------------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -840,7 +838,7 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
 
 <img src="01_Introduction_to_R_files/figure-html/unnamed-chunk-45-3.png" width="672" />
 
-Plenty of other packages introduce other ggplots for you to use. My personal favorite is ```cowplot```, written by [Claus O. Wilke](http://wilkelab.org/), it provides some really interesting new extensions to ggplot, and sets the default theme to something that generally looks better than ggplot's defaults. If we install it now:
+Plenty of other packages introduce other ggplots for you to use. My personal favorite is ```cowplot```. Written by [Claus O. Wilke](http://wilkelab.org/), it provides some really interesting new extensions to ggplot, and sets the default theme to something that generally looks better than ggplot's defaults. If we install it now:
 
 ```
 install.packages("cowplot")
