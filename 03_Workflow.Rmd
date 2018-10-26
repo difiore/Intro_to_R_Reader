@@ -49,6 +49,7 @@ a + theme(legend.position = "top")
 ```
 
 This will move the legend to the top of our graph, much as if we had included the ```theme()``` function in our original plot. Your program now has - for the first time in this course - two steps to it: the assignment step (where we make ```a``` a plot), and the print step (where we add our ```theme()``` and print the plot). While in an R script, there are three ways you can run the whole program:  
+
 * Click the very top of the document and press Cmd/Ctrl+Enter once for each step
 * Highlight the entire code and press Cmd/Ctrl+Enter to run it all at once
 * While your cursor is anywhere in the script, press Cmd/Ctrl+Shift+Enter to run the whole program at once
