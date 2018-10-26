@@ -28,6 +28,6 @@ description: "This is a minimal example of using the bookdown package to write a
 > There are only two kinds of programming languages: those people always bitch about and those nobody uses.  
 > ---Bjarne Stroustrup  
 
-This document contains course notes for a class I'm expecting to never be taught. Much of this course outline draws from Hadley Wickham's 2012 [stat405](http://stat405.had.co.nz/) class, as well as his wonderful textbooks [R for Data Science](http://r4ds.had.co.nz/index.html) (with Garrett Grolemund) and [Advanced R](https://adv-r.hadley.nz/index.html). I've updated some elements, distilled others, and not kept much of the content, but the ideas and steering come very directly from those works.
+This is a generic splash page. Please ignore for now.
 
-Ignore this page for now - I haven't actually written it yet.  
+Much of this course outline draws from Hadley Wickham's 2012 [stat405](http://stat405.had.co.nz/) class, as well as his wonderful textbooks [R for Data Science](http://r4ds.had.co.nz/index.html) (with Garrett Grolemund) and [Advanced R](https://adv-r.hadley.nz/index.html). I've updated some elements, distilled others, and not kept much of the content, but the ideas and steering come very directly from those works.
