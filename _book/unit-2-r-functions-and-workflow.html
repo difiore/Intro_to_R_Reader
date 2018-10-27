@@ -25,15 +25,15 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2018-10-26">
+<meta name="date" content="2018-10-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="r-basics-and-visualizations-exercises.html">
-<link rel="next" href="r-functions-and-workflow-exercises.html">
+<link rel="prev" href="unit-one-introduction-to-r-and-data-visualization.html">
+<link rel="next" href="basic-statistics-using-r.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -101,58 +101,73 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to IDEAR</a></li>
 <li class="chapter" data-level="1" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html"><i class="fa fa-check"></i><b>1</b> Unit One: Introduction to R and Data Visualization</a><ul>
-<li class="chapter" data-level="1.1" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#what-is-r"><i class="fa fa-check"></i><b>1.1</b> What is R?</a></li>
-<li class="chapter" data-level="1.2" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#what-is-coding"><i class="fa fa-check"></i><b>1.2</b> What is coding?</a></li>
-<li class="chapter" data-level="1.3" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#conventions-of-the-course-and-this-reader"><i class="fa fa-check"></i><b>1.3</b> Conventions of the course (and this reader)</a></li>
-<li class="chapter" data-level="1.4" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#things-youll-need"><i class="fa fa-check"></i><b>1.4</b> Things You’ll Need</a></li>
-<li class="chapter" data-level="1.5" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#introduction-to-rstudio"><i class="fa fa-check"></i><b>1.5</b> Introduction to RStudio</a></li>
-<li class="chapter" data-level="1.6" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#your-first-program"><i class="fa fa-check"></i><b>1.6</b> Your First Program</a></li>
-<li class="chapter" data-level="1.7" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#the-iris-dataset"><i class="fa fa-check"></i><b>1.7</b> The iris Dataset</a></li>
-<li class="chapter" data-level="1.8" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#graphing-with-r"><i class="fa fa-check"></i><b>1.8</b> Graphing with R</a></li>
-<li class="chapter" data-level="1.9" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#the-tidyverse-package"><i class="fa fa-check"></i><b>1.9</b> The Tidyverse Package</a></li>
-<li class="chapter" data-level="1.10" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>1.10</b> ggplot2</a></li>
-<li class="chapter" data-level="1.11" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#facetting"><i class="fa fa-check"></i><b>1.11</b> Facetting</a></li>
-<li class="chapter" data-level="1.12" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#diamonds"><i class="fa fa-check"></i><b>1.12</b> diamonds</a></li>
-<li class="chapter" data-level="1.13" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#other-popular-geoms"><i class="fa fa-check"></i><b>1.13</b> Other Popular Geoms</a></li>
-<li class="chapter" data-level="1.14" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#designing-good-graphics"><i class="fa fa-check"></i><b>1.14</b> Designing Good Graphics</a></li>
-<li class="chapter" data-level="1.15" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#saving-your-graphics"><i class="fa fa-check"></i><b>1.15</b> Saving Your Graphics</a></li>
-<li class="chapter" data-level="1.16" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#more-resources"><i class="fa fa-check"></i><b>1.16</b> More Resources</a></li>
+<li class="chapter" data-level="1.1" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#lecture-notes"><i class="fa fa-check"></i><b>1.1</b> Lecture Notes</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#what-is-r"><i class="fa fa-check"></i><b>1.1.1</b> What is R?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#what-is-coding"><i class="fa fa-check"></i><b>1.1.2</b> What is coding?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#conventions-of-the-course-and-this-reader"><i class="fa fa-check"></i><b>1.1.3</b> Conventions of the course (and this reader)</a></li>
+<li class="chapter" data-level="1.1.4" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#things-youll-need"><i class="fa fa-check"></i><b>1.1.4</b> Things You’ll Need</a></li>
+<li class="chapter" data-level="1.1.5" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#introduction-to-rstudio"><i class="fa fa-check"></i><b>1.1.5</b> Introduction to RStudio</a></li>
+<li class="chapter" data-level="1.1.6" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#your-first-program"><i class="fa fa-check"></i><b>1.1.6</b> Your First Program</a></li>
+<li class="chapter" data-level="1.1.7" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#the-iris-dataset"><i class="fa fa-check"></i><b>1.1.7</b> The iris Dataset</a></li>
+<li class="chapter" data-level="1.1.8" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#graphing-with-r"><i class="fa fa-check"></i><b>1.1.8</b> Graphing with R</a></li>
+<li class="chapter" data-level="1.1.9" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#the-tidyverse-package"><i class="fa fa-check"></i><b>1.1.9</b> The Tidyverse Package</a></li>
+<li class="chapter" data-level="1.1.10" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>1.1.10</b> ggplot2</a></li>
+<li class="chapter" data-level="1.1.11" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#facetting"><i class="fa fa-check"></i><b>1.1.11</b> Facetting</a></li>
+<li class="chapter" data-level="1.1.12" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#diamonds"><i class="fa fa-check"></i><b>1.1.12</b> diamonds</a></li>
+<li class="chapter" data-level="1.1.13" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#other-popular-geoms"><i class="fa fa-check"></i><b>1.1.13</b> Other Popular Geoms</a></li>
+<li class="chapter" data-level="1.1.14" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#designing-good-graphics"><i class="fa fa-check"></i><b>1.1.14</b> Designing Good Graphics</a></li>
+<li class="chapter" data-level="1.1.15" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#saving-your-graphics"><i class="fa fa-check"></i><b>1.1.15</b> Saving Your Graphics</a></li>
+<li class="chapter" data-level="1.1.16" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#more-resources"><i class="fa fa-check"></i><b>1.1.16</b> More Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="r-basics-and-visualizations-exercises.html"><a href="r-basics-and-visualizations-exercises.html"><i class="fa fa-check"></i><b>2</b> R Basics and Visualizations Exercises</a><ul>
-<li class="chapter" data-level="2.1" data-path="r-basics-and-visualizations-exercises.html"><a href="r-basics-and-visualizations-exercises.html#calculate-the-following"><i class="fa fa-check"></i><b>2.1</b> Calculate the following:</a></li>
-<li class="chapter" data-level="2.2" data-path="r-basics-and-visualizations-exercises.html"><a href="r-basics-and-visualizations-exercises.html#graph-the-following"><i class="fa fa-check"></i><b>2.2</b> Graph the following:</a></li>
-<li class="chapter" data-level="2.3" data-path="r-basics-and-visualizations-exercises.html"><a href="r-basics-and-visualizations-exercises.html#use-a-new-dataset"><i class="fa fa-check"></i><b>2.3</b> Use a new dataset:</a></li>
-<li class="chapter" data-level="2.4" data-path="r-basics-and-visualizations-exercises.html"><a href="r-basics-and-visualizations-exercises.html#looking-ahead"><i class="fa fa-check"></i><b>2.4</b> Looking ahead:</a></li>
+<li class="chapter" data-level="1.2" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#exercises"><i class="fa fa-check"></i><b>1.2</b> Exercises</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#calculate-the-following"><i class="fa fa-check"></i><b>1.2.1</b> Calculate the following:</a></li>
+<li class="chapter" data-level="1.2.2" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#graph-the-following"><i class="fa fa-check"></i><b>1.2.2</b> Graph the following:</a></li>
+<li class="chapter" data-level="1.2.3" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#use-a-new-dataset"><i class="fa fa-check"></i><b>1.2.3</b> Use a new dataset:</a></li>
+<li class="chapter" data-level="1.2.4" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#looking-ahead"><i class="fa fa-check"></i><b>1.2.4</b> Looking ahead:</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html"><i class="fa fa-check"></i><b>3</b> Unit 2: R Functions and Workflow</a><ul>
-<li class="chapter" data-level="3.1" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#scripts"><i class="fa fa-check"></i><b>3.1</b> Scripts</a></li>
-<li class="chapter" data-level="3.2" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#notebooks"><i class="fa fa-check"></i><b>3.2</b> Notebooks</a></li>
-<li class="chapter" data-level="3.3" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#memory-objects-and-names"><i class="fa fa-check"></i><b>3.3</b> Memory, Objects, and Names</a></li>
-<li class="chapter" data-level="3.4" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#dataframes-and-transformations"><i class="fa fa-check"></i><b>3.4</b> Dataframes and Transformations</a></li>
-<li class="chapter" data-level="3.5" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#the-pipe"><i class="fa fa-check"></i><b>3.5</b> The Pipe</a></li>
-<li class="chapter" data-level="3.6" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#data-transformations"><i class="fa fa-check"></i><b>3.6</b> Data Transformations</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#mutate"><i class="fa fa-check"></i><b>3.6.1</b> Mutate</a></li>
-<li class="chapter" data-level="3.6.2" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#tibbles"><i class="fa fa-check"></i><b>3.6.2</b> Tibbles</a></li>
-<li class="chapter" data-level="3.6.3" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#subsetting-data"><i class="fa fa-check"></i><b>3.6.3</b> Subsetting Data</a></li>
-<li class="chapter" data-level="3.6.4" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#filtering-with-the-tidyverse"><i class="fa fa-check"></i><b>3.6.4</b> Filtering with the Tidyverse</a></li>
-<li class="chapter" data-level="3.6.5" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#working-with-groups"><i class="fa fa-check"></i><b>3.6.5</b> Working with Groups</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#missing-values"><i class="fa fa-check"></i><b>3.7</b> Missing Values</a><ul>
-<li class="chapter" data-level="3.7.1" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#explicit-missing-values"><i class="fa fa-check"></i><b>3.7.1</b> Explicit Missing Values</a></li>
-<li class="chapter" data-level="3.7.2" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#implicit-missing-values"><i class="fa fa-check"></i><b>3.7.2</b> Implicit Missing Values</a></li>
+<li class="chapter" data-level="2" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html"><i class="fa fa-check"></i><b>2</b> Unit 2: R Functions and Workflow</a><ul>
+<li class="chapter" data-level="2.1" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#workflow"><i class="fa fa-check"></i><b>2.1</b> Workflow</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#scripts"><i class="fa fa-check"></i><b>2.1.1</b> Scripts</a></li>
+<li class="chapter" data-level="2.1.2" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#notebooks"><i class="fa fa-check"></i><b>2.1.2</b> Notebooks</a></li>
+<li class="chapter" data-level="2.1.3" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#memory-objects-and-names"><i class="fa fa-check"></i><b>2.1.3</b> Memory, Objects, and Names</a></li>
+<li class="chapter" data-level="2.1.4" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#dataframes-and-transformations"><i class="fa fa-check"></i><b>2.1.4</b> Dataframes and Transformations</a></li>
+<li class="chapter" data-level="2.1.5" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#the-pipe"><i class="fa fa-check"></i><b>2.1.5</b> The Pipe</a></li>
+<li class="chapter" data-level="2.1.6" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#data-transformations"><i class="fa fa-check"></i><b>2.1.6</b> Data Transformations</a></li>
+<li class="chapter" data-level="2.1.7" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#working-with-groups"><i class="fa fa-check"></i><b>2.1.7</b> Working with Groups</a></li>
+<li class="chapter" data-level="2.1.8" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#missing-values"><i class="fa fa-check"></i><b>2.1.8</b> Missing Values</a></li>
+<li class="chapter" data-level="2.1.9" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#count-data"><i class="fa fa-check"></i><b>2.1.9</b> Count Data</a></li>
+<li class="chapter" data-level="2.1.10" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#oddballs"><i class="fa fa-check"></i><b>2.1.10</b> Oddballs</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#count-data"><i class="fa fa-check"></i><b>3.8</b> Count Data</a></li>
-<li class="chapter" data-level="3.9" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#oddballs"><i class="fa fa-check"></i><b>3.9</b> Oddballs</a></li>
+<li class="chapter" data-level="2.2" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#r-functions-and-workflow-exercises"><i class="fa fa-check"></i><b>2.2</b> R Functions and Workflow Exercises</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#do-the-following"><i class="fa fa-check"></i><b>2.2.1</b> Do the following:</a></li>
+<li class="chapter" data-level="2.2.2" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#work-with-other-datasets"><i class="fa fa-check"></i><b>2.2.2</b> Work with other datasets:</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="r-functions-and-workflow-exercises.html"><a href="r-functions-and-workflow-exercises.html"><i class="fa fa-check"></i><b>4</b> R Functions and Workflow Exercises</a><ul>
-<li class="chapter" data-level="4.1" data-path="r-functions-and-workflow-exercises.html"><a href="r-functions-and-workflow-exercises.html#do-the-following"><i class="fa fa-check"></i><b>4.1</b> Do the following:</a></li>
-<li class="chapter" data-level="4.2" data-path="r-functions-and-workflow-exercises.html"><a href="r-functions-and-workflow-exercises.html#work-with-other-datasets"><i class="fa fa-check"></i><b>4.2</b> Work with other datasets:</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>5</b> Exploratory Data Analysis</a><ul>
-<li class="chapter" data-level="5.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#work-in-progress"><i class="fa fa-check"></i><b>5.1</b> Work in progress</a></li>
-<li class="chapter" data-level="5.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#statistical-computing"><i class="fa fa-check"></i><b>5.2</b> Statistical Computing</a></li>
-<li class="chapter" data-level="5.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#functional-programming"><i class="fa fa-check"></i><b>5.3</b> Functional Programming</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#column-names"><i class="fa fa-check"></i><b>5.3.1</b> Column Names</a></li>
+<li class="chapter" data-level="3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html"><i class="fa fa-check"></i><b>3</b> Basic Statistics (Using R)</a><ul>
+<li class="chapter" data-level="3.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#purpose-of-the-unit"><i class="fa fa-check"></i><b>3.1</b> Purpose of the Unit</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#definitions"><i class="fa fa-check"></i><b>3.2</b> Definitions</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#data-concepts"><i class="fa fa-check"></i><b>3.2.1</b> Data Concepts</a></li>
+<li class="chapter" data-level="3.2.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#statistical-terms"><i class="fa fa-check"></i><b>3.2.2</b> Statistical Terms</a></li>
+<li class="chapter" data-level="3.2.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#models-and-tests"><i class="fa fa-check"></i><b>3.2.3</b> Models and Tests</a></li>
+<li class="chapter" data-level="3.2.4" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#how-well-compare-models"><i class="fa fa-check"></i><b>3.2.4</b> How We’ll Compare Models</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html"><i class="fa fa-check"></i><b>4</b> Introductory Data Analysis</a><ul>
+<li class="chapter" data-level="4.1" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#work-in-progress"><i class="fa fa-check"></i><b>4.1</b> Work in progress</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#gapminder"><i class="fa fa-check"></i><b>4.1.1</b> gapminder</a></li>
+<li class="chapter" data-level="4.1.2" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#describing-your-data"><i class="fa fa-check"></i><b>4.1.2</b> Describing Your Data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#statistical-computing"><i class="fa fa-check"></i><b>4.2</b> Statistical Computing</a></li>
+<li class="chapter" data-level="4.3" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#functional-programming"><i class="fa fa-check"></i><b>4.3</b> Functional Programming</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#column-names"><i class="fa fa-check"></i><b>4.3.1</b> Column Names</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#modeling"><i class="fa fa-check"></i><b>4.4</b> Modeling</a></li>
+<li class="chapter" data-level="4.5" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#mixed-models"><i class="fa fa-check"></i><b>4.5</b> Mixed Models</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#pulling-it-all-together"><i class="fa fa-check"></i><b>4.5.1</b> Pulling it All Together</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#exercises-1"><i class="fa fa-check"></i><b>4.6</b> Exercises</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#answer-the-following"><i class="fa fa-check"></i><b>4.6.1</b> Answer the following:</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -173,9 +188,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="unit-2-r-functions-and-workflow" class="section level1">
-<h1><span class="header-section-number">3</span> Unit 2: R Functions and Workflow</h1>
-<div id="scripts" class="section level2">
-<h2><span class="header-section-number">3.1</span> Scripts</h2>
+<h1><span class="header-section-number">2</span> Unit 2: R Functions and Workflow</h1>
+<div id="workflow" class="section level2">
+<h2><span class="header-section-number">2.1</span> Workflow</h2>
+<div id="scripts" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Scripts</h3>
 <p>So far, we’ve been using the command line interface in the console to type our programs. While this works, you might have noticed how annoying it can be to type longer programs in. Additionally, you’re probably going to want to save your work at some point - and right now, you’d have to use Notepad or a similar program to save anything you’ve done.</p>
 <p>Luckily, there’s a better way. In the top left corner of RStudio, there’s a menu button called “File”. Click this, then click “New Project”. If you click “New Directory”, and then “New Project”, you’ll be able to create a folder where you can automatically store all of your R code and files. This will also create an R Project file, which you can load to return to where you left off the last time you closed RStudio.</p>
 <p>Let’s load the tidyverse again, now that we’re in a new directory:</p>
@@ -194,17 +211,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
 <p>Highlight everything and then press Cmd/Ctrl and Enter at the same time. A graph should appear in your Viewer window.</p>
 <p>Whoops, looks like we forgot to color the points by species - add the color aesthetic to your plot.</p>
-<p><img src="03_Workflow_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="02_Workflow_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>It should already be clear what the advantage of working with R Scripts is - you can change pieces of your code quickly, without having to worry about retyping things into the console. You can also save and open your scripts (Cmd/Ctrl+S, Cmd/Ctrl+O), which makes working on big projects much easier.</p>
 <p>Now change your code so it looks like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Petal.Length, Petal.Width)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>Species))</code></pre></div>
 <p>What we’re doing here is <em>assigning</em> the plot to <code>a</code>. Now, anytime you call <code>a</code>, the plot will appear - try it!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a</code></pre></div>
-<p><img src="03_Workflow_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="02_Workflow_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Now add the following line under the first two:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>)</code></pre></div>
-<p><img src="03_Workflow_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="02_Workflow_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>This will move the legend to the top of our graph, much as if we had included the <code>theme()</code> function in our original plot. Your program now has - for the first time in this course - two steps to it: the assignment step (where we make <code>a</code> a plot), and the print step (where we add our <code>theme()</code> and print the plot). While in an R script, there are three ways you can run the whole program:</p>
 <ul>
 <li>Click the very top of the document and press Cmd/Ctrl+Enter once for each step</li>
@@ -213,16 +230,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <p>That last method is usually the fastest and easiest.</p>
 </div>
-<div id="notebooks" class="section level2">
-<h2><span class="header-section-number">3.2</span> Notebooks</h2>
+<div id="notebooks" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Notebooks</h3>
 <p>While scripts are great, they do have some drawbacks. For instance, if you have to do more major and slower tasks - like loading datasets and libraries, or complicated math - you’ll have to redo that step every time you want to run the whole program, which is a pain. Also, running a script pulls up the console window, which is a little bit of a headache.</p>
 <p>For that reason, I tend to work in R Notebooks. Open your new notebook file, and you’ll see a new welcome page! The welcome page has a lot of good information in it - you can delete everything after the second set of three dashes once you’ve read it.</p>
 <p>Inside a notebook, you can make chunks by pressing Cmd/Ctrl+Alt+I. These chunks run as individual scripts, which you can run the exact same way by using combinations of Cmd/Ctrl, Shift, and Enter. Using notebooks can be a little more efficient than scripts, though, because it offers you the ability to split your code steps into multiple pieces, which can let you iterate on an idea faster than using scripts alone.</p>
 <p>No matter which you prefer, you should aim to have one script or notebook per task you perform - don’t just have one long, continous notebook for everything you’re doing. Also, make sure you give everything a descriptive name - there’s nothing worse than needing a file a month or so later and having to open every notebook you’ve ever made to find it!</p>
 <p>It’s also a good idea to make a new R Project, in a new folder, for each major project you start in on. These sorts of things might not matter too much to you while you’re learning - but once you’re doing more complicated things with R, having good habits like these are essential.</p>
 </div>
-<div id="memory-objects-and-names" class="section level2">
-<h2><span class="header-section-number">3.3</span> Memory, Objects, and Names</h2>
+<div id="memory-objects-and-names" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Memory, Objects, and Names</h3>
 <p>Let’s go back to when we assigned a plot to <code>a</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Petal.Length, Petal.Width)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Species))</code></pre></div>
@@ -241,12 +258,12 @@ a</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(Petal.Length, Petal.Width, <span class="dt">color =</span> Species))
 <span class="kw">ggplot</span>() <span class="op">+</span>
 <span class="st">  </span>a</code></pre></div>
-<p><img src="03_Workflow_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="02_Workflow_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>You’ll notice that <code>a</code> is now listed in the upper-lefthand corner of RStudio, under the “Environment” tab. That’s because a is now defined in memory - we can use it in any of our code, anywhere we want. In fact, you can even define <code>a</code> in one file and call it in another, so long as you’ve already run the code defining it in your current RStudio session.</p>
 <p>This is really cool for a lot of reasons - it lets us do more complicated things with R - but can also cause some problems. If you keep defining objects with names like <code>a</code>, it’s easy to forget which variable stands for what - and so you can wind up making mistakes when using those variables later on. In order to avoid that sort of confusion, you should use descriptive names when creating objects. You should also decide on a standard way you’re going to format those object names - some people prefer <code>snake_case_names</code>, others <code>use.periods</code>, and I personally prefer what’s known as <code>CamelCase</code>. Different organizations and groups have different preferred styles (here’s <a href="https://google.github.io/styleguide/Rguide.xml">Google’s</a>), but what’s important right now is that you pick a style that makes sense to you. Be consistent using this style whenever you code - R won’t understand you if you mess up your capitalization!</p>
 </div>
-<div id="dataframes-and-transformations" class="section level2">
-<h2><span class="header-section-number">3.4</span> Dataframes and Transformations</h2>
+<div id="dataframes-and-transformations" class="section level3">
+<h3><span class="header-section-number">2.1.4</span> Dataframes and Transformations</h3>
 <p>Earlier in this course, we went over the different classes of vectors - character, numeric, and logical. If you’re ever trying to find out what class a vector belongs to, you can call the <code>class()</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SampleVector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
 <span class="kw">class</span>(SampleVector)</code></pre></div>
@@ -296,7 +313,7 @@ SeasonalTemps</code></pre></div>
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Spring), <span class="dt">color =</span> <span class="st">&quot;green&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Summer), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Fall), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
-<p><img src="03_Workflow_files/figure-html/unnamed-chunk-13-1.png" width="672" /> What a mess! That took far too long to type - a good general rule of thumb is that if you have to repeat yourself more than twice to do something, there’s a better way to do it. And, even after all our effort, our graph doesn’t have a legend, and the Y axis is labeled wrong.</p>
+<p><img src="02_Workflow_files/figure-html/unnamed-chunk-13-1.png" width="672" /> What a mess! That took far too long to type - a good general rule of thumb is that if you have to repeat yourself more than twice to do something, there’s a better way to do it. And, even after all our effort, our graph doesn’t have a legend, and the Y axis is labeled wrong.</p>
 <p>Luckily enough, the <code>tidyverse</code> contains a package designed for making our data tidier - called, helpfully enough, <code>tidyr</code>. We already loaded this package when we called the tidyverse earlier.</p>
 <p>tidyr provides two essential functions for “reshaping” the data - changing back and forth between the <em>wide</em> format we used above and a <em>long</em> format, easier used by our functions. To change our <code>SeasonalTemps</code> data to a long format, we can use the <code>gather()</code> function. This function <em>gathers</em> values stores in multiple columns into a single variable, and makes another variable - the <em>key</em> variable - representing what column the data was originally in.</p>
 <p><code>gather()</code> takes three important arguments:</p>
@@ -332,7 +349,7 @@ LongTemps</code></pre></div>
 <p>This format makes graphing significantly easier:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(LongTemps, <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> AvgTemp, <span class="dt">color =</span> Season)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
-<p><img src="03_Workflow_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="02_Workflow_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p>If, after all our hard work, we want to get back to our original wide format, we can undo our <code>gather()</code> using <code>spread()</code>. Again, I’m giving spread a data, key, and value argument - but this time, the function is making a new column for each value of our key:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">WideTemps &lt;-<span class="st"> </span><span class="kw">spread</span>(LongTemps, Season, AvgTemp)
 WideTemps</code></pre></div>
@@ -364,8 +381,8 @@ OrderWideTemps</code></pre></div>
 ## 3 2017   54     50     42
 ## 4 2018   56     48     44</code></pre>
 </div>
-<div id="the-pipe" class="section level2">
-<h2><span class="header-section-number">3.5</span> The Pipe</h2>
+<div id="the-pipe" class="section level3">
+<h3><span class="header-section-number">2.1.5</span> The Pipe</h3>
 <p>At this point, we’ve created four dataframes - <code>SeasonalTemps</code>, <code>LongTemps</code>, <code>WideTemps</code>, and <code>OrderedWideTemps</code> - which all contain the same data. When repeatedly making similar but different dataframes, it can be hard to keep track of which object has which data - and it can be hard to keep coming up with simple, descriptive names, too. One solution could be to keep overwriting the same object with the new data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="dv">10</span>
 a &lt;-<span class="st"> </span>a<span class="op">*</span><span class="dv">2</span>
@@ -400,18 +417,18 @@ Numbers <span class="op">%&gt;%</span>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> AvgTemp, <span class="dt">color =</span> Season)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
-<p><img src="03_Workflow_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="02_Workflow_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 </div>
-<div id="data-transformations" class="section level2">
-<h2><span class="header-section-number">3.6</span> Data Transformations</h2>
-<div id="mutate" class="section level3">
-<h3><span class="header-section-number">3.6.1</span> Mutate</h3>
+<div id="data-transformations" class="section level3">
+<h3><span class="header-section-number">2.1.6</span> Data Transformations</h3>
+<div id="mutate" class="section level4">
+<h4><span class="header-section-number">2.1.6.1</span> Mutate</h4>
 <p>This becomes useful when we want to transform our data itself for a graph, rather than transform the axes. For example, remember how we made our log-log graph last unit?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> AvgTemp, <span class="dt">color =</span> Season)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_y_log10</span>()</code></pre></div>
-<p><img src="03_Workflow_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="02_Workflow_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <p>This is useful, but ggplot only has a certain number of transformations built in (type <code>?scale_y_continuous()</code> for more info). Additionally, sometimes we’ll want to transform our data for analyses - not just graphing. For this purpose, we can use <code>dplyr</code>’s <code>mutate()</code> function. Mutate takes three arguments: the dataframe (which it can get from <code>%&gt;%</code>), the name of your new column, and what value the new column should have. Say, for example, we wanted to multiply our average temperatures by two:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TwiceTemp =</span> AvgTemp <span class="op">*</span><span class="st"> </span><span class="dv">2</span>)</code></pre></div>
@@ -498,14 +515,14 @@ Numbers <span class="op">%&gt;%</span>
 ## 15            11664   2017 Fall
 ## 16            12544   2018 Fall</code></pre>
 </div>
-<div id="tibbles" class="section level3">
-<h3><span class="header-section-number">3.6.2</span> Tibbles</h3>
+<div id="tibbles" class="section level4">
+<h4><span class="header-section-number">2.1.6.2</span> Tibbles</h4>
 <p>As I mentioned earlier, data in R is stored in <em>dataframes</em>. However, you may have noticed that the dataframe outputs from tidyverse functions look pretty different in your R session (I’d even say nicer) than our raw datasets! That’s because of another useful tidyverse package, <code>tibble</code>.</p>
 <p>Of course, the outputs in this book are pretty much the same - the technology I’m using to publish this isn’t quite that advanced, yet.</p>
 <p>We don’t need to get too far into the mechanics of this package - if you load the tidyverse, any new dataframes you make will be converted into tibbles by default. If you want to force any old dataframe into this format, use <code>as.tibble()</code>; if you need the basic dataframe, use <code>as.data.frame()</code>.</p>
 </div>
-<div id="subsetting-data" class="section level3">
-<h3><span class="header-section-number">3.6.3</span> Subsetting Data</h3>
+<div id="subsetting-data" class="section level4">
+<h4><span class="header-section-number">2.1.6.3</span> Subsetting Data</h4>
 <p>Let’s go back to our <code>iris</code> dataset. I’m going to turn it into a tibble and then view it:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris &lt;-<span class="st"> </span><span class="kw">as.tibble</span>(iris)
 iris</code></pre></div>
@@ -629,8 +646,8 @@ iris</code></pre></div>
 ## 6         7.70        3.00         6.10        2.30 virginica</code></pre>
 <p>You can use <code>==</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>, and <code>!=</code> (not equal) to subset your data.</p>
 </div>
-<div id="filtering-with-the-tidyverse" class="section level3">
-<h3><span class="header-section-number">3.6.4</span> Filtering with the Tidyverse</h3>
+<div id="filtering-with-the-tidyverse" class="section level4">
+<h4><span class="header-section-number">2.1.6.4</span> Filtering with the Tidyverse</h4>
 <p>This code is hard to read as a human, and doesn’t work well with other functions. For instance, imagine trying to make a scatterplot of just the setosa data - your code will become almost unparseable.</p>
 <p>Instead, for more involved subsets, dplyr has a useful <code>filter()</code> function. It takes two arguments - your dataframe and the condition it should filter based on:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
@@ -683,8 +700,9 @@ iris</code></pre></div>
 ## # ... with 90 more rows</code></pre>
 <p>So long as your species is <code>%in%</code> the vector <code>c()</code> you provide, it will show up in the output.</p>
 </div>
+</div>
 <div id="working-with-groups" class="section level3">
-<h3><span class="header-section-number">3.6.5</span> Working with Groups</h3>
+<h3><span class="header-section-number">2.1.7</span> Working with Groups</h3>
 <p>Say we wanted to find the mean sepal length in our dataset. That’s pretty easy:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
 <pre><code>## [1] 5.843333</code></pre>
@@ -757,11 +775,10 @@ versicolor &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span>
 ## # ... with 140 more rows</code></pre>
 <p>(Note that I got rid of some columns with <code>select()</code> to make all the columns in the tibble fit on one page.)</p>
 </div>
-</div>
-<div id="missing-values" class="section level2">
-<h2><span class="header-section-number">3.7</span> Missing Values</h2>
-<div id="explicit-missing-values" class="section level3">
-<h3><span class="header-section-number">3.7.1</span> Explicit Missing Values</h3>
+<div id="missing-values" class="section level3">
+<h3><span class="header-section-number">2.1.8</span> Missing Values</h3>
+<div id="explicit-missing-values" class="section level4">
+<h4><span class="header-section-number">2.1.8.1</span> Explicit Missing Values</h4>
 <p>Working with data, there are often two types of missing values we have to worry about. The obvious one are <em>explicit</em> missing values, represented in R as <code>NA</code> (or, sometimes, <code>NaN</code>). Let’s make a dataframe:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MissingExample &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">w =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),
                          <span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>),
@@ -809,8 +826,8 @@ MissingExample</code></pre></div>
 <p>Notice a difference in the <code>z</code> column with this example? Because I put “078” in quotes, it changed the entire column to a character vector - because quotes mean characters, and a vector can only hold one class of data.</p>
 <p>We’ll talk more about that <code>list()</code> function later on - that’s a little too complicated for this unit.</p>
 </div>
-<div id="implicit-missing-values" class="section level3">
-<h3><span class="header-section-number">3.7.2</span> Implicit Missing Values</h3>
+<div id="implicit-missing-values" class="section level4">
+<h4><span class="header-section-number">2.1.8.2</span> Implicit Missing Values</h4>
 <p>The other, harder to identify type of missing value is the <em>implicit</em> missing value. Say we have a dataframe <code>TreeData</code>, which lists the species that are present at two different sites:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TreeData &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Site =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>),
                    <span class="dt">Species =</span> <span class="kw">c</span>(<span class="st">&quot;Red Maple&quot;</span>, <span class="st">&quot;Sugar Maple&quot;</span>, <span class="st">&quot;Black Cherry&quot;</span>, <span class="st">&quot;Red Maple&quot;</span>, <span class="st">&quot;Sugar Maple&quot;</span>),
@@ -860,8 +877,8 @@ TreeData</code></pre></div>
 ## 3 Sugar Maple  12.0         9.90</code></pre>
 </div>
 </div>
-<div id="count-data" class="section level2">
-<h2><span class="header-section-number">3.8</span> Count Data</h2>
+<div id="count-data" class="section level3">
+<h3><span class="header-section-number">2.1.9</span> Count Data</h3>
 <p>One other common issue with field data is that it’s in a summary form - for instance, our tree data summarizes the number of trees at each site into one column. This is often easier to record in the field and easier to read as a human - but it makes some analyses much harder!</p>
 <p>The function <code>uncount()</code> makes this pretty easy for us:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTreeData &lt;-<span class="st"> </span>TreeData <span class="op">%&gt;%</span>
@@ -906,8 +923,8 @@ LongTreeData</code></pre></div>
 ## 4 B     Red Maple        8
 ## 5 B     Sugar Maple     19</code></pre>
 </div>
-<div id="oddballs" class="section level2">
-<h2><span class="header-section-number">3.9</span> Oddballs</h2>
+<div id="oddballs" class="section level3">
+<h3><span class="header-section-number">2.1.10</span> Oddballs</h3>
 <p>Predict what will happen when you run the following code - then run it!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">2</span>
 
@@ -918,7 +935,32 @@ LongTreeData</code></pre></div>
 ## [1] FALSE
 <span class="kw">near</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">49</span> <span class="op">*</span><span class="st"> </span><span class="dv">49</span>, <span class="dv">1</span>)
 ## [1] TRUE</code></pre></div>
+</div>
+</div>
+<div id="r-functions-and-workflow-exercises" class="section level2">
+<h2><span class="header-section-number">2.2</span> R Functions and Workflow Exercises</h2>
+<div id="do-the-following" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Do the following:</h3>
+<ol style="list-style-type: decimal">
+<li>What class is the vector <code>c(1, TRUE, 3)</code>? Why is it not a character vector?</li>
+<li>Make and print this tibble. What do the abbreviations under each column name mean?</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),
+       <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>),
+       <span class="dt">z =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>))</code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Inspect the <code>smiths</code> dataset (loaded with the tidyverse - you can access it like <code>iris</code>). How can you fix those missing values?</li>
+</ol>
+</div>
+<div id="work-with-other-datasets" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Work with other datasets:</h3>
+<ol style="list-style-type: decimal">
+<li><code>spread()</code> the <code>iris</code> dataset so that each species’ petal width is in its own column. Then <code>gather()</code> the table back together. What’s different about this dataframe?</li>
+<li>Select all the rows of <code>iris</code> where the species is setosa. Now select all the rows where the species <em>isn’t</em> setosa.</li>
+<li>What’s the mean price for each cut of diamond in the <code>diamonds</code> dataset?</li>
+</ol>
 
+</div>
 </div>
 </div>
             </section>
@@ -926,8 +968,8 @@ LongTreeData</code></pre></div>
           </div>
         </div>
       </div>
-<a href="r-basics-and-visualizations-exercises.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-functions-and-workflow-exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="unit-one-introduction-to-r-and-data-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="basic-statistics-using-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -968,6 +1010,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

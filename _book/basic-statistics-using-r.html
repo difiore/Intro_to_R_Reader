@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Introduction to Data Exploration and Analysis with R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Introduction to Data Exploration and Analysis with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="MikeMahoney218/LectureBook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduction to Data Exploration and Analysis with R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Michael Mahoney">
+
+
+<meta name="date" content="2018-10-27">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="unit-2-r-functions-and-workflow.html">
+<link rel="next" href="introductory-data-analysis.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to IDEAR</a></li>
+<li class="chapter" data-level="1" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html"><i class="fa fa-check"></i><b>1</b> Unit One: Introduction to R and Data Visualization</a><ul>
+<li class="chapter" data-level="1.1" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#lecture-notes"><i class="fa fa-check"></i><b>1.1</b> Lecture Notes</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#what-is-r"><i class="fa fa-check"></i><b>1.1.1</b> What is R?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#what-is-coding"><i class="fa fa-check"></i><b>1.1.2</b> What is coding?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#conventions-of-the-course-and-this-reader"><i class="fa fa-check"></i><b>1.1.3</b> Conventions of the course (and this reader)</a></li>
+<li class="chapter" data-level="1.1.4" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#things-youll-need"><i class="fa fa-check"></i><b>1.1.4</b> Things You’ll Need</a></li>
+<li class="chapter" data-level="1.1.5" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#introduction-to-rstudio"><i class="fa fa-check"></i><b>1.1.5</b> Introduction to RStudio</a></li>
+<li class="chapter" data-level="1.1.6" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#your-first-program"><i class="fa fa-check"></i><b>1.1.6</b> Your First Program</a></li>
+<li class="chapter" data-level="1.1.7" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#the-iris-dataset"><i class="fa fa-check"></i><b>1.1.7</b> The iris Dataset</a></li>
+<li class="chapter" data-level="1.1.8" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#graphing-with-r"><i class="fa fa-check"></i><b>1.1.8</b> Graphing with R</a></li>
+<li class="chapter" data-level="1.1.9" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#the-tidyverse-package"><i class="fa fa-check"></i><b>1.1.9</b> The Tidyverse Package</a></li>
+<li class="chapter" data-level="1.1.10" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>1.1.10</b> ggplot2</a></li>
+<li class="chapter" data-level="1.1.11" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#facetting"><i class="fa fa-check"></i><b>1.1.11</b> Facetting</a></li>
+<li class="chapter" data-level="1.1.12" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#diamonds"><i class="fa fa-check"></i><b>1.1.12</b> diamonds</a></li>
+<li class="chapter" data-level="1.1.13" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#other-popular-geoms"><i class="fa fa-check"></i><b>1.1.13</b> Other Popular Geoms</a></li>
+<li class="chapter" data-level="1.1.14" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#designing-good-graphics"><i class="fa fa-check"></i><b>1.1.14</b> Designing Good Graphics</a></li>
+<li class="chapter" data-level="1.1.15" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#saving-your-graphics"><i class="fa fa-check"></i><b>1.1.15</b> Saving Your Graphics</a></li>
+<li class="chapter" data-level="1.1.16" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#more-resources"><i class="fa fa-check"></i><b>1.1.16</b> More Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#exercises"><i class="fa fa-check"></i><b>1.2</b> Exercises</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#calculate-the-following"><i class="fa fa-check"></i><b>1.2.1</b> Calculate the following:</a></li>
+<li class="chapter" data-level="1.2.2" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#graph-the-following"><i class="fa fa-check"></i><b>1.2.2</b> Graph the following:</a></li>
+<li class="chapter" data-level="1.2.3" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#use-a-new-dataset"><i class="fa fa-check"></i><b>1.2.3</b> Use a new dataset:</a></li>
+<li class="chapter" data-level="1.2.4" data-path="unit-one-introduction-to-r-and-data-visualization.html"><a href="unit-one-introduction-to-r-and-data-visualization.html#looking-ahead"><i class="fa fa-check"></i><b>1.2.4</b> Looking ahead:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html"><i class="fa fa-check"></i><b>2</b> Unit 2: R Functions and Workflow</a><ul>
+<li class="chapter" data-level="2.1" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#workflow"><i class="fa fa-check"></i><b>2.1</b> Workflow</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#scripts"><i class="fa fa-check"></i><b>2.1.1</b> Scripts</a></li>
+<li class="chapter" data-level="2.1.2" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#notebooks"><i class="fa fa-check"></i><b>2.1.2</b> Notebooks</a></li>
+<li class="chapter" data-level="2.1.3" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#memory-objects-and-names"><i class="fa fa-check"></i><b>2.1.3</b> Memory, Objects, and Names</a></li>
+<li class="chapter" data-level="2.1.4" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#dataframes-and-transformations"><i class="fa fa-check"></i><b>2.1.4</b> Dataframes and Transformations</a></li>
+<li class="chapter" data-level="2.1.5" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#the-pipe"><i class="fa fa-check"></i><b>2.1.5</b> The Pipe</a></li>
+<li class="chapter" data-level="2.1.6" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#data-transformations"><i class="fa fa-check"></i><b>2.1.6</b> Data Transformations</a></li>
+<li class="chapter" data-level="2.1.7" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#working-with-groups"><i class="fa fa-check"></i><b>2.1.7</b> Working with Groups</a></li>
+<li class="chapter" data-level="2.1.8" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#missing-values"><i class="fa fa-check"></i><b>2.1.8</b> Missing Values</a></li>
+<li class="chapter" data-level="2.1.9" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#count-data"><i class="fa fa-check"></i><b>2.1.9</b> Count Data</a></li>
+<li class="chapter" data-level="2.1.10" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#oddballs"><i class="fa fa-check"></i><b>2.1.10</b> Oddballs</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#r-functions-and-workflow-exercises"><i class="fa fa-check"></i><b>2.2</b> R Functions and Workflow Exercises</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#do-the-following"><i class="fa fa-check"></i><b>2.2.1</b> Do the following:</a></li>
+<li class="chapter" data-level="2.2.2" data-path="unit-2-r-functions-and-workflow.html"><a href="unit-2-r-functions-and-workflow.html#work-with-other-datasets"><i class="fa fa-check"></i><b>2.2.2</b> Work with other datasets:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html"><i class="fa fa-check"></i><b>3</b> Basic Statistics (Using R)</a><ul>
+<li class="chapter" data-level="3.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#purpose-of-the-unit"><i class="fa fa-check"></i><b>3.1</b> Purpose of the Unit</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#definitions"><i class="fa fa-check"></i><b>3.2</b> Definitions</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#data-concepts"><i class="fa fa-check"></i><b>3.2.1</b> Data Concepts</a></li>
+<li class="chapter" data-level="3.2.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#statistical-terms"><i class="fa fa-check"></i><b>3.2.2</b> Statistical Terms</a></li>
+<li class="chapter" data-level="3.2.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#models-and-tests"><i class="fa fa-check"></i><b>3.2.3</b> Models and Tests</a></li>
+<li class="chapter" data-level="3.2.4" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#how-well-compare-models"><i class="fa fa-check"></i><b>3.2.4</b> How We’ll Compare Models</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html"><i class="fa fa-check"></i><b>4</b> Introductory Data Analysis</a><ul>
+<li class="chapter" data-level="4.1" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#work-in-progress"><i class="fa fa-check"></i><b>4.1</b> Work in progress</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#gapminder"><i class="fa fa-check"></i><b>4.1.1</b> gapminder</a></li>
+<li class="chapter" data-level="4.1.2" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#describing-your-data"><i class="fa fa-check"></i><b>4.1.2</b> Describing Your Data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#statistical-computing"><i class="fa fa-check"></i><b>4.2</b> Statistical Computing</a></li>
+<li class="chapter" data-level="4.3" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#functional-programming"><i class="fa fa-check"></i><b>4.3</b> Functional Programming</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#column-names"><i class="fa fa-check"></i><b>4.3.1</b> Column Names</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#modeling"><i class="fa fa-check"></i><b>4.4</b> Modeling</a></li>
+<li class="chapter" data-level="4.5" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#mixed-models"><i class="fa fa-check"></i><b>4.5</b> Mixed Models</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#pulling-it-all-together"><i class="fa fa-check"></i><b>4.5.1</b> Pulling it All Together</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#exercises-1"><i class="fa fa-check"></i><b>4.6</b> Exercises</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#answer-the-following"><i class="fa fa-check"></i><b>4.6.1</b> Answer the following:</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Data Exploration and Analysis with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="basic-statistics-using-r" class="section level1">
+<h1><span class="header-section-number">3</span> Basic Statistics (Using R)</h1>
+<div id="purpose-of-the-unit" class="section level2">
+<h2><span class="header-section-number">3.1</span> Purpose of the Unit</h2>
+<p>This isn’t a statistics course. However, R is a statistical computing language, and many of the functions built into R are designed for statistical purposes. As such, we’re going to very quickly go over some statistical terms and a few of the statistical functions built into R. That way, you’ll have a better understanding of what exactly it is that we’re doing later in the course.</p>
+<p>There aren’t any exercises with this unit, since we haven’t worked through using these functions with examples yet. However, we’ll be using most of these functions - in combination with those from Unit 2 - for the rest of this course.</p>
+</div>
+<div id="definitions" class="section level2">
+<h2><span class="header-section-number">3.2</span> Definitions</h2>
+<div id="data-concepts" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Data Concepts</h3>
+<p>We’ve already discussed some data concepts in this course, such as the ideas of rectangular and tidy data. However, those discussions are buried in the text of the last unit, so are hard to refer to - and I want to make sure these concepts are discussed explicitly, so I can refer to them in the future without explaining them.</p>
+<dl>
+<dt>Vector</dt>
+<dd><ul>
+<li>Sequence of data elements of the same type</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Each element of the vector are also called components, members, or values</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Created in R using <code>c()</code></li>
+</ul>
+</dd>
+<dt>Dataframe</dt>
+<dd><ul>
+<li>A list of vectors of identical lengths</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Example: <code>iris</code></li>
+</ul>
+</dd>
+<dt>Variable</dt>
+<dd><ul>
+<li>A trait or condition that can exist in different quantities or types</li>
+</ul>
+</dd>
+<dd><ul>
+<li>We measure the impacts of <em>independent</em> predictor variables on <em>dependent</em> response variables</li>
+</ul>
+</dd>
+<dt>Continuous Data</dt>
+<dd><ul>
+<li>Numeric data which is not restricted to certain values - there are an infinite number of possible values</li>
+</ul>
+</dd>
+<dt>Discrete Data</dt>
+<dd><ul>
+<li>Numeric data which is restricted to certain values - for example, number of kids (or trees, or animals)</li>
+</ul>
+</dd>
+<dt>Categorical Data</dt>
+<dd><ul>
+<li>Data which can only exist as one of a specific set of values - for example, house color or zip code</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Binned numeric data (e.g. “between 1 and 2 inches”) is typically categorical</li>
+</ul>
+</dd>
+<dt>Binary Data</dt>
+<dd><ul>
+<li>Categorical data where the only values are 0 and 1</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Often used in situations where a “hit” - an animal getting trapped, a tree falling down, etc - is a 1, and no hit is a 0</li>
+</ul>
+</dd>
+<dt>Ordinal Data</dt>
+<dd><ul>
+<li>A type of categorical data where each value is assigned a level or rank</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Useful with binned data, but also in graphing to rearrange the order categories are drawn</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Referred to in R as “factors”</li>
+</ul>
+</dd>
+<dt>Data Distribution</dt>
+<dd><ul>
+<li>How often every possible value occurs in a dataset</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Usually shown as a curved line on a graph, or a histogram</li>
+</ul>
+</dd>
+<dt>Normal Distribution</dt>
+<dd><ul>
+<li>Data where mean = median, 2/3 of the data are within one standard deviation of the mean, 95% of the data are within two SD and 97% are within 3.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Many statistical analyses assume your data are normally distributed</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Many datasets - especially in nature - aren’t</li>
+</ul>
+</dd>
+<dt>Skewed Distribution</dt>
+<dd><ul>
+<li>Data where the median does not equal the mean</li>
+</ul>
+</dd>
+<dd><ul>
+<li>A left-skewed distribution has a long tail on the left side of the graph, while a right-skewed distribution has a long tail to the right</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Named after the tail and not the peak of the graph, as values in that tail occur more often than would be expected with a normal distribution</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div id="statistical-terms" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Statistical Terms</h3>
+<dl>
+<dt>Estimate</dt>
+<dd><ul>
+<li>A statistic calculated from your data</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Called an estimate as we are approximating population-level values from sample data</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Synonynm: metric</li>
+</ul>
+</dd>
+<dt>Hypothesis Testing</dt>
+<dd><ul>
+<li>Comparing the null hypothesis (typically, that two quantities are equivalent) to an alternative hypothesis</li>
+</ul>
+</dd>
+<dd><ul>
+<li>The alternative hypothesis in a two-tailed test is that the quantities are different, while the alternative hypothesis in a one-tailed test is that one quantity is larger or smaller than the other</li>
+</ul>
+</dd>
+<dt>p Value:</dt>
+<dd><ul>
+<li>The probability of seeing an effect of the same size as our results given a random model</li>
+</ul>
+</dd>
+<dd><ul>
+<li>High p values often mean your independent variables are irrelevant, but low p values don’t mean they’re important</li>
+</ul>
+</dd>
+<dd><ul>
+<li>The 0.05 thing is from a single sentence, taken out of context, from a book published in 1925. There’s no reason to set a line in the sand for “significance” - 0.05 means that there’s a 1 in 20 prpbability your result could be random chance, and 0.056 means it’s 1 in 18. Those are identical odds.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Some journals have banned their use altogether, but others still will only accept “significant” results</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Statement from the American Statistical Association:</li>
+</ul>
+</dd>
+</dl>
+<blockquote>
+<p>A p value, or statistical significance, does not measure the size of an effect or the importance of a result. By itself, a p value does not provide a good measure of evidence about a model or a hypothesis.</p>
+</blockquote>
+<dl>
+<dt>“Robust”</dt>
+<dd><ul>
+<li>A term meaning an estimate is less susceptible to outliers</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Means are not robust, while medians are, for instance.</li>
+</ul>
+</dd>
+<dt>Regression</dt>
+<dd><ul>
+<li>A method to analyze the impacts of independent variables on a dependent variable</li>
+</ul>
+</dd>
+<dd><ul>
+<li>ANOVA and models are both types of regression analyses</li>
+</ul>
+</dd>
+<dt>General Linear Model</dt>
+<dd><ul>
+<li>Formulas representing the expected value of a response variable for given values of one or more predictors</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Sometimes abbreviated GLM</li>
+</ul>
+</dd>
+<dt>Generalized Linear Model</dt>
+<dd><ul>
+<li>Depending who you ask, these may or may not be linear models</li>
+</ul>
+</dd>
+<dd><ul>
+<li>In this course, we’ll only be using logistic models</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Sometimes abbreviated GLM</li>
+</ul>
+</dd>
+</dl>
+<div id="estimates-and-statistics" class="section level4">
+<h4><span class="header-section-number">3.2.2.1</span> Estimates and Statistics</h4>
+<dl>
+<dt>n</dt>
+<dd><ul>
+<li>The number of observations of a dataset or level of a categorical.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>In R, run <code>nrow(dataframe)</code> to calculate.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>To calculate by group, run <code>count(GroupingVariable)</code></li>
+</ul>
+</dd>
+<dt>Mean</dt>
+<dd><ul>
+<li>The average of a dataset, defined as the sum of all observations divided by the number of observations.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>In R, run <code>mean(Vector)</code> to calculate.</li>
+</ul>
+</dd>
+<dt>Trimmed Mean</dt>
+<dd><ul>
+<li>The mean of a dataset with a certain proportion of data not included</li>
+</ul>
+</dd>
+<dd><ul>
+<li>The highest and lowest values are trimmed - for instance, the 10% trimmed mean will use the middle 80% of your data</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>mean(Vector, trim = 0.##)</code></li>
+</ul>
+</dd>
+<dt>Variance</dt>
+<dd><ul>
+<li>A measure of the spread of your data.</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>var(Vector)</code></li>
+</ul>
+</dd>
+<dt>Standard Deviation</dt>
+<dd><ul>
+<li>The amount any observation can be expected to differ from the mean.</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>sd(Vector)</code></li>
+</ul>
+</dd>
+<dt>Standard Error</dt>
+<dd><ul>
+<li>The error associated with a point estimate (e.g. the mean) of the sample.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>If you’re reporting the mean of a sample variable, use the SD. If you’re putting error bars around means on a graph, use the SE.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>No native function in R - run <code>sd(Vector)/sqrt(length(Vector))</code> to calculate.</li>
+</ul>
+</dd>
+<dt>Median Absolute Deviation from the Median</dt>
+<dd><ul>
+<li>Average distance between each datapoint and - in R - the median</li>
+</ul>
+</dd>
+<dd><ul>
+<li>A measure of spread in your data</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Note that MAD often means mean absolute deviation from the mean, mean absolute deviation from the median, and a few other less common things - check your acronyms before using!</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>mad(Vector)</code></li>
+</ul>
+</dd>
+<dt>Median</dt>
+<dd><ul>
+<li>A robust estimate of the center of the data.</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>median(Vector)</code></li>
+</ul>
+</dd>
+<dt>Minimum</dt>
+<dd><ul>
+<li>The smallest value.</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>min()</code></li>
+</ul>
+</dd>
+<dt>Maximum</dt>
+<dd><ul>
+<li>The largest value.</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>max()</code></li>
+</ul>
+</dd>
+<dt>Range</dt>
+<dd><ul>
+<li>The maximum minus the minimum.</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>max() - min()</code></li>
+</ul>
+</dd>
+<dt>Quantile</dt>
+<dd><ul>
+<li>The <em>n</em> quantile is the value at which, for a given vector, <em>n</em> percent of the data is below that value.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Ranges from 0-1. Quantile * 100 = percentile.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Quartiles are the 0.25, 0.5, and 0.75 quantiles</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>quantile(Vector, c(quantiles that you want))</code></li>
+</ul>
+</dd>
+<dt>Interquartile Range</dt>
+<dd><ul>
+<li>The middle 50% of the data, contained between the 0.25 and 0.75 quantiles</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>IQR(Vector)</code></li>
+</ul>
+</dd>
+<dt>Skew</dt>
+<dd><ul>
+<li>The relative position of the mean and median. At 0, mean = median, and the data is normally distributed.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Not included in base R.</li>
+</ul>
+</dd>
+<dt>Kurtosis</dt>
+<dd><ul>
+<li>The size of the tails in a distribution. In R, values much different from 0 are non-normally distributed.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Not included in base R.</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div id="models-and-tests" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Models and Tests</h3>
+<p>Note that most tests discussed here default to a 95% confidence level and a two-tailed test. If you want to learn how to change those for any function, type <code>?FunctionName()</code></p>
+<dl>
+<dt>Correlation</dt>
+<dd><ul>
+<li>How closely related two variables are</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Pearson’s test assumes your data is normally distributed and measures linear correlation</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Spearman’s test does not assume normality and measures non-linear correlation</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Kendall’s test also does not assume normality and measures non-linear correlation, and is a more robust test - but it is harder to compute by hand, and as such is less commonly seen</li>
+</ul>
+</dd>
+<dd><ul>
+<li>You cannot compare results from one type of test to another - Kendall’s results are always 20-40% lower than Spearman’s, for instance</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>cor(Vector1, Vector2)</code> provides correlation coefficients, while <code>cor.test(Vector1, Vector2)</code> performs the statistical test, giving test statistics, p values, and other outputs. Both perform the Pearson test by default, but can be changed by providing the argument <code>method = &quot;spearman&quot;</code> or <code>method = &quot;kendall&quot;</code></li>
+</ul>
+</dd>
+<dt>t Test</dt>
+<dd><ul>
+<li>A method of comparing the means of two groups</li>
+</ul>
+</dd>
+<dd><ul>
+<li>If your group variable has more than two levels, don’t use a t test - use an ANOVA instead</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>t.test(Vector1, Vector2)</code></li>
+</ul>
+</dd>
+<dt>Chi-squared Test</dt>
+<dd><ul>
+<li>A test to see if two categorical variables are related</li>
+</ul>
+</dd>
+<dd><ul>
+<li>The null hypothesis is that both variables are independent from one another</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>chisq.test(Vector1, Vector2)</code></li>
+</ul>
+</dd>
+<dt>Linear Models</dt>
+<dd><ul>
+<li>A type of regression which predicts the value of a response variable at given values of independent predictor variables</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>lm(ResponseVector ~ PredictorVectors, data)</code></li>
+</ul>
+</dd>
+<dt>Logistic Models</dt>
+<dd><ul>
+<li>A form of generalized linear model where the predictor variable is a binary vector</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Extremely common in science and business to predict events - if a tree or animal will die, if a sale will be made, etc</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>glm(ResponseVector ~ PredictorVectors, data, family = &quot;binomial&quot;)</code></li>
+</ul>
+</dd>
+<dt>ANOVA</dt>
+<dd><ul>
+<li>A test to identify the impacts of one or more categorical variables on one or more numeric response variables</li>
+</ul>
+</dd>
+<dd><ul>
+<li>An altered form of the linear model</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>anova(lm(ResponseVector ~ PredictorVectors, data))</code></li>
+</ul>
+</dd>
+<dd><ul>
+<li>Normally, you’ll save your model to an object using <code>&lt;-</code>, then run <code>anova()</code> on that object - the way I wrote it above is just demonstrative</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div id="how-well-compare-models" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> How We’ll Compare Models</h3>
+<p>There are plenty of different ways to compare models, each with their own proponents and detractors. Rather than wade into those arguments, we’re going to use three of the most common metrics. Other metrics (RMSE, PRESS, BIC, etc) can also be generated from R’s modeling functions, but we won’t go into depth on those.</p>
+<dl>
+<dt>R<sup>2</sup></dt>
+<dd><ul>
+<li>The percentage of variance in your data explained by your regression</li>
+</ul>
+</dd>
+<dd><ul>
+<li>The more independent predictor variables in a model, the higher the R<sup>2</sup>, all else being equal</li>
+</ul>
+</dd>
+<dd><ul>
+<li>The adjusted R<sup>2</sup> is a better estimate of regression goodness-of-fit, as it adjusts for the number of variables in a model</li>
+</ul>
+</dd>
+<dt>Receiver Operating Characteristic Curve</dt>
+<dd><ul>
+<li>R<sup>2</sup> isn’t applicable to logistic models</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Instead, we calculate the area under the ROC curve, with the area under the curve being abbreviated AUC</li>
+</ul>
+</dd>
+<dd><ul>
+<li>AUC represents the accuracy of your model, with random guessing having an AUC of 0.5 and a perfect model having an AUC of 1</li>
+</ul>
+</dd>
+<dd><ul>
+<li>AUC is sometimes referred to as the c-statistic</li>
+</ul>
+</dd>
+<dt>AIC:</dt>
+<dd><ul>
+<li>Akaike Information Criterion</li>
+</ul>
+</dd>
+<dd><ul>
+<li>For a single dataset, the model with the smallest AIC is your best model</li>
+</ul>
+</dd>
+<dd><ul>
+<li>But models with a <span class="math inline">\(\delta\)</span>AIC (the difference between their two AICs) of &lt; 2 (or 4, depending who you ask) are statistically identical</li>
+</ul>
+</dd>
+<dd><ul>
+<li>If your model has a <span class="math inline">\(\delta\)</span>AIC of &lt; 2 with the null model, it’s useless</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Null model: <code>lm(ResponseVariable ~ 1)</code></li>
+</ul>
+</dd>
+</dl>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="unit-2-r-functions-and-workflow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introductory-data-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

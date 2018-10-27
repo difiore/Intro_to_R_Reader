@@ -1,22 +1,22 @@
 # Unit One: Introduction to R and Data Visualization
-
+## Lecture Notes
 Welcome to the reader for a course that will never be taught! I've got a very specific idea of how R should be taught, at least to those interested in using it for data science and other analytical applications. This reader represents that approach - we start off with data visualization, then exploration, and then touch on the basics of the language before getting into data analysis and transformation. 
 
 But all that comes later. First off, we have to answer one of the most basic questions surrounding this entire book: what even is R?
 
-## What is R?  
+### What is R?  
 [R](https://en.wikipedia.org/wiki/R_(programming_language)) is a [programming language](https://en.wikipedia.org/wiki/Programming_language) used most commonly for data analysis and science. It's completely free and is adaptable to almost any project - for instance, this book, my website, and plenty of statistical softwares are all written in R.
 
 Once you know how to code in R, learning about and implementing those different adaptations is a piece of cake. The purpose of this class is to get you up to speed with the coding!
 
-## What is coding?  
+### What is coding?  
 Coding is giving very specific instructions to a very stupid machine.  
 Or rather, a very _literal_ machine - if you do things out of order, or misspell something, or capitalize things you shouldn't, the computer won't do it - instead, it'll give you an error message. But if you get the syntax exactly right, the computer can do very complex tasks very quickly.
 
 If that sounds frustrating, well... it sometimes is! But getting good at coding is mostly learning to be okay with being frustrated - and learning what to do when your code is being frustrated.
 
 
-## Conventions of the course (and this reader)  
+### Conventions of the course (and this reader)  
 We'll go over standard code styles a bit later in the course - there is a Right Way**^tm^** to code, but we won't worry about that for a few more weeks. But so you can understand a few basics, here's a few styles we'll use in the text:
 
 If text is ```preformatted```, it means it's something from R - a function, some data, or anything else that you'd use in your code. Blocks of code will be represented as follows:
@@ -39,7 +39,7 @@ Generally speaking, you should try and type out each block of code in this reade
 
 There are some exceptions to these general rules, but this is enough to get us started. With the introductions out of the way, we can start getting you set up to coding R.
 
-## Things You'll Need  
+### Things You'll Need  
 There are several pieces of software integral to this course reader, namely:
 
 * R [download it here](https://cloud.r-project.org/)
@@ -50,7 +50,7 @@ There are several pieces of software integral to this course reader, namely:
   
 We'll be installing other pieces of software (in the form of R packages) throughout this reader, but each of those will be explicitly labeled when we use them. 
 
-## Introduction to RStudio  
+### Introduction to RStudio  
 You'll almost never need to use R directly in this course - the form of R that you download from that first link is much harder to use than anything professionals interact with. Most practitioners use what's known as an IDE - an Interactive Development Environment. There's a lot of choices of IDEs for R, but RStudio is the best one.
 
 Other textbooks would give you a more measured, even-handed approach to this issue. RStudio is the best one, though.
@@ -65,7 +65,7 @@ On the left - taking up the full height of the pane - is something called the "C
 
 Try it now - it's time for us to start coding! 
 
-## Your First Program
+### Your First Program
 Two things to point out, before we get started - if you type either ```(``` or ```"``` into RStudio, you'll notice that the closing mark ```)``` or ```"``` are automatically entered for you. If you type the closing mark, it won't be entered - RStudio is smart enough to prevent you from duplicating this punctuation. However, your programs won't work if you have any missing punctuation - if you're getting weird error messages, make sure you have the proper quotes and parentheses!
 
 Secondly, if you hit "enter" while working in the console, you'll tell R to process your code and give you the output. If you want to type more than one line at a time, hold shift while pressing enter.
@@ -121,7 +121,7 @@ R can also do a lot of more complicated things. By putting a list of values insi
 
 
 ```r
-c(1,2,3)
+c(1, 2, 3)
 ```
 
 ```
@@ -144,11 +144,13 @@ c("ESF", "Acorns", "Stumpies")
 ## [1] "ESF"      "Acorns"   "Stumpies"
 ```
 
+(The "c" stands for _combine_, by the way.)
+
 Look at the difference between that first and that second output - see how the numbers are in quotes the second time around? While R is capable of holding a lot of different types of data, a single vector isn't. A vector has to either be a _numeric_ or a _character_ vector - it's either numbers or symbols. This matters, because you can't do math with symbols. For instance, if we try to divide the first vector by 3:
 
 
 ```r
-c(1,2,3) / 3
+c(1, 2, 3) / 3
 ```
 
 ```
@@ -225,15 +227,15 @@ TRUE + 2
 ## [1] 1
 ```
 
-By the way, see how I used ```==``` to prove two things were equal? In R, ```=``` does something completely different than ```==``` (which we'll get into in section 3). For now, just know that you should always use ```==``` to check if two values are equivalent.
+By the way, see how I used ```==``` to prove two things were equal? In R, ```=``` does something completely different than ```==``` - it assigns a value, which we'll get into in section 3. For now, just know that you should always use ```==``` to check if two values are equivalent.
 
 Still, vectors can only hold one type of data - a vector with a value of ```TRUE``` and a value of ```ESF``` will become a character vector, while ```c(TRUE, 18, 2)``` is a numeric vector.
 
-If you need to hold more than one type of data, you need a table - or, as they're called in R, a dataframe. It is possible to make dataframes by hand in R:
+If you need to hold more than one type of data, you need a table - or, as they're called in R, a dataframe. It is possible to make dataframes by hand in R - note, you can press SHIFT+Enter to start a new line:
 
 
 ```r
-data.frame(x = c(1,2,3),
+data.frame(x = c(1, 2, 3),
            y = c("a","b","c"),
            z = c(TRUE, TRUE, FALSE))
 ```
@@ -247,8 +249,9 @@ data.frame(x = c(1,2,3),
 
 However, this is rare - most of the time, your data will be far too big to make inputting it in R make any sense. Instead, you'll have to import it from a file elsewhere on your computer - but we'll get to that later. You'll see me building basic dataframes using this format throughout this book. I'll often refer to these as ```df``` - the accepted shorthand for dataframe.
 
+By the way, if you make a typo, you can press the UP arrow to load the last line of code you sent to R - don't worry about retyping everything!
 
-## The iris Dataset
+### The iris Dataset
 What's very cool for our purposes is that R comes preloaded with a number of different datasets. Now, if you just type in the name of the dataset, you might overwhelm R for a moment - it will print out every single row of that dataset, no matter how long it is.  
 Luckily for us, the ```head``` command lets us see just the first few rows of the data. If we use the dataset ```iris``` (included in base R), for instance, we'd get the following result:
 
@@ -283,7 +286,7 @@ tail(iris, n=3)
 
 Pretty neat!
 
-## Graphing with R
+### Graphing with R
 This dataset contains measurements on 150 different irises, and is the data that was used to develop the first ever linear regressions. Even if you aren't a stats nerd, this dataset lets us do some cool things. For instance, we can see that there are columns containing information on sepal length and sepal width - I wonder if they might be correlated? What would happen if we asked R to ```plot``` them for us?
 
 
@@ -296,7 +299,7 @@ plot(iris$Sepal.Length, iris$Sepal.Width)
 Luckily, as you can see, R has some basic plotting functions built right in. However, these plots are hard to use - and to understand. It seems like sepal length and width are completely unrelated!
 
 
-## The Tidyverse Package
+### The Tidyverse Package
 Thankfully enough, R has a ton of add-on softwares - called _packages_ - which dramatically expand R's usefulness. Let's install some of the most common ones now:
 
 ```
@@ -324,14 +327,14 @@ library(tidyverse)
 ## x dplyr::lag()    masks stats::lag()
 ```
 
-Note the quotes around "tidyverse" when you go to install it, but **not** when it's inside of ```library()```. 
+Note the quotes around "tidyverse" when you go to install it, but **not** when it's inside of ```library()```. If you get an error saying "no package named "tidyverse"", try reinstalling the package. It might take a few minutes to load.
 
 What we just did was install a package called the ```tidyverse``` (with ```install.packages```), and load it using ```library```. A "package" is just R code created by someone else - most common problems in R have already been solved by someone else, and most of those people have made their work publicly available for others to use.
 
 The tidyverse is a pretty unique example of a package - it actually contains six packages, most of which are essential to using R like a professional. The most important one for us right now is called ```ggplot2```. Don't worry about having to load it - ```library(tidyverse)``` automatically loads this package for you.
 
 
-## ggplot2
+### ggplot2
 ggplot is an attempt to extend R's basic graphics abilities to make publication-quality graphics faster and easier than ever before. In fact, we can make a version of our scatterplot above, just by typing:
 
 
@@ -524,7 +527,7 @@ Anyway, thinking back to our other graphic:
 This graph is nice, but I think it could be even nicer. Specifically, there's a lot of overlap between the _versicolor_ and _virginica_ species - it would be nice to see them side by side, rather than on the same plot.
 
 
-## Facetting
+### Facetting
 Luckily, ggplot makes this easy for us via what's known as _facets_. By adding ```facet_wrap()``` to our plot, we're able to split the three species onto their own graphs, while keeping the axes standardized.
 
 
@@ -609,7 +612,7 @@ ggplot(iris2, aes(Sepal.Length, Sepal.Width)) +
 
 <img src="01_Introduction_to_R_files/figure-html/unnamed-chunk-31-1.png" width="672" />
 
-## diamonds
+### diamonds
 For this next exercise, we're going to be using the ```diamonds``` dataset, which contains data about 54,000 different diamond sales. It looks like this:
 
 
@@ -683,7 +686,7 @@ ggplot(diamonds, aes(carat, price)) +
 
 To learn more about transformations, you can read the documentation by typing ```?scale_x_continuous()``` into the console.
 
-## Other Popular Geoms
+### Other Popular Geoms
 One of the most popular chart types is the simple bar chart. It's easy enough to make this in ggplot, using ```geom_bar()```:
 
 
@@ -797,7 +800,7 @@ There are a lot of other things you can do with ggplot that we won't go over her
 
 Note that you can't make pie charts with ggplot. [This is because pie charts suck](http://info.slis.indiana.edu/~katy/S637-S11/cleveland84.pdf).
 
-## Designing Good Graphics
+### Designing Good Graphics
 Graphics, at their essence, exist to communicate data and make arguments. In order to do that, a graphic has to be both visually clean and easily understood, while at the same time containing exactly enough information to get a point across - and nothing more. Learning how to make graphics like this is a skill unto itself, and one of the primary focuses of this course. After all, it doesn't matter how smart you are and how perfect your analysis is if you aren't able to tell anyone about it afterwards!
 
 The hard part about teaching graphic design is that it's as much an art as a science - there is no one right way to make compelling graphics. What I'm going to teach in this section is as much my opinion as it is the correct way to do things - other textbooks and other people have their own preferred methods, none of which are inherently better or worse. 
@@ -989,8 +992,34 @@ ggplot(df, aes(x, y)) +
 
 <img src="01_Introduction_to_R_files/figure-html/unnamed-chunk-54-1.png" width="672" />
 
-## Saving Your Graphics
+### Saving Your Graphics
 When you're satisfied with your graph, simply call the ```ggsave()``` function to save it to whatever file you're working in. You can either add it to your workflow with ```+```, or call it after you've plotted your graph - ```ggsave()``` will save whatever image was drawn last. For more information on specific things ggsave can do, type ```?ggsave()``` into R.
 
-## More Resources
+### More Resources
 In addition to the [ggplot documentation](https://ggplot2.tidyverse.org/), I highly reccomend the [ggplot book](https://www.amazon.com/dp/0387981403/ref=cm_sw_su_dp?tag=ggplot2-20). Additionally, almost any problem can be solved by googling - just put "ggplot" at the end of whatever your question is, and odds are you'll find the perfect solution.
+
+## Exercises
+
+### Calculate the following:
+1. The product of 9 * 9
+2. 9 squared
+3. The remainder from dividing 27 by 2
+4. The remainder of 27 divided by 2, divided by 2
+5. FALSE divided by TRUE. Why did you get this answer?
+
+### Graph the following:
+1. A boxplot of the iris data, with species on the x axis and sepal length on the y
+2. A scatterplot of the iris data, plotting sepal length against width, where the points get bigger as sepal width increases
+3. Can you change the color of the boxes in the graph you made for problem 1? Can you change the color of the lines?
+
+### Use a new dataset:
+Also included in ggplot is the ```mpg``` dataset, containing fuel economy data for 38 different models of car.
+
+1. Use ```head()``` to examine the data. You can also type ```?mpg``` to get documentation on what each variable represents.
+2. Is engine displacement (```displ```) correlated with highway miles per gallon (```hwy```)? Make a scatterplot to find out.
+3. What variables could we use to group the data? Does coloring points by any of these help explain the scatterplot from problem 2?
+4. What does the scatterplot look like if you make a scatterplot for ```cty``` plotted against ```hwy```? Why? What geom could we use to better represent the data?
+
+### Looking ahead:
+1. What happens if you type in ```summary(mpg)```? What do you think this output represents?
+2. What happens if you type in ```mpg[1]```? How does this compare to ```mpg[[1]]```?

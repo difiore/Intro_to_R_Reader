@@ -1,4 +1,4 @@
-# Exploratory Data Analysis
+# Introductory Data Analysis
 ## Work in progress 
 So far, we've learned about how to manipulate our data and how to graph our outputs. Both of these are critically important parts of what's known as exploratory data analysis - or EDA. When you're starting with a new dataset, you won't always immediately know what trends and patterns might be there to discover. The idea at this stage isn't to find out what's causing any trends in the data, to identify any significant results you might have, or to get publishable figures and tables - the point is to understand exactly what it is that you're dealing with.
 
@@ -6,11 +6,13 @@ This unit gives examples of what EDA might look like with a sample dataset. But 
 
 Speaking of surprises, I really enjoy [this quote](https://fivethirtyeight.com/features/election-update-why-our-model-thinks-beto-orourke-really-has-a-chance-in-texas/) from Nate Silver, founder and editor in chief of FiveThirtyEight:
 
-> You ideally want to find yourself surprised by the data some of the time — just not too often. If you never come up with a result that surprises you, it generally means that you didn’t spend a lot of time actually looking at the data; instead, you just imparted your assumptions onto your analysis and engaged in a fancy form of confirmation bias. If you’re constantly surprised, on the other hand, more often than not that means your [code] is buggy or you don’t know the field well enough; a lot of the “surprises” are really just mistakes. 
+> You ideally want to find yourself surprised by the data some of the time — just not too often. If you never come up with a result that surprises you, it generally means that you didn’t spend a lot of time actually looking at the data; instead, you just imparted your assumptions onto your analysis and engaged in a fancy form of confirmation bias. If you’re constantly surprised, on the other hand, more often than not that means your [code] is buggy or you don’t know the field well enough; a lot of the “surprises” are really just mistakes.  
 > ---Nate Silver
 
 Surprises are awesome, and are how discoveries are made in science. But at the same time, a lot of papers are retracted because their big surprise was actually just a glitch in the code. Whenever you find something you didn't expect, make sure you go back through your code and assumptions - it never hurts to double check!
 
+
+### gapminder
 Anyway. We'll be working with data from the gapminder database, which contains statistics on global development metrics. We can get the data like we get most packages:
 
 ```
@@ -69,7 +71,9 @@ gapminder
 ## # ... with 1,694 more rows
 ```
 
+### Describing Your Data
 If we want to get a sense of each variable, we can use base R's ```summary()``` to find basic summary statistics for each column:
+
 
 ```r
 summary(gapminder)
@@ -133,6 +137,8 @@ psych::describe(gapminder)
 (Note: ```psych::``` lets me call functions from the ```psych``` package without having to load it using ```library()```. This is useful when you aren't using the functions that often - and lets me explicitly identify which functions come from which packages, for the purposes of instruction - but becomes less useful when using the same function or package multiple times. Imagine having to type ```dplyr::``` everytime we wanted to use ```%>%```, for instance!)
 
 This output replaces the IQR with the full range of the data, and adds a number of other important statistics to the output. For instance, we can now see the skew and kurtosis of our data, representing how close our data is to the normal distribution. Briefly, skew represents how close the median is to the mean (or how long the data's "tails" are - 0 means the median is the mean), while kurtosis represents how large the tails of the distribution are (with normally distributed data having a kurtosis of 0).
+
+You should always analyze these values for your data - both in order to give you a sense of what you're working with, and to tell you if there were any errors during data entry. If population had a negative minimum value, for instance, you'd know to be alarmed. 
 
 As we can see, some of our data is highly skewed, with extremely long tails. For instance, if we were to make a histogram of population:
 
@@ -317,6 +323,8 @@ anova(aov(lifeExp ~ continent, data = gapminder))
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
+
+Note, by the way, that you'd usually do this by assigning the ```aov()``` to an object (as in ```a <- aov(...)```). I'm not doing this right now, as I think this section is easier to conceptually understand if I'm explicit about what we're running our ```anova()``` and other tests on.  
 
 Looks like continent does have a significant effect on life expectancy!
 
@@ -561,3 +569,278 @@ In order to do that, of course, we have to understand what each of those column 
 * ```conf.low``` and ```conf.high``` are the bounds of the confidence interval of the _estimate_ - so here, of the correlation coefficient. It's calculated for whatever confidence level you set in ```cor.test(conf.level = ##)```.
 * ```method``` is the test used.
 * ```alternative``` is the alternative hypothesis tested - you can change it by setting ```cor.test(alternative = "")``` to "two.sided", "lesser", or "greater".
+
+## Modeling
+Okay, time to get back to data analysis. 
+
+If we want to see the effect of two continuous variables (say, ```gdpPercapita``` and ```year```) on ```lifeExp```, we'd use what's known as _multiple regression_. There's a lot of different flavors of multiple regression, but the simplest is what's known as general linear regression - the y = mx + b formula that you went over in high school. R makes it easy to fit a general linear model to your data (via ordinary least squares) using the ```lm()``` function, using the same arguments as we used for ```aov()```:
+
+
+```r
+lm(lifeExp ~ gdpPercap + year, data = gapminder)
+```
+
+```
+## 
+## Call:
+## lm(formula = lifeExp ~ gdpPercap + year, data = gapminder)
+## 
+## Coefficients:
+## (Intercept)    gdpPercap         year  
+##  -4.184e+02    6.697e-04    2.390e-01
+```
+
+These coefficients show how much we can expect life expectancy to increase if the GDP or year increases. The intercept is what life expectancy would be if both GDP and the year were 0 - obviously, this number doesn't make a ton of sense, since we don't have any data on life expectancy in either of those situations.
+
+If we want to see how well this model fits our data, we can graph it:
+
+
+```r
+ggplot(gapminder, aes(gdpPercap, lifeExp)) + 
+  geom_jitter() +
+  geom_smooth(method = "lm")
+```
+
+<img src="05_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-28-1.png" width="672" />
+
+Hmm. Seems like a pretty bad fit.
+
+If we want statistical estimates of how well our model fits the data, we can feed it as an argument to ```summary()```:
+
+
+```r
+Model <- lm(lifeExp ~ gdpPercap + year, data = gapminder)
+
+summary(Model)
+```
+
+```
+## 
+## Call:
+## lm(formula = lifeExp ~ gdpPercap + year, data = gapminder)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -67.262  -6.954   1.219   7.759  19.553 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -4.184e+02  2.762e+01  -15.15   <2e-16 ***
+## gdpPercap    6.697e-04  2.447e-05   27.37   <2e-16 ***
+## year         2.390e-01  1.397e-02   17.11   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 9.694 on 1701 degrees of freedom
+## Multiple R-squared:  0.4375,	Adjusted R-squared:  0.4368 
+## F-statistic: 661.4 on 2 and 1701 DF,  p-value: < 2.2e-16
+```
+
+As we can see, both GDP and the year are significant predictors of life expectancy, but the linear model isn't a great fit for the data - our R^2^ is 0.44. 
+
+Perhaps we could improve the model by accounting for the interaction between GDP and the year. There are two ways to include interaction terms in models, each of which have their benefits. One is to replace the ```+``` in the model with ```*```, as follows:
+
+
+```r
+Model <- lm(lifeExp ~ gdpPercap * year, data = gapminder)
+
+summary(Model)
+```
+
+```
+## 
+## Call:
+## lm(formula = lifeExp ~ gdpPercap * year, data = gapminder)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -54.234  -7.314   1.002   7.951  19.780 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)    -3.532e+02  3.267e+01 -10.811  < 2e-16 ***
+## gdpPercap      -8.754e-03  2.547e-03  -3.437 0.000602 ***
+## year            2.060e-01  1.653e-02  12.463  < 2e-16 ***
+## gdpPercap:year  4.754e-06  1.285e-06   3.700 0.000222 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 9.658 on 1700 degrees of freedom
+## Multiple R-squared:  0.442,	Adjusted R-squared:  0.441 
+## F-statistic: 448.8 on 3 and 1700 DF,  p-value: < 2.2e-16
+```
+
+The other is to specify _which_ terms you want to track the interaction of, using ```:``` as follows:
+
+
+```r
+Model <- lm(lifeExp ~ gdpPercap + year + gdpPercap:year, data = gapminder)
+
+summary(Model)
+```
+
+```
+## 
+## Call:
+## lm(formula = lifeExp ~ gdpPercap + year + gdpPercap:year, data = gapminder)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -54.234  -7.314   1.002   7.951  19.780 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)    -3.532e+02  3.267e+01 -10.811  < 2e-16 ***
+## gdpPercap      -8.754e-03  2.547e-03  -3.437 0.000602 ***
+## year            2.060e-01  1.653e-02  12.463  < 2e-16 ***
+## gdpPercap:year  4.754e-06  1.285e-06   3.700 0.000222 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 9.658 on 1700 degrees of freedom
+## Multiple R-squared:  0.442,	Adjusted R-squared:  0.441 
+## F-statistic: 448.8 on 3 and 1700 DF,  p-value: < 2.2e-16
+```
+
+As you can see, these outputs are identical. Even so, I personally prefer using the second format, because it makes the interaction term a more explicit part of your model. While it doesn't matter in simple models like the one we've developed here, once you have a large number of terms, it's helpful to specify which interactions you're measuring.
+
+## Mixed Models
+That R^2^ pf 0.44 is an improvement, but still not great. We could try combining continuous and categorical variables in a single model, to try and better predict life expectancy.
+
+Doing that in R is very simple - just add the categorical variable to your model like you would a continuous. Let's do that with continents:
+
+
+```r
+Model <- lm(lifeExp ~ gdpPercap + year + continent + gdpPercap:year + gdpPercap:continent + year:continent + gdpPercap:year:continent, data = gapminder)
+
+summary(Model)
+```
+
+```
+## 
+## Call:
+## lm(formula = lifeExp ~ gdpPercap + year + continent + gdpPercap:year + 
+##     gdpPercap:continent + year:continent + gdpPercap:year:continent, 
+##     data = gapminder)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -26.7123  -3.2453   0.1535   3.4204  17.7379 
+## 
+## Coefficients:
+##                                    Estimate Std. Error t value Pr(>|t|)
+## (Intercept)                      -4.241e+02  3.777e+01 -11.229  < 2e-16
+## gdpPercap                        -2.168e-02  1.226e-02  -1.768  0.07721
+## year                              2.377e-01  1.909e-02  12.457  < 2e-16
+## continentAmericas                -4.065e+02  7.317e+01  -5.556 3.20e-08
+## continentAsia                    -2.258e+02  5.723e+01  -3.946 8.27e-05
+## continentEurope                   7.212e+01  7.849e+01   0.919  0.35830
+## continentOceania                  3.047e+02  4.846e+02   0.629  0.52956
+## gdpPercap:year                    1.149e-05  6.176e-06   1.860  0.06308
+## gdpPercap:continentAmericas       7.174e-02  1.445e-02   4.963 7.63e-07
+## gdpPercap:continentAsia           7.051e-03  1.251e-02   0.563  0.57318
+## gdpPercap:continentEurope         4.049e-02  1.317e-02   3.075  0.00214
+## gdpPercap:continentOceania        1.275e-02  3.527e-02   0.362  0.71768
+## year:continentAmericas            2.119e-01  3.694e-02   5.736 1.15e-08
+## year:continentAsia                1.196e-01  2.894e-02   4.133 3.75e-05
+## year:continentEurope             -2.636e-02  3.970e-02  -0.664  0.50684
+## year:continentOceania            -1.408e-01  2.461e-01  -0.572  0.56739
+## gdpPercap:year:continentAmericas -3.634e-05  7.275e-06  -4.996 6.46e-07
+## gdpPercap:year:continentAsia     -3.945e-06  6.305e-06  -0.626  0.53163
+## gdpPercap:year:continentEurope   -2.076e-05  6.629e-06  -3.133  0.00176
+## gdpPercap:year:continentOceania  -6.939e-06  1.757e-05  -0.395  0.69289
+##                                     
+## (Intercept)                      ***
+## gdpPercap                        .  
+## year                             ***
+## continentAmericas                ***
+## continentAsia                    ***
+## continentEurope                     
+## continentOceania                    
+## gdpPercap:year                   .  
+## gdpPercap:continentAmericas      ***
+## gdpPercap:continentAsia             
+## gdpPercap:continentEurope        ** 
+## gdpPercap:continentOceania          
+## year:continentAmericas           ***
+## year:continentAsia               ***
+## year:continentEurope                
+## year:continentOceania               
+## gdpPercap:year:continentAmericas ***
+## gdpPercap:year:continentAsia        
+## gdpPercap:year:continentEurope   ** 
+## gdpPercap:year:continentOceania     
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 6.307 on 1684 degrees of freedom
+## Multiple R-squared:  0.7643,	Adjusted R-squared:  0.7616 
+## F-statistic: 287.4 on 19 and 1684 DF,  p-value: < 2.2e-16
+```
+
+Our R^2^ is now up to a respectable 0.76! It looks like these three variables explain a lot of the variance in our data. To get a cleaner table explaining the impacts each variable has on life expectancy, we can perform an analysis of covariance, or ANCOVA. To do this, we just change out our mixed model ```lm()``` function for an ```aov()```, and then pass that ```aov()``` object to ```summary()```:
+
+
+```r
+Model <- aov(lifeExp ~ gdpPercap + year + continent + gdpPercap:year + gdpPercap:continent + year:continent + gdpPercap:year:continent, data = gapminder)
+
+summary(Model)
+```
+
+```
+##                            Df Sum Sq Mean Sq  F value Pr(>F)    
+## gdpPercap                   1  96813   96813 2434.192 <2e-16 ***
+## year                        1  27495   27495  691.316 <2e-16 ***
+## continent                   4  79428   19857  499.269 <2e-16 ***
+## gdpPercap:year              1     18      18    0.461  0.497    
+## gdpPercap:continent         4   5420    1355   34.069 <2e-16 ***
+## year:continent              4   4331    1083   27.225 <2e-16 ***
+## gdpPercap:year:continent    4   3667     917   23.048 <2e-16 ***
+## Residuals                1684  66976      40                    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+This output means we can now say that GDP has a significant impact on life expectancy when controlling for year as a covariate - and that all the interaction terms are significant, except for GDP and year.
+
+One way to get around having to use an ANCOVA is to develop separate regression models for each continent. We can do that in much the same way we tested for correlation on each continent:
+
+
+```r
+gapminder %>%
+  nest(-continent) %>%
+  mutate(Models = map(data, ~ lm(lifeExp ~ gdpPercap + year + gdpPercap:year, data = .)),
+         TidyMods = map(Models, ~ tidy(.))) %>%
+  unnest(TidyMods, .drop = TRUE)
+```
+
+```
+## # A tibble: 20 x 6
+##    continent term                estimate   std.error statistic  p.value
+##    <fct>     <chr>                  <dbl>       <dbl>     <dbl>    <dbl>
+##  1 Asia      (Intercept)    -650.         54.6           -11.9  4.38e-28
+##  2 Asia      gdpPercap        -0.0146      0.00318        -4.60 5.71e- 6
+##  3 Asia      year              0.357       0.0276         12.9  4.34e-32
+##  4 Asia      gdpPercap:year    0.00000754  0.00000161      4.68 3.97e- 6
+##  5 Europe    (Intercept)    -352.         29.8           -11.8  1.92e-27
+##  6 Europe    gdpPercap         0.0188      0.00208         9.06 8.85e-18
+##  7 Europe    year              0.211       0.0151         14.0  6.51e-36
+##  8 Europe    gdpPercap:year   -0.00000928  0.00000104     -8.90 2.80e-17
+##  9 Africa    (Intercept)    -424.         41.9           -10.1  2.09e-22
+## 10 Africa    gdpPercap        -0.0217      0.0136         -1.59 1.11e- 1
+## 11 Africa    year              0.238       0.0212         11.2  8.83e-27
+## 12 Africa    gdpPercap:year    0.0000115   0.00000685      1.68 9.40e- 2
+## 13 Americas  (Intercept)    -831.         54.3           -15.3  2.46e-39
+## 14 Americas  gdpPercap         0.0501      0.00663         7.55 5.53e-13
+## 15 Americas  year              0.450       0.0274         16.4  1.81e-43
+## 16 Americas  gdpPercap:year   -0.0000249   0.00000333     -7.46 9.52e-13
+## 17 Oceania   (Intercept)    -119.         41.3            -2.89 9.07e- 3
+## 18 Oceania   gdpPercap        -0.00892     0.00283        -3.15 5.01e- 3
+## 19 Oceania   year              0.0969      0.0210          4.62 1.67e- 4
+## 20 Oceania   gdpPercap:year    0.00000455  0.00000141      3.23 4.19e- 3
+```
+
+Note that I deleted all the "continent" terms from the model, because we're now making a different model for each continent available. I've also used the ```.``` pronoun to represent our data here.
+
+In this case, ```estimate``` represents the coefficient (beta) for each variable, while the statistic is the F statistic.  
+

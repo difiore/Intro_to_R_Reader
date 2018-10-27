@@ -1,0 +1,24 @@
+# Achieving Graphical Excellence
+## Work in Progress
+
+```{r}
+library(tidyverse)
+library(cowplot)
+```
+https://www.jstor.org/stable/2288400?seq=1#metadata_info_tab_contents
+http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf
+http://vis.stanford.edu/files/2010-MTurk-CHI.pdf
+
+
+Look at this scatterplot:
+```{r echo = FALSE}
+df <- tibble(x = c(1:20),
+        y = rnorm(20),
+        z = rep(c("A", "B", "C", "D"), 5))
+ggplot(df, aes(x, y)) + 
+  geom_point() + 
+  theme(text = element_blank(),
+        legend.position = "null")
+```
+
+Hopefully we can already tell that this isn't a great graph. The complete lack of text means we have no idea what data are being visualized, or what we're
