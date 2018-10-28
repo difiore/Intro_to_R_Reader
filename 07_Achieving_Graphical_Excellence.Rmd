@@ -16,9 +16,81 @@ df <- tibble(x = c(1:20),
         y = rnorm(20),
         z = rep(c("A", "B", "C", "D"), 5))
 ggplot(df, aes(x, y)) + 
-  geom_point() + 
+  geom_point(size = 3) + 
   theme(text = element_blank(),
         legend.position = "null")
 ```
 
-Hopefully we can already tell that this isn't a great graph. The complete lack of text means we have no idea what data are being visualized, or what we're
+
+Hopefully we can already tell that this isn't a great graph. The complete lack of text means we have no idea what data are being visualized, or what the takeaway message is supposed to be. Remember, graphs are for storytelling and demonstrating your point, not necessarily for giving exact values - you should include tables in your document if the exact values are important.
+
+Even so, we can tell just from this scatterplot which points have larger values than others - they're the ones further up and to the right. That's because we've been trained to see _position_ as an ordered aesthetic in graphs.
+
+Position isn't the only way to communicate which values are larger than others. For instance, if we want to show the level of a third variable, we can use color:
+
+```{r echo=FALSE}
+ggplot(df, aes(x, y, color = z)) + 
+  geom_point(size = 3) + 
+  theme(text = element_blank(),
+        legend.position = "null") + 
+  scale_color_brewer(palette = "OrRd")
+```
+
+Which of these have a larger value of that third variable?
+
+Most people would assume the darker colors have the larger values, due to their higher contrast with the background. If we make the contrast less obvious, it becomes much harder to tell what the color is supposed to convey:
+
+```{r echo=FALSE}
+ggplot(df, aes(x, y, color = z)) + 
+  geom_point(size = 3) + 
+  scale_color_brewer(palette = "OrRd") + 
+  theme(text = element_blank(),
+        legend.position = "null",
+        panel.background = element_rect(fill = "black")) 
+```
+
+But at the same time, even contrast isn't quite enough for us to automatically interpret a color in a graph. For instance, the rainbow colors have different amounts of contrast against a white background, but when plotted:
+
+```{r echo=FALSE}
+ggplot(df, aes(x, y, color = z)) + 
+  geom_point(size = 3) + 
+  scale_color_manual(values = rainbow(5)) + 
+  theme(text = element_blank(),
+        legend.position = "null")  
+```
+
+Which values are higher now?
+
+Humans make connections between different colors based on their _luminance_ and _chroma_. We won't go wading too far into what those terms mean; but it's important to understand that the actual _colors_ you use to compare values matter less than the differences in their shade and intensity. 
+
+Moving away from color, we can also use other aesthetics to communicate a third variable. For instance:
+
+```{r echo=FALSE}
+a <- ggplot(df, aes(x, y, size = z)) + 
+  geom_point() + 
+  theme(text = element_blank(),
+        legend.position = "null")  
+
+suppressWarnings(print(a))
+```
+
+Which values are larger?
+
+We have one last aesthetic that we can use to show our third variable - the shape of the points:
+
+```{r echo=FALSE}
+ggplot(df, aes(x, y, shape = z)) + 
+  geom_point(size = 3) + 
+  theme(text = element_blank(),
+        legend.position = "null")  
+```
+
+Which values are larger?
+
+As we can see, some aesthetics communicate quantitative data very well, while others should only be used for qualitative purposes. We already knew this - we touched on it in our first unit. But getting a sense of what representations are appropriate for our data - and what sorts of things we're able to do with it - is the first step towards creating worthwhile graphics for whatever business or research purpose you have.
+
+Different 
+
+
+Animation
+[paper on silencing](http://visionlab.harvard.edu/silencing/)

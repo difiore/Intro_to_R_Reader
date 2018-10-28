@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="unit-2-r-functions-and-workflow.html">
-<link rel="next" href="introductory-data-analysis.html">
+<link rel="prev" href="introductory-data-analysis.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -189,547 +189,53 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="basic-statistics-using-r" class="section level1">
-<h1><span class="header-section-number">3</span> Basic Statistics (Using R)</h1>
-<div id="purpose-of-the-unit" class="section level2">
-<h2><span class="header-section-number">3.1</span> Purpose of the Unit</h2>
-<p>This isn’t a statistics course. However, R is a statistical computing language, and many of the functions built into R are designed for statistical purposes. As such, we’re going to very quickly go over some statistical terms and a few of the statistical functions built into R. That way, you’ll have a better understanding of what exactly it is that we’re doing later in the course.</p>
-<p>There aren’t any exercises with this unit, since we haven’t worked through using these functions with examples yet. However, we’ll be using most of these functions - in combination with those from Unit 2 - for the rest of this course.</p>
-</div>
-<div id="definitions" class="section level2">
-<h2><span class="header-section-number">3.2</span> Definitions</h2>
-<div id="data-concepts" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Data Concepts</h3>
-<p>We’ve already discussed some data concepts in this course, such as the ideas of rectangular and tidy data. However, those discussions are buried in the text of the last unit, so are hard to refer to - and I want to make sure these concepts are discussed explicitly, so I can refer to them in the future without explaining them.</p>
-<dl>
-<dt>Vector</dt>
-<dd><ul>
-<li>Sequence of data elements of the same type</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Each element of the vector are also called components, members, or values</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Created in R using <code>c()</code></li>
-</ul>
-</dd>
-<dt>Dataframe</dt>
-<dd><ul>
-<li>A list of vectors of identical lengths</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Example: <code>iris</code></li>
-</ul>
-</dd>
-<dt>Variable</dt>
-<dd><ul>
-<li>A trait or condition that can exist in different quantities or types</li>
-</ul>
-</dd>
-<dd><ul>
-<li>We measure the impacts of <em>independent</em> predictor variables on <em>dependent</em> response variables</li>
-</ul>
-</dd>
-<dt>Continuous Data</dt>
-<dd><ul>
-<li>Numeric data which is not restricted to certain values - there are an infinite number of possible values</li>
-</ul>
-</dd>
-<dt>Discrete Data</dt>
-<dd><ul>
-<li>Numeric data which is restricted to certain values - for example, number of kids (or trees, or animals)</li>
-</ul>
-</dd>
-<dt>Categorical Data</dt>
-<dd><ul>
-<li>Data which can only exist as one of a specific set of values - for example, house color or zip code</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Binned numeric data (e.g. “between 1 and 2 inches”) is typically categorical</li>
-</ul>
-</dd>
-<dt>Binary Data</dt>
-<dd><ul>
-<li>Categorical data where the only values are 0 and 1</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Often used in situations where a “hit” - an animal getting trapped, a tree falling down, etc - is a 1, and no hit is a 0</li>
-</ul>
-</dd>
-<dt>Ordinal Data</dt>
-<dd><ul>
-<li>A type of categorical data where each value is assigned a level or rank</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Useful with binned data, but also in graphing to rearrange the order categories are drawn</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Referred to in R as “factors”</li>
-</ul>
-</dd>
-<dt>Data Distribution</dt>
-<dd><ul>
-<li>How often every possible value occurs in a dataset</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Usually shown as a curved line on a graph, or a histogram</li>
-</ul>
-</dd>
-<dt>Normal Distribution</dt>
-<dd><ul>
-<li>Data where mean = median, 2/3 of the data are within one standard deviation of the mean, 95% of the data are within two SD and 97% are within 3.</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Many statistical analyses assume your data are normally distributed</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Many datasets - especially in nature - aren’t</li>
-</ul>
-</dd>
-<dt>Skewed Distribution</dt>
-<dd><ul>
-<li>Data where the median does not equal the mean</li>
-</ul>
-</dd>
-<dd><ul>
-<li>A left-skewed distribution has a long tail on the left side of the graph, while a right-skewed distribution has a long tail to the right</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Named after the tail and not the peak of the graph, as values in that tail occur more often than would be expected with a normal distribution</li>
-</ul>
-</dd>
-</dl>
-</div>
-<div id="statistical-terms" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Statistical Terms</h3>
-<dl>
-<dt>Estimate</dt>
-<dd><ul>
-<li>A statistic calculated from your data</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Called an estimate as we are approximating population-level values from sample data</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Synonynm: metric</li>
-</ul>
-</dd>
-<dt>Hypothesis Testing</dt>
-<dd><ul>
-<li>Comparing the null hypothesis (typically, that two quantities are equivalent) to an alternative hypothesis</li>
-</ul>
-</dd>
-<dd><ul>
-<li>The alternative hypothesis in a two-tailed test is that the quantities are different, while the alternative hypothesis in a one-tailed test is that one quantity is larger or smaller than the other</li>
-</ul>
-</dd>
-<dt>p Value:</dt>
-<dd><ul>
-<li>The probability of seeing an effect of the same size as our results given a random model</li>
-</ul>
-</dd>
-<dd><ul>
-<li>High p values often mean your independent variables are irrelevant, but low p values don’t mean they’re important</li>
-</ul>
-</dd>
-<dd><ul>
-<li>The 0.05 thing is from a single sentence, taken out of context, from a book published in 1925. There’s no reason to set a line in the sand for “significance” - 0.05 means that there’s a 1 in 20 prpbability your result could be random chance, and 0.056 means it’s 1 in 18. Those are identical odds.</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Some journals have banned their use altogether, but others still will only accept “significant” results</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Statement from the American Statistical Association:</li>
-</ul>
-</dd>
-</dl>
-<blockquote>
-<p>A p value, or statistical significance, does not measure the size of an effect or the importance of a result. By itself, a p value does not provide a good measure of evidence about a model or a hypothesis.</p>
-</blockquote>
-<dl>
-<dt>“Robust”</dt>
-<dd><ul>
-<li>A term meaning an estimate is less susceptible to outliers</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Means are not robust, while medians are, for instance.</li>
-</ul>
-</dd>
-<dt>Regression</dt>
-<dd><ul>
-<li>A method to analyze the impacts of independent variables on a dependent variable</li>
-</ul>
-</dd>
-<dd><ul>
-<li>ANOVA and models are both types of regression analyses</li>
-</ul>
-</dd>
-<dt>General Linear Model</dt>
-<dd><ul>
-<li>Formulas representing the expected value of a response variable for given values of one or more predictors</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Sometimes abbreviated GLM</li>
-</ul>
-</dd>
-<dt>Generalized Linear Model</dt>
-<dd><ul>
-<li>Depending who you ask, these may or may not be linear models</li>
-</ul>
-</dd>
-<dd><ul>
-<li>In this course, we’ll only be using logistic models</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Sometimes abbreviated GLM</li>
-</ul>
-</dd>
-</dl>
-<div id="estimates-and-statistics" class="section level4">
-<h4><span class="header-section-number">3.2.2.1</span> Estimates and Statistics</h4>
-<dl>
-<dt>n</dt>
-<dd><ul>
-<li>The number of observations of a dataset or level of a categorical.</li>
-</ul>
-</dd>
-<dd><ul>
-<li>In R, run <code>nrow(dataframe)</code> to calculate.</li>
-</ul>
-</dd>
-<dd><ul>
-<li>To calculate by group, run <code>count(GroupingVariable)</code></li>
-</ul>
-</dd>
-<dt>Mean</dt>
-<dd><ul>
-<li>The average of a dataset, defined as the sum of all observations divided by the number of observations.</li>
-</ul>
-</dd>
-<dd><ul>
-<li>In R, run <code>mean(Vector)</code> to calculate.</li>
-</ul>
-</dd>
-<dt>Trimmed Mean</dt>
-<dd><ul>
-<li>The mean of a dataset with a certain proportion of data not included</li>
-</ul>
-</dd>
-<dd><ul>
-<li>The highest and lowest values are trimmed - for instance, the 10% trimmed mean will use the middle 80% of your data</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>mean(Vector, trim = 0.##)</code></li>
-</ul>
-</dd>
-<dt>Variance</dt>
-<dd><ul>
-<li>A measure of the spread of your data.</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>var(Vector)</code></li>
-</ul>
-</dd>
-<dt>Standard Deviation</dt>
-<dd><ul>
-<li>The amount any observation can be expected to differ from the mean.</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>sd(Vector)</code></li>
-</ul>
-</dd>
-<dt>Standard Error</dt>
-<dd><ul>
-<li>The error associated with a point estimate (e.g. the mean) of the sample.</li>
-</ul>
-</dd>
-<dd><ul>
-<li>If you’re reporting the mean of a sample variable, use the SD. If you’re putting error bars around means on a graph, use the SE.</li>
-</ul>
-</dd>
-<dd><ul>
-<li>No native function in R - run <code>sd(Vector)/sqrt(length(Vector))</code> to calculate.</li>
-</ul>
-</dd>
-<dt>Median Absolute Deviation from the Median</dt>
-<dd><ul>
-<li>Average distance between each datapoint and - in R - the median</li>
-</ul>
-</dd>
-<dd><ul>
-<li>A measure of spread in your data</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Note that MAD often means mean absolute deviation from the mean, mean absolute deviation from the median, and a few other less common things - check your acronyms before using!</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>mad(Vector)</code></li>
-</ul>
-</dd>
-<dt>Median</dt>
-<dd><ul>
-<li>A robust estimate of the center of the data.</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>median(Vector)</code></li>
-</ul>
-</dd>
-<dt>Minimum</dt>
-<dd><ul>
-<li>The smallest value.</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>min()</code></li>
-</ul>
-</dd>
-<dt>Maximum</dt>
-<dd><ul>
-<li>The largest value.</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>max()</code></li>
-</ul>
-</dd>
-<dt>Range</dt>
-<dd><ul>
-<li>The maximum minus the minimum.</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>max() - min()</code></li>
-</ul>
-</dd>
-<dt>Quantile</dt>
-<dd><ul>
-<li>The <em>n</em> quantile is the value at which, for a given vector, <em>n</em> percent of the data is below that value.</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Ranges from 0-1. Quantile * 100 = percentile.</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Quartiles are the 0.25, 0.5, and 0.75 quantiles</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>quantile(Vector, c(quantiles that you want))</code></li>
-</ul>
-</dd>
-<dt>Interquartile Range</dt>
-<dd><ul>
-<li>The middle 50% of the data, contained between the 0.25 and 0.75 quantiles</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>IQR(Vector)</code></li>
-</ul>
-</dd>
-<dt>Skew</dt>
-<dd><ul>
-<li>The relative position of the mean and median. At 0, mean = median, and the data is normally distributed.</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Not included in base R.</li>
-</ul>
-</dd>
-<dt>Kurtosis</dt>
-<dd><ul>
-<li>The size of the tails in a distribution. In R, values much different from 0 are non-normally distributed.</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Not included in base R.</li>
-</ul>
-</dd>
-</dl>
-</div>
-</div>
-<div id="models-and-tests" class="section level3">
-<h3><span class="header-section-number">3.2.3</span> Models and Tests</h3>
-<p>Note that most tests discussed here default to a 95% confidence level and a two-tailed test. If you want to learn how to change those for any function, type <code>?FunctionName()</code></p>
-<dl>
-<dt>Correlation</dt>
-<dd><ul>
-<li>How closely related two variables are</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Pearson’s test assumes your data is normally distributed and measures linear correlation</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Spearman’s test does not assume normality and measures non-linear correlation</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Kendall’s test also does not assume normality and measures non-linear correlation, and is a more robust test - but it is harder to compute by hand, and as such is less commonly seen</li>
-</ul>
-</dd>
-<dd><ul>
-<li>You cannot compare results from one type of test to another - Kendall’s results are always 20-40% lower than Spearman’s, for instance</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>cor(Vector1, Vector2)</code> provides correlation coefficients, while <code>cor.test(Vector1, Vector2)</code> performs the statistical test, giving test statistics, p values, and other outputs. Both perform the Pearson test by default, but can be changed by providing the argument <code>method = &quot;spearman&quot;</code> or <code>method = &quot;kendall&quot;</code></li>
-</ul>
-</dd>
-<dt>t Test</dt>
-<dd><ul>
-<li>A method of comparing the means of two groups</li>
-</ul>
-</dd>
-<dd><ul>
-<li>If your group variable has more than two levels, don’t use a t test - use an ANOVA instead</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>t.test(Vector1, Vector2)</code></li>
-</ul>
-</dd>
-<dt>Chi-squared Test</dt>
-<dd><ul>
-<li>A test to see if two categorical variables are related</li>
-</ul>
-</dd>
-<dd><ul>
-<li>The null hypothesis is that both variables are independent from one another</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>chisq.test(Vector1, Vector2)</code></li>
-</ul>
-</dd>
-<dt>Linear Models</dt>
-<dd><ul>
-<li>A type of regression which predicts the value of a response variable at given values of independent predictor variables</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>lm(ResponseVector ~ PredictorVectors, data)</code></li>
-</ul>
-</dd>
-<dt>Logistic Models</dt>
-<dd><ul>
-<li>A form of generalized linear model where the predictor variable is a binary vector</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Extremely common in science and business to predict events - if a tree or animal will die, if a sale will be made, etc</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>glm(ResponseVector ~ PredictorVectors, data, family = &quot;binomial&quot;)</code></li>
-</ul>
-</dd>
-<dt>ANOVA</dt>
-<dd><ul>
-<li>A test to identify the impacts of one or more categorical variables on one or more numeric response variables</li>
-</ul>
-</dd>
-<dd><ul>
-<li>An altered form of the linear model</li>
-</ul>
-</dd>
-<dd><ul>
-<li><a href="https://dynamicecology.wordpress.com/2014/10/02/interpreting-anova-interactions-and-model-selection/">This blog post</a> does an interesting treatment on how to interpret ANOVA results</li>
-</ul>
-</dd>
-<dd><ul>
-<li><code>anova(lm(ResponseVector ~ PredictorVectors, data))</code></li>
-</ul>
-</dd>
-<dd><ul>
-<li>Normally, you’ll save your model to an object using <code>&lt;-</code>, then run <code>anova()</code> on that object - the way I wrote it above is just demonstrative</li>
-</ul>
-</dd>
-</dl>
-</div>
-<div id="how-well-compare-models" class="section level3">
-<h3><span class="header-section-number">3.2.4</span> How We’ll Compare Models</h3>
-<p>There are plenty of different ways to compare models, each with their own proponents and detractors. Rather than wade into those arguments, we’re going to use three of the most common metrics. Other metrics (RMSE, PRESS, BIC, etc) can also be generated from R’s modeling functions, but we won’t go into depth on those.</p>
-<dl>
-<dt>R<sup>2</sup></dt>
-<dd><ul>
-<li>The percentage of variance in your data explained by your regression</li>
-</ul>
-</dd>
-<dd><ul>
-<li>The more independent predictor variables in a model, the higher the R<sup>2</sup>, all else being equal</li>
-</ul>
-</dd>
-<dd><ul>
-<li>The adjusted R<sup>2</sup> is a better estimate of regression goodness-of-fit, as it adjusts for the number of variables in a model</li>
-</ul>
-</dd>
-<dt>Receiver Operating Characteristic Curve</dt>
-<dd><ul>
-<li>R<sup>2</sup> isn’t applicable to logistic models</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Instead, we calculate the area under the ROC curve, with the area under the curve being abbreviated AUC</li>
-</ul>
-</dd>
-<dd><ul>
-<li>AUC represents the accuracy of your model, with random guessing having an AUC of 0.5 and a perfect model having an AUC of 1</li>
-</ul>
-</dd>
-<dd><ul>
-<li>AUC is sometimes referred to as the c-statistic</li>
-</ul>
-</dd>
-<dt>AIC:</dt>
-<dd><ul>
-<li>Akaike Information Criterion</li>
-</ul>
-</dd>
-<dd><ul>
-<li>For a single dataset, the model with the smallest AIC is your best model</li>
-</ul>
-</dd>
-<dd><ul>
-<li>But models with a <span class="math inline">\(\Delta\)</span>AIC (the difference between their two AICs) of &lt; 2 (or 4, depending who you ask) are statistically identical</li>
-</ul>
-</dd>
-<dd><ul>
-<li>If your model has a <span class="math inline">\(\Delta\)</span>AIC of &lt; 2 with the null model, it’s useless</li>
-</ul>
-</dd>
-<dd><ul>
-<li>Null model: <code>lm(ResponseVariable ~ 1)</code></li>
-</ul>
-</dd>
-</dl>
+<div id="achieving-graphical-excellence" class="section level1">
+<h1><span class="header-section-number">5</span> Achieving Graphical Excellence</h1>
+<div id="work-in-progress" class="section level2">
+<h2><span class="header-section-number">5.1</span> Work in Progress</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 3.0.0     v purrr   0.2.4
+## v tibble  1.4.2     v dplyr   0.7.4
+## v tidyr   0.8.0     v stringr 1.3.0
+## v readr   1.1.1     v forcats 0.3.0</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(cowplot)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;cowplot&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     ggsave</code></pre>
+<p><a href="https://www.jstor.org/stable/2288400?seq=1#metadata_info_tab_contents" class="uri">https://www.jstor.org/stable/2288400?seq=1#metadata_info_tab_contents</a> <a href="http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf">http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf</a> <a href="http://vis.stanford.edu/files/2010-MTurk-CHI.pdf" class="uri">http://vis.stanford.edu/files/2010-MTurk-CHI.pdf</a></p>
+<p>Look at this scatterplot: <img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Hopefully we can already tell that this isn’t a great graph. The complete lack of text means we have no idea what data are being visualized, or what the takeaway message is supposed to be. Remember, graphs are for storytelling and demonstrating your point, not necessarily for giving exact values - you should include tables in your document if the exact values are important.</p>
+<p>Even so, we can tell just from this scatterplot which points have larger values than others - they’re the ones further up and to the right. That’s because we’ve been trained to see <em>position</em> as an ordered aesthetic in graphs.</p>
+<p>Position isn’t the only way to communicate which values are larger than others. For instance, if we want to show the level of a third variable, we can use color:</p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Which of these have a larger value of that third variable?</p>
+<p>Most people would assume the darker colors have the larger values, due to their higher contrast with the background. If we make the contrast less obvious, it becomes much harder to tell what the color is supposed to convey:</p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>But at the same time, even contrast isn’t quite enough for us to automatically interpret a color in a graph. For instance, the rainbow colors have different amounts of contrast against a white background, but when plotted:</p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Which values are higher now?</p>
+<p>Humans make connections between different colors based on their <em>luminance</em> and <em>chroma</em>. We won’t go wading too far into what those terms mean; but it’s important to understand that the actual <em>colors</em> you use to compare values matter less than the differences in their shade and intensity.</p>
+<p>Moving away from color, we can also use other aesthetics to communicate a third variable. For instance:</p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Which values are larger?</p>
+<p>We have one last aesthetic that we can use to show our third variable - the shape of the points:</p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Which values are larger?</p>
+<p>As we can see, some aesthetics communicate quantitative data very well, while others should only be used for qualitative purposes. We already knew this - we touched on it in our first unit. But getting a sense of what representations are appropriate for our data - and what sorts of things we’re able to do with it - is the first step towards creating worthwhile graphics for whatever business or research purpose you have.</p>
+<p>Different</p>
+<p>Animation <a href="http://visionlab.harvard.edu/silencing/">paper on silencing</a></p>
 
-</div>
+<p>github commenting your code</p>
+
+
+
+
 </div>
 </div>
             </section>
@@ -737,8 +243,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="unit-2-r-functions-and-workflow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="introductory-data-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introductory-data-analysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

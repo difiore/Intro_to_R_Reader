@@ -42,11 +42,9 @@ There are some exceptions to these general rules, but this is enough to get us s
 ### Things You'll Need  
 There are several pieces of software integral to this course reader, namely:
 
-* R [download it here](https://cloud.r-project.org/)
-* RStudio [download it here](https://www.rstudio.com/products/rstudio/download/#download)
-  + Choose the free desktop version - you don't need the server software, and you don't need the commercial license.
-* GitHub Desktop [download it here](https://desktop.github.com/)
-  + You don't need this until later in the course - and if you're not actually enrolled in the course, you'll technically never need it. You'll be better off for knowing it, and it'll make your life better - but you can get away without it.
+* R - [download it here](https://cloud.r-project.org/)
+* RStudio - [download it here](https://www.rstudio.com/products/rstudio/download/#download). Choose the free desktop version - you don't need the server software, and you don't need the commercial license.
+* GitHub Desktop - [download it here](https://desktop.github.com/). You don't need this until later in the course - and if you're not actually enrolled in the course, you'll technically never need it. You'll be better off for knowing it, and it'll make your life better - but you can get away without it.
   
 We'll be installing other pieces of software (in the form of R packages) throughout this reader, but each of those will be explicitly labeled when we use them. 
 
@@ -327,7 +325,7 @@ library(tidyverse)
 ## x dplyr::lag()    masks stats::lag()
 ```
 
-Note the quotes around "tidyverse" when you go to install it, but **not** when it's inside of ```library()```. If you get an error saying "no package named "tidyverse"", try reinstalling the package. It might take a few minutes to load.
+Note the quotes around "tidyverse" when you go to install it, but **not** when it's inside of ```library()```. If you get an error saying "no package named tidyverse", try reinstalling the package. It might take a few minutes to load.
 
 What we just did was install a package called the ```tidyverse``` (with ```install.packages```), and load it using ```library```. A "package" is just R code created by someone else - most common problems in R have already been solved by someone else, and most of those people have made their work publicly available for others to use.
 
@@ -382,11 +380,6 @@ ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 <img src="01_Introduction_to_R_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
 For now, we're going to stick with our pretty smoothed trendline.
-
-
-```
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-```
 
 <img src="01_Introduction_to_R_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 
@@ -516,11 +509,6 @@ Our plot makes no sense!
 Lots of beginners are tripped up by this when they're starting - a common assumption is that ggplot will add a second y-axis to the right hand of the plot. In reality, there is _no way_ to graph two y-axes on the same ggplot graph - and [that's on purpose](https://kieranhealy.org/blog/archives/2016/01/16/two-y-axes/). It's almost always better to just have two graphs next to each other, if you need to compare the data - though the linked article contains some other interesting suggestions.
 
 Anyway, thinking back to our other graphic:
-
-
-```
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-```
 
 <img src="01_Introduction_to_R_files/figure-html/unnamed-chunk-27-1.png" width="672" />
 
@@ -668,7 +656,7 @@ ggplot(diamonds, aes(carat, price)) +
 
 <img src="01_Introduction_to_R_files/figure-html/unnamed-chunk-35-1.png" width="672" />
 
-So we can see that, by log-transforming our variables, we get a linear transformation.
+So we can see that, by log-transforming our variables, we get a linear-looking relationship in our data.
 
 Now, I'm personally not a fan of log graphs - [and you shouldn't be, either](https://www.researchgate.net/publication/326450797_Logarithmic_scales_in_ecological_data_presentation_may_cause_misinterpretation). But you'll sometimes have data that can't be properly explained without logarithims - or advisors who won't listen to reason. As such, it's worth knowing how to make R plot things exactly as you want it to.
 
@@ -798,7 +786,7 @@ ggplot(diamonds, aes(cut, price)) +
 
 There are a lot of other things you can do with ggplot that we won't go over here - you can find cheatsheets on the package [here](https://www.rstudio.com/resources/cheatsheets/), and read more documentation [here](https://ggplot2.tidyverse.org/).
 
-Note that you can't make pie charts with ggplot. [This is because pie charts suck](http://info.slis.indiana.edu/~katy/S637-S11/cleveland84.pdf).
+Note that you can't make pie charts with ggplot. [You usually shouldn't be using a pie chart anyway,](http://info.slis.indiana.edu/~katy/S637-S11/cleveland84.pdf) but we'll go over this in unit 7.
 
 ### Designing Good Graphics
 Graphics, at their essence, exist to communicate data and make arguments. In order to do that, a graphic has to be both visually clean and easily understood, while at the same time containing exactly enough information to get a point across - and nothing more. Learning how to make graphics like this is a skill unto itself, and one of the primary focuses of this course. After all, it doesn't matter how smart you are and how perfect your analysis is if you aren't able to tell anyone about it afterwards!
@@ -993,7 +981,9 @@ ggplot(df, aes(x, y)) +
 <img src="01_Introduction_to_R_files/figure-html/unnamed-chunk-54-1.png" width="672" />
 
 ### Saving Your Graphics
-When you're satisfied with your graph, simply call the ```ggsave()``` function to save it to whatever file you're working in. You can either add it to your workflow with ```+```, or call it after you've plotted your graph - ```ggsave()``` will save whatever image was drawn last. For more information on specific things ggsave can do, type ```?ggsave()``` into R.
+When you're satisfied with your graph, simply call the ```ggsave()``` function to save it to whatever file you're working in. The first argument to this function should be your graph's desired file name, with the extension - ggplot can save graphs as pngs, jpegs, pdfs, and several other formats.
+
+You can either add it to your workflow with ```+```, or call it after you've plotted your graph - ```ggsave()``` will save whatever image was drawn last. For more information on specific things ggsave can do, type ```?ggsave()``` into R.
 
 ### More Resources
 In addition to the [ggplot documentation](https://ggplot2.tidyverse.org/), I highly reccomend the [ggplot book](https://www.amazon.com/dp/0387981403/ref=cm_sw_su_dp?tag=ggplot2-20). Additionally, almost any problem can be solved by googling - just put "ggplot" at the end of whatever your question is, and odds are you'll find the perfect solution.

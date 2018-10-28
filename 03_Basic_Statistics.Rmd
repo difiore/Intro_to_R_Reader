@@ -232,6 +232,7 @@ Logistic Models
 ANOVA
 : * A test to identify the impacts of one or more categorical variables on one or more numeric response variables
 : * An altered form of the linear model
+: * [This blog post](https://dynamicecology.wordpress.com/2014/10/02/interpreting-anova-interactions-and-model-selection/) does an interesting treatment on how to interpret ANOVA results
 : * ```anova(lm(ResponseVector ~ PredictorVectors, data))```
 : * Normally, you'll save your model to an object using ```<-```, then run ```anova()``` on that object - the way I wrote it above is just demonstrative
 
@@ -256,6 +257,6 @@ Receiver Operating Characteristic Curve
 AIC:
 : * Akaike Information Criterion
 : * For a single dataset, the model with the smallest AIC is your best model
-: * But models with a $\delta$AIC (the difference between their two AICs) of < 2 (or 4, depending who you ask) are statistically identical
-: * If your model has a $\delta$AIC of < 2 with the null model, it's useless
+: * But models with a $\Delta$AIC (the difference between their two AICs) of < 2 (or 4, depending who you ask) are statistically identical
+: * If your model has a $\Delta$AIC of < 2 with the null model, it's useless
 : * Null model: ```lm(ResponseVariable ~ 1)```

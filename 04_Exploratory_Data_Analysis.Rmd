@@ -67,7 +67,9 @@ ggplot(gapminder, aes(pop)) +
 
 This makes some intuitive sense - most countries have decently small populations, while some countries - such as China and India - contain significant portions of the world's population.
 
-Now that we have a sense of what our data looks like, we can start attempting to identify trends in the data. This is one of the two primary uses of data visualizations - to quickly help you see what variables might vary together. Base R's ```pairs()``` function is useful for this purpose - it makes a matrix of scatterplots for all your variables, letting you see any correlations that exist visually. Note that we have to subset our data to make sure that we're only graphing numeric columns:
+Now that we have a sense of what our data looks like, we can start attempting to identify trends in the data. You should never trust your data before visualizing it - summary statistics and other tests may not give you critical insights about trends [present in your data](https://www.autodeskresearch.com/publications/samestats).
+
+Base R's ```pairs()``` function is useful for this purpose - it makes a matrix of scatterplots for all your variables, letting you see any correlations that exist visually. Note that we have to subset our data to make sure that we're only graphing numeric columns:
 
 ```{r}
 pairs(gapminder[, 3:6])

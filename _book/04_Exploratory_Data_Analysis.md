@@ -1,5 +1,5 @@
 # Introductory Data Analysis
-## Work in progress 
+## Exploratory Data Analysis 
 So far, we've learned about how to manipulate our data and how to graph our outputs. Both of these are critically important parts of what's known as exploratory data analysis - or EDA. When you're starting with a new dataset, you won't always immediately know what trends and patterns might be there to discover. The idea at this stage isn't to find out what's causing any trends in the data, to identify any significant results you might have, or to get publishable figures and tables - the point is to understand exactly what it is that you're dealing with.
 
 This unit gives examples of what EDA might look like with a sample dataset. But there aren't prescribed sets of steps to go through while working on EDA - you should feel free to create as many hypotheses as possible, and spend time analyzing them individually. You might find something surprising!
@@ -156,7 +156,9 @@ ggplot(gapminder, aes(pop)) +
 
 This makes some intuitive sense - most countries have decently small populations, while some countries - such as China and India - contain significant portions of the world's population.
 
-Now that we have a sense of what our data looks like, we can start attempting to identify trends in the data. This is one of the two primary uses of data visualizations - to quickly help you see what variables might vary together. Base R's ```pairs()``` function is useful for this purpose - it makes a matrix of scatterplots for all your variables, letting you see any correlations that exist visually. Note that we have to subset our data to make sure that we're only graphing numeric columns:
+Now that we have a sense of what our data looks like, we can start attempting to identify trends in the data. You should never trust your data before visualizing it - summary statistics and other tests may not give you critical insights about trends [present in your data](https://www.autodeskresearch.com/publications/samestats).
+
+Base R's ```pairs()``` function is useful for this purpose - it makes a matrix of scatterplots for all your variables, letting you see any correlations that exist visually. Note that we have to subset our data to make sure that we're only graphing numeric columns:
 
 
 ```r
@@ -256,7 +258,7 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, color = year)) +
 
 Hmm. We can see some obvious trends - it seems like Africa has a lower average life expectancy than the other continents, for instance - but they're hard to discern from the visuals alone. For that, we're going to have to get into some actual statistic computing.
 
-## Statistical Computing
+## Statistical Tests and Regressions
 Now that we've identified some hypotheses about our data, we're able to use the full power of R to try and prove them. First off, we can identify if any of the correlations we saw are statistically significant. For the full dataset, this is pretty easy - we can just feed two vectors into ```cor.test()```:
 
 
@@ -778,7 +780,7 @@ summary(Model)
 ## F-statistic: 287.4 on 19 and 1684 DF,  p-value: < 2.2e-16
 ```
 
-Our R^2^ is now up to a respectable 0.76! It looks like these three variables explain a lot of the variance in our data. To get a cleaner table explaining the impacts each variable has on life expectancy, we can perform an analysis of covariance, or ANCOVA. To do this, we just change out our mixed model ```lm()``` function for an ```aov()```, and then pass that ```aov()``` object to ```summary()```:
+Our R^2^ is now up to a respectable 0.76! It looks like these three variables - and the interactions between them - explain a lot of the variance in our data. To get a cleaner table explaining the impacts each variable has on life expectancy, we can perform an analysis of covariance, or ANCOVA. To do this, we just change out our mixed model ```lm()``` function for an ```aov()```, and then pass that ```aov()``` object to ```summary()```:
 
 
 ```r
@@ -844,8 +846,8 @@ Note that I deleted all the "continent" terms from the model, because we're now 
 
 In this case, ```estimate``` represents the coefficient (beta) for each variable, while the statistic is the F statistic.  
 
-### Pulling it All Together
-This unit feels a little disconnected, overall. While I wouldn't say that's _on purpose_, per se, I would say that it's due to the nature of exploratory data analysis. There's no one method to EDA that fits every dataset, or every data scientist. Instead, you have to use your understanding of your study system to figure out which approach works best for your data, and use your understanding of R to figure out which approach works best for you.
+## Conclusion
+The important takeaways from this unit are not necessarily the statistical tests used - since those will vary dependent upon your purpose - so much as the methods highlighted. Understanding how to generate hypotheses from a new dataset - and then how to drill down and analyze them each in turn - is a cross-disciplinary skill used in any new analysis project. The next unit will continue 
 
 Later in the course, you'll be given projects which will require you to understand brand new datasets, manipulate them, perform complex analyses on them, and visualise them. EDA will give you the familiarity with your data to find these patterns, isolate them appropriately, and perform the right analyses moving forward. The entire purpose of this unit is to give you the skillset to identify what those analyses might be, by understanding how to generate hypotheses from a combination of data visualization and manipulation.  
 
@@ -858,4 +860,5 @@ Hopefully we accomplished that goal. We'll find out in the next unit, where we'l
 2. Make a histogram of a gapminder variable other than population. Describe the graph with regards to its skewdness and kurtosis. 
 3. Compute an ANOVA for the impacts of continent on population. Report the results as you would in a manuscript.
 4. Fit a regression model to the impacts of the current year and life expectancy on GDP. Why does this model not make sense conceptually?
-5. Fit a linear model explaining life expectancy as a function of the current year for each country in the dataset (use the formula lifeExp ~ year). If you don't hate yourself, you'll try the functional computing approach.
+5. Fit a linear model explaining life expectancy as a function of the current year for each country in the dataset (use the formula lifeExp ~ year). Then tidy the model outputs and look at the p values for each coefficient. If you don't hate yourself, you'll try the functional computing approach.
+
