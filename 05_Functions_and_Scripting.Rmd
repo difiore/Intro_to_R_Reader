@@ -326,6 +326,29 @@ That being said, most programmers in R avoid using for loops when possible. That
 
 For more on for loops, look at [Hadley Wickham's coverage of the subject](https://r4ds.had.co.nz/iteration.html#for-loops-vs.functionals). For our purposes, we don't have to go much further than we already have on the subject.
 
+## Mapping Functions
+One way to avoid the use of loops is to replace them with map functions from ```purrr```, as we did in the past unit. While the lists returned by ```map()``` last unit worked fine for our purposes, there are actually map functions for each type of output you might want:
+
+* ```map()``` for lists
+* ```map_lgl()``` for logicals (true/false values)
+* ```map_int()``` for integers (whole-number numerics)
+* ```map_dbl()``` for doubles (numerics with decimal places)
+* ```map_chr()``` for character strings
+
+For instance, we could replace our last for loop with the following:
+```{r}
+map_dbl(df1, median)
+```
+
+Which, with the pipe, looks like this:
+```{r}
+df1 %>%
+  map_dbl(median)
+```
+
+Which is a lot cleaner to read, and easier to write!
+
+
 ## Exercises
 1. Remember in unit 3 that there's no standard error function in base R. Write one, naming it ```std.err```.
 2. Write a function that will say "Hi!" if given the input "hi", "Bye!" if it gets the input "bye", and "How rude!" if the input isn't either of those.
@@ -334,4 +357,4 @@ For more on for loops, look at [Hadley Wickham's coverage of the subject](https:
 df <- data.frame(x = c(57, 24, 245, 3526),
                  y = c(67, 234, 574, 57))
 ```
-
+4. Replace that loop with map functions.

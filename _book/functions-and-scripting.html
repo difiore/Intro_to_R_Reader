@@ -183,7 +183,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#saving-and-loading-functions"><i class="fa fa-check"></i><b>5.3</b> Saving and Loading Functions</a></li>
 <li class="chapter" data-level="5.4" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#loops"><i class="fa fa-check"></i><b>5.4</b> Loops</a></li>
-<li class="chapter" data-level="5.5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#exercises-2"><i class="fa fa-check"></i><b>5.5</b> Exercises</a></li>
+<li class="chapter" data-level="5.5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#mapping-functions"><i class="fa fa-check"></i><b>5.5</b> Mapping Functions</a></li>
+<li class="chapter" data-level="5.6" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#exercises-2"><i class="fa fa-check"></i><b>5.6</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html"><i class="fa fa-check"></i><b>6</b> More Complicated Analyses</a><ul>
 <li class="chapter" data-level="6.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#work-in-progress"><i class="fa fa-check"></i><b>6.1</b> Work in Progress</a></li>
@@ -495,8 +496,29 @@ out</code></pre></div>
 <p>That being said, most programmers in R avoid using for loops when possible. That’s both because loops <em>were</em> significantly slower in R than other languages not that long ago, but also because the nature of R makes using functions more popular and efficient than loops. But there are certain times loops are unavoidable - and we’ll be using them in the next unit!</p>
 <p>For more on for loops, look at <a href="https://r4ds.had.co.nz/iteration.html#for-loops-vs.functionals">Hadley Wickham’s coverage of the subject</a>. For our purposes, we don’t have to go much further than we already have on the subject.</p>
 </div>
+<div id="mapping-functions" class="section level2">
+<h2><span class="header-section-number">5.5</span> Mapping Functions</h2>
+<p>One way to avoid the use of loops is to replace them with map functions from <code>purrr</code>, as we did in the past unit. While the lists returned by <code>map()</code> last unit worked fine for our purposes, there are actually map functions for each type of output you might want:</p>
+<ul>
+<li><code>map()</code> for lists</li>
+<li><code>map_lgl()</code> for logicals (true/false values)</li>
+<li><code>map_int()</code> for integers (whole-number numerics)</li>
+<li><code>map_dbl()</code> for doubles (numerics with decimal places)</li>
+<li><code>map_chr()</code> for character strings</li>
+</ul>
+<p>For instance, we could replace our last for loop with the following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map_dbl</span>(df1, median)</code></pre></div>
+<pre><code>## a b 
+## 1 2</code></pre>
+<p>Which, with the pipe, looks like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df1 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">map_dbl</span>(median)</code></pre></div>
+<pre><code>## a b 
+## 1 2</code></pre>
+<p>Which is a lot cleaner to read, and easier to write!</p>
+</div>
 <div id="exercises-2" class="section level2">
-<h2><span class="header-section-number">5.5</span> Exercises</h2>
+<h2><span class="header-section-number">5.6</span> Exercises</h2>
 <ol style="list-style-type: decimal">
 <li>Remember in unit 3 that there’s no standard error function in base R. Write one, naming it <code>std.err</code>.</li>
 <li>Write a function that will say “Hi!” if given the input “hi”, “Bye!” if it gets the input “bye”, and “How rude!” if the input isn’t either of those.</li>
@@ -504,6 +526,9 @@ out</code></pre></div>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">57</span>, <span class="dv">24</span>, <span class="dv">245</span>, <span class="dv">3526</span>),
                  <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">67</span>, <span class="dv">234</span>, <span class="dv">574</span>, <span class="dv">57</span>))</code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>Replace that loop with map functions.</li>
+</ol>
 
 </div>
 </div>
