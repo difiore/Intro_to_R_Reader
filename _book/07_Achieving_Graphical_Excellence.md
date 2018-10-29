@@ -40,7 +40,7 @@ library(cowplot)
 https://www.jstor.org/stable/2288400?seq=1#metadata_info_tab_contents
 http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf
 http://vis.stanford.edu/files/2010-MTurk-CHI.pdf
-
+http://www.ggplot2-exts.org/
 
 Look at this scatterplot:
 <img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-2-1.png" width="672" />

@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2018-10-28">
+<meta name="date" content="2018-10-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -172,9 +172,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html"><i class="fa fa-check"></i><b>5</b> Functions and Scripting</a><ul>
 <li class="chapter" data-level="5.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#work-in-progress"><i class="fa fa-check"></i><b>5.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="5.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#writing-functions"><i class="fa fa-check"></i><b>5.2</b> Writing Functions</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#our-first-function"><i class="fa fa-check"></i><b>5.2.1</b> Our First Function</a></li>
+<li class="chapter" data-level="5.2.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#returns"><i class="fa fa-check"></i><b>5.2.2</b> Returns</a></li>
+<li class="chapter" data-level="5.2.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#more-complicated-functions"><i class="fa fa-check"></i><b>5.2.3</b> More Complicated Functions</a></li>
+<li class="chapter" data-level="5.2.4" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#whats-really-real"><i class="fa fa-check"></i><b>5.2.4</b> What’s Really Real?</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html"><i class="fa fa-check"></i><b>6</b> Achieving Graphical Excellence</a><ul>
-<li class="chapter" data-level="6.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#work-in-progress-1"><i class="fa fa-check"></i><b>6.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="5.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#conditional-statements"><i class="fa fa-check"></i><b>5.3</b> Conditional Statements</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#stops"><i class="fa fa-check"></i><b>5.3.1</b> Stops</a></li>
+<li class="chapter" data-level="5.3.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#function-dependencies"><i class="fa fa-check"></i><b>5.3.2</b> Function Dependencies</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#saving-and-loading-functions"><i class="fa fa-check"></i><b>5.4</b> Saving and Loading Functions</a></li>
+<li class="chapter" data-level="5.5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#loops"><i class="fa fa-check"></i><b>5.5</b> Loops</a></li>
+<li class="chapter" data-level="5.6" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#exercises-2"><i class="fa fa-check"></i><b>5.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html"><i class="fa fa-check"></i><b>6</b> More Complicated Analyses</a><ul>
+<li class="chapter" data-level="6.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#work-in-progress-1"><i class="fa fa-check"></i><b>6.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="6.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#other-datasets"><i class="fa fa-check"></i><b>6.2</b> Other Datasets</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#importing-your-own-data"><i class="fa fa-check"></i><b>6.2.1</b> Importing Your Own Data</a></li>
+<li class="chapter" data-level="6.2.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#exporting-data"><i class="fa fa-check"></i><b>6.2.2</b> Exporting Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html"><i class="fa fa-check"></i><b>7</b> Achieving Graphical Excellence</a><ul>
+<li class="chapter" data-level="7.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#work-in-progress-2"><i class="fa fa-check"></i><b>7.1</b> Work in Progress</a></li>
 </ul></li>
 </ul>
 
@@ -196,7 +216,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Introduction to Data Exploration and Analysis with R</h1>
 <h4 class="author"><em>Michael Mahoney</em></h4>
-<h4 class="date"><em>2018-10-28</em></h4>
+<h4 class="date"><em>2018-10-29</em></h4>
 </div>
 <div id="welcome-to-idear" class="section level1 unnumbered">
 <h1>Welcome to IDEAR</h1>
@@ -208,10 +228,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Figures often beguile me, particularly when I have the arranging of them myself; in which case the remark attributed to Disraeli would often apply with justice and force: ’There are three kinds of lies: lies, damned lies, and statistics.<br />
 — Mark Twain</p>
 </blockquote>
-<p>This is a course outline for a class that will never be taught. Hopefully it helps you nonetheless.</p>
-<p>Much of this course outline draws from Hadley Wickham’s 2012 <a href="http://stat405.had.co.nz/">stat405</a> class, as well as his wonderful textbooks <a href="http://r4ds.had.co.nz/index.html">R for Data Science</a> (with Garrett Grolemund) and <a href="https://adv-r.hadley.nz/index.html">Advanced R</a>. Additional steering comes from the <a href="https://bookdown.org/ndphillips/YaRrr/">YaRrr!</a> textbook, which is both one of the funniest and most informative introduction to R books. I’ve updated some elements, distilled others, and not kept much of the content, but the ideas and steering come very directly from those works.</p>
+<p>This is a course reader for a class that will never be taught. Hopefully it helps you nonetheless.</p>
+<p>Much of this reader draws from Hadley Wickham’s 2012 <a href="http://stat405.had.co.nz/">stat405</a> class, as well as his wonderful textbooks <a href="http://r4ds.had.co.nz/index.html">R for Data Science</a> (with Garrett Grolemund) and <a href="https://adv-r.hadley.nz/index.html">Advanced R</a>. Additional steering comes from the <a href="https://bookdown.org/ndphillips/YaRrr/">YaRrr!</a> textbook. I’ve updated some elements, distilled others, and not kept much of the content, but the ideas and steering come very directly from those works.</p>
 <p>This course serves as an introduction to R for scientific and research applications, focusing specifically on exploratory data analysis, hypothesis generation and confirmation, data visualization, and communication of results. It is not an introduction to statistics course, though it will teach some statistics. It isn’t even an introduction to computer programming or computer science course, though it will teach some of each of those.</p>
-<p>This page is being developed. Please ignore it at this time.</p>
+<p>This reader is currently being continuously deployed to <a href="https://bookdown.org/connect/#/apps/2008/access">bookdown.org</a>, particularly as new sections are completed or old ones restructured. This is so that I can get feedback from the small group of people who are using this book to learn R themselves, so I can adjust and adapt the text as needed. If you’d like to help with this process, I’d love to hear from you, at <a href="mailto:mike.mahoney.218@gmail.com">mike.mahoney.218@gmail.com</a>. More information about me can be found at <a href="https://www.mikemahoney218.com">my website</a>, which just so happens to have been built in R.</p>
+<p>Units 1-5 are currently complete. In production are units 6 and 7 - you can see the skeletons forming at the bottom of this document. There are currently 11 units planned.</p>
 
 </div>
             </section>

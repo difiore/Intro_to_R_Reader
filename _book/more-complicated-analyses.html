@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="more-complicated-analyses.html">
-
+<link rel="prev" href="functions-and-scripting.html">
+<link rel="next" href="achieving-graphical-excellence.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -213,10 +213,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="achieving-graphical-excellence" class="section level1">
-<h1><span class="header-section-number">7</span> Achieving Graphical Excellence</h1>
-<div id="work-in-progress-2" class="section level2">
-<h2><span class="header-section-number">7.1</span> Work in Progress</h2>
+<div id="more-complicated-analyses" class="section level1">
+<h1><span class="header-section-number">6</span> More Complicated Analyses</h1>
+<div id="work-in-progress-1" class="section level2">
+<h2><span class="header-section-number">6.1</span> Work in Progress</h2>
+</div>
+<div id="other-datasets" class="section level2">
+<h2><span class="header-section-number">6.2</span> Other Datasets</h2>
+<div id="importing-your-own-data" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Importing Your Own Data</h3>
+<p>So far in this course, we’ve been working exclusively with the data pre-available in R and a few of the packages we’ve taken advantage of. While this is a good way to learn R, it’s not particularly helpful in letting you complete your own analyses.</p>
+<p>Luckily, R has a number of functions used to import data from external files. To demonstrate these, I’ll be using datasets located at <a href="https://github.com/mikemahoney218/Unit5Data" class="uri">https://github.com/mikemahoney218/Unit5Data</a>, in the “Datasets” folder. You don’t necessarily need to download these files - but we’ll be using these for demonstration throughout this unit.</p>
+<p>We’re going to be assuming that your data are located in the same folder as your script - this is usually the easiest way to manage datasets. Otherwise, you’ll have to wrestle a little with using relative pathways and directory names - Hadley Wickham explains these in more detail here.</p>
+<p>In order to do this, we’ll be using the <code>readr</code> package, which is included in the base tidyverse:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
 <pre><code>## -- Attaching packages ------------------------------------------------------------------------ tidyverse 1.2.1 --</code></pre>
 <pre><code>## v ggplot2 3.0.0     v purrr   0.2.4
@@ -226,40 +235,119 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## -- Conflicts --------------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(cowplot)</code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;cowplot&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
-## 
-##     ggsave</code></pre>
-<p><a href="https://www.jstor.org/stable/2288400?seq=1#metadata_info_tab_contents" class="uri">https://www.jstor.org/stable/2288400?seq=1#metadata_info_tab_contents</a> <a href="http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf">http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf</a> <a href="http://vis.stanford.edu/files/2010-MTurk-CHI.pdf" class="uri">http://vis.stanford.edu/files/2010-MTurk-CHI.pdf</a> <a href="http://www.ggplot2-exts.org/" class="uri">http://www.ggplot2-exts.org/</a></p>
-<p>Look at this scatterplot: <img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>Hopefully we can already tell that this isn’t a great graph. The complete lack of text means we have no idea what data are being visualized, or what the takeaway message is supposed to be. Remember, graphs are for storytelling and demonstrating your point, not necessarily for giving exact values - you should include tables in your document if the exact values are important.</p>
-<p>Even so, we can tell just from this scatterplot which points have larger values than others - they’re the ones further up and to the right. That’s because we’ve been trained to see <em>position</em> as an ordered aesthetic in graphs.</p>
-<p>Position isn’t the only way to communicate which values are larger than others. For instance, if we want to show the level of a third variable, we can use color:</p>
-<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>Which of these have a larger value of that third variable?</p>
-<p>Most people would assume the darker colors have the larger values, due to their higher contrast with the background. If we make the contrast less obvious, it becomes much harder to tell what the color is supposed to convey:</p>
-<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>But at the same time, even contrast isn’t quite enough for us to automatically interpret a color in a graph. For instance, the rainbow colors have different amounts of contrast against a white background, but when plotted:</p>
-<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>Which values are higher now?</p>
-<p>Humans make connections between different colors based on their <em>luminance</em> and <em>chroma</em>. We won’t go wading too far into what those terms mean; but it’s important to understand that the actual <em>colors</em> you use to compare values matter less than the differences in their shade and intensity.</p>
-<p>Moving away from color, we can also use other aesthetics to communicate a third variable. For instance:</p>
-<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>Which values are larger?</p>
-<p>We have one last aesthetic that we can use to show our third variable - the shape of the points:</p>
-<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<p>Which values are larger?</p>
-<p>As we can see, some aesthetics communicate quantitative data very well, while others should only be used for qualitative purposes. We already knew this - we touched on it in our first unit. But getting a sense of what representations are appropriate for our data - and what sorts of things we’re able to do with it - is the first step towards creating worthwhile graphics for whatever business or research purpose you have.</p>
-<p>Different</p>
-<p>Animation <a href="http://visionlab.harvard.edu/silencing/">paper on silencing</a></p>
+<p>All the datasets included in our example use different <em>delimiters</em> - the character that tells R (or Excel, or whatever program you’re using) where one column stops and the next one begins. No matter what your delimiter is, we can parse the file using <code>read_delim()</code> - the first argument is the filename to read, while the second is the delimiter used. For instance, our text file is tab delimited - and since tabs are represented in R as <code>\t</code>, we’ll tell <code>read_delim()</code> to use that as a delimiter:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SiteData &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;SiteData.txt&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Site = col_character(),
+##   LakeRiver = col_character(),
+##   Elevation = col_integer(),
+##   Lat = col_double(),
+##   Long = col_double()
+## )</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SiteData</code></pre></div>
+<pre><code>## # A tibble: 19 x 5
+##    Site            LakeRiver Elevation   Lat  Long
+##    &lt;chr&gt;           &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 Alder Pond      Lake            327  43.9 -73.7
+##  2 Bear Creek      River           477  43.6 -75.1
+##  3 Cedar Creek     River           470  43.8 -74.3
+##  4 Dog Pond        Lake            583  44.1 -74.7
+##  5 Duane Stream    River           395  44.7 -74.2
+##  6 Fish Creek      River           468  44.3 -74.2
+##  7 Gull Pond       Lake            350  43.8 -73.7
+##  8 Indian River    River           660  43.5 -74.6
+##  9 Twin Lake       Lake            592  43.5 -74.9
+## 10 Lyon&#39;s Brook    River           474  44.4 -74.1
+## 11 Masawepie Creek River           490  44.0 -75.1
+## 12 Mill Creek      River           520  43.4 -74.9
+## 13 Pond Two        Lake            664  44.2 -74.7
+## 14 Moose Creek     River           695  44.2 -74.1
+## 15 Death Brook     River           611  43.8 -74.7
+## 16 Rock Pond       Lake            485  44.2 -74.3
+## 17 Copperas Pond   Lake            538  44.3 -73.9
+## 18 Whitney Creek   River           729  43.6 -74.6
+## 19 Towers Brook    River           971  43.5 -74.2</code></pre>
+<p>We can do the same thing with documents that have comma separated values (known as CSVs):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">CoverData &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;CoverData.csv&quot;</span>, <span class="st">&quot;,&quot;</span>)</code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Site = col_character(),
+##   Transect = col_integer(),
+##   Plot = col_character(),
+##   Quadrant = col_integer(),
+##   CoverType = col_character()
+## )</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">CoverData</code></pre></div>
+<pre><code>## # A tibble: 756 x 5
+##    Site       Transect Plot  Quadrant CoverType
+##    &lt;chr&gt;         &lt;int&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;    
+##  1 Bear Creek        1 A            1 Litter   
+##  2 Bear Creek        1 A            2 Grass    
+##  3 Bear Creek        1 A            3 Litter   
+##  4 Bear Creek        1 A            4 Litter   
+##  5 Bear Creek        1 B            1 Litter   
+##  6 Bear Creek        1 B            2 Grass    
+##  7 Bear Creek        1 B            3 Grass    
+##  8 Bear Creek        1 B            4 Regen    
+##  9 Bear Creek        1 C            1 Regen    
+## 10 Bear Creek        1 C            2 Moss     
+## # ... with 746 more rows</code></pre>
+<p>However, <code>readr</code> also includes a pretty good tool specifically for CSV files:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">CoverData &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;CoverData.csv&quot;</span>)</code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Site = col_character(),
+##   Transect = col_integer(),
+##   Plot = col_character(),
+##   Quadrant = col_integer(),
+##   CoverType = col_character()
+## )</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">CoverData</code></pre></div>
+<pre><code>## # A tibble: 756 x 5
+##    Site       Transect Plot  Quadrant CoverType
+##    &lt;chr&gt;         &lt;int&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;    
+##  1 Bear Creek        1 A            1 Litter   
+##  2 Bear Creek        1 A            2 Grass    
+##  3 Bear Creek        1 A            3 Litter   
+##  4 Bear Creek        1 A            4 Litter   
+##  5 Bear Creek        1 B            1 Litter   
+##  6 Bear Creek        1 B            2 Grass    
+##  7 Bear Creek        1 B            3 Grass    
+##  8 Bear Creek        1 B            4 Regen    
+##  9 Bear Creek        1 C            1 Regen    
+## 10 Bear Creek        1 C            2 Moss     
+## # ... with 746 more rows</code></pre>
+<p>Now, <code>readr</code> doesn’t have native support for more complicated files, like Excel files. Philosphically, you shouldn’t store data in Excel format for long periods of time - we have no idea how long Microsoft will be around for, and the encoding used by Excel may someday disappear and take your data with it. CSVs are generally preferred for long-term data storage, as they’re easy to understand visually and are easily parsed by computers.</p>
+<p>However, data entry is much easier in Excel, and plenty of data professionals still use the format. Luckily, there’s a package - <code>readxl</code> - designed to parse these types of files:</p>
+<pre><code>install.packages(&quot;readxl&quot;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readxl)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">PlotData &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;PlotData.xlsx&quot;</span>)
+PlotData</code></pre></div>
+<pre><code>## # A tibble: 189 x 5
+##    Site       Transect Plot  Slope LightDots
+##    &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    
+##  1 Bear Creek       1. A     2     96       
+##  2 Bear Creek       1. B     3     96       
+##  3 Bear Creek       1. C     4     8        
+##  4 Bear Creek       2. A     2     96       
+##  5 Bear Creek       2. B     2     96       
+##  6 Bear Creek       2. C     15    9        
+##  7 Bear Creek       3. A     2     96       
+##  8 Bear Creek       3. B     2     96       
+##  9 Bear Creek       4. A     2     96       
+## 10 Bear Creek       4. B     2     96       
+## # ... with 179 more rows</code></pre>
+<p>You’ll also notice that RStudio has an “import dataset” button in the top right corner, which makes use of both the <code>readr</code> and <code>readxl</code> packages. This button lets you point and click your way through data import, and then copy the code into your script. It’s a great resource for beginners!</p>
+</div>
+<div id="exporting-data" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Exporting Data</h3>
+<p>Writing data to a file is also pretty painless using <code>readr</code>. There are as many options for delimiters as before - you can use <code>write_delim()</code> to specify which you want to use with your data - but more commonly data is imported and exported as CSV files using <code>write_csv()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_csv</span>(CoverData, <span class="st">&quot;CoverData.csv&quot;</span>)</code></pre></div>
+<p>Note that, like all other <code>tidyverse</code> functions, the dataset is the first thing you specify.</p>
+<p>INCLUDE JOINS AND AIC</p>
 
-<p>github commenting your code</p>
-
-
-
-
+</div>
 </div>
 </div>
             </section>
@@ -267,8 +355,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="more-complicated-analyses.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="functions-and-scripting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="achieving-graphical-excellence.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

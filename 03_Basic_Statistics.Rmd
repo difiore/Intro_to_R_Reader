@@ -229,6 +229,7 @@ t Test
 Chi-squared Test
 : * A test to see if two categorical variables are related
 : * The null hypothesis is that both variables are independent from one another
+: * For more information - particularly on what form your data should be in - please see [this site.](http://www.r-tutor.com/elementary-statistics/goodness-fit/chi-squared-test-independence)
 : * ```chisq.test(Vector1, Vector2)```
 
 
