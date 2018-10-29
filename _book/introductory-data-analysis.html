@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2018-10-27">
+<meta name="date" content="2018-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="basic-statistics-using-r.html">
-<link rel="next" href="achieving-graphical-excellence.html">
+<link rel="next" href="functions-and-scripting.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -152,6 +152,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#models-and-tests"><i class="fa fa-check"></i><b>3.2.3</b> Models and Tests</a></li>
 <li class="chapter" data-level="3.2.4" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#how-well-compare-models"><i class="fa fa-check"></i><b>3.2.4</b> How We’ll Compare Models</a></li>
 </ul></li>
+<li class="chapter" data-level="3.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#examples"><i class="fa fa-check"></i><b>3.3</b> Examples</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html"><i class="fa fa-check"></i><b>4</b> Introductory Data Analysis</a><ul>
 <li class="chapter" data-level="4.1" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>4.1</b> Exploratory Data Analysis</a><ul>
@@ -169,8 +170,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.7.1" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#answer-the-following"><i class="fa fa-check"></i><b>4.7.1</b> Answer the following:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html"><i class="fa fa-check"></i><b>5</b> Achieving Graphical Excellence</a><ul>
-<li class="chapter" data-level="5.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#work-in-progress"><i class="fa fa-check"></i><b>5.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html"><i class="fa fa-check"></i><b>5</b> Functions and Scripting</a><ul>
+<li class="chapter" data-level="5.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#work-in-progress"><i class="fa fa-check"></i><b>5.1</b> Work in Progress</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html"><i class="fa fa-check"></i><b>6</b> Achieving Graphical Excellence</a><ul>
+<li class="chapter" data-level="6.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#work-in-progress-1"><i class="fa fa-check"></i><b>6.1</b> Work in Progress</a></li>
 </ul></li>
 </ul>
 
@@ -208,12 +212,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gapminder)</code></pre></div>
 <p>Let’s also load the tidyverse:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## -- Attaching packages ------------------------------------------------------------------------ tidyverse 1.2.1 --</code></pre>
 <pre><code>## v ggplot2 3.0.0     v purrr   0.2.4
 ## v tibble  1.4.2     v dplyr   0.7.4
 ## v tidyr   0.8.0     v stringr 1.3.0
 ## v readr   1.1.1     v forcats 0.3.0</code></pre>
-<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+<pre><code>## -- Conflicts --------------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <p>The gapminder package includes four tables, of which we only care about one: <code>gapminder</code>. We can preview the data, as usual, by typing the name of the table:</p>
@@ -746,9 +750,9 @@ Nested[<span class="dv">1</span>, <span class="dv">2</span>] <span class="op">%&
 </div>
 <div id="conclusion" class="section level2">
 <h2><span class="header-section-number">4.6</span> Conclusion</h2>
-<p>The important takeaways from this unit are not necessarily the statistical tests used - since those will vary dependent upon your purpose - so much as the methods highlighted. Understanding how to generate hypotheses from a new dataset - and then how to drill down and analyze them each in turn - is a cross-disciplinary skill used in any new analysis project. The next unit will continue</p>
+<p>The important takeaways from this unit are not necessarily the statistical tests used - since those will vary dependent upon your purpose - so much as the methods highlighted. Understanding how to generate hypotheses from a new dataset - and then how to drill down and analyze them each in turn - is a cross-disciplinary skill used in any new analysis project.</p>
 <p>Later in the course, you’ll be given projects which will require you to understand brand new datasets, manipulate them, perform complex analyses on them, and visualise them. EDA will give you the familiarity with your data to find these patterns, isolate them appropriately, and perform the right analyses moving forward. The entire purpose of this unit is to give you the skillset to identify what those analyses might be, by understanding how to generate hypotheses from a combination of data visualization and manipulation.</p>
-<p>Hopefully we accomplished that goal. We’ll find out in the next unit, where we’ll go over how to import and export data, and begin work on your first project.</p>
+<p>What we haven’t done is confirmatory analysis, where we start our work with a model in mind and then report how well it fit the data. Once data is used for exploratory analysis, it can’t be used again for confirmatory work. There are methods to split data for confirmatory analysis, while still being able to use some data for exploration - I like <a href="https://r4ds.had.co.nz/model-intro.html">Hadley Wickham’s overview here</a>. We won’t go too far into the difference between the methods, as this isn’t a statistics course. For our purposes in this course, all of our analyses will be exploratory.</p>
 </div>
 <div id="exercises-1" class="section level2">
 <h2><span class="header-section-number">4.7</span> Exercises</h2>
@@ -762,9 +766,6 @@ Nested[<span class="dv">1</span>, <span class="dv">2</span>] <span class="op">%&
 <li>Fit a linear model explaining life expectancy as a function of the current year for each country in the dataset (use the formula lifeExp ~ year). Then tidy the model outputs and look at the p values for each coefficient. If you don’t hate yourself, you’ll try the functional computing approach.</li>
 </ol>
 
-
-<p>INCLUDE JOINS AND AIC data import and export</p>
-
 </div>
 </div>
 </div>
@@ -774,7 +775,7 @@ Nested[<span class="dv">1</span>, <span class="dv">2</span>] <span class="op">%&
         </div>
       </div>
 <a href="basic-statistics-using-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="achieving-graphical-excellence.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="functions-and-scripting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

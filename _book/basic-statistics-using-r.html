@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2018-10-27">
+<meta name="date" content="2018-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,6 +152,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#models-and-tests"><i class="fa fa-check"></i><b>3.2.3</b> Models and Tests</a></li>
 <li class="chapter" data-level="3.2.4" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#how-well-compare-models"><i class="fa fa-check"></i><b>3.2.4</b> How We’ll Compare Models</a></li>
 </ul></li>
+<li class="chapter" data-level="3.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#examples"><i class="fa fa-check"></i><b>3.3</b> Examples</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html"><i class="fa fa-check"></i><b>4</b> Introductory Data Analysis</a><ul>
 <li class="chapter" data-level="4.1" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>4.1</b> Exploratory Data Analysis</a><ul>
@@ -169,8 +170,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.7.1" data-path="introductory-data-analysis.html"><a href="introductory-data-analysis.html#answer-the-following"><i class="fa fa-check"></i><b>4.7.1</b> Answer the following:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html"><i class="fa fa-check"></i><b>5</b> Achieving Graphical Excellence</a><ul>
-<li class="chapter" data-level="5.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#work-in-progress"><i class="fa fa-check"></i><b>5.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html"><i class="fa fa-check"></i><b>5</b> Functions and Scripting</a><ul>
+<li class="chapter" data-level="5.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#work-in-progress"><i class="fa fa-check"></i><b>5.1</b> Work in Progress</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html"><i class="fa fa-check"></i><b>6</b> Achieving Graphical Excellence</a><ul>
+<li class="chapter" data-level="6.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#work-in-progress-1"><i class="fa fa-check"></i><b>6.1</b> Work in Progress</a></li>
 </ul></li>
 </ul>
 
@@ -342,7 +346,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </dd>
 <dd><ul>
-<li>High p values often mean your independent variables are irrelevant, but low p values don’t mean they’re important</li>
+<li>High p values often mean your independent variables are irrelevant, but low p values don’t mean they’re important - that judgement requires scientific justification, and examining the effect size and importance. Otherwise you’re just equating correlation and causation.</li>
 </ul>
 </dd>
 <dd><ul>
@@ -412,11 +416,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </dd>
 <dd><ul>
-<li>In R, run <code>nrow(dataframe)</code> to calculate.</li>
+<li>In R, run <code>nrow(dataframe)</code> or <code>length(Vector)</code> to calculate.</li>
 </ul>
 </dd>
 <dd><ul>
-<li>To calculate by group, run <code>count(GroupingVariable)</code></li>
+<li>To calculate by group, run <code>count(Data, GroupingVariable)</code></li>
+</ul>
+</dd>
+<dd><ul>
+<li>Examples: <code>nrow(iris)</code>, <code>length(iris$Sepal.Length)</code>, <code>count(iris, Species)</code></li>
 </ul>
 </dd>
 <dt>Mean</dt>
@@ -426,6 +434,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </dd>
 <dd><ul>
 <li>In R, run <code>mean(Vector)</code> to calculate.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Example: <code>mean(iris$Sepal.Length)</code></li>
 </ul>
 </dd>
 <dt>Trimmed Mean</dt>
@@ -441,6 +453,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><code>mean(Vector, trim = 0.##)</code></li>
 </ul>
 </dd>
+<dd><ul>
+<li><code>mean(iris$Sepal.Length, trim = 0.10)</code></li>
+</ul>
+</dd>
 <dt>Variance</dt>
 <dd><ul>
 <li>A measure of the spread of your data.</li>
@@ -450,6 +466,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><code>var(Vector)</code></li>
 </ul>
 </dd>
+<dd><ul>
+<li><code>var(iris$Sepal.Length)</code></li>
+</ul>
+</dd>
 <dt>Standard Deviation</dt>
 <dd><ul>
 <li>The amount any observation can be expected to differ from the mean.</li>
@@ -457,6 +477,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </dd>
 <dd><ul>
 <li><code>sd(Vector)</code></li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>sd(iris$Sepal.Length)</code></li>
 </ul>
 </dd>
 <dt>Standard Error</dt>
@@ -470,6 +494,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </dd>
 <dd><ul>
 <li>No native function in R - run <code>sd(Vector)/sqrt(length(Vector))</code> to calculate.</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>sd(iris$Sepal.Length)/sqrt(length(iris$Sepal.Length))</code></li>
 </ul>
 </dd>
 <dt>Median Absolute Deviation from the Median</dt>
@@ -489,6 +517,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><code>mad(Vector)</code></li>
 </ul>
 </dd>
+<dd><ul>
+<li><code>mad(iris$Sepal.Length)</code></li>
+</ul>
+</dd>
 <dt>Median</dt>
 <dd><ul>
 <li>A robust estimate of the center of the data.</li>
@@ -498,13 +530,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><code>median(Vector)</code></li>
 </ul>
 </dd>
+<dd><ul>
+<li><code>median(iris$Sepal.Length)</code></li>
+</ul>
+</dd>
 <dt>Minimum</dt>
 <dd><ul>
 <li>The smallest value.</li>
 </ul>
 </dd>
 <dd><ul>
-<li><code>min()</code></li>
+<li><code>min(Vector)</code></li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>min(iris$Sepal.Length)</code></li>
 </ul>
 </dd>
 <dt>Maximum</dt>
@@ -513,7 +553,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </dd>
 <dd><ul>
-<li><code>max()</code></li>
+<li><code>max(Vector)</code></li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>max(iris$Sepal.Length)</code></li>
 </ul>
 </dd>
 <dt>Range</dt>
@@ -522,7 +566,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </dd>
 <dd><ul>
-<li><code>max() - min()</code></li>
+<li><code>max(Vector) - min(Vector)</code></li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>max(iris$Sepal.Length) - min(iris$Sepal.Length)</code></li>
 </ul>
 </dd>
 <dt>Quantile</dt>
@@ -542,6 +590,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><code>quantile(Vector, c(quantiles that you want))</code></li>
 </ul>
 </dd>
+<dd><ul>
+<li><code>quantile(iris$Sepal.Length, c(0.25, 0.5, 0.75))</code></li>
+</ul>
+</dd>
 <dt>Interquartile Range</dt>
 <dd><ul>
 <li>The middle 50% of the data, contained between the 0.25 and 0.75 quantiles</li>
@@ -549,6 +601,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </dd>
 <dd><ul>
 <li><code>IQR(Vector)</code></li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>IQR(iris$Sepal.Length)</code></li>
 </ul>
 </dd>
 <dt>Skew</dt>
@@ -574,7 +630,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="models-and-tests" class="section level3">
 <h3><span class="header-section-number">3.2.3</span> Models and Tests</h3>
-<p>Note that most tests discussed here default to a 95% confidence level and a two-tailed test. If you want to learn how to change those for any function, type <code>?FunctionName()</code></p>
+<p>Note that most tests discussed here default to a 95% confidence level and a two-tailed test. If you want to learn how to change those for any function, type <code>?FunctionName()</code>. Functions not applicable to the <code>iris()</code> dataset do not currently have examples underneath them.</p>
 <dl>
 <dt>Correlation</dt>
 <dd><ul>
@@ -599,6 +655,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </dd>
 <dd><ul>
 <li><code>cor(Vector1, Vector2)</code> provides correlation coefficients, while <code>cor.test(Vector1, Vector2)</code> performs the statistical test, giving test statistics, p values, and other outputs. Both perform the Pearson test by default, but can be changed by providing the argument <code>method = &quot;spearman&quot;</code> or <code>method = &quot;kendall&quot;</code></li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>cor(iris$Sepal.Length, iris$Sepal.Width, method = &quot;pearson&quot;)</code></li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>cor.test(iris$Sepal.Length, iris$Sepal.Width, method = &quot;pearson&quot;)</code></li>
 </ul>
 </dd>
 <dt>t Test</dt>
@@ -633,7 +697,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </dd>
 <dd><ul>
+<li>If you need help understanding linear models, <a href="https://onlinecourses.science.psu.edu/stat501/node/250/">here’s a lecture from Penn State</a>.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>The most important thing for our purposes is understanding that models are made up of <em>terms</em>, which are the predictor variables you give it, and <em>coefficients</em>, which are multiplied by those terms to calculate the value of our response.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Larger coefficients <em>generally</em> mean that variable is more important than others in the model, but only if the variables share units - one (much argued-over) way to compare coefficients between variables with different units is discussed <a href="http://www.demog.berkeley.edu/~andrew/teaching/standard_coeff.pdf_">here</a></li>
+</ul>
+</dd>
+<dd><ul>
+<li>Linear models also include an intercept term, which isn’t multiplied with any variable. This term being “significant” at p = whatever means <em>literally nothing</em>, and if it’s your only significant term, your model is useless.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>You can add multiple predictor vectors using <code>+</code>, and include interaction terms using <code>+ Vector1:Vector2</code>.</li>
+</ul>
+</dd>
+<dd><ul>
 <li><code>lm(ResponseVector ~ PredictorVectors, data)</code></li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>lm(Sepal.Length ~ Species, data = iris)</code></li>
 </ul>
 </dd>
 <dt>Logistic Models</dt>
@@ -659,7 +747,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </dd>
 <dd><ul>
-<li><a href="https://dynamicecology.wordpress.com/2014/10/02/interpreting-anova-interactions-and-model-selection/">This blog post</a> does an interesting treatment on how to interpret ANOVA results</li>
+<li><a href="https://dynamicecology.wordpress.com/2014/10/02/interpreting-anova-interactions-and-model-selection/">This blog post</a> does an interesting treatment on how to interpret ANOVA results with significant interactions</li>
 </ul>
 </dd>
 <dd><ul>
@@ -668,6 +756,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </dd>
 <dd><ul>
 <li>Normally, you’ll save your model to an object using <code>&lt;-</code>, then run <code>anova()</code> on that object - the way I wrote it above is just demonstrative</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>model &lt;- lm(Sepal.Length ~ Species, data = iris)</code>, then <code>anova(model)</code></li>
 </ul>
 </dd>
 </dl>
@@ -687,6 +779,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </dd>
 <dd><ul>
 <li>The adjusted R<sup>2</sup> is a better estimate of regression goodness-of-fit, as it adjusts for the number of variables in a model</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>summary(lm(ResponseVector ~ PredictorVector, data))</code></li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>model &lt;- lm(Sepal.Length ~ Species, iris)</code> then <code>summary(model)</code></li>
 </ul>
 </dd>
 <dt>Receiver Operating Characteristic Curve</dt>
@@ -728,8 +828,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </dd>
 </dl>
-
 </div>
+</div>
+<div id="examples" class="section level2">
+<h2><span class="header-section-number">3.3</span> Examples</h2>
+<p>All examples here use the <code>Orange</code> dataset, which is automatically included in R. Note that the O is capitalized!</p>
+<ol style="list-style-type: decimal">
+<li>Look at <code>Orange</code> using either head or <code>as.tibble()</code> (you’ll have to run <code>library(tidyverse)</code> for that second option). What type of data are each of the columns?</li>
+<li>Find the mean, standard deviation, and standard error of tree circumference.</li>
+<li>Make a linear model which describes circumference (the response) as a function of age (the predictor). Save it as an object with <code>&lt;-</code>, then print the object out by typing its name. What do those coefficients mean?</li>
+<li>Make another linear model describing age as a function of circumference. Save this as a different object.</li>
+<li>Call <code>summary()</code> on both of your model objects. What do you notice?</li>
+<li>Does this mean that trees growing makes them get older? Does a tree getting older make it grow larger? Or are these just correlations?</li>
+<li>Does the significant p value prove that trees growing makes them get older? Why not?</li>
+</ol>
+
 </div>
 </div>
             </section>

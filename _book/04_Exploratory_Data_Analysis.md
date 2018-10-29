@@ -31,7 +31,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages --------------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages ------------------------------------------------------------------------ tidyverse 1.2.1 --
 ```
 
 ```
@@ -42,7 +42,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## -- Conflicts --------------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -847,11 +847,11 @@ Note that I deleted all the "continent" terms from the model, because we're now 
 In this case, ```estimate``` represents the coefficient (beta) for each variable, while the statistic is the F statistic.  
 
 ## Conclusion
-The important takeaways from this unit are not necessarily the statistical tests used - since those will vary dependent upon your purpose - so much as the methods highlighted. Understanding how to generate hypotheses from a new dataset - and then how to drill down and analyze them each in turn - is a cross-disciplinary skill used in any new analysis project. The next unit will continue 
+The important takeaways from this unit are not necessarily the statistical tests used - since those will vary dependent upon your purpose - so much as the methods highlighted. Understanding how to generate hypotheses from a new dataset - and then how to drill down and analyze them each in turn - is a cross-disciplinary skill used in any new analysis project.
 
 Later in the course, you'll be given projects which will require you to understand brand new datasets, manipulate them, perform complex analyses on them, and visualise them. EDA will give you the familiarity with your data to find these patterns, isolate them appropriately, and perform the right analyses moving forward. The entire purpose of this unit is to give you the skillset to identify what those analyses might be, by understanding how to generate hypotheses from a combination of data visualization and manipulation.  
 
-Hopefully we accomplished that goal. We'll find out in the next unit, where we'll go over how to import and export data, and begin work on your first project.
+What we haven't done is confirmatory analysis, where we start our work with a model in mind and then report how well it fit the data. Once data is used for exploratory analysis, it can't be used again for confirmatory work. There are methods to split data for confirmatory analysis, while still being able to use some data for exploration - I like [Hadley Wickham's overview here](https://r4ds.had.co.nz/model-intro.html). We won't go too far into the difference between the methods, as this isn't a statistics course. For our purposes in this course, all of our analyses will be exploratory.
 
 ## Exercises
 

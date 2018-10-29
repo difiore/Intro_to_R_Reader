@@ -13,7 +13,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages --------------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages ------------------------------------------------------------------------ tidyverse 1.2.1 --
 ```
 
 ```
@@ -24,7 +24,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## -- Conflicts --------------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -744,7 +744,7 @@ cor.test(iris$Sepal.Length, iris$Sepal.Width)
 
 (Note that "cor.test()" runs Pearson's correlation test for whatever vectors you feed it - more on that test later, or [here](https://bookdown.org/ndphillips/YaRrr/correlation-cor-test.html)).
 
-And ```$``` also lets us filter our data with conditionals - getting values that are equal to something, larger or smaller than it, and so on. For instance, if we want a dataframe (so ```[]```) where the rows (```[, ]```) all have a Species value of (```===```) "setosa":
+And ```$``` also lets us filter our data with conditionals - getting values that are equal to something, larger or smaller than it, and so on. For instance, if we want a dataframe (so ```[]```) where the rows (```[, ]```) all have a Species value of (```==```) "setosa":
 
 
 ```r

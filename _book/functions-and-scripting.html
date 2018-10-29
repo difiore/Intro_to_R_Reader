@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="functions-and-scripting.html">
-
+<link rel="prev" href="introductory-data-analysis.html">
+<link rel="next" href="achieving-graphical-excellence.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -193,52 +193,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="achieving-graphical-excellence" class="section level1">
-<h1><span class="header-section-number">6</span> Achieving Graphical Excellence</h1>
-<div id="work-in-progress-1" class="section level2">
-<h2><span class="header-section-number">6.1</span> Work in Progress</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## -- Attaching packages ------------------------------------------------------------------------ tidyverse 1.2.1 --</code></pre>
-<pre><code>## v ggplot2 3.0.0     v purrr   0.2.4
-## v tibble  1.4.2     v dplyr   0.7.4
-## v tidyr   0.8.0     v stringr 1.3.0
-## v readr   1.1.1     v forcats 0.3.0</code></pre>
-<pre><code>## -- Conflicts --------------------------------------------------------------------------- tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(cowplot)</code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;cowplot&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
-## 
-##     ggsave</code></pre>
-<p><a href="https://www.jstor.org/stable/2288400?seq=1#metadata_info_tab_contents" class="uri">https://www.jstor.org/stable/2288400?seq=1#metadata_info_tab_contents</a> <a href="http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf">http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf</a> <a href="http://vis.stanford.edu/files/2010-MTurk-CHI.pdf" class="uri">http://vis.stanford.edu/files/2010-MTurk-CHI.pdf</a></p>
-<p>Look at this scatterplot: <img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>Hopefully we can already tell that this isn’t a great graph. The complete lack of text means we have no idea what data are being visualized, or what the takeaway message is supposed to be. Remember, graphs are for storytelling and demonstrating your point, not necessarily for giving exact values - you should include tables in your document if the exact values are important.</p>
-<p>Even so, we can tell just from this scatterplot which points have larger values than others - they’re the ones further up and to the right. That’s because we’ve been trained to see <em>position</em> as an ordered aesthetic in graphs.</p>
-<p>Position isn’t the only way to communicate which values are larger than others. For instance, if we want to show the level of a third variable, we can use color:</p>
-<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>Which of these have a larger value of that third variable?</p>
-<p>Most people would assume the darker colors have the larger values, due to their higher contrast with the background. If we make the contrast less obvious, it becomes much harder to tell what the color is supposed to convey:</p>
-<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>But at the same time, even contrast isn’t quite enough for us to automatically interpret a color in a graph. For instance, the rainbow colors have different amounts of contrast against a white background, but when plotted:</p>
-<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>Which values are higher now?</p>
-<p>Humans make connections between different colors based on their <em>luminance</em> and <em>chroma</em>. We won’t go wading too far into what those terms mean; but it’s important to understand that the actual <em>colors</em> you use to compare values matter less than the differences in their shade and intensity.</p>
-<p>Moving away from color, we can also use other aesthetics to communicate a third variable. For instance:</p>
-<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>Which values are larger?</p>
-<p>We have one last aesthetic that we can use to show our third variable - the shape of the points:</p>
-<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<p>Which values are larger?</p>
-<p>As we can see, some aesthetics communicate quantitative data very well, while others should only be used for qualitative purposes. We already knew this - we touched on it in our first unit. But getting a sense of what representations are appropriate for our data - and what sorts of things we’re able to do with it - is the first step towards creating worthwhile graphics for whatever business or research purpose you have.</p>
-<p>Different</p>
-<p>Animation <a href="http://visionlab.harvard.edu/silencing/">paper on silencing</a></p>
+<div id="functions-and-scripting" class="section level1">
+<h1><span class="header-section-number">5</span> Functions and Scripting</h1>
+<div id="work-in-progress" class="section level2">
+<h2><span class="header-section-number">5.1</span> Work in Progress</h2>
+<p>data import and export if statements for loops writing functions</p>
 
-<p>github commenting your code</p>
-
-
-
+<p>INCLUDE JOINS AND AIC</p>
 
 </div>
 </div>
@@ -247,8 +208,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="functions-and-scripting.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="introductory-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="achieving-graphical-excellence.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,0 +1,7 @@
+# Functions and Scripting
+## Work in Progress
+
+data import and export
+if statements
+for loops
+writing functions

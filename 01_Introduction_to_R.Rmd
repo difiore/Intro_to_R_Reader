@@ -83,6 +83,8 @@ print("Hello, world!")
 
 It's cool, right? Congratulations, you're officially a programmer!
 
+What we just did was use a _function_ (```print()```), R commands that take inputs in the form of _arguments_ (inside the parenthesis) and use them to return an _output_. We'll get under the hood of functions in unit 5 - for now, we're going to use the many functions other people have put together for us.
+
 In addition to saying hi, you can use the R console to do math:
 
 ```{r}
@@ -167,7 +169,7 @@ By the way, if you make a typo, you can press the UP arrow to load the last line
 
 ### The iris Dataset
 What's very cool for our purposes is that R comes preloaded with a number of different datasets. Now, if you just type in the name of the dataset, you might overwhelm R for a moment - it will print out every single row of that dataset, no matter how long it is.  
-Luckily for us, the ```head``` command lets us see just the first few rows of the data. If we use the dataset ```iris``` (included in base R), for instance, we'd get the following result:
+Luckily for us, the ```head()``` command lets us see just the first few rows of the data. If we use the dataset ```iris``` (included in base R), for instance, we'd get the following result:
 
 ```{r}
 head(iris)
@@ -182,7 +184,7 @@ tail(iris, n=3)
 Pretty neat!
 
 ### Graphing with R
-This dataset contains measurements on 150 different irises, and is the data that was used to develop the first ever linear regressions. Even if you aren't a stats nerd, this dataset lets us do some cool things. For instance, we can see that there are columns containing information on sepal length and sepal width - I wonder if they might be correlated? What would happen if we asked R to ```plot``` them for us?
+This dataset contains measurements on 150 different irises, and is the data that was used to develop the first ever linear regressions. Even if you aren't a stats nerd, this dataset lets us do some cool things. For instance, we can see that there are columns containing information on sepal length and sepal width - I wonder if they might be correlated? What would happen if we asked R to ```plot()``` them for us? Here, we're going to use the ```$``` operator for the first time - we'll go over what exactly it does in unit 2, but for now, just know it's how we specify which columns we want the ```plot()``` function to use:
 
 ```{r}
 plot(iris$Sepal.Length, iris$Sepal.Width)
@@ -201,7 +203,9 @@ install.packages("tidyverse")
 library(tidyverse)
 ```
 
-Note the quotes around "tidyverse" when you go to install it, but **not** when it's inside of ```library()```. If you get an error saying "no package named tidyverse", try reinstalling the package. It might take a few minutes to load.
+Note the quotes around "tidyverse" when you go to install it, but **not** when it's inside of ```library()```. The reason for this is a little complicated - basically, you don't use quotes for things that are inside of R's memory, like data, functions, and packages. You use quotes for everything else.
+
+If you get an error saying "no package named tidyverse", try reinstalling the package. It might take a few minutes to load.
 
 What we just did was install a package called the ```tidyverse``` (with ```install.packages```), and load it using ```library```. A "package" is just R code created by someone else - most common problems in R have already been solved by someone else, and most of those people have made their work publicly available for others to use.
 
