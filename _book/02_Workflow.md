@@ -1,4 +1,4 @@
-# Unit 2: R Functions and Workflow
+# R Functions and Workflow
 ## Workflow
 
 ### Scripts

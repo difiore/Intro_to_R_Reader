@@ -1,5 +1,4 @@
 # Functions and Scripting
-## Work in Progress
 
 ## Writing Functions
 By now, we've started understanding how to use the prebuilt functions available for us within R. However, those functions don't cover everything that we might need to do - and so sometimes, we need to build them for ourselves.
@@ -93,7 +92,7 @@ This is a pretty stupid reason to make a function - it doesn't do anything that 
 
 You don't have to give your detail arguments a default value - and it's often helpful if you don't, as it makes you be explicit about what you want as an output. However, if you're expecting that you - or anyone else using your function - will usually want a particular output, you can specify the default using ```=``` like we did above.
 
-### What's Really Real?
+### About Names...
 You might remember our discussion in unit 1 about why R occasionally requires quotes around things, while othertimes it doesn't. This is what our explanation was then:
 
 > Note the quotes around "tidyverse" when you go to install it, but **not** when it's inside of ```library()```. The reason for this is a little complicated - basically, you don't use quotes for things that are inside of R's memory, like data, functions, and packages. You use quotes for everything else.
@@ -189,7 +188,8 @@ mean4(iris$Sepal.Length)
 
 But makes a bit more sense when handed other types of values:
 
-```
+
+```r
 mean2("h")
 ```
 
@@ -222,7 +222,8 @@ mean5 <- function(x){
 }
 ```
 
-```
+
+```r
 mean5("h")
 ```
 

@@ -1,4 +1,4 @@
-# Unit One: Introduction to R and Data Visualization
+# Introduction to R and Data Visualization
 ## Lecture Notes
 Welcome to the reader for a course that will never be taught! I've got a very specific idea of how R should be taught, at least to those interested in using it for data science and other analytical applications. This reader represents that approach - we start off with data visualization, then exploration, and then touch on the basics of the language before getting into data analysis and transformation. 
 
