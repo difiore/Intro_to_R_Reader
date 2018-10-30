@@ -120,7 +120,7 @@ It works just fine. Remember that dividing a vector by a scalar (a single number
 
 Meanwhile, if we tried to divide our second vector:
 
-```
+```{r eval = FALSE}
 c(18, "ESF", 98) / 3
 ```
 
@@ -151,7 +151,7 @@ TRUE + 2
 18^FALSE
 ```
 
-By the way, see how I used ```==``` to prove two things were equal? In R, ```=``` does something completely different than ```==``` - it assigns a value, which we'll get into in section 3. For now, just know that you should always use ```==``` to check if two values are equivalent.
+By the way, see how I used ```==``` to prove two things were equal? In R, ```=``` does something completely different than ```==``` - it assigns a value, which we'll get into in unit 2. For now, just know that you should always use ```==``` to check if two values are equivalent.
 
 Still, vectors can only hold one type of data - a vector with a value of ```TRUE``` and a value of ```ESF``` will become a character vector, while ```c(TRUE, 18, 2)``` is a numeric vector.
 
@@ -178,7 +178,7 @@ head(iris)
 Note that while the default is to print six rows, you can choose how many rows to print by specifying ```n = ##``` in the ```head()``` function. You can even call the last few rows of your dataset by using the similar function ```tail()``` - for instance:
 
 ```{r}
-tail(iris, n=3)
+tail(iris, n = 3)
 ```
 
 Pretty neat!
@@ -207,7 +207,7 @@ Note the quotes around "tidyverse" when you go to install it, but **not** when i
 
 If you get an error saying "no package named tidyverse", try reinstalling the package. It might take a few minutes to load.
 
-What we just did was install a package called the ```tidyverse``` (with ```install.packages```), and load it using ```library```. A "package" is just R code created by someone else - most common problems in R have already been solved by someone else, and most of those people have made their work publicly available for others to use.
+What we just did was install a package called the ```tidyverse``` (with ```install.packages```), and load it using ```library```. Most common problems in R have already been solved by someone else, and most of those people have made their work publicly available for others to use in the form of a package.
 
 The tidyverse is a pretty unique example of a package - it actually contains six packages, most of which are essential to using R like a professional. The most important one for us right now is called ```ggplot2```. Don't worry about having to load it - ```library(tidyverse)``` automatically loads this package for you.
 
@@ -230,7 +230,7 @@ There are five important steps that went into making that graph:
 
 The ```ggplot()``` and ```geom_point``` calls are known as _functions_ - a type of R object that, when given certain parameters, gives a certain output. Those parameters - in this plot, our ```data = ```, ```x = ```, and ```y = ``` calls - are known as _arguments_.
 
-Each of these steps can have different values, if we want to change our graph. For instance, if we wanted to color - and add a trendline for - each species of iris, we could do the following:
+Each of these steps can have different values, if we want to change our graph. For instance, if we wanted to color and add a trendline for each species of iris, we could do the following:
 
 ```{r}
 ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
@@ -285,10 +285,10 @@ ggplot(df2, aes(x, y)) +
   theme(text = element_blank())
 ```
 
-So if we wanted, we could specify shapes for each species in our dataset pretty easily! I've done so below. I'm also going to control the colors by hand - R has [a ton of colors available](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf), and you can go crazy picking the best colors for a graph. You can also specify colors by using hex codes (e.g., ```"#FFFFFF"```), but be warned that you might not get an exact match of what you were looking for!
+So if we wanted, we could specify shapes for each species in our dataset pretty easily! I've done so below. I'm also going to control the colors by hand - R has [a ton of colors available](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf), and you can go crazy picking the best colors for a graph. You can also specify colors by using hex codes (e.g., ```"#FFFFFF"```), but be warned that you might not get an exact match of what you were looking for - R will match as closely as it can from the colors it has available.
 
 ```{r}
-ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
   geom_point(aes(shape = Species), size = 3) + 
   scale_shape_manual(values = c(16, 17, 18)) + 
   scale_color_manual(values = c("purple",
@@ -303,7 +303,7 @@ We can also vary the type of line that gets drawn when we use ```geom_smooth```.
 ```{r echo=FALSE}
 df <- data.frame(x = 1:6, y = 1:6, z = 1:6) %>%
   complete(nesting(y,z),x)
-ggplot(df, aes(x,y)) + 
+a <- ggplot(df, aes(x,y)) + 
   geom_line(aes(linetype=factor(z))) + 
   scale_x_continuous(limits = c(1,5)) + 
   scale_linetype(name = "Line name", labels = c("solid",
@@ -315,6 +315,7 @@ ggplot(df, aes(x,y)) +
   theme(axis.text = element_blank()) + 
   labs(x="",y="") + 
   geom_label(data = filter(df, df$x == 3), aes(label = z)) 
+suppressWarnings(print(a))
 ```
 
 You can manually specify linetypes with ```scale_linetype``` functions, similar to what we did with shapes. You can use either the names or the numbers - just make sure that the names go inside of quotes, while the numbers don't!
@@ -322,7 +323,7 @@ You can manually specify linetypes with ```scale_linetype``` functions, similar 
 I'm going to make our same graph again, manually controlling the linetypes. I'm also going to get rid of that shadow - it represents the 95% confidence interval around the line (which we'll discuss more in our statistics section), as identified via standard error. We can turn it off by setting ```se = FALSE``` in the ```geom_smooth()``` function call.
 
 ```{r}
-ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
   geom_smooth(aes(linetype = Species), size = 1, se = FALSE) + 
   scale_color_manual(values = c("purple",
                                 "black",
@@ -335,7 +336,7 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
 We can also combine both graphs into one, more useful graphic:
 
 ```{r}
-ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
   geom_point(aes(shape = Species), size = 3) + 
   geom_smooth(aes(linetype = Species), size = 1, se = FALSE) + 
   scale_shape_manual(values = c(16, 17, 18)) + 
@@ -349,10 +350,11 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
 Nifty!
 
 Note, by the way, that I've put ```aes()``` calls in both the ```ggplot()``` and ```geom``` functions. Geoms _inherit_ from the ```ggplot()``` call - they'll use whatever data and aesthetics are specified inside the parenthesis. However, if you want an aesthetic to only apply to one geom, you can put it inside that ```geom()``` call. This is pretty commonly used when an aesthetic only applies to one geom - for instance, our ```geom_smooth()``` can't take a ```shape =```.  
+
 You have to be careful with this power, though! Sometimes, defining geom-specific aesthetics will give you misleading or simply wrong visualizations. For instance, what would happen if we draw our lines based on the petal length of each species, rather than the sepal width?
 
 ```{r}
-ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
   geom_point(aes(shape = Species), size = 3) + 
   geom_smooth(aes(y = Petal.Length, linetype = Species), size = 1, se = FALSE) + 
   scale_shape_manual(values = c(16, 17, 18)) + 
@@ -365,6 +367,7 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
 ```
 
 Our plot makes no sense!  
+
 Lots of beginners are tripped up by this when they're starting - a common assumption is that ggplot will add a second y-axis to the right hand of the plot. In reality, there is _no way_ to graph two y-axes on the same ggplot graph - and [that's on purpose](https://kieranhealy.org/blog/archives/2016/01/16/two-y-axes/). It's almost always better to just have two graphs next to each other, if you need to compare the data - though the linked article contains some other interesting suggestions.
 
 Anyway, thinking back to our other graphic:
@@ -389,7 +392,7 @@ This graph is nice, but I think it could be even nicer. Specifically, there's a 
 Luckily, ggplot makes this easy for us via what's known as _facets_. By adding ```facet_wrap()``` to our plot, we're able to split the three species onto their own graphs, while keeping the axes standardized.
 
 ```{r}
-ggplot(iris, aes(Sepal.Length, Sepal.Width)) + 
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) + 
   geom_point(size = 3) + 
   geom_smooth(size = 1, se = FALSE) + 
   facet_wrap(~ Species)
@@ -400,7 +403,7 @@ That makes seeing the differences much easier! Note that I got rid of the differ
 ```facet_wrap()``` is very useful, in that it will automatically wrap our plots into however many rows and columns are required. If we want to be a little more specific in how our data is arranged, however, we can use ```facet_grid()```. By specifying either ```rows = ``` or ```cols = ```, we can finely control how our data is split:
 
 ```{r}
-ggplot(iris, aes(Sepal.Length, Sepal.Width)) + 
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) + 
   geom_point(size = 3) + 
   geom_smooth(size = 1, se = FALSE) + 
   facet_grid(rows = vars(Species))
@@ -417,7 +420,7 @@ head(iris2)
 As you can see, I've told R to ```rep```licate the vector of ```purple, red, black``` 50 times - so about a third of each species will be in each color. Using that as our column grouping gives us:
 
 ```{r}
-ggplot(iris2, aes(Sepal.Length, Sepal.Width)) + 
+ggplot(data = iris2, aes(x = Sepal.Length, y = Sepal.Width)) + 
   geom_point(size = 3) + 
   geom_smooth(size = 1, se = FALSE) + 
   facet_grid(rows = vars(Species), cols = vars(color))
@@ -437,7 +440,7 @@ ggplot(diamonds, aes(carat, price)) +
   geom_point()
 ```
 
-Note that I've stopped explicitly writing ```data = ```, ```x = ```, and ```y = ```. Without that specification, R assumes that you're providing arguments to the function in the order the function normally expects them - which, for ```ggplot()```, is in the form ```ggplot(data, aes(x,y))```. Most code you'll find in the wild is written in this more compact format.
+Note that I've stopped explicitly writing ```data = ```, ```x = ```, and ```y = ```. Without that specification, R assumes that you're providing arguments to the function in the order the function normally expects them - which, for ```ggplot()```, is in the form ```ggplot(data, aes(x, y))```. Most code you'll find in the wild is written in this more compact format.
 
 Anyway, back to the graph. It's a bit of a mess! It's hard to discern a pattern when all 54,000 points are plotted in the same area. We can make things a bit better by making the points transparent, by giving them a low ```alpha = ``` value:
 
@@ -503,8 +506,11 @@ Where only the borders of each polygon are colored.
 Now, ggplot's default behavior when given a color or fill aesthetic is to make a _stacked bar chart_, as shown above. Stacked bar charts [are awful](https://eagereyes.org/techniques/stacked-bars-are-the-worst). It's really hard to compare values between bars, because the lower limits aren't standardized. The one exception is if you're only comparing two values and all bars sum to the same amount, like so:
 
 ```{r}
-# Make a table of x and y values, which are split into two groups by z. Each x has a y value for each level of z.
-df <- data.frame(x = c(1, 1, 2, 2, 3, 3), y = c(40, 60, 30, 70, 20, 80), z = c("A","B","A","B", "A", "B"))
+## Make a table of x and y values, which are split into two groups by z. 
+## Each x has a y value for each level of z.
+df <- data.frame(x = c(1, 1, 2, 2, 3, 3), 
+                 y = c(40, 60, 30, 70, 20, 80), 
+                 z = c("A","B","A","B", "A", "B"))
 df
 ggplot(df, aes(x, y, fill = z)) + 
   geom_col()
