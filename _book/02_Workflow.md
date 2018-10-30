@@ -13,7 +13,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ------------------------------------------------------------------------ tidyverse 1.2.1 --
+## -- Attaching packages --------------------------------------- tidyverse 1.2.1 --
 ```
 
 ```
@@ -24,7 +24,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts --------------------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -143,6 +143,8 @@ ggplot() +
 You'll notice that ```a``` is now listed in the upper-lefthand corner of RStudio, under the "Environment" tab. That's because a is now defined in memory - we can use it in any of our code, anywhere we want. In fact, you can even define ```a``` in one file and call it in another, so long as you've already run the code defining it in your current RStudio session. 
 
 This is really cool for a lot of reasons - it lets us do more complicated things with R - but can also cause some problems. If you keep defining objects with names like ```a```, it's easy to forget which variable stands for what - and so you can wind up making mistakes when using those variables later on. In order to avoid that sort of confusion, you should use descriptive names when creating objects. You should also decide on a standard way you're going to format those object names - some people prefer ```snake_case_names```, others ```use.periods```, and I personally prefer what's known as ```CamelCase```. Different organizations and groups have different preferred styles (here's [Google's](https://google.github.io/styleguide/Rguide.xml)), but what's important right now is that you pick a style that makes sense to you. Be consistent using this style whenever you code - R won't understand you if you mess up your capitalization!
+
+By the way - you might remember that I mentioned last unit that ```=``` could also be used as an assignment operator. That's true, but you should try to never do it - it makes your code much harder to understand, since at a glance it looks like you're checking if two things are equal. It's always better to use ```<-```.
 
 
 ### Dataframes and Transformations

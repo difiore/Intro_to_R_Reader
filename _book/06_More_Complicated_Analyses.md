@@ -4,7 +4,7 @@
 ### Importing Your Own Data
 So far in this course, we've been working exclusively with the data pre-available in R and a few of the packages we've taken advantage of. While this is a good way to learn R, it's not particularly helpful in letting you complete your own analyses.
 
-Luckily, R has a number of functions used to import data from external files. To demonstrate these, I'll be using datasets located at [https://github.com/mikemahoney218/Unit5Data](https://github.com/mikemahoney218/Unit5Data), in the "Datasets" folder. You don't necessarily need to download these files - but we'll be using these for demonstration throughout this unit.
+Luckily, R has a number of functions used to import data from external files. To demonstrate these, I'll be using datasets located [on GitHub](https://github.com/mikemahoney218/Unit6Data), in the "Datasets" folder. You don't necessarily need to download these files - but we'll be using these for demonstration throughout this unit.
 
 We're going to be assuming that your data are located in the same folder as your script - this is usually the easiest way to manage datasets. Otherwise, you'll have to wrestle a little with using relative pathways and directory names - Hadley Wickham explains these in more detail here.
 
@@ -16,7 +16,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ------------------------------------------------------------------------ tidyverse 1.2.1 --
+## -- Attaching packages --------------------------------------- tidyverse 1.2.1 --
 ```
 
 ```
@@ -27,7 +27,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts --------------------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```

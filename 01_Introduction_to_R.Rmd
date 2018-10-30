@@ -69,7 +69,7 @@ Two things to point out, before we get started - if you type either ```(``` or `
 Secondly, if you hit "enter" while working in the console, you'll tell R to process your code and give you the output. If you want to type more than one line at a time, hold shift while pressing enter.
 
 Okay, now let's get going.  
-Type the following into the console:
+Type the following into the console - but be careful, everything R does is case-sensitive:
 
 ```{r eval=FALSE}
 print("Hello, world!")
@@ -207,7 +207,7 @@ Note the quotes around "tidyverse" when you go to install it, but **not** when i
 
 If you get an error saying "no package named tidyverse", try reinstalling the package. It might take a few minutes to load.
 
-What we just did was install a package called the ```tidyverse``` (with ```install.packages```), and load it using ```library```. Most common problems in R have already been solved by someone else, and most of those people have made their work publicly available for others to use in the form of a package.
+What we just did was install a package called the ```tidyverse``` (with ```install.packages```), and load it using ```library```. Most common problems in R have already been solved by someone else, and most of those people have made their work publicly available for others to use in the form of a package. Packages only have to be installed once to be used - but you'll have to call them using ```library()``` each time you restart R.
 
 The tidyverse is a pretty unique example of a package - it actually contains six packages, most of which are essential to using R like a professional. The most important one for us right now is called ```ggplot2```. Don't worry about having to load it - ```library(tidyverse)``` automatically loads this package for you.
 
@@ -219,6 +219,8 @@ ggplot is an attempt to extend R's basic graphics abilities to make publication-
 ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) + 
   geom_point()
 ```
+
+Remember, R is case sensitive!
 
 There are five important steps that went into making that graph:
 

@@ -271,6 +271,12 @@ R^2^
 : * ```model <- lm(Sepal.Length ~ Species, iris)``` then ```summary(model)```
 
 
+RMSE
+: * Root-mean square error
+: * Standard deviation of the residuals - so tells you how accurate your model is
+: * Lower == better
+
+
 Receiver Operating Characteristic Curve
 : * R^2^ isn't applicable to logistic models
 : * Instead, we calculate the area under the ROC curve, with the area under the curve being abbreviated AUC
