@@ -280,7 +280,7 @@ cor.test(gapminder$lifeExp, gapminder$gdpPercap)
 ## 0.5837062
 ```
 
-(Note that most likely we'd actually use a different correlation test, as the data on life expectancy are non-normal. You can control the test used by setting the ```method``` argument - information about the correlation tests available in this function can be found [here] (http://www.statisticssolutions.com/correlation-pearson-kendall-spearman/).)
+(Note that most likely we'd actually use a different correlation test, as the data on life expectancy are non-normal. You can control the test used by setting the ```method``` argument - information about the correlation tests available in this function can be found [here](http://www.statisticssolutions.com/correlation-pearson-kendall-spearman/).)
 
 Looks like a yes!
 
@@ -508,7 +508,7 @@ gapminder %>%
 ## 5 Oceania   <tibble [24 x 5]>  <S3: htest>
 ```
 
-The ```~``` indicates that the next word is a _function_ that should be applied to each element of the list. ```.``` is what's referred to as a _pronoun_ - it's the short name for the data that's being applied to the function. We'll be using ```.``` repeatedly, so it's best to internalize that meaning now.
+The ```~``` indicates that the next word is a _function_ that should be applied to each element of the list. ```.``` is what's referred to as a _pronoun_ - it's the short name for the data that's being applied to the function. That's why we can subset it with ```$``` - while we're inside the map function, ```.``` _is_ your data. We'll be using ```.``` repeatedly for the rest of the course.
 
 Now, because ```cor.test()``` doesn't provide a tidy data output - it produces something human-readable, but not computer-usable - we have to tidy it up before we can extract our numbers. That's where ```tidy()``` comes in, which we use pretty similarly to ```cor.test()```:
 

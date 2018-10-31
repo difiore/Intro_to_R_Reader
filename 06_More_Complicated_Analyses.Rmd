@@ -1,10 +1,14 @@
 # More Complicated Analyses
 ## Work in Progress
+
 ## Other Datasets
+
 ### Importing Your Own Data
-So far in this course, we've been working exclusively with the data pre-available in R and a few of the packages we've taken advantage of. While this is a good way to learn R, it's not particularly helpful in letting you complete your own analyses.
+So far in this course, we've been working exclusively with the data pre-available in R and a few of the packages we've taken advantage of. While this is a good way to learn R, at some point you may want to use your own data for analysis.
 
 Luckily, R has a number of functions used to import data from external files. To demonstrate these, I'll be using datasets located [on GitHub](https://github.com/mikemahoney218/Unit6Data), in the "Datasets" folder. You don't necessarily need to download these files - but we'll be using these for demonstration throughout this unit.
+
+These datasets are from the website [Kaggle](https://www.kaggle.com/), where a number of data professionals share methods and datasets. Specifically, we'll be working with two datasets concerning [all Olympic athletes from the first 120 years of the game](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results). Additionally, we'll use data on [NBA athletes from the 2014-2015 season](https://www.kaggle.com/drgilermo/nba-players-stats-20142015). I'm not a huge sports guy myself, but there's a huge amount of sports-related data available publicly online, so it's a good tool for our analyses.
 
 We're going to be assuming that your data are located in the same folder as your script - this is usually the easiest way to manage datasets. Otherwise, you'll have to wrestle a little with using relative pathways and directory names - Hadley Wickham explains these in more detail here.
 
@@ -17,22 +21,24 @@ library(tidyverse)
 All the datasets included in our example use different _delimiters_ - the character that tells R (or Excel, or whatever program you're using) where one column stops and the next one begins. No matter what your delimiter is, we can parse the file using ```read_delim()``` - the first argument is the filename to read, while the second is the delimiter used. For instance, our text file is tab delimited - and since tabs are represented in R as ```\t```, we'll tell ```read_delim()``` to use that as a delimiter:
 
 ```{r}
-SiteData <- read_delim("SiteData.txt", "\t")
-SiteData
+NOCRegions <- read_delim("noc_regions.txt", "\t")
+NOCRegions
 ```
 
 We can do the same thing with documents that have comma separated values (known as CSVs):
 
 ```{r}
-CoverData <- read_delim("CoverData.csv", ",")
-CoverData
+AthleteEvents <- read_delim("athlete_events.csv", ",")
+AthleteEvents
 ```
+
+(You may have noticed that took a second to load - at least, if your computer is middle-of-the-road. This dataset has 271,116 rows - even more than our ```diamonds``` dataset - so analyses might take slightly longer with it. Imagine how long "big data" problems would take on your computer, when datasets have several million rows of observations!)
 
 However, ```readr``` also includes a pretty good tool specifically for CSV files:
 
 ```{r}
-CoverData <- read_csv("CoverData.csv")
-CoverData
+AthleteEvents <- read_csv("athlete_events.csv")
+AthleteEvents
 ```
 
 Now, ```readr``` doesn't have native support for more complicated files, like Excel files. Philosphically, you shouldn't store data in Excel format for long periods of time - we have no idea how long Microsoft will be around for, and the encoding used by Excel may someday disappear and take your data with it. CSVs are generally preferred for long-term data storage, as they're easy to understand visually and are easily parsed by computers.
@@ -47,8 +53,8 @@ library(readxl)
 ```
 
 ```{r}
-PlotData <- read_excel("PlotData.xlsx")
-PlotData
+NBAStats <- read_excel("players_stats.xlsx")
+NBAStats
 ```
 
 You'll also notice that RStudio has an "import dataset" button in the top right corner, which makes use of both the ```readr``` and ```readxl``` packages. This button lets you point and click your way through data import, and then copy the code into your script. It's a great resource for beginners!
@@ -57,17 +63,266 @@ You'll also notice that RStudio has an "import dataset" button in the top right 
 Writing data to a file is also pretty painless using ```readr```. There are as many options for delimiters as before - you can use ```write_delim()``` to specify which you want to use with your data - but more commonly data is imported and exported as CSV files using ```write_csv()```
 
 ```{r}
-write_csv(CoverData, "CoverData.csv")
+write_csv(AthleteEvents, "athlete_events.csv")
 ```
 
 Note that, like all other ```tidyverse``` functions, the dataset is the first thing you specify.
 
+## Data Exploration
+Let's put ```NBAStats``` off to the side for a moment, and look at our other two datasets. ```AthleteEvents``` is a list of all olympic competitors from 1892 to 2016, including basic statistics about each and any medals they may have won. ```NOCRegions```, meanwhile, maps codes used by the National Olympic Committee (NOC) to the countries they represent.
 
-INCLUDE JOINS
-AND AIC
+We can get a sense of the variables this dataset measures using ```psych::describe()```
+
+```{r}
+psych::describe(AthleteEvents)
+```
+
+Wow, R didn't like that!
+
+R didn't know how to calculate most of the fields in ```describe()``` for character vectors. We can try that process again with only the numeric columns by using ```select_if()``` from ```dplyr```:
+
+```{r}
+psych::describe(select_if(AthleteEvents, is.numeric))
+```
+
+When I see this output, TK things catch my eye:
+
+* We knew we were missing observations, but wow, we're missing observations. Over 60,000 athletes have no weight listed, while over 50,000 don't have a height.
+* Mean height is 175.34 while mean weight is 70.7, suggesting that we're using metric units here
+* Looking at mean, skew and kurtosis, it seems like we have a lot more athletes in recent years - the distribution is centered around 1978, almost 100 years into our 120 year dataset - and that while an incredible number of athletes are young (25, with a kurtosis of 6.27!), we have plenty of older competitors.
+
+If we want to get a sense of correlations in the data, we can try using ```pairs()``` again - but be warned, this one might take a while due to the size of the data.
+
+```{r}
+pairs(select_if(AthleteEvents, is.numeric))
+```
+
+(Pop quiz for the history nerds: what are those vertical bars in the ```Year``` column?)
+
+That's a little chaotic, but we can still see trends nicely enough. It looks like height and weight have increased in variance over the years, probably due to the increased number of athletes overall. Height and weight look tightly correlated, as do age and the other statistics, interestingly enough. If we look at the actual correlation coefficients, we can see these trends numerically. We're going to have to remove the NAs manually, first, using dplyr's ```drop_na```
+
+```{r}
+AthleteEvents %>%
+  select_if(is.numeric) %>%
+  drop_na() %>%
+  cor()
+```
+
+So we're right in thinking that height and weight are correlated, but maybe not age. It is interesting to see that year is more correlated with age than any other variable!
+
+Moving back to the full dataset, I have a few other questions I want to ask. First off, when did women start competing? It would be useful to know if our gender distributions have significantly different lengths. Let's ```count()``` the number of male and female athletes per year:
+
+```{r}
+AthleteEvents %>%
+  count(Year, Sex)
+```
+
+The first women appear in 1900! That's very cool.
+
+I do wonder if the male or female athletes have it harder - that is, are there more male or female medal recipients, as a proportion of the whole? For instance, if fewer countries send female participants, each participant might be more statistically more likely to win. 
+
+We can eyeball this by calculating the percentage of each gender who hold each type of medal, out of the total number of athletes who have participated. To do so, we'll count the number of recipients of each type of medal, rename the ```NA``` medal value "none", group our data by sex, and then divide the number of people who have received each medal by the total number of contestants:
+
+```{r}
+AthleteEvents %>%
+  count(Sex, Medal) %>%
+  replace_na(list(Medal = NA)) %>%
+  group_by(Sex) %>%
+  mutate(PercentReceiving = n / sum(n))
+```
+
+So it looks like women have a tiny edge, but generally speaking, both men and women have a 15% chance of medalling at the Olympics. 
+
+## Modeling Winners
+
+Personally, I'm interested in predicting if someone will win a medal at the Olympics. We could do this a number of inferential ways - for instance, dropping all the values where an athlete _didn't_ win, and looking at the summary statistics of the athletes who did:
+
+```{r}
+AthleteEvents %>%
+  filter(!is.na(Medal)) %>%
+  summary(object = .)
+```
+
+This doesn't help us that much - it appears that these athletes are slightly older, taller, and heavier than the whole dataset, but that's not a lot to go off of when making predictions - no one wants to bet on the oldest and heaviest high jumper. 
+
+One way we could try to do this is using our old friend, the ```lm()``` tool, with all the data we have. We can make a new binary column ```Winner```, which will be 1 if the athlete won a medal, and then try to model it:
+
+```{r eval = FALSE}
+AthleteEvents$Winner <- AthleteEvents$Medal
+AthleteEvents$Winner[which(!is.na((AthleteEvents$Winner)))] <- 1
+AthleteEvents$Winner[which(is.na(AthleteEvents$Winner))] <- 0
+AthleteEvents$Winner <- as.numeric(AthleteEvents$Winner)
+
+AthleteEvents %>%
+  replace_na(list(Winner = 0)) %>%
+  lm(Winner ~ ID + Name + Sex + Age + Height + Weight + NOC + Games + Year + Season + Sport + Event, data = .)
+```
+```
+## Error: cannot allocate vector of size 72.4 Gb
+```
+
+But R doesn't like that much.
+
+This process is pretty excessive - we're asking R to calculate a _lot_ of stuff - and also has the downside of probably being _too_ specific. After all, if we tell R what ID each athlete has, plus the year and the event, it can tell 100% of the time who won the medal!
+
+Instead, we want to be able to guess what _traits_ make someone more likely to win. As such, we should only test the variables that we think are scientifically relevant - most likely, things like their age, height, and weight. If we make a model more like that:
+
+```{r}
+AthleteLinearModel <- lm(Winner ~ Age + Height + Weight, data = AthleteEvents) 
+
+summary(AthleteLinearModel)
+```
+
+## Logistic Models
+Wow! Every single term in our model is significant, but the R^2^ is horrible!
+
+As for why that might be, let's visualize our response variable against one of its predictors - again, this might take a second to run:
+
+```{r}
+ggplot(AthleteEvents, aes(Height, Winner)) + 
+  geom_point()
+```
+
+This here is the root of our problem - we're trying to model a binary outcome (a yes or no, a medal or not) with a straight line, which is useless. This sort of problem comes up all the time in real world situations - in science, whether or not a trap will catch something, or in business, whether or not a customer will click.
+
+Instead, we can choose to use a _logistic model_, one of the types of _generalized linear models_ from chapter 3. These models serve to measure the probability of a binary event - while a linear model will tell you the value of your response variable, logistic models will tell you the probability your response variable is 1. 
+
+R convieniently has a function ```glm()``` for doing exactly this:
+
+```{r}
+AthleteLogisticModel <- glm(Winner ~ Age + Height + Weight, data = AthleteEvents, family = "binomial") 
+
+summary(AthleteLogisticModel)
+```
+
+Note that ```family = "binomial"``` is necessary to make R compute a logistic model - you can find other possible generalized linear model formats by typing ```?family```. 
+
+## Modelling Metrics
+
+Well, our terms are all still significant, which is a good thing - but you'll notice that we now have no R^2^! That's because R^2^ terms don't really exist for logistic models, for reasons we won't go too far into - you can read more on the topic [here](https://stats.idre.ucla.edu/other/mult-pkg/faq/general/faq-what-are-pseudo-r-squareds/). But what we will get into are other methods of evaluating logistic models.
+
+One of the more common methods of comparing logistic models is to use what's known as a pseudo R^2^ value. Unfortunately, there are plenty of different methods to compute these, and you can't compare R^2^ calculated with different formulas to one another. 
+
+### Pseudo-R^2^
+One package that gives pretty decent results is the ```pscl``` package by Simon Jackman. After we install it, we can use the ```pR2()``` function to give us some pseudo-R^2^ values:
+
+```
+install.packages("pscl")
+```
+```{r}
+pscl::pR2(AthleteLogisticModel)
+```
+
+The McFadden R^2^ is given as the fourth output from this function, while the Cragg-Uhler R^2^ is the last value in the list. Again, these numbers can only be compared against other pseudo-R^2^ following the same formula, which limits their versatility.
+
+### Area Under the ROC Curve (AUC)
+More common in data analytics is to find the area under the receiver operating curve - abbreviated as AUC. To understand how we get there, let's first take a look at our model object:
+
+```{r}
+AthleteLogisticModel
+```
+
+There's a lot going on in here! R stores models as _list objects_, containing a number of elements of different data types. We can get a sense of what's going on under the hood using ```str()``` - that is, asking R to show us the ```str```ucture of the data:
+
+```{r}
+str(AthleteLogisticModel)
+```
+
+There's a ton going on in there!
+
+Luckily enough, we don't have to worry about most of it. The two elements I do want to point out, though, are the ```y``` and ```fitted.values``` columns. ```y``` contains our response variable - whether or not an athlete medaled - as a binary value of 1 or 0. ```fitted.values```, meanwhile, stores the probability our model gives of ```y``` being 1. We can take advantage of this using the package ```pROC```, which will let us calculate how close our model got. Let's first install and load ```pROC```:
+
+```
+install.packages("pROC")
+```
+
+```{r}
+library(pROC)
+```
+
+What we're going to do now is to build a receiver operating characteristic curve - a ROC - in order to understand graphically exactly what we're computing. ```pROC``` makes that easy, using the function ```roc()```:
+
+```{r}
+LogModelROC <- roc(AthleteLogisticModel$y, AthleteLogisticModel$fitted.values)
+```
+
+We can then plot our ROC object using ```plot.roc()```:
+
+```{r}
+plot.roc(LogModelROC)
+```
+
+This is cool! What the hell is it?
+
+This is what we mean when we say receiver operating characteristic curve. That light grey line in the middle represents what would happen if we just randomly guessed whether or not each athlete got a medal, using a 50/50 chance. The black line represents how well our model did - everywhere that it's higher than the grey line, we were more accurate than random chance. We don't need to worry about exactly what the axes mean (basically, the x axis represents how confident our model is in guessing someone medaled, while the y is how surprised it is about the result), but you can read more for yourself [here](https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5).
+
+The curve is cool and all, but is hard to interpret. Luckily for us, there's a single value - similar to R^2^ for linear models - which we can use to identify how well our model did. That number is the area under the curve (AUC, sometimes called the c-statistic) that I mentioned earlier, which we can calculate with pROC by printing out our ROC object:
+
+```{r}
+LogModelROC
+```
+
+(Note that, if I didn't assign the ROC object to a name in the first place, this value would have just printed out.)
+
+That number - 0.57 - is our single statistic for how accurate our model is. Generally speaking, models with an AUC of 0.7 are thought of as good models, with 0.8 as great and 0.9 incredible. Ecology can have slightly fuzzier models - predicting the natural world is hard, yo - but even the "random chance" line has an AUC of 0.5 - if your model is close to or below that, it's pretty much useless.
+
+
+## Model Comparisons
+
+## AUC
+
+So while our model is doing better than chance, it's still not doing great - 0.57 leaves a lot of room to improve. For instance, since we know the sex of each athlete in our dataset, what would happen if we added that variable to our formula?
+
+We can calculate the new formula following all the steps above. I'm also going to use ```pscl``` and ```pROC``` to find the pseduo-R^2^ and AUC of our new model, as well:
+
+```{r}
+AthleteLogisticModel2 <- glm(Winner ~ Age + Height + Weight + Sex, data = AthleteEvents, family = "binomial") 
+
+pscl::pR2(AthleteLogisticModel2)
+
+LogModel2ROC <- roc(AthleteLogisticModel2$y, AthleteLogisticModel2$fitted.values)
+LogModel2ROC
+```
+
+So, under each metric, our new model seems to be a slightly better fit to the data. The benefits of working with AUC - and, specifically, with ```pROC``` is that testing to see if one model is better than the other is a piece of cake with ```roc.test```:
+
+```{r}
+roc.test(LogModelROC, LogModel2ROC)
+```
+
+And so we're able to conclude that yes, our second model is significantly better than the first - including sex in our model made it significantly more predictive.
+
+### AIC 
+
+While comparing model AUCs is effective, it isn't the most popular method to analyze model performance. That honor likely goes to the Akaike Information Criterion, more commonly known as the AIC. The AIC measures 
+
+AIC can be used effectively in three ways:
+
+* **Model selection**, where you compare _every combination of variables possible_ OR
+* **Variable analysis** where you either compare your response variable against each predictor variable _independently_ OR
+* **Variable analysis** where you standardize your predictor variables, put them into a model, and compare their coefficients
+
+AIC can't be used to rank random models against one another without actual experimental design. More rants about this may be found [here](https://dynamicecology.wordpress.com/2015/05/21/why-aic-appeals-to-ecologists-lowest-instincts/). 
+
+As such, our example here isn't the best way to demonstrate the use of AIC. We'll follow up with a more clear example in a moment.
+
+AIC can be calculated using the ```broom``` package's ```glance()``` on any model object you have:
+
+```{r}
+library(broom)
+```
+
+```{r}
+glance(AthleteLogisticModel)
+glance(AthleteLogisticModel2)
+```
+The number we're interested in right now is AIC, located halfway down the dataframe. There's a very simple rule for comparing models using AIC: $\Delta$AIC between two models > 2? The model with the smaller AIC is better.
 
 
 ```{r}
-
+merge(AthleteEvents,
+      NOCRegions,
+      by = NOC)
 ```
 
+INCLUDE JOINS

@@ -184,7 +184,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#saving-and-loading-functions"><i class="fa fa-check"></i><b>5.3</b> Saving and Loading Functions</a></li>
 <li class="chapter" data-level="5.4" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#loops"><i class="fa fa-check"></i><b>5.4</b> Loops</a></li>
 <li class="chapter" data-level="5.5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#mapping-functions"><i class="fa fa-check"></i><b>5.5</b> Mapping Functions</a></li>
-<li class="chapter" data-level="5.6" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#exercises-2"><i class="fa fa-check"></i><b>5.6</b> Exercises</a></li>
+<li class="chapter" data-level="5.6" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#more-information"><i class="fa fa-check"></i><b>5.6</b> More Information</a></li>
+<li class="chapter" data-level="5.7" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#exercises-2"><i class="fa fa-check"></i><b>5.7</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html"><i class="fa fa-check"></i><b>6</b> More Complicated Analyses</a><ul>
 <li class="chapter" data-level="6.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#work-in-progress"><i class="fa fa-check"></i><b>6.1</b> Work in Progress</a></li>
@@ -380,7 +381,7 @@ CorMatrix</code></pre></div>
 ## sample estimates:
 ##       cor 
 ## 0.5837062</code></pre>
-<p>(Note that most likely we’d actually use a different correlation test, as the data on life expectancy are non-normal. You can control the test used by setting the <code>method</code> argument - information about the correlation tests available in this function can be found [here] (<a href="http://www.statisticssolutions.com/correlation-pearson-kendall-spearman/" class="uri">http://www.statisticssolutions.com/correlation-pearson-kendall-spearman/</a>).)</p>
+<p>(Note that most likely we’d actually use a different correlation test, as the data on life expectancy are non-normal. You can control the test used by setting the <code>method</code> argument - information about the correlation tests available in this function can be found <a href="http://www.statisticssolutions.com/correlation-pearson-kendall-spearman/">here</a>.)</p>
 <p>Looks like a yes!</p>
 <p>Before we rush off to publish, though, it might worth seeing if the correlations are different (or, hopefully, stronger) on each continent. Before we do that, let’s see if the different continents really do have different life expectancies. In order to do this, we’ll perform an ANOVA using our continents as different groups, then test for differences between the groups.</p>
 <p>Now, ANOVA is actually just another form of a linear regression, where you’re predicting the impact an independent variable has on the response variable. The unique thing about ANOVA is that the independent variables have to be categorical - if they’re all numeric, you want to stick with regression, and if there’s a mix, you’ll use ANCOVA.</p>
@@ -515,7 +516,7 @@ Nested[<span class="dv">1</span>, <span class="dv">2</span>] <span class="op">%&
 ## 3 Africa    &lt;tibble [624 x 5]&gt; &lt;S3: htest&gt;
 ## 4 Americas  &lt;tibble [300 x 5]&gt; &lt;S3: htest&gt;
 ## 5 Oceania   &lt;tibble [24 x 5]&gt;  &lt;S3: htest&gt;</code></pre>
-<p>The <code>~</code> indicates that the next word is a <em>function</em> that should be applied to each element of the list. <code>.</code> is what’s referred to as a <em>pronoun</em> - it’s the short name for the data that’s being applied to the function. We’ll be using <code>.</code> repeatedly, so it’s best to internalize that meaning now.</p>
+<p>The <code>~</code> indicates that the next word is a <em>function</em> that should be applied to each element of the list. <code>.</code> is what’s referred to as a <em>pronoun</em> - it’s the short name for the data that’s being applied to the function. That’s why we can subset it with <code>$</code> - while we’re inside the map function, <code>.</code> <em>is</em> your data. We’ll be using <code>.</code> repeatedly for the rest of the course.</p>
 <p>Now, because <code>cor.test()</code> doesn’t provide a tidy data output - it produces something human-readable, but not computer-usable - we have to tidy it up before we can extract our numbers. That’s where <code>tidy()</code> comes in, which we use pretty similarly to <code>cor.test()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">nest</span>(<span class="op">-</span>continent) <span class="op">%&gt;%</span>

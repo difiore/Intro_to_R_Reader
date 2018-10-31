@@ -539,6 +539,10 @@ df1 %>%
 Which is a lot cleaner to read, and easier to write!
 
 
+## More Information 
+There's a world of depth to constructing functions, with mountains of methods to make your functions work cleaner and more efficiently. The majority of R users don't think of themselves as software developers, who need to be concerned with speed and efficiency - instead, they want things to work, preferably with as little time spent coding as possible. However, if you ever want to write functions for other people to use - or use R for more complex tasks in your own work - it's worth understanding how to code efficiently in R. [Here's a good primer on that subject](https://bookdown.org/csgillespie/efficientR/).
+
+
 ## Exercises
 1. Remember in unit 3 that there's no standard error function in base R. Write one, naming it ```std.err```.
 2. Write a function that will say "Hi!" if given the input "hi", "Bye!" if it gets the input "bye", and "How rude!" if the input isn't either of those.
