@@ -147,15 +147,18 @@ This doesn't help us that much - it appears that these athletes are slightly old
 
 One way we could try to do this is using our old friend, the ```lm()``` tool, with all the data we have. We can make a new binary column ```Winner```, which will be 1 if the athlete won a medal, and then try to model it:
 
-```{r eval = FALSE}
+```{r}
 AthleteEvents$Winner <- AthleteEvents$Medal
 AthleteEvents$Winner[which(!is.na((AthleteEvents$Winner)))] <- 1
 AthleteEvents$Winner[which(is.na(AthleteEvents$Winner))] <- 0
 AthleteEvents$Winner <- as.numeric(AthleteEvents$Winner)
+```
 
+
+```{r eval = FALSE}
 AthleteEvents %>%
   replace_na(list(Winner = 0)) %>%
-  lm(Winner ~ ID + Name + Sex + Age + Height + Weight + NOC + Games + Year + Season + Sport + Event, data = .)
+  lm(Winner ~ ID * Name * Sex * Age * Height * Weight * NOC * Games * Year * Season * Sport * Event, data = .)
 ```
 ```
 ## Error: cannot allocate vector of size 72.4 Gb
@@ -168,7 +171,7 @@ This process is pretty excessive - we're asking R to calculate a _lot_ of stuff 
 Instead, we want to be able to guess what _traits_ make someone more likely to win. As such, we should only test the variables that we think are scientifically relevant - most likely, things like their age, height, and weight. If we make a model more like that:
 
 ```{r}
-AthleteLinearModel <- lm(Winner ~ Age + Height + Weight, data = AthleteEvents) 
+AthleteLinearModel <- lm(Winner ~ Age * Height * Weight, data = AthleteEvents) 
 
 summary(AthleteLinearModel)
 ```
@@ -190,7 +193,7 @@ Instead, we can choose to use a _logistic model_, one of the types of _generaliz
 R convieniently has a function ```glm()``` for doing exactly this:
 
 ```{r}
-AthleteLogisticModel <- glm(Winner ~ Age + Height + Weight, data = AthleteEvents, family = "binomial") 
+AthleteLogisticModel <- glm(Winner ~ Age * Height * Weight, data = AthleteEvents, family = "binomial") 
 
 summary(AthleteLogisticModel)
 ```
@@ -276,7 +279,7 @@ So while our model is doing better than chance, it's still not doing great - 0.5
 We can calculate the new formula following all the steps above. I'm also going to use ```pscl``` and ```pROC``` to find the pseduo-R^2^ and AUC of our new model, as well:
 
 ```{r}
-AthleteLogisticModel2 <- glm(Winner ~ Age + Height + Weight + Sex, data = AthleteEvents, family = "binomial") 
+AthleteLogisticModel2 <- glm(Winner ~ Age * Height * Weight * Sex, data = AthleteEvents, family = "binomial") 
 
 pscl::pR2(AthleteLogisticModel2)
 
@@ -298,13 +301,13 @@ While comparing model AUCs is effective, it isn't the most popular method to ana
 
 AIC can be used effectively in three ways:
 
-* **Model selection**, where you compare _every combination of variables possible_ OR
+* **Model selection**, where you compare _every combination of scientifically justifiable variables possible_ OR
 * **Variable analysis** where you either compare your response variable against each predictor variable _independently_ OR
 * **Variable analysis** where you standardize your predictor variables, put them into a model, and compare their coefficients
 
 AIC can't be used to rank random models against one another without actual experimental design. More rants about this may be found [here](https://dynamicecology.wordpress.com/2015/05/21/why-aic-appeals-to-ecologists-lowest-instincts/). 
 
-As such, our example here isn't the best way to demonstrate the use of AIC. We'll follow up with a more clear example in a moment.
+As such, our example here - only comparing two models, with no strong hypothesis as to why these are the two that deserve to be compared - isn't the best way to demonstrate the use of AIC. We'll follow up with a more clear example in a moment.
 
 AIC can be calculated using the ```broom``` package's ```glance()``` on any model object you have:
 
@@ -316,13 +319,357 @@ library(broom)
 glance(AthleteLogisticModel)
 glance(AthleteLogisticModel2)
 ```
-The number we're interested in right now is AIC, located halfway down the dataframe. There's a very simple rule for comparing models using AIC: $\Delta$AIC between two models > 2? The model with the smaller AIC is better.
 
+The number we're interested in right now is AIC, located halfway across the dataframe. There's a very simple rule for comparing models using AIC: $\Delta$AIC between two models > 4? The model with the smaller AIC is better. $\Delta$AIC between 2 and 4? Odds are the model with the smaller AIC is better, but it's shakier. $\Delta$AIC < 2? The two models are effectively identical.
+
+In this case, our second model has an AIC of 168576.3, while the first model's AIC value is 169872.5. As such, the models have a $\Delta$AIC of `r 169872.5 - 168576.3`, which is a little bit bigger than 4.
+
+Note that the actual AIC number is unitless and arbitrary - the AIC isn't so much a metric for how well the model fits the data, in the way that R^2^ and AUC are, but rather a way to tell _which_ of your models better fits the data. More commonly reported than AIC values are the $\Delta$AIC values, the number of parameters in a model (represented as _k_), and the Aikake Weights of each model - information on calculating those [here](http://www.brianomeara.info/tutorials/aic/).
+
+
+## More Complicated Analyses
+
+So far, we haven't really earned our chapter title - while what we've been doing so far has been more in depth, it hasn't necessarily been more complicated.
+
+This is the section that'll step things up a little. If you got a strong understanding of functional programming in unit 4, and then understood making your own functions in unit 5, this part shouldn't be particularly hard. However, it is one of the more involved blocks of code we've worked through so far - so don't feel bad if it takes a little time before things work right, or before you fully understand what we're doing.
+
+So, as we mentioned above, using AIC to compare two random models isn't exactly what the tool is designed for. While it isn't technically _wrong_, so long as the models are both of the same type (i.e., logistic) and modeling the same dataset, it isn't _useful_ to science or to you. We don't particularly care which models are slightly better than others - we want to know which ones are right!
+
+You can either do this by comparing a small set of models that you have strong reasons to believe are accurate - this is a form of hypothesis testing, but using model AICs rather than p values - or by comparing all possible models which use the same set of _scientifically sound predictor variables_. Note the "scientifically sound" - you can't throw millions of predictors at the wall and hope that they stick; you have to be able to justify their inclusion.
+
+
+## Model Selection:
+
+Lets say with our Olympic athlete dataset I can justify expecting sex, age, height, and weight as predictors for the model, as well as the interactions between each of these terms. After all, we can expect age, height, and weight to vary together somewhat - and each of these likely differs between male and female athletes.
+
+One way I could compare the combinations of these variables would be to ```glance()``` at each of them individually, like so:
 
 ```{r}
-merge(AthleteEvents,
-      NOCRegions,
-      by = NOC)
+## Glancing at the full model
+glance(glm(Winner ~ Sex * Age * Height * Weight, data = AthleteEvents, family = "binomial"))
 ```
 
-INCLUDE JOINS
+However, this is inefficient, requires a lot of typing, and makes it really hard to compare AICs directly - or to export them to somewhere like Excel, for inclusion in a document. A somewhat better way is to define each model as its own function, taking the argument ```df```:
+
+```{r}
+FullMod <- function(df){
+  glm(Winner ~ Sex * Age * Height * Weight, data = df, family = "binomial")
+}
+
+One <- function(df){
+  glm(Winner ~ Sex * Age * Height, data = df, family = "binomial")
+}
+
+Two <- function(df){
+  glm(Winner ~ Sex * Age * Weight, data = df, family = "binomial")
+}
+
+Three <- function(df){
+  glm(Winner ~ Sex * Height * Weight, data = df, family = "binomial")
+}
+
+Four <- function(df){
+  glm(Winner ~ Sex * Height, data = df, family = "binomial")
+}
+
+Five <- function(df){
+  glm(Winner ~ Sex * Age, data = df, family = "binomial")
+}
+
+Six <- function(df){
+  glm(Winner ~ Sex * Weight, data = df, family = "binomial")
+}
+
+Seven <- function(df){
+  glm(Winner ~ Age * Height * Weight, data = df, family = "binomial")
+}
+
+Eight <- function(df){
+  glm(Winner ~ Age * Height, data = df, family = "binomial")
+}
+
+Nine <- function(df){
+  glm(Winner ~ Age * Weight, data = df, family = "binomial")
+}
+
+Ten <- function(df){
+  glm(Winner ~ Height * Weight, data = df, family = "binomial")
+}
+
+Eleven <- function(df){
+  glm(Winner ~ Sex, data = df, family = "binomial")
+}
+
+Twelve <- function(df){
+  glm(Winner ~ Age, data = df, family = "binomial")
+}
+
+Thirteen <- function(df){
+  glm(Winner ~ Height, data = df, family = "binomial")
+}
+
+Fourteen <- function(df){
+  glm(Winner ~ Weight, data = df, family = "binomial")
+}
+
+NullMod <- function(df){
+  glm(Winner ~ 1, data = df, family = "binomial")
+}
+```
+
+That last item in the list is what's known as the _null model_ - it's a similar concept to the null hypothesis in hypothesis testing. Its purpose is to serve as a baseline for judging the rest of our models - we're hoping they have a $\Delta$AIC > 4!
+
+Now that we have our models defined, we're able to run each of them against the dataset. Fair warning, this step will take a long time to complete - we're asking R to compute estimates for something like 4.8 million observations by doing this. We'll then overwrite the columns we just created, replacing them with the values from ```glance()``` so we can make model comparisons:
+
+```{r}
+LogModelGlances <- AthleteEvents %>%
+  nest() %>%
+  mutate(FullMod = map(data, FullMod),
+         FullMod = map(FullMod, glance),
+         One = map(data, One),
+         One = map(One, glance),
+         Two = map(data, Two),
+         Two = map(Two, glance),
+         Three = map(data, Three),
+         Three = map(Three, glance),
+         Four = map(data, Four),
+         Four = map(Four, glance),
+         Five = map(data, Five),
+         Five = map(Five, glance),
+         Six = map(data, Six),
+         Six = map(Six, glance),
+         Seven = map(data, Seven),
+         Seven = map(Seven, glance),
+         Eight = map(data, Eight),
+         Eight = map(Eight, glance),
+         Nine = map(data, Nine),
+         Nine = map(Nine, glance),
+         Ten = map(data, Ten),
+         Ten = map(Ten, glance),
+         Eleven = map(data, Eleven),
+         Eleven = map(Eleven, glance),
+         Twelve = map(data, Twelve),
+         Twelve = map(Twelve, glance),
+         Thirteen = map(data, Thirteen),
+         Thirteen = map(Thirteen, glance),
+         Fourteen = map(data, Fourteen),
+         Fourteen = map(Fourteen, glance),
+         NullMod = map(data, NullMod),
+         NullMod = map(NullMod, glance))
+
+LogModelGlances
+```
+
+(This is why you need to have smart hypotheses about which variables matter - imagine having to wait for thirty-two models to process, or even more!)
+
+We then want to get from this wide dataframe to a tidy dataframe, by ```gather()```ing the model types into a column, paired with the dataframe their column contains:
+
+```{r}
+LogModelGlances <- LogModelGlances %>%
+  gather(Model, Value) %>%
+  slice(-1)
+```
+
+I also used ```slice(-1)``` to drop the first row containing our data, since we don't need it anymore. 
+
+Now all that's left is to unlist our value columns. I'm also going to arrange the table by AIC, to show us which models performed best (and worst!)
+
+```{r}
+LogModelGlances %>%
+  unnest(Value, .drop = T) %>%
+  arrange(AIC)
+```
+
+Tada! Looks like all our models outperformed the null model by a good margin - and our full model is the best model of the set, with no other model getting particularly close to it. If we wanted, we could now measure just how accurate our best model is, using either AUC or a pseudo-R^2^:
+
+```{r}
+ROCMod <- glm(Winner ~ Sex * Age * Height * Weight, data = AthleteEvents, family = "binomial")
+
+pROC::roc(ROCMod$y, ROCMod$fitted.values)
+pscl::pR2(glm(Winner ~ Sex * Age * Height * Weight, data = AthleteEvents, family = "binomial"))
+```
+
+0.6 AUC and 0.255 McFadden's pseudo-R^2^. Even after all that, it seems like our model could be improved quite a bit!
+
+
+### Detour: Another Way
+Now, obviously, this entire section breaks our rule that if you have to type it more than twice, there's a better way. That's true here, too - but the better way is significantly more complicated, so I introduced the longer form first. The better way is in the next section of this unit.
+
+Typing models out this way does become prohibitive as you add more variables - for every _k_ variables you want to include, you wind up having to type out 2^k^ formulas. Even greater than the time tax that puts on you is the amount of time it will take to compute those models and fit them to your data. Generally speaking, you shouldn't have massive numbers of variables in your regression equations. Remember the old saying:
+
+> All models are wrong, but some models are useful.
+
+Or, alternately:
+
+> The perfect is the enemy of the pretty good.
+
+Lots of practicioners want to use as much data as they can to make the most accurate and precise model formula possible, no matter how efficient or practical that formula may be. That's because a lot of people lose track of the whole purpose of the model - someone should be able to take this crazy thing you've created and go _do_ something with it. Models with fifty parameters make that impossible, unless practicioners are going to be able to get as much data as you happened to collect. Plus, longer formulas may be better fits to your data - but they're also more likely to be _overfits_, worse at describing the outside world. Finally - and this is the challenge most relevant to business applications, as well - models with more terms are extremely costly to use, requiring either huge amounts of computing power or time to work properly. 
+
+As such, a better practice is to figure out which variables are most likely to matter before you start building your models - as we did, with our correlation plots and tables. This method is a lot more sound scientifically, as well - rather than throwing things at the wall until you got one to stick, you're better able to explain your analysis methods, and the reason those terms matter.
+
+However, if you want to throw things at the wall anyway, the statistically preferred way to do so is stepwise selection (one informative link [here](https://people.duke.edu/~rnau/regstep.htm), another - this one including information on the true "stepwise" bidirectional selection - [here](https://stats.stackexchange.com/questions/317625/what-is-stepwise-linear-regression), and a third - this one explaining things better, but including coding tips for non-R programs, [here](http://www.markirwin.net/stat135/Lecture/Lecture32.pdf)). 
+
+The basic process to do this is to fit two models - a null model and a full model - and then pass them to the ```step()``` function. First, though, we have to drop all the rows where our predictor values have a value of ```NA```:
+
+```{r}
+StepWiseData <- AthleteEvents %>% 
+                    drop_na(3:6, 14) ## Numbers specify columns to drop NA in
+```
+
+
+We can choose which type of stepwise selection we want by specifying certain parameters within this function - for instance, given our models:
+
+```{r}
+StepWiseFullMod <- glm(Winner ~ Sex * Age * Height * Weight, data = StepWiseData, family = "binomial")
+StepWiseNullMod <- glm(Winner ~ 1, data = StepWiseData, family = "binomial")
+```
+
+We can perform a backwards selection by typing:
+
+```{r eval = FALSE}
+step(StepWiseFullMod)
+```
+
+A forward selection via:
+
+```{r eval = FALSE}
+step(StepWiseNullMod, 
+     scope = list(lower = formula(StepWiseNullMod), 
+                  upper = formula(StepWiseFullMod)),
+     direction = "forward")
+```
+
+And a bi-directional bothways function via the following:
+
+```{r eval = FALSE}
+step(StepWiseNullMod, 
+     scope = list(lower = formula(StepWiseNullMod), 
+                  upper = formula(StepWiseFullMod)),
+     direction = "both")
+```
+
+I'm not running them here, because they take a ton of space. Note that these methods give us slightly different formulas, due to how each calculates which terms to include.
+
+This method is becoming disfavored, as it doesn't require you to think about _why_ you want a given variable in the model. But I can't stop you from doing whatever you're gonna do.
+
+### The Better (...Faster) Way
+
+There _is_ a way to programmatically generate all the models, using the ```map()``` family of functions. Before we get to that, though, let's create a smaller dataframe - ```Predictors``` - that only contains our predictor variables. We'll also get the ```names()``` of all our predictors, and store that in our column ```Cols```:
+
+```{r}
+Predictors <- data.frame(Sex = AthleteEvents$Sex,
+                         Age = AthleteEvents$Age,
+                         Height = AthleteEvents$Height,
+                         Weight = AthleteEvents$Weight)
+
+Cols <- names(Predictors)
+```
+
+We're now going to find the ```length()``` of our ```Cols``` vector and store it in ```n```:
+
+```{r}
+n <- length(Cols)
+```
+
+Alright, here's where things get a little more complicated.
+
+What we want to do is use the ```combn()``` function to find all the combinations of our variables, so that we can use those to programmatically build formulas. The way we do this is to build what's known as an _anonymous function_ inside of ```combn()``` by typing ```~```, using our ```.``` pronoun to iterate through a dataset. We'll also set ```simplify``` inside of the ```combn()``` function to ```FALSE```. If we pass this to ```map()```, we get the following output:
+
+```{r}
+map(1:n, ~ combn(1:n, ., simplify = FALSE))
+```
+
+Which is very close to what we want. The issue is, each of these combinations is buried inside a list - while we want a list of combinations, what we have is a list of lists of combinations. To get rid of that higher-level list, we can use the ```unlist()``` function - specifying ```recursive = FALSE``` to make sure we only get rid of the top-level list. I'm going to assign that to ```id```:
+
+```{r}
+id <- unlist(map(1:n, ~ combn(1:n, ., simplify = FALSE)), recursive = FALSE)
+```
+
+We now have everything we need to find our formulas - the names of our predictor variables and all the combinations we want of them. We're now going to use ```map_chr()``` to ```paste()``` together each of our formulas - by indexing ```Cols``` with ```[.]``` in our anonymous function, we can call each combination of column names we have specified in ```id```. ```collapse = "*"``` will separate each of our predictors with the ```*``` operator:
+
+```{r}
+Formulas <- map_chr(id, ~ paste("Winner ~", paste(Cols[.], collapse="*")))
+Formulas
+```
+
+Now, my desired outputs here are two dataframes: one of the outputs from ```tidy()```, and one of the outputs from ```glance()```. As such, I'm going to initalize two dataframes, ```Glances``` and ```Tidies```, with the outputs from those functions. I'm also going to create a column in ```Tidies``` to store which formula the output is from:
+
+```{r}
+Glances <- glance(glm(Winner ~ 1, data = AthleteEvents, family = "binomial"))
+Tidies <- tidy(glm(Winner ~ 1, data = AthleteEvents, family = "binomial"))
+Tidies$FormNum <- 0
+```
+
+And now we want to actually calculate these models for our data. For this, we have to use a for loop, running as many times as we have formulas. Rather than explain everything in the loop up here, I've commented the code below:
+
+```{r}
+for(i in seq_along(Formulas)){
+## Convert the current (index i) formula into a logistic model
+  CurrentModel <- glm(as.formula(Formulas[[i]]), data = AthleteEvents, family = "binomial")
+  
+## Store the glance of the current model in CurrentGlance
+  CurrentGlance <- glance(CurrentModel)
+  
+## Make row i of Glances the current model's glance
+  Glances[i, ] <-  as.vector(CurrentGlance)
+  
+## Store the tidy of the current model, label it with the model number, and convert it to a vector
+  CurrentTidy <- tidy(CurrentModel)
+  CurrentTidy$FormNum <- i
+  CurrentTidy <- as.vector(CurrentTidy)
+## Append the current tidy to your table with all tidy outputs
+  Tidies <-  rbind(Tidies, CurrentTidy)
+}
+```
+
+And if everything worked properly, we can print out our dataframes to make sure we got everything right:
+
+```{r}
+Glances
+Tidies
+```
+
+## Relational Data
+
+Before we get into this next section, I'm going to make two edits to the ```Glances``` table:
+
+1. I'm going to convert the row names (those unlabeled numbers on the left) into a column called ```FormNum```
+2. I'm going to only select our columns of ```FormNum``` and ```AIC```:
+
+```{r}
+Glances <- Glances %>%
+  mutate(FormNum = as.numeric(row.names(.))) %>%
+  select(FormNum, AIC)
+Glances
+```
+
+Inner Join
+
+Left Join
+
+Right Join
+
+Full Join
+
+by = 
+
+Semi Join
+
+```{r}
+BestMods <- Glances %>%
+  filter(AIC < min(AIC) + 4)
+BestMods
+```
+
+```{r}
+semi_join(Tidies, BestMods)
+```
+
+Anti Join
+
+```{r}
+anti_join(Tidies, BestMods)
+```
+
+
+

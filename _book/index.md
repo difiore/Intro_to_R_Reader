@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Data Exploration and Analysis with R"
 author: "Michael Mahoney"
-date: "2018-10-30"
+date: "2018-11-01"
 site: bookdown::bookdown_site
 bookdown::gitbook:
   config:
@@ -37,6 +37,6 @@ Much of this reader draws from Hadley Wickham's 2012 [stat405](http://stat405.ha
 
 This course serves as an introduction to R for scientific and research applications, focusing specifically on exploratory data analysis, hypothesis generation and confirmation, data visualization, and communication of results. It is not an introduction to statistics course, though it will teach some statistics. It isn't even an introduction to computer programming or computer science course, though it will teach some of each of those. 
 
-This reader is currently being continuously deployed to  [bookdown.org](https://bookdown.org/connect/#/apps/2008/access), particularly as new sections are completed or old ones restructured. This is so that I can get feedback from the small group of people who are using this book to learn R themselves, so I can adjust and adapt the text as needed. If you'd like to help with this process, I'd love to hear from you, at <mike.mahoney.218@gmail.com>. More information about me can be found at [my website](https://www.mikemahoney218.com), which just so happens to have been built in R.
+This reader is currently being continuously deployed to  [bookdown.org](https://bookdown.org/connect/#/apps/2008/access) and [GitHub](https://github.com/mikemahoney218/Intro_to_R_Reader), particularly as new sections are completed or old ones restructured. This is so that I can get feedback from the small group of people who are using this book to learn R themselves, so I can adjust and adapt the text as needed. If you'd like to help with this process, I'd love to hear from you, at <mike.mahoney.218@gmail.com>, or see a pull request made on GitHub. More information about me can be found at [my website](https://www.mikemahoney218.com), which just so happens to have been built in R.
 
 Units 1-5 are currently complete. In production are units 6 and 7 - you can see the skeletons forming at the bottom of this document. There are currently 11 units planned.
