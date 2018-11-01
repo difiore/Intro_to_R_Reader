@@ -225,6 +225,8 @@ ggplot(CorMatrix, aes(Var1, Var2, fill = Cor)) +
 
 <img src="04_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
+Note that what we did above - calling ```cor()``` inside of ```tidy()``` - applies the outside function to the output of the inside function. Functions are run from the inside out. You might remember similar formulas from algebra classes - ```f(g(x))``` is the same as ```(f * g)(x)```. 
+
 Of course, there's no need to do all of these at once - you can do whichever method makes sense to you. Either way, we get similar results - the strongest correlation is between life expectancy and GDP. We can visualize this trend using our ggplot skills:
 
 
@@ -234,6 +236,8 @@ ggplot(gapminder, aes(gdpPercap, lifeExp)) +
 ```
 
 <img src="04_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+
+(See that example of nesting functions? ```ggplot(aes())```!)
 
 Hmm, weird! While we can see the correlation, it seems like there's another factor we aren't accounting for. What happens if we color the points by the year they represent?
 

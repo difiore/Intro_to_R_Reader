@@ -6,20 +6,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Introduction to Data Exploration and Analysis with R</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="description" content="This is a course reader for a class that will never be taught. Hopefully it helps you nonetheless.">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="Introduction to Data Exploration and Analysis with R" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="github-repo" content="MikeMahoney218/LectureBook" />
+  <meta property="og:description" content="This is a course reader for a class that will never be taught. Hopefully it helps you nonetheless." />
+  <meta name="github-repo" content="MikeMahoney218/Intro_to_R_Reader" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Introduction to Data Exploration and Analysis with R" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="This is a course reader for a class that will never be taught. Hopefully it helps you nonetheless." />
   
 
 <meta name="author" content="Michael Mahoney">
@@ -1154,6 +1154,7 @@ StepWiseNullMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Winner
 </div>
 <div id="the-better-faster-way" class="section level3">
 <h3><span class="header-section-number">6.10.2</span> The Better (…Faster) Way</h3>
+<p>Before we launch into this, note that this section is a little more techy and a little more obscure. It shouldn’t be that hard to follow, if you fully understand how for loops and map functions work. But if this is a little above your level right now, that’s totally fine - think of this section as more of a template, showing how we can combine tools to make our code faster and more efficient.</p>
 <p>There <em>is</em> a way to programmatically generate all the models, using the <code>map()</code> family of functions. Before we get to that, though, let’s create a smaller dataframe - <code>Predictors</code> - that only contains our predictor variables. We’ll also get the <code>names()</code> of all our predictors, and store that in our column <code>Cols</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Predictors &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Sex =</span> AthleteEvents<span class="op">$</span>Sex,
                          <span class="dt">Age =</span> AthleteEvents<span class="op">$</span>Age,
@@ -1439,7 +1440,7 @@ Tidies<span class="op">$</span>FormNum &lt;-<span class="st"> </span><span class
 </div>
 <div id="relational-data" class="section level2">
 <h2><span class="header-section-number">6.11</span> Relational Data</h2>
-<p>Before we get into this next section, I’m going to make two edits to the <code>Glances</code> table:</p>
+<p>Okay, this next section should be easier and more relevant to your daily life. Before we get into it, I’m going to make two edits to the <code>Glances</code> table:</p>
 <ol style="list-style-type: decimal">
 <li>I’m going to convert the row names (those unlabeled numbers on the left) into a column called <code>FormNum</code></li>
 <li>I’m going to only select our columns of <code>FormNum</code> and <code>AIC</code>:</li>
@@ -1464,6 +1465,13 @@ Glances</code></pre></div>
 ## 13      13 168735.0
 ## 14      14 169719.4
 ## 15      15 168306.7</code></pre>
+<p>I also want to point out one important difference between our dataframes - the <code>Glances</code> dataframe doesn’t include our null model, while <code>Tidies</code> has it as <code>FormNum == 0</code>. We can check to make sure by <code>factor()</code>ing our dataframes’ <code>FormNum</code> fields, which identifies each unique level in the vector. We can then find all the <code>levels()</code> contained in that factor:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(<span class="kw">factor</span>(Glances<span class="op">$</span>FormNum))</code></pre></div>
+<pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot; &quot;13&quot; &quot;14&quot;
+## [15] &quot;15&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(<span class="kw">factor</span>(Tidies<span class="op">$</span>FormNum))</code></pre></div>
+<pre><code>##  [1] &quot;0&quot;  &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot; &quot;13&quot;
+## [15] &quot;14&quot; &quot;15&quot;</code></pre>
 <p>Inner Join</p>
 <p>Left Join</p>
 <p>Right Join</p>

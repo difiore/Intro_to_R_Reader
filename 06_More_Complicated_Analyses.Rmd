@@ -554,6 +554,8 @@ This method is becoming disfavored, as it doesn't require you to think about _wh
 
 ### The Better (...Faster) Way
 
+Before we launch into this, note that this section is a little more techy and a little more obscure. It shouldn't be that hard to follow, if you fully understand how for loops and map functions work. But if this is a little above your level right now, that's totally fine - think of this section as more of a template, showing how we can combine tools to make our code faster and more efficient.
+
 There _is_ a way to programmatically generate all the models, using the ```map()``` family of functions. Before we get to that, though, let's create a smaller dataframe - ```Predictors``` - that only contains our predictor variables. We'll also get the ```names()``` of all our predictors, and store that in our column ```Cols```:
 
 ```{r}
@@ -631,7 +633,7 @@ Tidies
 
 ## Relational Data
 
-Before we get into this next section, I'm going to make two edits to the ```Glances``` table:
+Okay, this next section should be easier and more relevant to your daily life. Before we get into it, I'm going to make two edits to the ```Glances``` table:
 
 1. I'm going to convert the row names (those unlabeled numbers on the left) into a column called ```FormNum```
 2. I'm going to only select our columns of ```FormNum``` and ```AIC```:
@@ -642,6 +644,14 @@ Glances <- Glances %>%
   select(FormNum, AIC)
 Glances
 ```
+
+I also want to point out one important difference between our dataframes - the ```Glances``` dataframe doesn't include our null model, while ```Tidies``` has it as ```FormNum == 0```. We can check to make sure by ```factor()```ing our dataframes' ```FormNum``` fields, which identifies each unique level in the vector. We can then find all the ```levels()``` contained in that factor:
+
+```{r}
+levels(factor(Glances$FormNum))
+levels(factor(Tidies$FormNum))
+```
+
 
 Inner Join
 

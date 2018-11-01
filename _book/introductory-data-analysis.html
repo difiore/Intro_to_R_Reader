@@ -6,20 +6,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Introduction to Data Exploration and Analysis with R</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="description" content="This is a course reader for a class that will never be taught. Hopefully it helps you nonetheless.">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="Introduction to Data Exploration and Analysis with R" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="github-repo" content="MikeMahoney218/LectureBook" />
+  <meta property="og:description" content="This is a course reader for a class that will never be taught. Hopefully it helps you nonetheless." />
+  <meta name="github-repo" content="MikeMahoney218/Intro_to_R_Reader" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Introduction to Data Exploration and Analysis with R" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="This is a course reader for a class that will never be taught. Hopefully it helps you nonetheless." />
   
 
 <meta name="author" content="Michael Mahoney">
@@ -367,10 +367,12 @@ CorMatrix</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CorMatrix, <span class="kw">aes</span>(Var1, Var2, <span class="dt">fill =</span> Cor)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_tile</span>()</code></pre></div>
 <p><img src="04_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Note that what we did above - calling <code>cor()</code> inside of <code>tidy()</code> - applies the outside function to the output of the inside function. Functions are run from the inside out. You might remember similar formulas from algebra classes - <code>f(g(x))</code> is the same as <code>(f * g)(x)</code>.</p>
 <p>Of course, there’s no need to do all of these at once - you can do whichever method makes sense to you. Either way, we get similar results - the strongest correlation is between life expectancy and GDP. We can visualize this trend using our ggplot skills:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(gdpPercap, lifeExp)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_jitter</span>()</code></pre></div>
 <p><img src="04_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>(See that example of nesting functions? <code>ggplot(aes())</code>!)</p>
 <p>Hmm, weird! While we can see the correlation, it seems like there’s another factor we aren’t accounting for. What happens if we color the points by the year they represent?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(gdpPercap, lifeExp, <span class="dt">color =</span> year)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_jitter</span>()</code></pre></div>
