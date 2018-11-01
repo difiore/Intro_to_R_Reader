@@ -287,7 +287,7 @@ If we want to see the effect of two continuous variables (say, ```gdpPercapita``
 lm(lifeExp ~ gdpPercap + year, data = gapminder)
 ```
 
-These coefficients show how much we can expect life expectancy to increase if the GDP or year increases. The intercept is what life expectancy would be if both GDP and the year were 0 - obviously, this number doesn't make a ton of sense, since we don't have any data on life expectancy in either of those situations.
+These coefficients show how much we can expect life expectancy to increase if the GDP or year increases. The intercept is what life expectancy would be if both GDP and the year were 0 - obviously, this number doesn't make a ton of sense, since we don't have any data on life expectancy in either of those situations. There's ways to correct for this, and we aren't gonna do them - more information can be found [here](https://www.theanalysisfactor.com/center-on-the-mean/).
 
 If we want to see how well this model fits our data, we can graph it:
 

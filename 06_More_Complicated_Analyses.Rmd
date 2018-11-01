@@ -645,12 +645,13 @@ Glances <- Glances %>%
 Glances
 ```
 
-I also want to point out one important difference between our dataframes - the ```Glances``` dataframe doesn't include our null model, while ```Tidies``` has it as ```FormNum == 0```. We can check to make sure by ```factor()```ing our dataframes' ```FormNum``` fields, which identifies each unique level in the vector. We can then find all the ```levels()``` contained in that factor:
+I also want to point out one important difference between our dataframes - the ```Glances``` dataframe doesn't include our null model, while ```Tidies``` has it as ```FormNum == 0```. We can check to make sure by ```factor()```ing our dataframes' ```FormNum``` fields, which identifies each unique level in the vector. We can then find all the ```levels()``` contained in that factor, confirming that ```0``` is only present in the ```Tidies``` dataframe:
 
 ```{r}
 levels(factor(Glances$FormNum))
 levels(factor(Tidies$FormNum))
 ```
+
 
 
 Inner Join
