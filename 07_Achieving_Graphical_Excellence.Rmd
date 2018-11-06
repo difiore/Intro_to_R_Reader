@@ -382,14 +382,61 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
 
 ## Specialized Visualizations
 
+### Stacked Area Plots
+If you want to show how the distribution of several groups change over time, one method is to use what's known as a stacked area chart. While very visually appealing, this chart design has a lot of the drawbacks of stacked bar plots - it can be hard to see how exactly values change (for instance, compare A and C in the plot below). However, if you're working with timeseries data, the changes in your values are relatively obvious, or you care more about aesthetics than usefulness, this plot can be a good choice. Just specify a ```fill``` aesthetic for a ```geom_area()``` plot:
+
+```{r}
+df <- tibble(x = c(1, 2, 3, 4,
+                   1, 2, 3, 4,
+                   1, 2, 3, 4),
+             y = c(33, 70, 50, 18,
+                   33, 10, 25, 60,
+                   34, 20, 25, 22),
+             z = c("A","A","A","A",
+                   "B","B","B","B",
+                   "C","C","C","C"))
+
+df %>%
+  ggplot(aes(x, y, fill = z)) + 
+  geom_area(alpha = 0.9, color = "black") +
+  scale_fill_brewer(palette = "Dark2")
+```
+
+
 ### Slope Charts
 
 ### Maps
+
 
 ### Circlize
 Pie charts are much maligned, but do have some benefits over bar plots - for instance, if you're trying to represent proportional data, [pie charts perform better than stacked or dodged column charts.](http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf) While ggplot doesn't include a native method for making pie charts, the ```circlize``` library can be used to 
 
 ### ggridges
+
+## Rearranging Groups
+Say you have a boxplot:
+
+```{r}
+ggplot(iris, aes(Species, Sepal.Length)) + 
+  geom_boxplot()
+```
+
+And you want to rearrange the order the boxes go in.
+
+The easiest way to do this is to ```factor()``` whatever discrete variable you're grouping your data by, which will create a ranked order for your variable. You can then specify which ```levels``` you want each factor to go in:
+
+```{r}
+iris$Species <- factor(iris$Species, levels = c("setosa", "virginica", "versicolor"))
+
+ggplot(iris, aes(Species, Sepal.Length)) + 
+  geom_boxplot()
+```
+
+Note that factors sometimes don't play nicely with data analysis tools - to unfactor a variable, run it through ```as.character()``` or ```as.numeric()```, depending on which you need:
+
+```{r}
+iris$Species <- as.character(iris$Species)
+```
 
 ## Further Reading
 For further reading on graphical excellence, consider the following sources:
