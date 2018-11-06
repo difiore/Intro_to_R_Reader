@@ -381,6 +381,7 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
 
 
 ## Specialized Visualizations
+We're going to spend some time now working our way through a number of less-commonly used visualizations, using a variety of other packages.
 
 ### Stacked Area Plots
 If you want to show how the distribution of several groups change over time, one method is to use what's known as a stacked area chart. While very visually appealing, this chart design has a lot of the drawbacks of stacked bar plots - it can be hard to see how exactly values change (for instance, compare A and C in the plot below). However, if you're working with timeseries data, the changes in your values are relatively obvious, or you care more about aesthetics than usefulness, this plot can be a good choice. Just specify a ```fill``` aesthetic for a ```geom_area()``` plot:
@@ -402,16 +403,39 @@ df %>%
   scale_fill_brewer(palette = "Dark2")
 ```
 
+### ggridges
+A similar aesthetic to the stacked area chart can be found in a ridge plot - particularly, a density ridge plot, as provided by the ```ggridges``` package:
+
+```
+install.packages("ggridges")
+```
+
+```{r}
+ggplot(iris, aes(Sepal.Length, Species)) + 
+  ggridges::geom_density_ridges(aes(fill = Species))
+```
+
+You can get plenty of cool effects using this package - check out the vignette [here](https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html) for more information.
 
 ### Slope Charts
+
 
 ### Maps
 
 
-### Circlize
-Pie charts are much maligned, but do have some benefits over bar plots - for instance, if you're trying to represent proportional data, [pie charts perform better than stacked or dodged column charts.](http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf) While ggplot doesn't include a native method for making pie charts, the ```circlize``` library can be used to 
+### Circular Charts
+Pie charts are much maligned, but do have some benefits over bar plots - for instance, if you're trying to represent proportional data, [pie charts perform better than stacked or dodged column charts.](http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf) While ggplot doesn't include a native method for making pie charts, you could use base R's ```pie()``` function:
 
-### ggridges
+```{r}
+df <- tibble(x = c(33, 33, 33),
+             y = c("A", "B", "C"))
+
+
+pie(df$x, df$y)
+```
+
+If you want to get even more involved with circular plots, check out the ```circlize``` package, documented [here.](https://jokergoo.github.io/circlize_book/book/)
+
 
 ## Rearranging Groups
 Say you have a boxplot:
