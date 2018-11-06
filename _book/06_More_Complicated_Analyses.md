@@ -1612,5 +1612,5 @@ reduce(
 
 ## Exercises
 1. Try out the types of join on the Olympic datasets ```AthleteEvents``` and ```NOCRegions```. What differences do you notice between the join types?
-2. Explore the ```NBAStats``` dataset. Can you predict the number of points (PTS) players will score based on information available to you?
+2. Explore the ```NBAStats``` dataset. Can you predict the number of points (```PTS```) players will score based on information available to you?
 3. Make multiple linear models (```lm()```) for each position (```Pos```) in the dataset. 

@@ -1,5 +1,7 @@
 # Achieving Graphical Excellence
 ## Work in Progress
+## Introduction
+So far, we've used graphs repeatedly to help communicate and understand our data. While the fast graphics we've been using are more than sufficient for our own analyses, making graphics for publication or presentation requires a little more finesse. That's where this unit comes in - we'll be briefly touching on many of the options you have control over to make your graphics look exactly as you want them to. Before we get started, let's load the tidyverse:
 
 
 ```r
@@ -22,10 +24,9 @@ library(tidyverse)
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
-https://www.jstor.org/stable/2288400?seq=1#metadata_info_tab_contents
 
-http://vis.stanford.edu/files/2010-MTurk-CHI.pdf
 
+## Getting Started
 Look at this scatterplot:
 <img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
@@ -231,7 +232,7 @@ It's colorful, sure, but the colors don't add any information to the graph - if 
 ### Viridis
 One of the most popular color scale packages is the ```viridis``` color scale, designed to provide colorblind-friendly color scales for your graphics. More information on the available palettes may be found [here.](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html)
 
-To use the palettes, just load ``viridis``` and add ```scale_color_viridis``` to your graph, specifying which palette you want with ```option = ```.
+To use the palettes, just load ```viridis``` and add ```scale_color_viridis``` to your graph, specifying which palette you want with ```option = ```.
 
 ```
 install.packages("viridis")
@@ -319,14 +320,95 @@ ggplot(mpg, aes(cty, hwy)) +
 
 If you're looking to specify your own colors by hand, I find sites like [ColorSupply](http://colorsupplyyy.com/) to be extremely helpful.
 
-## Combining Geoms
-### Marginal Plots
+
 ## Labels
+It can be very useful to label your data, in order to make it obvious exactly what each point represents. ggplot includes two geoms specifically designed for this purpose - ```geom_text()```, which will be on the left below, and ```geom_label()```, on the right. Each needs the aesthetic ```label = ``` in order to work properly: 
+
+
+```r
+a <- ggplot(mpg, aes(cty, hwy)) +
+  geom_text(aes(label = model))
+
+b <- ggplot(mpg, aes(cty, hwy)) +
+  geom_label(aes(label = model))
+
+cowplot::plot_grid(a, b, nrow = 1)
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+
+As we can see, that's a bit of a mess! Trying to label all of our points just winds up with the labels all overlapping. One method to fix this is to only label the particularly impressive points, like so:
+
+
+```r
+a <- ggplot(mpg, aes(cty, hwy)) +
+  geom_point() + 
+  geom_text(data = filter(mpg, hwy > 40), aes(label = model))
+
+b <- ggplot(mpg, aes(cty, hwy)) +
+  geom_point() + 
+  geom_label(data = filter(mpg, hwy > 40), aes(label = model))
+
+cowplot::plot_grid(a, b, nrow = 1)
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+
+If we want our labels to be even cleaner, we can make use of the ```ggrepel``` package:
+
+```
+install.packages("ggrepel")
+```
+
+```r
+a <- ggplot(mpg, aes(cty, hwy)) +
+  geom_point() + 
+  ggrepel::geom_text_repel(data = filter(mpg, hwy > 40), aes(label = model))
+
+b <- ggplot(mpg, aes(cty, hwy)) +
+  geom_point() + 
+  ggrepel::geom_label_repel(data = filter(mpg, hwy > 40), aes(label = model))
+
+cowplot::plot_grid(a, b, nrow = 1)
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+
 ## Animation
-[paper on silencing](http://visionlab.harvard.edu/silencing/)
+Animated plots are both very cool and also very often ineffective - for instance, here's a really interesting [paper on silencing](http://visionlab.harvard.edu/silencing/), or how motion distracts us from what we should actually be paying attention to.
+
+That said, the ```gganimate``` package still makes it pretty easy to create animated visuals. We won't go too far into the specifics - you can feel free to explore animated graphs at your own leisure - but here's an example [straight from the ```gganimate``` documentation](https://github.com/thomasp85/gganimate), using our old friend the ```gapminder``` data:
+
+
+```r
+library(gapminder)
+library(gganimate)
+
+ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
+  geom_point(alpha = 0.7, show.legend = FALSE) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_x_log10() +
+  facet_wrap(~continent) +
+  # Here comes the gganimate specific bits
+  labs(title = 'Year: {frame_time}', x = 'GDP per capita', y = 'life expectancy') +
+  transition_time(year) +
+  ease_aes('linear')
+```
+
+![](07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-23-1.gif)<!-- -->
+
+
 ## Specialized Visualizations
 ### Slope Charts
 ### Maps
 ### Circlize
 Pie charts are much maligned, but do have some benefits over bar plots - for instance, if you're trying to represent proportional data, [pie charts perform better than stacked or dodged column charts.](http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf) While ggplot doesn't include a native method for making pie charts, the ```circlize``` library can be used to 
 ### ggridges
+## Further Reading
+For further reading on graphical excellence, consider the following sources:
+
+* A study on [which graphs are most easily understood](https://www.jstor.org/stable/2288400?seq=1#metadata_info_tab_contents), alongside a more recent [update to the study](http://vis.stanford.edu/files/2010-MTurk-CHI.pdf)
+* Hadley Wickham's [ggplot2 article](https://www.jstatsoft.org/article/view/v035b01)
+* [A Few Practical Rules for the Use of Colors in Graphs](http://www.perceptualedge.com/articles/visual_business_intelligence/rules_for_using_color.pdf)
+* [Edward Tufte's Rules for Graphical Excellence](http://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/DataPresentation/DataPresentation3.html)

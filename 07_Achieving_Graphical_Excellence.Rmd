@@ -381,11 +381,16 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
 
 
 ## Specialized Visualizations
+
 ### Slope Charts
+
 ### Maps
+
 ### Circlize
 Pie charts are much maligned, but do have some benefits over bar plots - for instance, if you're trying to represent proportional data, [pie charts perform better than stacked or dodged column charts.](http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf) While ggplot doesn't include a native method for making pie charts, the ```circlize``` library can be used to 
+
 ### ggridges
+
 ## Further Reading
 For further reading on graphical excellence, consider the following sources:
 
