@@ -1,5 +1,4 @@
 # More Complicated Analyses
-## Work in Progress
 
 ## Other Datasets
 
@@ -68,7 +67,7 @@ write_csv(AthleteEvents, "athlete_events.csv")
 
 Note that, like all other ```tidyverse``` functions, the dataset is the first thing you specify.
 
-## Data Exploration
+### Data Exploration
 Let's put ```NBAStats``` off to the side for a moment, and look at our other two datasets. ```AthleteEvents``` is a list of all olympic competitors from 1892 to 2016, including basic statistics about each and any medals they may have won. ```NOCRegions```, meanwhile, maps codes used by the National Olympic Committee (NOC) to the countries they represent.
 
 We can get a sense of the variables this dataset measures using ```psych::describe()```
@@ -133,7 +132,7 @@ AthleteEvents %>%
 
 So it looks like women have a tiny edge, but generally speaking, both men and women have a 15% chance of medalling at the Olympics. 
 
-## Modeling Winners
+### Modeling Winners
 
 Personally, I'm interested in predicting if someone will win a medal at the Olympics. We could do this a number of inferential ways - for instance, dropping all the values where an athlete _didn't_ win, and looking at the summary statistics of the athletes who did:
 
@@ -225,7 +224,7 @@ More common in data analytics is to find the area under the receiver operating c
 AthleteLogisticModel
 ```
 
-There's a lot going on in here! R stores models as _list objects_, containing a number of elements of different data types. We can get a sense of what's going on under the hood using ```str()``` - that is, asking R to show us the ```str```ucture of the data:
+Wow! R stores models as _list objects_, containing a number of elements of different data types. We can get a sense of what's going on under the hood using ```str()``` - that is, asking R to show us the ```str```ucture of the data:
 
 ```{r}
 str(AthleteLogisticModel)
@@ -270,9 +269,9 @@ LogModelROC
 That number - 0.57 - is our single statistic for how accurate our model is. Generally speaking, models with an AUC of 0.7 are thought of as good models, with 0.8 as great and 0.9 incredible. Ecology can have slightly fuzzier models - predicting the natural world is hard, yo - but even the "random chance" line has an AUC of 0.5 - if your model is close to or below that, it's pretty much useless.
 
 
-## Model Comparisons
+### Model Comparisons
 
-## AUC
+#### AUC
 
 So while our model is doing better than chance, it's still not doing great - 0.57 leaves a lot of room to improve. For instance, since we know the sex of each athlete in our dataset, what would happen if we added that variable to our formula?
 
@@ -287,7 +286,7 @@ LogModel2ROC <- roc(AthleteLogisticModel2$y, AthleteLogisticModel2$fitted.values
 LogModel2ROC
 ```
 
-So, under each metric, our new model seems to be a slightly better fit to the data. The benefits of working with AUC - and, specifically, with ```pROC``` is that testing to see if one model is better than the other is a piece of cake with ```roc.test```:
+So, under each metric, our new model seems to be a slightly better fit to the data. The benefits of working with AUC - and, specifically, with ```pROC``` - is that testing to see if one model is better than the other is a piece of cake with ```roc.test```:
 
 ```{r}
 roc.test(LogModelROC, LogModel2ROC)
@@ -295,9 +294,9 @@ roc.test(LogModelROC, LogModel2ROC)
 
 And so we're able to conclude that yes, our second model is significantly better than the first - including sex in our model made it significantly more predictive.
 
-### AIC 
+#### AIC 
 
-While comparing model AUCs is effective, it isn't the most popular method to analyze model performance. That honor likely goes to the Akaike Information Criterion, more commonly known as the AIC. The AIC measures 
+While comparing model AUCs is effective, it isn't the most popular method to analyze model performance. That honor likely goes to the Akaike Information Criterion, more commonly known as the AIC.
 
 AIC can be used effectively in three ways:
 
@@ -338,7 +337,10 @@ So, as we mentioned above, using AIC to compare two random models isn't exactly 
 You can either do this by comparing a small set of models that you have strong reasons to believe are accurate - this is a form of hypothesis testing, but using model AICs rather than p values - or by comparing all possible models which use the same set of _scientifically sound predictor variables_. Note the "scientifically sound" - you can't throw millions of predictors at the wall and hope that they stick; you have to be able to justify their inclusion.
 
 
-## Model Selection:
+### Model Selection
+
+> Model improvement doesn't make it into papers for the same reason people don’t go around introducing you to their ex-wives.
+> <div align = "right"> --- Andrew Gelman </div>
 
 Lets say with our Olympic athlete dataset I can justify expecting sex, age, height, and weight as predictors for the model, as well as the interactions between each of these terms. After all, we can expect age, height, and weight to vary together somewhat - and each of these likely differs between male and female athletes.
 
@@ -417,7 +419,7 @@ NullMod <- function(df){
 }
 ```
 
-That last item in the list is what's known as the _null model_ - it's a similar concept to the null hypothesis in hypothesis testing. Its purpose is to serve as a baseline for judging the rest of our models - we're hoping they have a $\Delta$AIC > 4!
+That last item in the list is what's known as the _null model_ - it's a similar concept to the null hypothesis in hypothesis testing. Its purpose is to serve as a baseline for judging the rest of our models - we're hoping it has a $\Delta$AIC > 4!
 
 Now that we have our models defined, we're able to run each of them against the dataset. Fair warning, this step will take a long time to complete - we're asking R to compute estimates for something like 4.8 million observations by doing this. We'll then overwrite the columns we just created, replacing them with the values from ```glance()``` so we can make model comparisons:
 
@@ -492,7 +494,7 @@ pscl::pR2(glm(Winner ~ Sex * Age * Height * Weight, data = AthleteEvents, family
 0.6 AUC and 0.255 McFadden's pseudo-R^2^. Even after all that, it seems like our model could be improved quite a bit!
 
 
-### Detour: Another Way
+#### Detour: Another Way
 Now, obviously, this entire section breaks our rule that if you have to type it more than twice, there's a better way. That's true here, too - but the better way is significantly more complicated, so I introduced the longer form first. The better way is in the next section of this unit.
 
 Typing models out this way does become prohibitive as you add more variables - for every _k_ variables you want to include, you wind up having to type out 2^k^ formulas. Even greater than the time tax that puts on you is the amount of time it will take to compute those models and fit them to your data. Generally speaking, you shouldn't have massive numbers of variables in your regression equations. Remember the old saying:
@@ -552,7 +554,7 @@ I'm not running them here, because they take a ton of space. Note that these met
 
 This method is becoming disfavored, as it doesn't require you to think about _why_ you want a given variable in the model. But I can't stop you from doing whatever you're gonna do.
 
-### The Better (...Faster) Way
+#### The Better (...Faster) Way
 
 Before we launch into this, note that this section is a little more techy and a little more obscure. It shouldn't be that hard to follow, if you fully understand how for loops and map functions work. But if this is a little above your level right now, that's totally fine - think of this section as more of a template, showing how we can combine tools to make our code faster and more efficient.
 
@@ -602,7 +604,7 @@ Tidies <- tidy(glm(Winner ~ 1, data = AthleteEvents, family = "binomial"))
 Tidies$FormNum <- 0
 ```
 
-And now we want to actually calculate these models for our data. For this, we have to use a for loop, running as many times as we have formulas. Rather than explain everything in the loop up here, I've commented the code below:
+And now we want to actually calculate these models for our data. For this, we have to use a for loop, running as many times as we have formulas. Rather than explain everything in the loop up here, I've commented the code below, with explanations following the ```##```:
 
 ```{r}
 for(i in seq_along(Formulas)){
@@ -628,7 +630,6 @@ And if everything worked properly, we can print out our dataframes to make sure 
 
 ```{r}
 Glances
-Tidies
 ```
 
 ## Relational Data
@@ -653,34 +654,77 @@ levels(factor(Tidies$FormNum))
 ```
 
 
+What we'll be doing now is working on _joining_ datasets, combining two dataframes into a single output. All of these functions take the form ```f(x, y)```, where ```f()``` is the function name and ```x, y``` are the arguments. What this function does is find columns with the same name - known as _keys_ - and combine your dataframes based on the values in those columns. For our examples, our key column will be the FormNum column.
 
-Inner Join
+### Inner Join
 
-Left Join
-
-Right Join
-
-Full Join
-
-by = 
-
-Semi Join
-
-```{r}
-BestMods <- Glances %>%
-  filter(AIC < min(AIC) + 4)
-BestMods
+An inner join will preserve only the rows in your data which have keys present in both datasets - so, in this case, the null model will be dropped:
+```{r eval=FALSE}
+inner_join(Glances, Tidies)
 ```
 
-```{r}
-semi_join(Tidies, BestMods)
+### Left Join
+
+A left join will preserve all the values in your ```x``` dataset - here, in Glances. 
+```{r eval=FALSE}
+left_join(Glances, Tidies)
 ```
 
-Anti Join
+### Right Join
 
-```{r}
-anti_join(Tidies, BestMods)
+A right join will preserve all the values in your ```y``` dataset - here in Tidies. As you can see, the AIC for the null model is left as NA, but the null model stays in the dataframe.
+```{r eval=FALSE}
+right_join(Glances, Tidies)
 ```
 
+### Full Join
+A full join will save all values in both your ```x``` and ```y``` dataframes.
+```{r eval=FALSE}
+full_join(Glances, Tidies)
+```
 
+### Semi Join
+A semi join returns a row from ```x``` if that key value has a match in ```y```. 
+```{r eval=FALSE}
+semi_join(Glances, Tidies)
+```
 
+### Anti Join
+An anti join returns a row from ```x``` if that key value _doesn't_ have a match in ```y```:
+```{r eval=FALSE}
+anti_join(Glances, Tidies)
+```
+
+### Specifying Key Columns
+Sometimes it's helpful to specify _which_ columns you want to join your data by - particularly when you have columns with the same name but different values. In those situations, use ```by = ``` to specify which columns you want to join by:
+```{r eval=FALSE}
+full_join(Glances, Tidies, by = "FormNum")
+```
+
+### Merging Multiple Dataframes
+In order to merge more than two dataframes at the same time, use ```reduce()``` with any of the above joins - all your dataframes have to be in a ```list()``` inside the ```reduce()``` call:
+```{r eval=FALSE}
+## Creating example dataframes:
+x <- data.frame(key = c("A","A","B","B"),
+                value = c(3,4,3,4))
+y <- data.frame(key = c("A","A","B","B"),
+                value = c(124,12,524,43))
+z <- data.frame(key = c("A","A","B","B"),
+                value = c(31, 4, 14, 124))
+
+## Using "reduce" to merge all dataframes:
+reduce(
+  list(
+    x,
+    y,
+    z
+  ), 
+  full_join, 
+  by = "key"
+)
+```
+
+## Exercises
+1. Try out the types of join on the Olympic datasets ```AthleteEvents``` and ```NOCRegions```. What differences do you notice between the join types?
+2. Explore the ```NBAStats``` dataset. Can you predict the number of points (```PTS```) players will score based on information available to you?
+3. Make multiple linear models (```lm()```) for each position (```Pos```) in the dataset. 

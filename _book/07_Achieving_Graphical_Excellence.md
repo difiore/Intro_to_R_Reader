@@ -7,7 +7,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages --------------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages ------------------------------------------------------------------------ tidyverse 1.2.1 --
 ```
 
 ```
@@ -18,29 +18,13 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## -- Conflicts --------------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
-
-```r
-library(cowplot)
-```
-
-```
-## 
-## Attaching package: 'cowplot'
-```
-
-```
-## The following object is masked from 'package:ggplot2':
-## 
-##     ggsave
-```
 https://www.jstor.org/stable/2288400?seq=1#metadata_info_tab_contents
-http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf
+
 http://vis.stanford.edu/files/2010-MTurk-CHI.pdf
-http://www.ggplot2-exts.org/
 
 Look at this scatterplot:
 <img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-2-1.png" width="672" />
@@ -82,8 +66,267 @@ Which values are larger?
 
 As we can see, some aesthetics communicate quantitative data very well, while others should only be used for qualitative purposes. We already knew this - we touched on it in our first unit. But getting a sense of what representations are appropriate for our data - and what sorts of things we're able to do with it - is the first step towards creating worthwhile graphics for whatever business or research purpose you have.
 
-Different 
+For the rest of this unit, we'll be working through all the various controls that ggplot (and other R packages) give us over our data visualizations. While you'll still likely have to google some solutions for your own particular problems, this unit should give you a good idea of what's possible with R graphics.
+
+Many of these solutions will make use of ggplot extensions, documented [at this website](http://www.ggplot2-exts.org/).
+
+## Themes
+Take, for example, the basic graph:
+
+```r
+ggplot(mpg, aes(cty, hwy)) + 
+  geom_point(aes(color = class))
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+
+This graph works fine - it's not particularly attractive, but we can understand what's going on decently well. 
+
+However, if we wanted to further control each element of our graph, we're more than able to do so using ```theme()```, alongside a few other functions. Below is a demonstration of some of the most commonly used theme elements - but there's a whole world of possibilities beyond what we'll get into here. This is a situation where Google is your best friend - googling "how do I ____ ggplot" almost always gets the right answer to your question.
+
+Generally speaking, arguments inside of ```theme()``` all follow a general pattern. First, you specify what plot element exactly you want to tweak - usually named ```plot.XX.XX``` or so on. Then, you specify what type of object it is - ```element_rect()``` for rectangular elements, ```element_line()``` for lines on the plot, ```element_text()``` for, well, text, and ```element_blank()``` for anything you want to not be included at all.
+
+I've explained what each action below does in comments (using ```##```). You can choose different specifications for almost everything I demonstrated - these are just examples to give you an understanding of what you're capable of controlling.
 
 
-Animation
+```r
+## Create the ggplot object
+ggplot(mpg, aes(cty, hwy)) +
+  scale_color_discrete(
+## Change the default name for the legend
+    name = "Vehicle Class",
+## Change the default name for each legend object
+## anything you don't include will become NA                       
+    labels = c("Two Seater",
+               "Compact",
+               "Midsize",
+               "Minivan",
+               "Pickup",
+               "Subcompact",
+               "SUV")) + 
+  theme(
+## Remove the margins around the plot - useful when embedding the plot in another document
+## Numbers are the top/right/bottom/left margin
+## Change "in" to use a different unit
+        plot.margin = unit(c(0,0,0,0), "in"),
+## Change the background of the larger plot itself
+        plot.background = element_rect(fill = "beige"),
+## Replace the grey background with a white one         
+        panel.background = element_rect(fill = "white"),
+## Add an x axis line        
+        axis.line.x.bottom = element_line(color = "black"),
+## Add a y axis line        
+        axis.line.y.left = element_line(color = "black"),
+## Make the text size 10        
+        text = element_text(size = 10),
+## Make the axis text size 10 and black
+        axis.text = element_text(size = 10, color = "black"),
+## Replace that ugly grey box with a white background
+        legend.key = element_rect(fill = "white"),
+## Recolor the legend box's background
+        legend.background = element_rect(fill = "grey"),
+## Move the legend to the top of the graph
+        legend.position = "top",
+## Add gridlines to the graph along the axis major breaks
+## Use panel.grid for both major and minor lines
+## Or panel.grid.minor to just do minor lines
+## This is our last argument in theme()
+        panel.grid.major = element_line(color = "grey90")) + 
+## Override the other aesthetics for the color legend
+## In this case, make the points larger in the legend than the graph
+    guides(color = guide_legend(override.aes = list(size = 3))) + 
+## Change the x and y axis labels
+    labs(x = "City Miles per Gallon",
+       y = "Highway Miles per Gallon") + 
+## Create a larger red point behind each compact car to highlight their location
+  geom_point(data = filter(mpg, class == "compact"), size = 3, color = "red") +
+## Plot the data on top of the theme and highlights
+  geom_point(aes(color = class)) + 
+## Control the x axis
+## Expand = how far past the limits to draw the graph
+## Limits = where to end the axis
+## Breaks = where to draw tick marks and grid lines
+  scale_x_continuous(
+    expand = c(0,0),
+    limits = c(0,41),
+    breaks = c(0, 5, 10, 15, 20, 25, 30, 35, 40))
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+
+You can also save your basic preferences into a function of their own, and then add that to your graphs. This makes preparing multiple graphs for publications or presentations much easier - you save a ton of code replication this way.
+
+
+```r
+theme_publishable <-  theme(
+        plot.background = element_rect(fill = "white"),
+        panel.background = element_rect(fill = "white"),
+        axis.line.x.bottom = element_line(color = "black"),
+        axis.line.y.left = element_line(color = "black"),
+        text = element_text(size = 10),
+        axis.text = element_text(size = 10, color = "black"),
+        legend.key = element_rect(fill = "white"),
+        legend.background = element_rect(fill = "white"),
+        panel.grid.major = element_line(color = "grey90"))
+
+ggplot(mpg, aes(cty, hwy)) +
+  geom_point(data = filter(mpg, class == "compact"), size = 3, color = "red") +
+  geom_point(aes(color = class)) + 
+  scale_color_discrete(
+    name = "Vehicle Class",
+    labels = c("Two Seater",
+               "Compact",
+               "Midsize",
+               "Minivan",
+               "Pickup",
+               "Subcompact",
+               "SUV")) + 
+  labs(x = "City Miles per Gallon",
+       y = "Highway Miles per Gallon") + 
+  guides(color = guide_legend(override.aes = list(size = 3))) + 
+  scale_x_continuous(
+    expand = c(0,0),
+    limits = c(0,41),
+    breaks = c(0, 5, 10, 15, 20, 25, 30, 35, 40)) +
+  theme_publishable
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+
+(As a sidenote, I usually have pretty similar themes for printed and presented graphics. The biggest difference comes in text sizes - for presentations, the text argument becomes size 24, while the axis text becomes size 20.)
+
+If this is all a little intimidating, don't worry - a lot of people have developed packages with handcrafted themes in them for you to use. For instance, in addition to the ```cowplot``` package we've been using, there's ```ggthemes```, which includes a number of palettes and themes - I'm only demonstrating one below:
+
+```
+install.packages("ggthemes")
+```
+
+
+```r
+ggplot(mpg, aes(cty, hwy)) +
+  geom_point(aes(color = class)) + 
+  labs(x = "City Miles per Gallon",
+       y = "Highway Miles per Gallon") + 
+  guides(color = guide_legend(override.aes = list(size = 3))) + 
+  scale_x_continuous(
+    expand = c(0,0),
+    limits = c(0,41),
+    breaks = c(0, 5, 10, 15, 20, 25, 30, 35, 40)) +
+  ggthemes::theme_pander() 
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+
+
+## Colors
+As we showed above, the colors you use in a graph can really help - or hinder! - communicating your data. Luckily, there's plenty of aids in R to help you use color effectively. Just remember that more color isn't always better - for instance, look at this graph:
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+
+It's colorful, sure, but the colors don't add any information to the graph - if anything, they confuse the message. You should be sparing in your use of color - as the old saying goes:
+
+> Everything should be made as simple as possible - but no simpler.
+
+
+### Viridis
+One of the most popular color scale packages is the ```viridis``` color scale, designed to provide colorblind-friendly color scales for your graphics. More information on the available palettes may be found [here.](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html)
+
+To use the palettes, just load ``viridis``` and add ```scale_color_viridis``` to your graph, specifying which palette you want with ```option = ```.
+
+```
+install.packages("viridis")
+```
+
+```r
+ggplot(mpg, aes(cty, hwy)) +
+  geom_point(aes(color = displ)) + 
+  viridis::scale_color_viridis(option = "C")
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+
+In order to apply the viridis palette to a discrete scale, just specify ```discrete = TRUE```:
+
+```r
+ggplot(mpg, aes(cty, hwy)) +
+  geom_point(aes(color = class)) + 
+  viridis::scale_color_viridis(discrete = TRUE)
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+
+### Color Brewer
+If you want a few more options for color scales, the RColorBrewer package offers plenty of choices. Originally designed to help make attractive maps, the Color Brewer paettes offer palettes designed to be printer and colorblind friendly. You can see the full list of palettes at [the interactive Color Brewer website.](http://colorbrewer2.org/)
+
+To use the package with discrete values, just type in ```scale_color_brewer()``` or ```scale_fill_brewer()``` and specify your ```palette```:
+```
+install.packages("RColorBrewer")
+```
+
+```r
+ggplot(mpg, aes(cty, hwy)) +
+  geom_point(aes(color = class)) + 
+  scale_color_brewer(palette = "Dark2")
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+
+If you want to use the Brewer scales with continuous values, just use ```scale_color_distiller()```:
+
+```r
+ggplot(mpg, aes(cty, hwy)) +
+  geom_point(aes(color = displ)) + 
+  scale_color_distiller(palette = "PuRd")
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+
+### Other Packages
+Plenty of other packages include color scales for you to use. For instance, the ```ggthemes``` package we used earlier has a number of color scales to choose from:
+
+
+```r
+ggplot(mpg, aes(cty, hwy)) +
+  geom_point(aes(color = class)) + 
+  ggthemes::scale_color_pander()
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+
+Similarly, ```ggsci``` has a lot of journal-specific and academic color scales for use:
+```
+install.packages("ggsci")
+```
+
+```r
+ggplot(mpg, aes(cty, hwy)) +
+  geom_point(aes(color = class)) + 
+  ggsci::scale_color_lancet()
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+
+### Making Your Own
+Of course, you aren't restricted to the scales put together by others! If you want, you can use any of the many options in ggplot to put together scales of your own. In particular, ```scale_color_manual()``` lets you specify colors for each level you want colored, while ```scale_color_gradient()``` lets you create a gradient by specifying the low and high value colors. Both of these functions have fill versions, as well.
+
+```r
+ggplot(mpg, aes(cty, hwy)) +
+  geom_point(aes(color = displ)) + 
+  scale_color_gradient(low = "orange", high = "purple")
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+
+If you're looking to specify your own colors by hand, I find sites like [ColorSupply](http://colorsupplyyy.com/) to be extremely helpful.
+
+## Combining Geoms
+### Marginal Plots
+## Labels
+## Animation
 [paper on silencing](http://visionlab.harvard.edu/silencing/)
+## Specialized Visualizations
+### Slope Charts
+### Maps
+### Circlize
+Pie charts are much maligned, but do have some benefits over bar plots - for instance, if you're trying to represent proportional data, [pie charts perform better than stacked or dodged column charts.](http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf) While ggplot doesn't include a native method for making pie charts, the ```circlize``` library can be used to 
+### ggridges

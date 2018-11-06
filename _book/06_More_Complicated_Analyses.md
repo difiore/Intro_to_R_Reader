@@ -1,5 +1,4 @@
 # More Complicated Analyses
-## Work in Progress
 
 ## Other Datasets
 
@@ -20,7 +19,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages --------------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages ------------------------------------------------------------------------ tidyverse 1.2.1 --
 ```
 
 ```
@@ -31,7 +30,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## -- Conflicts --------------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -223,7 +222,7 @@ write_csv(AthleteEvents, "athlete_events.csv")
 
 Note that, like all other ```tidyverse``` functions, the dataset is the first thing you specify.
 
-## Data Exploration
+### Data Exploration
 Let's put ```NBAStats``` off to the side for a moment, and look at our other two datasets. ```AthleteEvents``` is a list of all olympic competitors from 1892 to 2016, including basic statistics about each and any medals they may have won. ```NOCRegions```, meanwhile, maps codes used by the National Olympic Committee (NOC) to the countries they represent.
 
 We can get a sense of the variables this dataset measures using ```psych::describe()```
@@ -453,7 +452,7 @@ AthleteEvents %>%
 
 So it looks like women have a tiny edge, but generally speaking, both men and women have a 15% chance of medalling at the Olympics. 
 
-## Modeling Winners
+### Modeling Winners
 
 Personally, I'm interested in predicting if someone will win a medal at the Olympics. We could do this a number of inferential ways - for instance, dropping all the values where an athlete _didn't_ win, and looking at the summary statistics of the athletes who did:
 
@@ -681,7 +680,7 @@ AthleteLogisticModel
 ## Residual Deviance: 169700 	AIC: 169700
 ```
 
-There's a lot going on in here! R stores models as _list objects_, containing a number of elements of different data types. We can get a sense of what's going on under the hood using ```str()``` - that is, asking R to show us the ```str```ucture of the data:
+Wow! R stores models as _list objects_, containing a number of elements of different data types. We can get a sense of what's going on under the hood using ```str()``` - that is, asking R to show us the ```str```ucture of the data:
 
 
 ```r
@@ -909,9 +908,9 @@ LogModelROC
 That number - 0.57 - is our single statistic for how accurate our model is. Generally speaking, models with an AUC of 0.7 are thought of as good models, with 0.8 as great and 0.9 incredible. Ecology can have slightly fuzzier models - predicting the natural world is hard, yo - but even the "random chance" line has an AUC of 0.5 - if your model is close to or below that, it's pretty much useless.
 
 
-## Model Comparisons
+### Model Comparisons
 
-## AUC
+#### AUC
 
 So while our model is doing better than chance, it's still not doing great - 0.57 leaves a lot of room to improve. For instance, since we know the sex of each athlete in our dataset, what would happen if we added that variable to our formula?
 
@@ -945,7 +944,7 @@ LogModel2ROC
 ## Area under the curve: 0.6051
 ```
 
-So, under each metric, our new model seems to be a slightly better fit to the data. The benefits of working with AUC - and, specifically, with ```pROC``` is that testing to see if one model is better than the other is a piece of cake with ```roc.test```:
+So, under each metric, our new model seems to be a slightly better fit to the data. The benefits of working with AUC - and, specifically, with ```pROC``` - is that testing to see if one model is better than the other is a piece of cake with ```roc.test```:
 
 
 ```r
@@ -966,9 +965,9 @@ roc.test(LogModelROC, LogModel2ROC)
 
 And so we're able to conclude that yes, our second model is significantly better than the first - including sex in our model made it significantly more predictive.
 
-### AIC 
+#### AIC 
 
-While comparing model AUCs is effective, it isn't the most popular method to analyze model performance. That honor likely goes to the Akaike Information Criterion, more commonly known as the AIC. The AIC measures 
+While comparing model AUCs is effective, it isn't the most popular method to analyze model performance. That honor likely goes to the Akaike Information Criterion, more commonly known as the AIC.
 
 AIC can be used effectively in three ways:
 
@@ -1024,7 +1023,10 @@ So, as we mentioned above, using AIC to compare two random models isn't exactly 
 You can either do this by comparing a small set of models that you have strong reasons to believe are accurate - this is a form of hypothesis testing, but using model AICs rather than p values - or by comparing all possible models which use the same set of _scientifically sound predictor variables_. Note the "scientifically sound" - you can't throw millions of predictors at the wall and hope that they stick; you have to be able to justify their inclusion.
 
 
-## Model Selection:
+### Model Selection
+
+> Model improvement doesn't make it into papers for the same reason people don’t go around introducing you to their ex-wives.
+> <div align = "right"> --- Andrew Gelman </div>
 
 Lets say with our Olympic athlete dataset I can justify expecting sex, age, height, and weight as predictors for the model, as well as the interactions between each of these terms. After all, we can expect age, height, and weight to vary together somewhat - and each of these likely differs between male and female athletes.
 
@@ -1110,7 +1112,7 @@ NullMod <- function(df){
 }
 ```
 
-That last item in the list is what's known as the _null model_ - it's a similar concept to the null hypothesis in hypothesis testing. Its purpose is to serve as a baseline for judging the rest of our models - we're hoping they have a $\Delta$AIC > 4!
+That last item in the list is what's known as the _null model_ - it's a similar concept to the null hypothesis in hypothesis testing. Its purpose is to serve as a baseline for judging the rest of our models - we're hoping it has a $\Delta$AIC > 4!
 
 Now that we have our models defined, we're able to run each of them against the dataset. Fair warning, this step will take a long time to complete - we're asking R to compute estimates for something like 4.8 million observations by doing this. We'll then overwrite the columns we just created, replacing them with the values from ```glance()``` so we can make model comparisons:
 
@@ -1239,7 +1241,7 @@ pscl::pR2(glm(Winner ~ Sex * Age * Height * Weight, data = AthleteEvents, family
 0.6 AUC and 0.255 McFadden's pseudo-R^2^. Even after all that, it seems like our model could be improved quite a bit!
 
 
-### Detour: Another Way
+#### Detour: Another Way
 Now, obviously, this entire section breaks our rule that if you have to type it more than twice, there's a better way. That's true here, too - but the better way is significantly more complicated, so I introduced the longer form first. The better way is in the next section of this unit.
 
 Typing models out this way does become prohibitive as you add more variables - for every _k_ variables you want to include, you wind up having to type out 2^k^ formulas. Even greater than the time tax that puts on you is the amount of time it will take to compute those models and fit them to your data. Generally speaking, you shouldn't have massive numbers of variables in your regression equations. Remember the old saying:
@@ -1304,7 +1306,7 @@ I'm not running them here, because they take a ton of space. Note that these met
 
 This method is becoming disfavored, as it doesn't require you to think about _why_ you want a given variable in the model. But I can't stop you from doing whatever you're gonna do.
 
-### The Better (...Faster) Way
+#### The Better (...Faster) Way
 
 Before we launch into this, note that this section is a little more techy and a little more obscure. It shouldn't be that hard to follow, if you fully understand how for loops and map functions work. But if this is a little above your level right now, that's totally fine - think of this section as more of a template, showing how we can combine tools to make our code faster and more efficient.
 
@@ -1425,7 +1427,7 @@ Tidies <- tidy(glm(Winner ~ 1, data = AthleteEvents, family = "binomial"))
 Tidies$FormNum <- 0
 ```
 
-And now we want to actually calculate these models for our data. For this, we have to use a for loop, running as many times as we have formulas. Rather than explain everything in the loop up here, I've commented the code below:
+And now we want to actually calculate these models for our data. For this, we have to use a for loop, running as many times as we have formulas. Rather than explain everything in the loop up here, I've commented the code below, with explanations following the ```##```:
 
 
 ```r
@@ -1474,177 +1476,6 @@ Glances
 ## 15      171694.2  206164  -84137.37 168306.7 168470.5 168274.7      206149
 ```
 
-```r
-Tidies
-```
-
-```
-##                      term      estimate    std.error    statistic
-## 1             (Intercept) -1.760419e+00 5.427627e-03 -324.3440545
-## 2             (Intercept) -1.726761e+00 1.023087e-02 -168.7794466
-## 3                    SexM -4.662798e-02 1.206945e-02   -3.8633054
-## 4             (Intercept) -2.002166e+00 2.203888e-02  -90.8470032
-## 5                     Age  1.018106e-02 8.256062e-04   12.3316206
-## 6             (Intercept) -5.918769e+00 1.046610e-01  -56.5518317
-## 7                  Height  2.361839e-02 5.897656e-04   40.0470833
-## 8             (Intercept) -2.949270e+00 3.068582e-02  -96.1118341
-## 9                  Weight  1.647833e-02 4.109985e-04   40.0933962
-## 10            (Intercept) -2.337555e+00 4.189197e-02  -55.7995954
-## 11                   SexM  4.316677e-01 4.966264e-02    8.6920015
-## 12                    Age  2.561744e-02 1.668813e-03   15.3506922
-## 13               SexM:Age -1.962561e-02 1.934180e-03  -10.1467317
-## 14            (Intercept) -8.664980e+00 2.117938e-01  -40.9123457
-## 15                   SexM  1.377806e+00 2.573728e-01    5.3533491
-## 16                 Height  4.128154e-02 1.244678e-03   33.1664401
-## 17            SexM:Height -1.069198e-02 1.483950e-03   -7.2050810
-## 18            (Intercept) -3.748930e+00 6.308936e-02  -59.4225448
-## 19                   SexM  3.189663e-01 7.616761e-02    4.1876899
-## 20                 Weight  3.355064e-02 9.979865e-04   33.6183304
-## 21            SexM:Weight -1.237687e-02 1.132612e-03  -10.9277252
-## 22            (Intercept) -7.046795e+00 4.884235e-01  -14.4276321
-## 23                    Age  5.015113e-02 1.930937e-02    2.5972431
-## 24                 Height  2.873441e-02 2.782735e-03   10.3259586
-## 25             Age:Height -2.325052e-04 1.097831e-04   -2.1178594
-## 26            (Intercept) -4.372707e+00 1.440723e-01  -30.3507721
-## 27                    Age  5.759834e-02 5.586608e-03   10.3100725
-## 28                 Weight  3.442307e-02 1.983683e-03   17.3531124
-## 29             Age:Weight -7.199431e-04 7.593994e-05   -9.4804283
-## 30            (Intercept) -2.143225e+00 4.084826e-01   -5.2467958
-## 31                 Height -9.128709e-04 2.340481e-03   -0.3900355
-## 32                 Weight -3.365387e-02 5.727336e-03   -5.8760081
-## 33          Height:Weight  2.310796e-04 3.124574e-05    7.3955546
-## 34            (Intercept) -9.601547e+00 9.348757e-01  -10.2704002
-## 35                   SexM  3.439781e+00 1.196796e+00    2.8741587
-## 36                    Age  5.158874e-02 3.842412e-02    1.3426135
-## 37                 Height  4.374157e-02 5.550280e-03    7.8809667
-## 38               SexM:Age -9.306460e-02 4.789933e-02   -1.9429205
-## 39            SexM:Height -2.056115e-02 6.935091e-03   -2.9647990
-## 40             Age:Height -1.772303e-04 2.276361e-04   -0.7785684
-## 41        SexM:Age:Height  4.535119e-04 2.777614e-04    1.6327391
-## 42            (Intercept) -5.141523e+00 2.800272e-01  -18.3607979
-## 43                   SexM  3.473694e-01 3.573439e-01    0.9720872
-## 44                    Age  6.214581e-02 1.129033e-02    5.5043404
-## 45                 Weight  4.884645e-02 4.571811e-03   10.6842689
-## 46               SexM:Age -9.297458e-03 1.404514e-02   -0.6619697
-## 47            SexM:Weight -1.040079e-02 5.374259e-03   -1.9352974
-## 48             Age:Weight -7.016833e-04 1.824728e-04   -3.8454122
-## 49        SexM:Age:Weight  3.762839e-05 2.108204e-04    0.1784856
-## 50            (Intercept) -5.587619e+00 9.500164e-01   -5.8816024
-## 51                   SexM  4.308620e+00 1.165394e+00    3.6971366
-## 52                 Height  1.615014e-02 5.616214e-03    2.8756281
-## 53                 Weight -6.006362e-03 1.537451e-02   -0.3906701
-## 54            SexM:Height -2.398652e-02 6.750308e-03   -3.5533962
-## 55            SexM:Weight -4.566430e-02 1.764738e-02   -2.5875963
-## 56          Height:Weight  1.471334e-04 8.844558e-05    1.6635474
-## 57     SexM:Height:Weight  2.016674e-04 1.000507e-04    2.0156524
-## 58            (Intercept) -4.023117e+00 1.815347e+00   -2.2161699
-## 59                    Age  1.227940e-01 7.357736e-02    1.6689100
-## 60                 Height -2.067333e-03 1.061676e-02   -0.1947234
-## 61                 Weight  3.083361e-02 2.615719e-02    1.1787816
-## 62             Age:Height -2.260540e-04 4.275407e-04   -0.5287310
-## 63             Age:Weight -3.098892e-03 1.036319e-03   -2.9902867
-## 64          Height:Weight  1.594749e-05 1.447030e-04    0.1102084
-## 65      Age:Height:Weight  1.159619e-05 5.730893e-06    2.0234520
-## 66            (Intercept)  1.527533e+01 3.899956e+00    3.9167947
-## 67                   SexM -6.818958e+00 5.312396e+00   -1.2835938
-## 68                    Age -8.418150e-01 1.723239e-01   -4.8850741
-## 69                 Height -1.135306e-01 2.352660e-02   -4.8256257
-## 70                 Weight -3.703604e-01 6.492167e-02   -5.7047273
-## 71               SexM:Age  4.670132e-01 2.215298e-01    2.1081278
-## 72            SexM:Height  3.795323e-02 3.097937e-02    1.2251131
-## 73             Age:Height  5.251190e-03 1.030328e-03    5.0966212
-## 74            SexM:Weight  2.699587e-01 7.976007e-02    3.3846349
-## 75             Age:Weight  1.460616e-02 2.790005e-03    5.2351737
-## 76          Height:Weight  2.346084e-03 3.797527e-04    6.1779257
-## 77        SexM:Age:Height -2.645045e-03 1.290586e-03   -2.0494915
-## 78        SexM:Age:Weight -1.270139e-02 3.303472e-03   -3.8448615
-## 79     SexM:Height:Weight -1.561545e-03 4.561802e-04   -3.4230881
-## 80      Age:Height:Weight -8.842913e-05 1.627946e-05   -5.4319432
-## 81 SexM:Age:Height:Weight  7.155419e-05 1.892650e-05    3.7806348
-##          p.value FormNum
-## 1   0.000000e+00       0
-## 2   0.000000e+00       1
-## 3   1.118630e-04       1
-## 4   0.000000e+00       2
-## 5   6.120327e-35       2
-## 6   0.000000e+00       3
-## 7   0.000000e+00       3
-## 8   0.000000e+00       4
-## 9   0.000000e+00       4
-## 10  0.000000e+00       5
-## 11  3.561093e-18       5
-## 12  3.504271e-53       5
-## 13  3.426465e-24       5
-## 14  0.000000e+00       6
-## 15  8.634105e-08       6
-## 16 3.281816e-241       6
-## 17  5.800935e-13       6
-## 18  0.000000e+00       7
-## 19  2.818082e-05       7
-## 20 9.054728e-248       7
-## 21  8.495133e-28       7
-## 22  3.467836e-47       8
-## 23  9.397538e-03       8
-## 24  5.377890e-25       8
-## 25  3.418698e-02       8
-## 26 2.454218e-202       9
-## 27  6.345343e-25       9
-## 28  1.868411e-67       9
-## 29  2.532415e-21       9
-## 30  1.547673e-07      10
-## 31  6.965103e-01      10
-## 32  4.202777e-09      10
-## 33  1.408193e-13      10
-## 34  9.580640e-25      11
-## 35  4.051054e-03      11
-## 36  1.793971e-01      11
-## 37  3.248578e-15      11
-## 38  5.202576e-02      11
-## 39  3.028807e-03      11
-## 40  4.362340e-01      11
-## 41  1.025239e-01      11
-## 42  2.706018e-75      12
-## 43  3.310072e-01      12
-## 44  3.705529e-08      12
-## 45  1.205955e-26      12
-## 46  5.079907e-01      12
-## 47  5.295381e-02      12
-## 48  1.203500e-04      12
-## 49  8.583416e-01      12
-## 50  4.063135e-09      13
-## 51  2.180450e-04      13
-## 52  4.032245e-03      13
-## 53  6.960411e-01      13
-## 54  3.802912e-04      13
-## 55  9.664817e-03      13
-## 56  9.620291e-02      13
-## 57  4.383634e-02      13
-## 58  2.667987e-02      14
-## 59  9.513521e-02      14
-## 60  8.456095e-01      14
-## 61  2.384852e-01      14
-## 62  5.969921e-01      14
-## 63  2.787157e-03      14
-## 64  9.122441e-01      14
-## 65  4.302656e-02      14
-## 66  8.973410e-05      15
-## 67  1.992841e-01      15
-## 68  1.033899e-06      15
-## 69  1.395644e-06      15
-## 70  1.165295e-08      15
-## 71  3.501994e-02      15
-## 72  2.205326e-01      15
-## 73  3.457693e-07      15
-## 74  7.127299e-04      15
-## 75  1.648298e-07      15
-## 76  6.494925e-10      15
-## 77  4.041408e-02      15
-## 78  1.206206e-04      15
-## 79  6.191401e-04      15
-## 80  5.574367e-08      15
-## 81  1.564290e-04      15
-```
-
 ## Relational Data
 
 Okay, this next section should be easier and more relevant to your daily life. Before we get into it, I'm going to make two edits to the ```Glances``` table:
@@ -1679,7 +1510,7 @@ Glances
 ## 15      15 168306.7
 ```
 
-I also want to point out one important difference between our dataframes - the ```Glances``` dataframe doesn't include our null model, while ```Tidies``` has it as ```FormNum == 0```. We can check to make sure by ```factor()```ing our dataframes' ```FormNum``` fields, which identifies each unique level in the vector. We can then find all the ```levels()``` contained in that factor:
+I also want to point out one important difference between our dataframes - the ```Glances``` dataframe doesn't include our null model, while ```Tidies``` has it as ```FormNum == 0```. We can check to make sure by ```factor()```ing our dataframes' ```FormNum``` fields, which identifies each unique level in the vector. We can then find all the ```levels()``` contained in that factor, confirming that ```0``` is only present in the ```Tidies``` dataframe:
 
 
 ```r
@@ -1701,221 +1532,85 @@ levels(factor(Tidies$FormNum))
 ```
 
 
-Inner Join
+What we'll be doing now is working on _joining_ datasets, combining two dataframes into a single output. All of these functions take the form ```f(x, y)```, where ```f()``` is the function name and ```x, y``` are the arguments. What this function does is find columns with the same name - known as _keys_ - and combine your dataframes based on the values in those columns. For our examples, our key column will be the FormNum column.
 
-Left Join
+### Inner Join
 
-Right Join
-
-Full Join
-
-by = 
-
-Semi Join
-
+An inner join will preserve only the rows in your data which have keys present in both datasets - so, in this case, the null model will be dropped:
 
 ```r
-BestMods <- Glances %>%
-  filter(AIC < min(AIC) + 4)
-BestMods
+inner_join(Glances, Tidies)
 ```
 
-```
-##   FormNum      AIC
-## 1      15 168306.7
-```
+### Left Join
 
+A left join will preserve all the values in your ```x``` dataset - here, in Glances. 
 
 ```r
-semi_join(Tidies, BestMods)
+left_join(Glances, Tidies)
 ```
 
-```
-## Joining, by = "FormNum"
-```
+### Right Join
 
-```
-##                      term      estimate    std.error statistic
-## 1             (Intercept)  1.527533e+01 3.899956e+00  3.916795
-## 2                    SexM -6.818958e+00 5.312396e+00 -1.283594
-## 3                     Age -8.418150e-01 1.723239e-01 -4.885074
-## 4                  Height -1.135306e-01 2.352660e-02 -4.825626
-## 5                  Weight -3.703604e-01 6.492167e-02 -5.704727
-## 6                SexM:Age  4.670132e-01 2.215298e-01  2.108128
-## 7             SexM:Height  3.795323e-02 3.097937e-02  1.225113
-## 8              Age:Height  5.251190e-03 1.030328e-03  5.096621
-## 9             SexM:Weight  2.699587e-01 7.976007e-02  3.384635
-## 10             Age:Weight  1.460616e-02 2.790005e-03  5.235174
-## 11          Height:Weight  2.346084e-03 3.797527e-04  6.177926
-## 12        SexM:Age:Height -2.645045e-03 1.290586e-03 -2.049491
-## 13        SexM:Age:Weight -1.270139e-02 3.303472e-03 -3.844861
-## 14     SexM:Height:Weight -1.561545e-03 4.561802e-04 -3.423088
-## 15      Age:Height:Weight -8.842913e-05 1.627946e-05 -5.431943
-## 16 SexM:Age:Height:Weight  7.155419e-05 1.892650e-05  3.780635
-##         p.value FormNum
-## 1  8.973410e-05      15
-## 2  1.992841e-01      15
-## 3  1.033899e-06      15
-## 4  1.395644e-06      15
-## 5  1.165295e-08      15
-## 6  3.501994e-02      15
-## 7  2.205326e-01      15
-## 8  3.457693e-07      15
-## 9  7.127299e-04      15
-## 10 1.648298e-07      15
-## 11 6.494925e-10      15
-## 12 4.041408e-02      15
-## 13 1.206206e-04      15
-## 14 6.191401e-04      15
-## 15 5.574367e-08      15
-## 16 1.564290e-04      15
-```
-
-Anti Join
-
+A right join will preserve all the values in your ```y``` dataset - here in Tidies. As you can see, the AIC for the null model is left as NA, but the null model stays in the dataframe.
 
 ```r
-anti_join(Tidies, BestMods)
+right_join(Glances, Tidies)
 ```
 
-```
-## Joining, by = "FormNum"
-```
+### Full Join
+A full join will save all values in both your ```x``` and ```y``` dataframes.
 
-```
-##                  term      estimate    std.error    statistic
-## 1         (Intercept) -1.760419e+00 5.427627e-03 -324.3440545
-## 2         (Intercept) -1.726761e+00 1.023087e-02 -168.7794466
-## 3                SexM -4.662798e-02 1.206945e-02   -3.8633054
-## 4         (Intercept) -2.002166e+00 2.203888e-02  -90.8470032
-## 5                 Age  1.018106e-02 8.256062e-04   12.3316206
-## 6         (Intercept) -5.918769e+00 1.046610e-01  -56.5518317
-## 7              Height  2.361839e-02 5.897656e-04   40.0470833
-## 8         (Intercept) -2.949270e+00 3.068582e-02  -96.1118341
-## 9              Weight  1.647833e-02 4.109985e-04   40.0933962
-## 10        (Intercept) -2.337555e+00 4.189197e-02  -55.7995954
-## 11               SexM  4.316677e-01 4.966264e-02    8.6920015
-## 12                Age  2.561744e-02 1.668813e-03   15.3506922
-## 13           SexM:Age -1.962561e-02 1.934180e-03  -10.1467317
-## 14        (Intercept) -8.664980e+00 2.117938e-01  -40.9123457
-## 15               SexM  1.377806e+00 2.573728e-01    5.3533491
-## 16             Height  4.128154e-02 1.244678e-03   33.1664401
-## 17        SexM:Height -1.069198e-02 1.483950e-03   -7.2050810
-## 18        (Intercept) -3.748930e+00 6.308936e-02  -59.4225448
-## 19               SexM  3.189663e-01 7.616761e-02    4.1876899
-## 20             Weight  3.355064e-02 9.979865e-04   33.6183304
-## 21        SexM:Weight -1.237687e-02 1.132612e-03  -10.9277252
-## 22        (Intercept) -7.046795e+00 4.884235e-01  -14.4276321
-## 23                Age  5.015113e-02 1.930937e-02    2.5972431
-## 24             Height  2.873441e-02 2.782735e-03   10.3259586
-## 25         Age:Height -2.325052e-04 1.097831e-04   -2.1178594
-## 26        (Intercept) -4.372707e+00 1.440723e-01  -30.3507721
-## 27                Age  5.759834e-02 5.586608e-03   10.3100725
-## 28             Weight  3.442307e-02 1.983683e-03   17.3531124
-## 29         Age:Weight -7.199431e-04 7.593994e-05   -9.4804283
-## 30        (Intercept) -2.143225e+00 4.084826e-01   -5.2467958
-## 31             Height -9.128709e-04 2.340481e-03   -0.3900355
-## 32             Weight -3.365387e-02 5.727336e-03   -5.8760081
-## 33      Height:Weight  2.310796e-04 3.124574e-05    7.3955546
-## 34        (Intercept) -9.601547e+00 9.348757e-01  -10.2704002
-## 35               SexM  3.439781e+00 1.196796e+00    2.8741587
-## 36                Age  5.158874e-02 3.842412e-02    1.3426135
-## 37             Height  4.374157e-02 5.550280e-03    7.8809667
-## 38           SexM:Age -9.306460e-02 4.789933e-02   -1.9429205
-## 39        SexM:Height -2.056115e-02 6.935091e-03   -2.9647990
-## 40         Age:Height -1.772303e-04 2.276361e-04   -0.7785684
-## 41    SexM:Age:Height  4.535119e-04 2.777614e-04    1.6327391
-## 42        (Intercept) -5.141523e+00 2.800272e-01  -18.3607979
-## 43               SexM  3.473694e-01 3.573439e-01    0.9720872
-## 44                Age  6.214581e-02 1.129033e-02    5.5043404
-## 45             Weight  4.884645e-02 4.571811e-03   10.6842689
-## 46           SexM:Age -9.297458e-03 1.404514e-02   -0.6619697
-## 47        SexM:Weight -1.040079e-02 5.374259e-03   -1.9352974
-## 48         Age:Weight -7.016833e-04 1.824728e-04   -3.8454122
-## 49    SexM:Age:Weight  3.762839e-05 2.108204e-04    0.1784856
-## 50        (Intercept) -5.587619e+00 9.500164e-01   -5.8816024
-## 51               SexM  4.308620e+00 1.165394e+00    3.6971366
-## 52             Height  1.615014e-02 5.616214e-03    2.8756281
-## 53             Weight -6.006362e-03 1.537451e-02   -0.3906701
-## 54        SexM:Height -2.398652e-02 6.750308e-03   -3.5533962
-## 55        SexM:Weight -4.566430e-02 1.764738e-02   -2.5875963
-## 56      Height:Weight  1.471334e-04 8.844558e-05    1.6635474
-## 57 SexM:Height:Weight  2.016674e-04 1.000507e-04    2.0156524
-## 58        (Intercept) -4.023117e+00 1.815347e+00   -2.2161699
-## 59                Age  1.227940e-01 7.357736e-02    1.6689100
-## 60             Height -2.067333e-03 1.061676e-02   -0.1947234
-## 61             Weight  3.083361e-02 2.615719e-02    1.1787816
-## 62         Age:Height -2.260540e-04 4.275407e-04   -0.5287310
-## 63         Age:Weight -3.098892e-03 1.036319e-03   -2.9902867
-## 64      Height:Weight  1.594749e-05 1.447030e-04    0.1102084
-## 65  Age:Height:Weight  1.159619e-05 5.730893e-06    2.0234520
-##          p.value FormNum
-## 1   0.000000e+00       0
-## 2   0.000000e+00       1
-## 3   1.118630e-04       1
-## 4   0.000000e+00       2
-## 5   6.120327e-35       2
-## 6   0.000000e+00       3
-## 7   0.000000e+00       3
-## 8   0.000000e+00       4
-## 9   0.000000e+00       4
-## 10  0.000000e+00       5
-## 11  3.561093e-18       5
-## 12  3.504271e-53       5
-## 13  3.426465e-24       5
-## 14  0.000000e+00       6
-## 15  8.634105e-08       6
-## 16 3.281816e-241       6
-## 17  5.800935e-13       6
-## 18  0.000000e+00       7
-## 19  2.818082e-05       7
-## 20 9.054728e-248       7
-## 21  8.495133e-28       7
-## 22  3.467836e-47       8
-## 23  9.397538e-03       8
-## 24  5.377890e-25       8
-## 25  3.418698e-02       8
-## 26 2.454218e-202       9
-## 27  6.345343e-25       9
-## 28  1.868411e-67       9
-## 29  2.532415e-21       9
-## 30  1.547673e-07      10
-## 31  6.965103e-01      10
-## 32  4.202777e-09      10
-## 33  1.408193e-13      10
-## 34  9.580640e-25      11
-## 35  4.051054e-03      11
-## 36  1.793971e-01      11
-## 37  3.248578e-15      11
-## 38  5.202576e-02      11
-## 39  3.028807e-03      11
-## 40  4.362340e-01      11
-## 41  1.025239e-01      11
-## 42  2.706018e-75      12
-## 43  3.310072e-01      12
-## 44  3.705529e-08      12
-## 45  1.205955e-26      12
-## 46  5.079907e-01      12
-## 47  5.295381e-02      12
-## 48  1.203500e-04      12
-## 49  8.583416e-01      12
-## 50  4.063135e-09      13
-## 51  2.180450e-04      13
-## 52  4.032245e-03      13
-## 53  6.960411e-01      13
-## 54  3.802912e-04      13
-## 55  9.664817e-03      13
-## 56  9.620291e-02      13
-## 57  4.383634e-02      13
-## 58  2.667987e-02      14
-## 59  9.513521e-02      14
-## 60  8.456095e-01      14
-## 61  2.384852e-01      14
-## 62  5.969921e-01      14
-## 63  2.787157e-03      14
-## 64  9.122441e-01      14
-## 65  4.302656e-02      14
+```r
+full_join(Glances, Tidies)
 ```
 
+### Semi Join
+A semi join returns a row from ```x``` if that key value has a match in ```y```. 
 
+```r
+semi_join(Glances, Tidies)
+```
 
+### Anti Join
+An anti join returns a row from ```x``` if that key value _doesn't_ have a match in ```y```:
+
+```r
+anti_join(Glances, Tidies)
+```
+
+### Specifying Key Columns
+Sometimes it's helpful to specify _which_ columns you want to join your data by - particularly when you have columns with the same name but different values. In those situations, use ```by = ``` to specify which columns you want to join by:
+
+```r
+full_join(Glances, Tidies, by = "FormNum")
+```
+
+### Merging Multiple Dataframes
+In order to merge more than two dataframes at the same time, use ```reduce()``` with any of the above joins - all your dataframes have to be in a ```list()``` inside the ```reduce()``` call:
+
+```r
+## Creating example dataframes:
+x <- data.frame(key = c("A","A","B","B"),
+                value = c(3,4,3,4))
+y <- data.frame(key = c("A","A","B","B"),
+                value = c(124,12,524,43))
+z <- data.frame(key = c("A","A","B","B"),
+                value = c(31, 4, 14, 124))
+
+## Using "reduce" to merge all dataframes:
+reduce(
+  list(
+    x,
+    y,
+    z
+  ), 
+  full_join, 
+  by = "key"
+)
+```
+
+## Exercises
+1. Try out the types of join on the Olympic datasets ```AthleteEvents``` and ```NOCRegions```. What differences do you notice between the join types?
+2. Explore the ```NBAStats``` dataset. Can you predict the number of points (PTS) players will score based on information available to you?
+3. Make multiple linear models (```lm()```) for each position (```Pos```) in the dataset. 

@@ -1,6 +1,6 @@
 # Basic Statistics (Using R)
 
-## Purpose of the Unit
+## Purpose of the Unit {-}
 This isn't a statistics course. However, R is a statistical computing language, and many of the functions built into R are designed for statistical purposes. As such, we're going to very quickly go over some statistical terms and a few of the statistical functions built into R. That way, you'll have a better understanding of what exactly it is that we're doing later in the course. 
 
 There aren't any exercises with this unit, since we haven't worked through using these functions with examples yet. However, we'll be using most of these functions - in combination with those from Unit 2 - for the rest of this course.
