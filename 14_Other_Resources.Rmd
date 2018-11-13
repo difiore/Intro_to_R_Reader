@@ -1,0 +1,45 @@
+# Other Resources
+This book should give you a decent introduction to the basics of R, and give you a taste of the more involved applications the technology can tackle. But there are plenty of things I didn't bother tackling, and plenty of topics we barely brushed on. Below are links to other resources which may help you further your learning, once you have the basics from this course. All of these resources are free-as-in-beer - the links will go to the full, open-access text.
+
+## Courses {-}
+These links go to other courses on R and related topics. Note that most of the packages we use were developed c. 2017 - courses older than that probably use different methods to do the same tasks, as a result.
+
+### Basic R
+
+* [Reproducible Research](http://eriqande.github.io/rep-res-web/syllabus.html) from 2014 by Eric C. Anderson
+
+### Advanced R
+* [Advanced Data Science](https://jhu-advdatasci.github.io/2018/) from 2018 at John Hopkins University.
+
+## Textbooks {-}
+### Data Science
+
+* [R for Data Science](https://r4ds.had.co.nz/) covers many of the same topics we've touched on in this course, but is structured differently and may explain some points better than I have or chose to do.
+
+### R as a Coding Language
+
+* [Hands-on Programming with R](https://d1b10bmlvqabco.cloudfront.net/attach/ighbo26t3ua52t/igp9099yy4v10/igz7vp4w5su9/OReilly_HandsOn_Programming_with_R_2014.pdf) by Garrett Grolemund approaches R from a more coding-oriented perspective, as opposed to our output-focused method. Some parts of the subject are already well-covered in this course, while others - the sections on objects and environments, for instance - we barely touch on.
+* [Advanced R](https://adv-r.hadley.nz/index.html) by Hadley Wickham similarly addresses many coding-focused aspects of R that we've glossed over in this course. This book might be a bit harder to get started with, but will make you a better programmer.
+* [The R Inferno](http://www.burns-stat.com/pages/Tutor/R_inferno.pdf) by Patrick Burns provides a humorous look at many of the most common mistakes made by R users.
+
+### (R) Markdown Applications
+* The [R Markdown Textbook](https://bookdown.org/yihui/rmarkdown/) by Yihui Xie provides a comprehensive overview of writing markdown documents.
+* The [bookdown](https://bookdown.org/yihui/bookdown/) textbook by Yihui Xie gives you all the information you need to start putting together your own book documents.
+* The [blogdown](https://bookdown.org/yihui/blogdown/) book by Yihui Xie will get your website up and running in no time at all.
+
+### Other Programs We've Used
+
+* [Pro Git](https://git-scm.com/book/en/v2) covers a lot of the basics of Git itself, in case you have a need to move beyond depending upon Github.
+
+## Blog Links {-}
+
+* [10 things any new grad student should do](https://uc3.cdlib.org/2014/10/14/the-10-things-every-new-grad-student-should-do/)
+* [GitHub: a primer for researchers](https://uc3.cdlib.org/2014/05/05/github-a-primer-for-researchers/) (in my opinion, should be named "why use GitHub?" - it isn't a tutorial)
+* [An Intro to Git and Github for Beginners](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners)
+* [The Leek Group Guide to Developing R Packages](https://github.com/jtleek/rpackages)
+
+## Non-Coding Resources
+* I'm a really big fan of the [Leek Group](http://jtleek.com/) tutorials on scientific purposes. Here are the non-programming related resources they've produced:
+  * [Data Sharing](https://github.com/jtleek/datasharing)
+  * [Giving Talks](https://github.com/jtleek/talkguide)
+  * [Reading Papers](https://github.com/jtleek/readingpapers)

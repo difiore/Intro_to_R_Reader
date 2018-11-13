@@ -904,25 +904,10 @@ versicolor <- iris %>%
 
 
 mean(setosa$Sepal.Length)
-```
-
-```
 ## [1] 5.006
-```
-
-```r
 mean(virginica$Sepal.Length)
-```
-
-```
 ## [1] 6.588
-```
-
-```r
 mean(versicolor$Sepal.Length)
-```
-
-```
 ## [1] 5.936
 ```
 

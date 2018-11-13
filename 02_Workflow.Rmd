@@ -430,7 +430,7 @@ mean(iris$Sepal.Length)
 
 But we already know from our graphs that sepal length differs dramatically between species. If we wanted to find the mean for each species, we could calculate it individually for each group:
 
-```{r}
+```{r collapse = TRUE}
 setosa <- iris %>%
   filter(Species == "setosa")
 virginica <- iris %>%

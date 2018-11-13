@@ -1,0 +1,20 @@
+# Special Applications
+## Work in Progress
+Study design  
+Random grouping  
+Sampling  
+Predictive models, heatmaps  
+Bootstrapping, confirmatory analysis  
+
+## Even More Special Applications
+The R community has built an incredible number of tools for all sorts of purposes, such as interactive apps, books, and full websites. R often isn't the best - or, at least, the most straightforward - tool to use to build these, but it does have a few advanges over traditional methods:
+
+* The packages used in making these products usually have shortcuts built in to handle the most common use cases.
+* Building these things with R allows you to embed R code in your app/book/website, letting your graphs and other outputs adapt to different web browsers/viewers better than an image file would - and letting you build interactive visualizations.
+* You already know R, and while these may require some HTML code to become fully polished, you can do the majority of the work in a language you already speak.
+
+Leaflet maps - leaflet  
+Dashboards = flexdashboard  
+Books - bookdown  
+Websites - blogdown
+Shiny

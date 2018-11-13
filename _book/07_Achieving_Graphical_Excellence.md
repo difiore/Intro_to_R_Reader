@@ -1,6 +1,7 @@
 # Achieving Graphical Excellence
-## Work in Progress
 ## Introduction
+This unit is primarily designed to get you thinking about what exactly is possible with graphs made in R. We aren't going to cover every possible tweak you can make to a graphic, since that's almost impossible. We won't showcase every extension and theme you could make use of, because that's probably truly impossible. But by expanding our understanding about what exactly is possible with these graphics, we can begin to understand how to make the best visualizations with our own data possible. This unit is a bit easier and a bit less involved than the past few - don't worry, we'll be back to the hard stuff come unit 9.
+
 So far, we've used graphs repeatedly to help communicate and understand our data. While the fast graphics we've been using are more than sufficient for our own analyses, making graphics for publication or presentation requires a little more finesse. That's where this unit comes in - we'll be briefly touching on many of the options you have control over to make your graphics look exactly as you want them to. Before we get started, let's load the tidyverse:
 
 
@@ -400,11 +401,192 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
 
 
 ## Specialized Visualizations
-### Slope Charts
-### Maps
-### Circlize
-Pie charts are much maligned, but do have some benefits over bar plots - for instance, if you're trying to represent proportional data, [pie charts perform better than stacked or dodged column charts.](http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf) While ggplot doesn't include a native method for making pie charts, the ```circlize``` library can be used to 
+We're going to spend some time now working our way through a number of less-commonly used visualizations, using a variety of other packages.
+
+### Stacked Area Plots
+If you want to show how the distribution of several groups change over time, one method is to use what's known as a stacked area chart. While very visually appealing, this chart design has a lot of the drawbacks of stacked bar plots - it can be hard to see how exactly values change (for instance, compare A and C in the plot below). However, if you're working with timeseries data, the changes in your values are relatively obvious, or you care more about aesthetics than usefulness, this plot can be a good choice. Just specify a ```fill``` aesthetic for a ```geom_area()``` plot:
+
+
+```r
+df <- tibble(x = c(1, 2, 3, 4,
+                   1, 2, 3, 4,
+                   1, 2, 3, 4),
+             y = c(33, 70, 50, 18,
+                   33, 10, 25, 60,
+                   34, 20, 25, 22),
+             z = c("A","A","A","A",
+                   "B","B","B","B",
+                   "C","C","C","C"))
+
+df %>%
+  ggplot(aes(x, y, fill = z)) + 
+  geom_area(alpha = 0.9, color = "black") +
+  scale_fill_brewer(palette = "Dark2")
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+
 ### ggridges
+A similar aesthetic to the stacked area chart can be found in a ridge plot - particularly, a density ridge plot, as provided by the ```ggridges``` package:
+
+```
+install.packages("ggridges")
+```
+
+
+```r
+ggplot(iris, aes(Sepal.Length, Species)) + 
+  ggridges::geom_density_ridges(aes(fill = Species))
+```
+
+```
+## Picking joint bandwidth of 0.181
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+
+You can get plenty of cool effects using this package - check out the vignette [here](https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html) for more information.
+
+
+### Maps
+It's relatively easy to make attractive maps using R and ggplot. We're going to be working with the simplest versions of maps possible - while R can do a lot of the same things as GIS softwares, that's a little more complicated than we want to get today.
+
+As such, we'll be working with data included in two R packages, ```maps``` and ```mapdata```. You can find out more about the data in the maps package [here](https://cran.r-project.org/web/packages/maps/maps.pdf), and the mapdata package [here](https://cran.r-project.org/web/packages/mapdata/mapdata.pdf).
+
+```
+install.packages("maps")
+install.packages("mapdata")
+```
+
+```r
+library(maps)
+```
+
+```
+## 
+## Attaching package: 'maps'
+```
+
+```
+## The following object is masked from 'package:purrr':
+## 
+##     map
+```
+
+```r
+library(mapdata)
+```
+
+ggplot includes a function specifically designed to extract data from these packages, ```map_data()```. We're going to extract the ```usa``` map from the maps package and store it in ```usa```. 
+
+```r
+usa <- map_data("usa")
+head(usa)
+```
+
+```
+##        long      lat group order region subregion
+## 1 -101.4078 29.74224     1     1   main      <NA>
+## 2 -101.3906 29.74224     1     2   main      <NA>
+## 3 -101.3620 29.65056     1     3   main      <NA>
+## 4 -101.3505 29.63911     1     4   main      <NA>
+## 5 -101.3219 29.63338     1     5   main      <NA>
+## 6 -101.3047 29.64484     1     6   main      <NA>
+```
+
+Now we can plot the data like any other graph - our x axis is the longitude, while the y axis is latitude. We'll use ```geom_polygon()``` for this purpose:
+
+
+```r
+ggplot(usa, aes(x = long, y = lat)) + 
+  geom_polygon()
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-28-1.png" width="672" />
+
+Gah!
+
+There's three specific things we're going to have to do to fix this map:
+
+1. We'll need to get rid of the axes and grid - ```theme_void()``` will help with that
+2. We'll need to fix the aspect ratio of the map, to make sure America looks like it should, using ```coord_fixed()```. A default value of 1.3 _usually_ works.
+3. Oh, we're gonna have to get rid of that bigass triangle, too.
+
+Our problem is that we forgot to specify our ```group``` aesthetic - ggplot drew all the points as a single line, rather than the several lines that the dataset uses to define the country's borders. By specifying ```group=group```, we can make America whole again:
+
+
+```r
+ggplot(usa, aes(long, lat, group=group)) + 
+  geom_polygon() + 
+  theme_void() + 
+  coord_fixed(1.3)
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-29-1.png" width="672" />
+
+Much better!
+
+This is just the surface of what you can do with maps in R. For a more in-depth overview, check out [this tutorial](http://eriqande.github.io/rep-res-web/lectures/making-maps-with-R.html).
+
+
+#### Philosophical Tangent
+If you already know how to use a GIS program, you might be wondering what the point of mapping with R is. There's a few benefits to this system, but here's what I think are the top four:
+
+* R is free and works; most GIS systems are only one of those (if even)
+* R works with a ton of data formats and allows you insane levels of control over every detail of your map
+* R will port anywhere you need, and makes interactive maps and web-enabled systems a breeze
+* Most importantly, any maps - and any map analyses - you use R for are _reproducible_. GIS systems are largely unknowable black boxes - if you don't report each step you take, or even if you don't fully understand the steps you took (or all the settings you set and so on), it's impossible for anyone to verify your work without repeating your entire methodology. With R, people - be it an advisor, a reviewer, or a peer trying to solve their own problem - can load your code and see exactly how you got to where you are.
+
+
+### Circular Charts
+Pie charts are much maligned, but do have some benefits over bar plots - for instance, if you're trying to represent proportional data, [pie charts perform better than stacked or dodged column charts.](http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf) While ggplot doesn't include a native method for making pie charts, you could use base R's ```pie()``` function:
+
+
+```r
+df <- tibble(x = c(33, 33, 33),
+             y = c("A", "B", "C"))
+
+pie(df$x, df$y)
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-30-1.png" width="672" />
+
+If you want to get even more involved with circular plots, check out the ```circlize``` package, documented [here.](https://jokergoo.github.io/circlize_book/book/)
+
+
+## Rearranging Groups
+Say you have a boxplot:
+
+
+```r
+ggplot(iris, aes(Species, Sepal.Length)) + 
+  geom_boxplot()
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-31-1.png" width="672" />
+
+And you want to rearrange the order the boxes go in.
+
+The easiest way to do this is to ```factor()``` whatever discrete variable you're grouping your data by, which will create a ranked order for your variable. You can then specify which ```levels``` you want each factor to go in:
+
+
+```r
+iris$Species <- factor(iris$Species, levels = c("setosa", "virginica", "versicolor"))
+
+ggplot(iris, aes(Species, Sepal.Length)) + 
+  geom_boxplot()
+```
+
+<img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-32-1.png" width="672" />
+
+Note that factors sometimes don't play nicely with data analysis tools - to unfactor a variable, run it through ```as.character()``` or ```as.numeric()```, depending on which you need:
+
+
+```r
+iris$Species <- as.character(iris$Species)
+```
+
+
 ## Further Reading
 For further reading on graphical excellence, consider the following sources:
 

@@ -724,6 +724,36 @@ reduce(
 )
 ```
 
+### Binding Dataframes
+Sometimes, however, we don't have a key column to work with. In these cases, we usually just want to combine all of our data. Consider the dataframes:
+```{r}
+df1 <- tibble(Name = c("Alice", "Bob"),
+              EyeColor = c("Blue", "Brown"))
+
+df2 <- tibble(BestFriend = c("Bob", "Alice"),
+              HairColor = c("Brown", "Blue"))
+```
+
+If the rows of each dataframe represent the same observation - that is, row 1 in dataframe 1 is the same as row 1 in dataframe 2 - we can combine the tables using ```cbind()```:
+
+```{r}
+combineddf <- cbind(df1, df2)
+```
+
+But say we forgot someone, whose records are stored in dataframe 3:
+```{r}
+df3 <- tibble(Name = "Alice",
+              EyeColor = "Grey",
+              BestFriend = "Eve",
+              HairColor = "Grey")
+```
+
+If we want to add her to the table, we can use ```rbind()``` - so long as she has all the same columns as our original table!
+
+```{r}
+rbind(combineddf, df3)
+```
+
 ## Exercises
 1. Try out the types of join on the Olympic datasets ```AthleteEvents``` and ```NOCRegions```. What differences do you notice between the join types?
 2. Explore the ```NBAStats``` dataset. Can you predict the number of points (```PTS```) players will score based on information available to you?

@@ -1,6 +1,7 @@
 # Achieving Graphical Excellence
-## Work in Progress
 ## Introduction
+This unit is primarily designed to get you thinking about what exactly is possible with graphs made in R. We aren't going to cover every possible tweak you can make to a graphic, since that's almost impossible. We won't showcase every extension and theme you could make use of, because that's probably truly impossible. But by expanding our understanding about what exactly is possible with these graphics, we can begin to understand how to make the best visualizations with our own data possible. This unit is a bit easier and a bit less involved than the past few - don't worry, we'll be back to the hard stuff come unit 9.
+
 So far, we've used graphs repeatedly to help communicate and understand our data. While the fast graphics we've been using are more than sufficient for our own analyses, making graphics for publication or presentation requires a little more finesse. That's where this unit comes in - we'll be briefly touching on many of the options you have control over to make your graphics look exactly as you want them to. Before we get started, let's load the tidyverse:
 
 ```{r}
@@ -417,10 +418,63 @@ ggplot(iris, aes(Sepal.Length, Species)) +
 
 You can get plenty of cool effects using this package - check out the vignette [here](https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html) for more information.
 
-### Slope Charts
-
 
 ### Maps
+It's relatively easy to make attractive maps using R and ggplot. We're going to be working with the simplest versions of maps possible - while R can do a lot of the same things as GIS softwares, that's a little more complicated than we want to get today.
+
+As such, we'll be working with data included in two R packages, ```maps``` and ```mapdata```. You can find out more about the data in the maps package [here](https://cran.r-project.org/web/packages/maps/maps.pdf), and the mapdata package [here](https://cran.r-project.org/web/packages/mapdata/mapdata.pdf).
+
+```
+install.packages("maps")
+install.packages("mapdata")
+```
+```{r}
+library(maps)
+library(mapdata)
+```
+
+ggplot includes a function specifically designed to extract data from these packages, ```map_data()```. We're going to extract the ```usa``` map from the maps package and store it in ```usa```. 
+```{r}
+usa <- map_data("usa")
+head(usa)
+```
+
+Now we can plot the data like any other graph - our x axis is the longitude, while the y axis is latitude. We'll use ```geom_polygon()``` for this purpose:
+
+```{r}
+ggplot(usa, aes(x = long, y = lat)) + 
+  geom_polygon()
+```
+
+Gah!
+
+There's three specific things we're going to have to do to fix this map:
+
+1. We'll need to get rid of the axes and grid - ```theme_void()``` will help with that
+2. We'll need to fix the aspect ratio of the map, to make sure America looks like it should, using ```coord_fixed()```. A default value of 1.3 _usually_ works.
+3. Oh, we're gonna have to get rid of that bigass triangle, too.
+
+Our problem is that we forgot to specify our ```group``` aesthetic - ggplot drew all the points as a single line, rather than the several lines that the dataset uses to define the country's borders. By specifying ```group=group```, we can make America whole again:
+
+```{r}
+ggplot(usa, aes(long, lat, group=group)) + 
+  geom_polygon() + 
+  theme_void() + 
+  coord_fixed(1.3)
+```
+
+Much better!
+
+This is just the surface of what you can do with maps in R. For a more in-depth overview, check out [this tutorial](http://eriqande.github.io/rep-res-web/lectures/making-maps-with-R.html).
+
+
+#### Philosophical Tangent
+If you already know how to use a GIS program, you might be wondering what the point of mapping with R is. There's a few benefits to this system, but here's what I think are the top four:
+
+* R is free and works; most GIS systems are only one of those (if even)
+* R works with a ton of data formats and allows you insane levels of control over every detail of your map
+* R will port anywhere you need, and makes interactive maps and web-enabled systems a breeze
+* Most importantly, any maps - and any map analyses - you use R for are _reproducible_. GIS systems are largely unknowable black boxes - if you don't report each step you take, or even if you don't fully understand the steps you took (or all the settings you set and so on), it's impossible for anyone to verify your work without repeating your entire methodology. With R, people - be it an advisor, a reviewer, or a peer trying to solve their own problem - can load your code and see exactly how you got to where you are.
 
 
 ### Circular Charts
@@ -429,7 +483,6 @@ Pie charts are much maligned, but do have some benefits over bar plots - for ins
 ```{r}
 df <- tibble(x = c(33, 33, 33),
              y = c("A", "B", "C"))
-
 
 pie(df$x, df$y)
 ```
@@ -461,6 +514,7 @@ Note that factors sometimes don't play nicely with data analysis tools - to unfa
 ```{r}
 iris$Species <- as.character(iris$Species)
 ```
+
 
 ## Further Reading
 For further reading on graphical excellence, consider the following sources:
