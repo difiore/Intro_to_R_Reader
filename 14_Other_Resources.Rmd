@@ -30,6 +30,7 @@ These links go to other courses on R and related topics. Note that most of the p
 ### Other Programs We've Used
 
 * [Pro Git](https://git-scm.com/book/en/v2) covers a lot of the basics of Git itself, in case you have a need to move beyond depending upon Github.
+* [Git Guide] by Karl Broman offers a minimalist tutorial to the basics of Git.
 
 ## Blog Links {-}
 

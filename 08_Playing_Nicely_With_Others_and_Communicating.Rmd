@@ -13,6 +13,11 @@ The Markdown programming language was developed in 2004 to let developers write 
 ## Latex
 
 ## Git(hub)
+Git is a version control system originally developed in 2005 to let a lot of extremely talented coders work together on one of the largest, most complex open source projects the world has ever seen. It is a nightmare to learn, and every company does it slightly differently.
+
+GitHub is a company founded in 2008, designed to provide streamlined servers and plugins to allow teams and non-professionals to use Git on various projects. The tools it provides are less powerful than Git itself, but much faster to learn.
+
+For that reason, we'll be using GitHub - and the tools developed specifically for using Git with GitHub - exclusively in this unit. There's really no reason to learn Git by itself right now; it's a good skill to pick up eventually, but not while busy learning another computer language. If you're interested in a tutorial written specifically for Git, check out [this blog](http://kbroman.org/github_tutorial/) by Karl Broman.
 
 ## Commenting Code
 
