@@ -1,6 +1,9 @@
 # Other Resources
 This book should give you a decent introduction to the basics of R, and give you a taste of the more involved applications the technology can tackle. But there are plenty of things I didn't bother tackling, and plenty of topics we barely brushed on. Below are links to other resources which may help you further your learning, once you have the basics from this course. All of these resources are free-as-in-beer - the links will go to the full, open-access text.
 
+## Infographics
+* [R Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) contain information-dense infographics for many of the packages we've used in this course, and plenty other useful tools you may need in your own work.
+
 ## Courses {-}
 These links go to other courses on R and related topics. Note that most of the packages we use were developed c. 2017 - courses older than that probably use different methods to do the same tasks, as a result.
 
@@ -30,6 +33,7 @@ These links go to other courses on R and related topics. Note that most of the p
 ### Other Programs We've Used
 
 * [Pro Git](https://git-scm.com/book/en/v2) covers a lot of the basics of Git itself, in case you have a need to move beyond depending upon Github.
+* [Git Guide] by Karl Broman offers a minimalist tutorial to the basics of Git.
 
 ## Blog Links {-}
 

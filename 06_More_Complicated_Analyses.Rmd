@@ -187,7 +187,7 @@ ggplot(AthleteEvents, aes(Height, Winner)) +
 
 This here is the root of our problem - we're trying to model a binary outcome (a yes or no, a medal or not) with a straight line, which is useless. This sort of problem comes up all the time in real world situations - in science, whether or not a trap will catch something, or in business, whether or not a customer will click.
 
-Instead, we can choose to use a _logistic model_, one of the types of _generalized linear models_ from chapter 3. These models serve to measure the probability of a binary event - while a linear model will tell you the value of your response variable, logistic models will tell you the probability your response variable is 1. 
+These problems are known as _classification_ problems, where the outcome is a categorical variable, and linear models are really bad at them. Instead, we can choose to use a _logistic model_, one of the types of _generalized linear models_ from chapter 3. These models serve to measure the probability of a binary event - while a linear model will tell you the value of your response variable, logistic models will tell you the probability your response variable is 1. 
 
 R convieniently has a function ```glm()``` for doing exactly this:
 
