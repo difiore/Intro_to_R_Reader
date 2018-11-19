@@ -22,7 +22,9 @@ Supervised learning tasks can be further broken into two factions:
 
 You might recognize these as types of problems we've seen before - classification problems are natural fits for logistic models, while regression problems can be solved with linear modelling. In fact, these simpler models are the most basic forms of machine learning, and are sometimes better solutions to problems than these more modern techniques!
 
-### k-Nearest Neighbors
+### Classification
+
+#### k-Nearest Neighbors
 You might remember using logistic models in Unit 6 in order to predict a binary outcome - in that example, whether someone would win an Olympic medal. That model was relatively fast and effective, but had one pretty major downside - we could only predict whether someone won or not, rather than what sort of medal they had earned.
 
 This is a pretty classic classification problem - we want to know what class each observation falls into, not just a binary outcome. We'll be using the `iris` dataset to walk through the ML approach to this sort of problem, looking to predict what species a flower is by the measured variables. Remember that this dataset looks like the following:
@@ -110,7 +112,7 @@ confusionMatrix(knnPredict, irisTest$Species)
 
 What we're looking at now are our actual results - this is what we'd report for our model. Our model is significantly better than the null model (that p value [Acc > NIR]), with about an 88.9% accuracy rate. We can also see exactly where our model gets confused - one versicolor flower was misclassed as virginica, while three virginica flowers were mis-classed as versicolor. 
 
-### Decision Trees
+#### Decision Trees
 
 kNN is only one of the several popular classification algorithms available in R. Another of the most commonly used methods (kinda - we'll get to that in a minute) is known as the decision tree. Basically, this method creates a flowchart with each of your variables - at each split in the chart (known as a "node"), the algorithm uses a selection of variables to try and classify your data. 
 
@@ -118,7 +120,7 @@ The general structure looks something like this:
 
 ```{r echo = FALSE}
 library(rpart)
-TreeFit <- rpart(Species ~ ., data = irisTest)
+TreeFit <- rpart(Species ~ ., data = iris)
 plot(TreeFit)
 ```
 Where the end of each branch is one of your classifications.
@@ -145,7 +147,7 @@ confusionMatrix(TreePredict, irisTest$Species)
 
 However, decision trees on their own aren't particularly great classifiers. For one thing, they tend to overfit the data, making your model less applicable to other datasets. They also generally require a decent amount of tuning to be optimally accurate. Luckily, there's a better way to classify your data than using a single tree:
 
-### Random Forests
+#### Random Forests
 Random forests! 
 
 These forests are collections of trees (get it?), all of which may overfit the data in some weird way and have oddly bad fits in others. The idea is to collect as many trees as we can in one model and find out what the majority of models want to classify the datapoint as - by aggregating large numbers of trees, we can avoid the pitfalls that individual trees tend to lead us towards.
@@ -160,7 +162,7 @@ We can now use the exact same code as our kNN model to fit a random forest model
 ForestFit <- train(Species ~ ., data = irisTrain, method = "ranger")
 ForestFit
 
-ForestPredict <- predict(ForestFit, newdata = irisTest)
+ForestPredict <- predict(ForestFit, irisTest)
 confusionMatrix(ForestPredict, irisTest$Species)
 ```
 
@@ -174,6 +176,73 @@ If we want a little bit more information about our forest, we can call `ForestFi
 ForestFit$finalModel
 ```
 
-This tells us that we've built 500 decision trees for our training sample of 114 observations, using all 4 predictors in at least _some_ of the trees, with 
+This tells us that we've built 500 decision trees for our training sample of 114 observations, using all 4 predictors in at least _some_ of the trees, with 2 variables used in each individual tree. 
+
+### Regression Models
+For this next section, we'll be working with a dataset contained in the `MASS` package:
+
+```
+install.packages("MASS")
+```
+```{r}
+library(MASS)
+```
+
+This package contains a bunch of datasets for a 2002 textbook. We'll be using the `Boston` dataset to predict median home prices based on neighborhood demographics and traits. Let's look at our dataset:
+
+```{r}
+head(Boston)
+```
+
+That last column, `medv`, is the one that we're interested in predicting. If you want to know what the other variables mean, try `?Boston`. 
+
+```{r}
+BostonIndex <- createDataPartition(Boston$medv, p = 0.75, list = FALSE)
+
+BostonTrain <- Boston[BostonIndex, ]
+BostonTest <- Boston[-BostonIndex, ]
+```
+
+Now, historically, we'd predict `medv` with a regression model, such as a linear model. 
+
+```{r}
+BostonLinear <- lm(medv ~ ., data = Boston)
+```
+
+We can then find the R^2^ value for that model (or, if you want all the model statistics, cut all the text after the right parenthesis):
+```{r}
+summary(BostonLinear)$r.sq
+```
+
+And that's pretty successful! Not perfect, but successful enough.
+
+If we build a random forest, meanwhile, following the same steps as above:
+```{r}
+BostonForest <- train(medv ~ ., data = BostonTrain, method = "ranger")
+BostonForest
+```
+
+We can see that our best model has an R^2^ around 85%! Even better!
+
+Now, there's a lot of discussion about whether or not you need to have separate training and testing datasets with random forest datasets. A lot of this conversation concerns data with tens of thousands of observations, if not more - in those cases, the random forest will automatically use about 2/3 of the data to build each model, and will report R^2^ values that theoretically reflect how the model does with new data.
+
+With our tiny data, however, we can see that each model is built with the entirety of the dataset. As such, it's still worth splitting our data, in order to get more accurate representations of how our model does with new data. To do so, I'm going to build a new function to calculate R^2^:
+
+```{r}
+rsqcalc <- function(y, predicted){
+  1 - sum((y - predicted)^2)/sum((y - mean(y))^2)
+}
+```
+
+Then generate predictions for our training dataset, and use this new function to find the R^2^:
+
+```{r}
+BostonTest$Predicted <- predict(BostonForest, BostonTest)
+rsqcalc(BostonTest$medv, BostonTest$Predicted)
+```
+
+Even higher!
 
 Note, by the way, that we are _barely_ scratching the surface of what `caret` can do - there's a full book on this package [at this link](https://topepo.github.io/caret/index.html), though fair warning, it's a little intimidating.
+
+We also aren't getting further into 
