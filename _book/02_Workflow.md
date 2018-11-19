@@ -13,20 +13,20 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ---------------------------------------------------------------------------------------- tidyverse 1.2.1 --
+## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
-## v ggplot2 3.0.0     v purrr   0.2.4
-## v tibble  1.4.2     v dplyr   0.7.4
-## v tidyr   0.8.0     v stringr 1.3.0
-## v readr   1.1.1     v forcats 0.3.0
+## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
+## ✔ readr   1.1.1     ✔ forcats 0.3.0
 ```
 
 ```
-## -- Conflicts ------------------------------------------------------------------------------------------- tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
+## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
 ```
 
 Now that you're working in a new directory, go back into "File" and hover over "New File". There's a lot of options, but right now we care about two of them: **R Scripts** and **R Notebooks**. Open one of each.
@@ -580,16 +580,16 @@ iris
 ## # A tibble: 150 x 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           <dbl>       <dbl>        <dbl>       <dbl> <fct>  
-##  1         5.10        3.50         1.40       0.200 setosa 
-##  2         4.90        3.00         1.40       0.200 setosa 
-##  3         4.70        3.20         1.30       0.200 setosa 
-##  4         4.60        3.10         1.50       0.200 setosa 
-##  5         5.00        3.60         1.40       0.200 setosa 
-##  6         5.40        3.90         1.70       0.400 setosa 
-##  7         4.60        3.40         1.40       0.300 setosa 
-##  8         5.00        3.40         1.50       0.200 setosa 
-##  9         4.40        2.90         1.40       0.200 setosa 
-## 10         4.90        3.10         1.50       0.100 setosa 
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
 ## # ... with 140 more rows
 ```
 
@@ -604,16 +604,16 @@ iris[, 1]
 ## # A tibble: 150 x 1
 ##    Sepal.Length
 ##           <dbl>
-##  1         5.10
-##  2         4.90
-##  3         4.70
-##  4         4.60
-##  5         5.00
-##  6         5.40
-##  7         4.60
-##  8         5.00
-##  9         4.40
-## 10         4.90
+##  1          5.1
+##  2          4.9
+##  3          4.7
+##  4          4.6
+##  5          5  
+##  6          5.4
+##  7          4.6
+##  8          5  
+##  9          4.4
+## 10          4.9
 ## # ... with 140 more rows
 ```
 
@@ -628,7 +628,7 @@ iris[1, ]
 ## # A tibble: 1 x 5
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>  
-## 1         5.10        3.50         1.40       0.200 setosa
+## 1          5.1         3.5          1.4         0.2 setosa
 ```
 
 If we wanted several rows, we can specify them with ```c()``` or, if they're consecutive, ```:```. For instance:
@@ -642,10 +642,10 @@ iris[c(1,2,3,4), ]
 ## # A tibble: 4 x 5
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>  
-## 1         5.10        3.50         1.40       0.200 setosa 
-## 2         4.90        3.00         1.40       0.200 setosa 
-## 3         4.70        3.20         1.30       0.200 setosa 
-## 4         4.60        3.10         1.50       0.200 setosa
+## 1          5.1         3.5          1.4         0.2 setosa 
+## 2          4.9         3            1.4         0.2 setosa 
+## 3          4.7         3.2          1.3         0.2 setosa 
+## 4          4.6         3.1          1.5         0.2 setosa
 ```
 
 ```r
@@ -656,10 +656,10 @@ iris[1:4, ]
 ## # A tibble: 4 x 5
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>  
-## 1         5.10        3.50         1.40       0.200 setosa 
-## 2         4.90        3.00         1.40       0.200 setosa 
-## 3         4.70        3.20         1.30       0.200 setosa 
-## 4         4.60        3.10         1.50       0.200 setosa
+## 1          5.1         3.5          1.4         0.2 setosa 
+## 2          4.9         3            1.4         0.2 setosa 
+## 3          4.7         3.2          1.3         0.2 setosa 
+## 4          4.6         3.1          1.5         0.2 setosa
 ```
 
 
@@ -674,7 +674,7 @@ iris[1,1]
 ## # A tibble: 1 x 1
 ##   Sepal.Length
 ##          <dbl>
-## 1         5.10
+## 1          5.1
 ```
 
 The pattern should be clear now - inside of the braces, you type the row number, a comma, and then the column number. Notice that ```[]``` always gives us a tibble (or dataframe) back. If we wanted a vector, we could use ```[[]]```:
@@ -757,16 +757,16 @@ iris[iris$Species == "setosa", ]
 ## # A tibble: 50 x 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           <dbl>       <dbl>        <dbl>       <dbl> <fct>  
-##  1         5.10        3.50         1.40       0.200 setosa 
-##  2         4.90        3.00         1.40       0.200 setosa 
-##  3         4.70        3.20         1.30       0.200 setosa 
-##  4         4.60        3.10         1.50       0.200 setosa 
-##  5         5.00        3.60         1.40       0.200 setosa 
-##  6         5.40        3.90         1.70       0.400 setosa 
-##  7         4.60        3.40         1.40       0.300 setosa 
-##  8         5.00        3.40         1.50       0.200 setosa 
-##  9         4.40        2.90         1.40       0.200 setosa 
-## 10         4.90        3.10         1.50       0.100 setosa 
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
 ## # ... with 40 more rows
 ```
 
@@ -781,12 +781,12 @@ iris[iris$Sepal.Length > 7.5, ]
 ## # A tibble: 6 x 5
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species  
 ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>    
-## 1         7.60        3.00         6.60        2.10 virginica
-## 2         7.70        3.80         6.70        2.20 virginica
-## 3         7.70        2.60         6.90        2.30 virginica
-## 4         7.70        2.80         6.70        2.00 virginica
-## 5         7.90        3.80         6.40        2.00 virginica
-## 6         7.70        3.00         6.10        2.30 virginica
+## 1          7.6         3            6.6         2.1 virginica
+## 2          7.7         3.8          6.7         2.2 virginica
+## 3          7.7         2.6          6.9         2.3 virginica
+## 4          7.7         2.8          6.7         2   virginica
+## 5          7.9         3.8          6.4         2   virginica
+## 6          7.7         3            6.1         2.3 virginica
 ```
 
 You can use ```==```, ```>```, ```>=```, ```<```, ```<=```, and ```!=``` (not equal) to subset your data.
@@ -806,16 +806,16 @@ iris %>%
 ## # A tibble: 50 x 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           <dbl>       <dbl>        <dbl>       <dbl> <fct>  
-##  1         5.10        3.50         1.40       0.200 setosa 
-##  2         4.90        3.00         1.40       0.200 setosa 
-##  3         4.70        3.20         1.30       0.200 setosa 
-##  4         4.60        3.10         1.50       0.200 setosa 
-##  5         5.00        3.60         1.40       0.200 setosa 
-##  6         5.40        3.90         1.70       0.400 setosa 
-##  7         4.60        3.40         1.40       0.300 setosa 
-##  8         5.00        3.40         1.50       0.200 setosa 
-##  9         4.40        2.90         1.40       0.200 setosa 
-## 10         4.90        3.10         1.50       0.100 setosa 
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
 ## # ... with 40 more rows
 ```
 
@@ -831,7 +831,7 @@ iris %>%
 ## # A tibble: 1 x 5
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>  
-## 1         5.10        3.30         1.70       0.500 setosa
+## 1          5.1         3.3          1.7         0.5 setosa
 ```
 
 It's important to remember that ```&``` means things which satisfy EACH condition. A common mistake is to type:
@@ -863,16 +863,16 @@ iris %>%
 ## # A tibble: 100 x 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           <dbl>       <dbl>        <dbl>       <dbl> <fct>  
-##  1         5.10        3.50         1.40       0.200 setosa 
-##  2         4.90        3.00         1.40       0.200 setosa 
-##  3         4.70        3.20         1.30       0.200 setosa 
-##  4         4.60        3.10         1.50       0.200 setosa 
-##  5         5.00        3.60         1.40       0.200 setosa 
-##  6         5.40        3.90         1.70       0.400 setosa 
-##  7         4.60        3.40         1.40       0.300 setosa 
-##  8         5.00        3.40         1.50       0.200 setosa 
-##  9         4.40        2.90         1.40       0.200 setosa 
-## 10         4.90        3.10         1.50       0.100 setosa 
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
 ## # ... with 90 more rows
 ```
 
@@ -947,16 +947,16 @@ iris %>%
 ## # Groups:   Species [3]
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           <dbl>       <dbl>        <dbl>       <dbl> <fct>  
-##  1         5.10        3.50         1.40       0.200 setosa 
-##  2         4.90        3.00         1.40       0.200 setosa 
-##  3         4.70        3.20         1.30       0.200 setosa 
-##  4         4.60        3.10         1.50       0.200 setosa 
-##  5         5.00        3.60         1.40       0.200 setosa 
-##  6         5.40        3.90         1.70       0.400 setosa 
-##  7         4.60        3.40         1.40       0.300 setosa 
-##  8         5.00        3.40         1.50       0.200 setosa 
-##  9         4.40        2.90         1.40       0.200 setosa 
-## 10         4.90        3.10         1.50       0.100 setosa 
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
 ## # ... with 140 more rows, and 1 more variable: SLDistanceFromMean <dbl>
 ```
 
@@ -976,16 +976,16 @@ iris %>%
 ## # A tibble: 150 x 4
 ##    Sepal.Length Species SLDistanceFromGroupMean SLDistanceFromTotalMean
 ##           <dbl> <fct>                     <dbl>                   <dbl>
-##  1         5.10 setosa                  0.0940                   -0.743
-##  2         4.90 setosa                 -0.106                    -0.943
-##  3         4.70 setosa                 -0.306                    -1.14 
-##  4         4.60 setosa                 -0.406                    -1.24 
-##  5         5.00 setosa                 -0.00600                  -0.843
-##  6         5.40 setosa                  0.394                    -0.443
-##  7         4.60 setosa                 -0.406                    -1.24 
-##  8         5.00 setosa                 -0.00600                  -0.843
-##  9         4.40 setosa                 -0.606                    -1.44 
-## 10         4.90 setosa                 -0.106                    -0.943
+##  1          5.1 setosa                   0.0940                  -0.743
+##  2          4.9 setosa                  -0.106                   -0.943
+##  3          4.7 setosa                  -0.306                   -1.14 
+##  4          4.6 setosa                  -0.406                   -1.24 
+##  5          5   setosa                  -0.006                   -0.843
+##  6          5.4 setosa                   0.394                   -0.443
+##  7          4.6 setosa                  -0.406                   -1.24 
+##  8          5   setosa                  -0.006                   -0.843
+##  9          4.4 setosa                  -0.606                   -1.44 
+## 10          4.9 setosa                  -0.106                   -0.943
 ## # ... with 140 more rows
 ```
 
@@ -1009,9 +1009,9 @@ MissingExample
 ## # A tibble: 3 x 4
 ##       w x     y         z
 ##   <dbl> <chr> <chr> <dbl>
-## 1    1. A     do     807.
-## 2    2. B     re      NA 
-## 3    3. C     <NA>   780.
+## 1     1 A     do      807
+## 2     2 B     re       NA
+## 3     3 C     <NA>    780
 ```
 
 (I'm using ```tibble()``` in place of ```dataframe()``` here, but the outcome is almost identical.)
@@ -1068,7 +1068,7 @@ MissingExample %>%
 ## # A tibble: 1 x 4
 ##       w x     y         z
 ##   <dbl> <chr> <chr> <dbl>
-## 1    1. A     do     807.
+## 1     1 A     do      807
 ```
 
 Or, if we knew the values we wanted those ```NA``` to represent, we could use ```replace_na()```, also from ```tidyr```. We just have to specify a list of what we want those values to be:
@@ -1083,9 +1083,9 @@ MissingExample %>%
 ## # A tibble: 3 x 4
 ##       w x     y     z    
 ##   <dbl> <chr> <chr> <chr>
-## 1    1. A     do    807  
-## 2    2. B     re    078  
-## 3    3. C     mi    780
+## 1     1 A     do    807  
+## 2     2 B     re    078  
+## 3     3 C     mi    780
 ```
 
 Notice a difference in the ```z``` column with this example? Because I put "078" in quotes, it changed the entire column to a character vector - because quotes mean characters, and a vector can only hold one class of data.
@@ -1107,11 +1107,11 @@ TreeData
 ## # A tibble: 5 x 3
 ##   Site  Species      Count
 ##   <chr> <chr>        <dbl>
-## 1 A     Red Maple      10.
-## 2 A     Sugar Maple     5.
-## 3 A     Black Cherry   15.
-## 4 B     Red Maple       8.
-## 5 B     Sugar Maple    19.
+## 1 A     Red Maple       10
+## 2 A     Sugar Maple      5
+## 3 A     Black Cherry    15
+## 4 B     Red Maple        8
+## 5 B     Sugar Maple     19
 ```
 
 A lot of field data is collected like this, where each row represents something that was present at the field site. The problem with this comes when we try to calculate summary statistics for each species:
@@ -1127,9 +1127,9 @@ TreeData %>%
 ## # A tibble: 3 x 3
 ##   Species       Mean StandardDev
 ##   <chr>        <dbl>       <dbl>
-## 1 Black Cherry   15.      NaN   
-## 2 Red Maple       9.        1.41
-## 3 Sugar Maple    12.        9.90
+## 1 Black Cherry    15       NA   
+## 2 Red Maple        9        1.41
+## 3 Sugar Maple     12        9.90
 ```
 
 Black cherry has a missing (```NaN```) standard deviation, because as far as R knows, it only has one observation to make estimates with. In reality, the fact that black cherry was missing from site B is a data point in and of itself - it's an _implicit_ value of 0.
@@ -1146,12 +1146,12 @@ TreeData %>%
 ## # A tibble: 6 x 3
 ##   Site  Species      Count
 ##   <chr> <chr>        <dbl>
-## 1 A     Black Cherry   15.
-## 2 A     Red Maple      10.
-## 3 A     Sugar Maple     5.
-## 4 B     Black Cherry    0.
-## 5 B     Red Maple       8.
-## 6 B     Sugar Maple    19.
+## 1 A     Black Cherry    15
+## 2 A     Red Maple       10
+## 3 A     Sugar Maple      5
+## 4 B     Black Cherry     0
+## 5 B     Red Maple        8
+## 6 B     Sugar Maple     19
 ```
 
 This way, when we go to calculate our summary statistics, we get better answers:
@@ -1168,9 +1168,9 @@ TreeData %>%
 ## # A tibble: 3 x 3
 ##   Species       Mean StandardDev
 ##   <chr>        <dbl>       <dbl>
-## 1 Black Cherry  7.50       10.6 
-## 2 Red Maple     9.00        1.41
-## 3 Sugar Maple  12.0         9.90
+## 1 Black Cherry   7.5       10.6 
+## 2 Red Maple      9          1.41
+## 3 Sugar Maple   12          9.90
 ```
 
 ### Count Data

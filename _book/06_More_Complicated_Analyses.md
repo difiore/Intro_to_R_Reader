@@ -19,20 +19,20 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ---------------------------------------------------------------------------------------- tidyverse 1.2.1 --
+## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
-## v ggplot2 3.0.0     v purrr   0.2.4
-## v tibble  1.4.2     v dplyr   0.7.4
-## v tidyr   0.8.0     v stringr 1.3.0
-## v readr   1.1.1     v forcats 0.3.0
+## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
+## ✔ readr   1.1.1     ✔ forcats 0.3.0
 ```
 
 ```
-## -- Conflicts ------------------------------------------------------------------------------------------- tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
+## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
 ```
 
 All the datasets included in our example use different _delimiters_ - the character that tells R (or Excel, or whatever program you're using) where one column stops and the next one begins. No matter what your delimiter is, we can parse the file using ```read_delim()``` - the first argument is the filename to read, while the second is the delimiter used. For instance, our text file is tab delimited - and since tabs are represented in R as ```\t```, we'll tell ```read_delim()``` to use that as a delimiter:
@@ -104,18 +104,18 @@ AthleteEvents
 
 ```
 ## # A tibble: 271,116 x 13
-##       ID Name    Sex     Age Height Weight NOC   Games   Year Season Sport
-##    <int> <chr>   <chr> <int>  <int>  <dbl> <chr> <chr>  <int> <chr>  <chr>
-##  1     1 A Diji~ M        24    180    80. CHN   1992 ~  1992 Summer Bask~
-##  2     2 A Lamu~ M        23    170    60. CHN   2012 ~  2012 Summer Judo 
-##  3     3 Gunnar~ M        24     NA    NA  DEN   1920 ~  1920 Summer Foot~
-##  4     4 Edgar ~ M        34     NA    NA  DEN   1900 ~  1900 Summer Tug-~
-##  5     5 Christ~ F        21    185    82. NED   1988 ~  1988 Winter Spee~
-##  6     5 Christ~ F        21    185    82. NED   1988 ~  1988 Winter Spee~
-##  7     5 Christ~ F        25    185    82. NED   1992 ~  1992 Winter Spee~
-##  8     5 Christ~ F        25    185    82. NED   1992 ~  1992 Winter Spee~
-##  9     5 Christ~ F        27    185    82. NED   1994 ~  1994 Winter Spee~
-## 10     5 Christ~ F        27    185    82. NED   1994 ~  1994 Winter Spee~
+##       ID Name  Sex     Age Height Weight NOC   Games  Year Season Sport
+##    <int> <chr> <chr> <int>  <int>  <dbl> <chr> <chr> <int> <chr>  <chr>
+##  1     1 A Di… M        24    180     80 CHN   1992…  1992 Summer Bask…
+##  2     2 A La… M        23    170     60 CHN   2012…  2012 Summer Judo 
+##  3     3 Gunn… M        24     NA     NA DEN   1920…  1920 Summer Foot…
+##  4     4 Edga… M        34     NA     NA DEN   1900…  1900 Summer Tug-…
+##  5     5 Chri… F        21    185     82 NED   1988…  1988 Winter Spee…
+##  6     5 Chri… F        21    185     82 NED   1988…  1988 Winter Spee…
+##  7     5 Chri… F        25    185     82 NED   1992…  1992 Winter Spee…
+##  8     5 Chri… F        25    185     82 NED   1992…  1992 Winter Spee…
+##  9     5 Chri… F        27    185     82 NED   1994…  1994 Winter Spee…
+## 10     5 Chri… F        27    185     82 NED   1994…  1994 Winter Spee…
 ## # ... with 271,106 more rows, and 2 more variables: Event <chr>,
 ## #   Medal <chr>
 ```
@@ -154,18 +154,18 @@ AthleteEvents
 
 ```
 ## # A tibble: 271,116 x 13
-##       ID Name    Sex     Age Height Weight NOC   Games   Year Season Sport
-##    <int> <chr>   <chr> <int>  <int>  <dbl> <chr> <chr>  <int> <chr>  <chr>
-##  1     1 A Diji~ M        24    180    80. CHN   1992 ~  1992 Summer Bask~
-##  2     2 A Lamu~ M        23    170    60. CHN   2012 ~  2012 Summer Judo 
-##  3     3 Gunnar~ M        24     NA    NA  DEN   1920 ~  1920 Summer Foot~
-##  4     4 Edgar ~ M        34     NA    NA  DEN   1900 ~  1900 Summer Tug-~
-##  5     5 Christ~ F        21    185    82. NED   1988 ~  1988 Winter Spee~
-##  6     5 Christ~ F        21    185    82. NED   1988 ~  1988 Winter Spee~
-##  7     5 Christ~ F        25    185    82. NED   1992 ~  1992 Winter Spee~
-##  8     5 Christ~ F        25    185    82. NED   1992 ~  1992 Winter Spee~
-##  9     5 Christ~ F        27    185    82. NED   1994 ~  1994 Winter Spee~
-## 10     5 Christ~ F        27    185    82. NED   1994 ~  1994 Winter Spee~
+##       ID Name  Sex     Age Height Weight NOC   Games  Year Season Sport
+##    <int> <chr> <chr> <int>  <int>  <dbl> <chr> <chr> <int> <chr>  <chr>
+##  1     1 A Di… M        24    180     80 CHN   1992…  1992 Summer Bask…
+##  2     2 A La… M        23    170     60 CHN   2012…  2012 Summer Judo 
+##  3     3 Gunn… M        24     NA     NA DEN   1920…  1920 Summer Foot…
+##  4     4 Edga… M        34     NA     NA DEN   1900…  1900 Summer Tug-…
+##  5     5 Chri… F        21    185     82 NED   1988…  1988 Winter Spee…
+##  6     5 Chri… F        21    185     82 NED   1988…  1988 Winter Spee…
+##  7     5 Chri… F        25    185     82 NED   1992…  1992 Winter Spee…
+##  8     5 Chri… F        25    185     82 NED   1992…  1992 Winter Spee…
+##  9     5 Chri… F        27    185     82 NED   1994…  1994 Winter Spee…
+## 10     5 Chri… F        27    185     82 NED   1994…  1994 Winter Spee…
 ## # ... with 271,106 more rows, and 2 more variables: Event <chr>,
 ## #   Medal <chr>
 ```
@@ -190,18 +190,18 @@ NBAStats
 
 ```
 ## # A tibble: 490 x 34
-##    Name     `Games Played`   MIN   PTS   FGM   FGA `FG%` `3PM` `3PA` `3P%`
-##    <chr>             <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
-##  1 AJ Price            26.  324.  133.   51.  137.  37.2   15.   57.  26.3
-##  2 Aaron B~            82. 1885.  954.  344.  817.  42.1  121.  313.  38.7
-##  3 Aaron G~            47.  797.  243.   93.  208.  44.7   13.   48.  27.1
-##  4 Adreian~            32.  740.  213.   91.  220.  41.4    1.    9.  11.1
-##  5 Al Horf~            76. 2318. 1156.  519.  965.  53.8   11.   36.  30.6
-##  6 Al Jeff~            65. 1992. 1082.  486. 1010.  48.1    2.    5.  40.0
-##  7 Alan An~            74. 1744.  545.  195.  440.  44.3   73.  210.  34.8
-##  8 Alec Bu~            27.  899.  374.  121.  300.  40.3   26.   68.  38.2
-##  9 Alex Ki~             5.   14.    4.    1.    4.  25.0    0.    0.   0. 
-## 10 Alex Len            69. 1518.  432.  179.  353.  50.7    1.    3.  33.3
+##    Name  `Games Played`   MIN   PTS   FGM   FGA `FG%` `3PM` `3PA` `3P%`
+##    <chr>          <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+##  1 AJ P…             26   324   133    51   137  37.2    15    57  26.3
+##  2 Aaro…             82  1885   954   344   817  42.1   121   313  38.7
+##  3 Aaro…             47   797   243    93   208  44.7    13    48  27.1
+##  4 Adre…             32   740   213    91   220  41.4     1     9  11.1
+##  5 Al H…             76  2318  1156   519   965  53.8    11    36  30.6
+##  6 Al J…             65  1992  1082   486  1010  48.1     2     5  40  
+##  7 Alan…             74  1744   545   195   440  44.3    73   210  34.8
+##  8 Alec…             27   899   374   121   300  40.3    26    68  38.2
+##  9 Alex…              5    14     4     1     4  25       0     0   0  
+## 10 Alex…             69  1518   432   179   353  50.7     1     3  33.3
 ## # ... with 480 more rows, and 24 more variables: FTM <dbl>, FTA <dbl>,
 ## #   `FT%` <dbl>, OREB <dbl>, DREB <dbl>, REB <dbl>, AST <dbl>, STL <dbl>,
 ## #   BLK <dbl>, TOV <dbl>, PF <dbl>, EFF <dbl>, `AST/TOV` <dbl>,
@@ -581,7 +581,7 @@ ggplot(AthleteEvents, aes(Height, Winner)) +
 
 This here is the root of our problem - we're trying to model a binary outcome (a yes or no, a medal or not) with a straight line, which is useless. This sort of problem comes up all the time in real world situations - in science, whether or not a trap will catch something, or in business, whether or not a customer will click.
 
-Instead, we can choose to use a _logistic model_, one of the types of _generalized linear models_ from chapter 3. These models serve to measure the probability of a binary event - while a linear model will tell you the value of your response variable, logistic models will tell you the probability your response variable is 1. 
+These problems are known as _classification_ problems, where the outcome is a categorical variable, and linear models are really bad at them. Instead, we can choose to use a _logistic model_, one of the types of _generalized linear models_ from chapter 3. These models serve to measure the probability of a binary event - while a linear model will tell you the value of your response variable, logistic models will tell you the probability your response variable is 1. 
 
 R convieniently has a function ```glm()``` for doing exactly this:
 
@@ -761,10 +761,10 @@ str(AthleteLogisticModel)
 ##   .. .. ..- attr(*, "predvars")= language list(Winner, Age, Height, Weight)
 ##   .. .. ..- attr(*, "dataClasses")= Named chr [1:4] "numeric" "numeric" "numeric" "numeric"
 ##   .. .. .. ..- attr(*, "names")= chr [1:4] "Winner" "Age" "Height" "Weight"
-##   ..- attr(*, "na.action")=Class 'omit'  Named int [1:64951] 3 4 27 28 30 36 37 38 39 40 ...
-##   .. .. ..- attr(*, "names")= chr [1:64951] "3" "4" "27" "28" ...
-##  $ na.action        :Class 'omit'  Named int [1:64951] 3 4 27 28 30 36 37 38 39 40 ...
+##   ..- attr(*, "na.action")= 'omit' Named int [1:64951] 3 4 27 28 30 36 37 38 39 40 ...
 ##   .. ..- attr(*, "names")= chr [1:64951] "3" "4" "27" "28" ...
+##  $ na.action        : 'omit' Named int [1:64951] 3 4 27 28 30 36 37 38 39 40 ...
+##   ..- attr(*, "names")= chr [1:64951] "3" "4" "27" "28" ...
 ##  $ call             : language glm(formula = Winner ~ Age * Height * Weight, family = "binomial",      data = AthleteEvents)
 ##  $ formula          :Class 'formula'  language Winner ~ Age * Height * Weight
 ##   .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
@@ -992,8 +992,10 @@ glance(AthleteLogisticModel)
 ```
 
 ```
-##   null.deviance df.null    logLik      AIC      BIC deviance df.residual
-## 1      171694.2  206164 -84851.69 169719.4 169801.3 169703.4      206157
+## # A tibble: 1 x 7
+##   null.deviance df.null  logLik     AIC     BIC deviance df.residual
+##           <dbl>   <int>   <dbl>   <dbl>   <dbl>    <dbl>       <int>
+## 1       171694.  206164 -84852. 169719. 169801.  169703.      206157
 ```
 
 ```r
@@ -1001,8 +1003,10 @@ glance(AthleteLogisticModel2)
 ```
 
 ```
-##   null.deviance df.null    logLik      AIC      BIC deviance df.residual
-## 1      171694.2  206164 -84137.37 168306.7 168470.5 168274.7      206149
+## # A tibble: 1 x 7
+##   null.deviance df.null  logLik     AIC     BIC deviance df.residual
+##           <dbl>   <int>   <dbl>   <dbl>   <dbl>    <dbl>       <int>
+## 1       171694.  206164 -84137. 168307. 168471.  168275.      206149
 ```
 
 The number we're interested in right now is AIC, located halfway across the dataframe. There's a very simple rule for comparing models using AIC: $\Delta$AIC between two models > 4? The model with the smaller AIC is better. $\Delta$AIC between 2 and 4? Odds are the model with the smaller AIC is better, but it's shakier. $\Delta$AIC < 2? The two models are effectively identical.
@@ -1039,8 +1043,10 @@ glance(glm(Winner ~ Sex * Age * Height * Weight, data = AthleteEvents, family = 
 ```
 
 ```
-##   null.deviance df.null    logLik      AIC      BIC deviance df.residual
-## 1      171694.2  206164 -84137.37 168306.7 168470.5 168274.7      206149
+## # A tibble: 1 x 7
+##   null.deviance df.null  logLik     AIC     BIC deviance df.residual
+##           <dbl>   <int>   <dbl>   <dbl>   <dbl>    <dbl>       <int>
+## 1       171694.  206164 -84137. 168307. 168471.  168275.      206149
 ```
 
 However, this is inefficient, requires a lot of typing, and makes it really hard to compare AICs directly - or to export them to somewhere like Excel, for inclusion in a document. A somewhat better way is to define each model as its own function, taking the argument ```df```:
@@ -1158,10 +1164,10 @@ LogModelGlances
 
 ```
 ## # A tibble: 1 x 17
-##   data   FullMod  One    Two    Three  Four  Five  Six   Seven Eight Nine 
-##   <list> <list>   <list> <list> <list> <lis> <lis> <lis> <lis> <lis> <lis>
-## 1 <tibb~ <data.f~ <data~ <data~ <data~ <dat~ <dat~ <dat~ <dat~ <dat~ <dat~
-## # ... with 6 more variables: Ten <list>, Eleven <list>, Twelve <list>,
+##   data  FullMod One   Two   Three Four  Five  Six   Seven Eight Nine  Ten 
+##   <lis> <list>  <lis> <lis> <lis> <lis> <lis> <lis> <lis> <lis> <lis> <li>
+## 1 <tib… <tibbl… <tib… <tib… <tib… <tib… <tib… <tib… <tib… <tib… <tib… <ti…
+## # ... with 5 more variables: Eleven <list>, Twelve <list>,
 ## #   Thirteen <list>, Fourteen <list>, NullMod <list>
 ```
 
@@ -1191,22 +1197,22 @@ LogModelGlances %>%
 ## # A tibble: 16 x 8
 ##    Model  null.deviance df.null  logLik    AIC    BIC deviance df.residual
 ##    <chr>          <dbl>   <int>   <dbl>  <dbl>  <dbl>    <dbl>       <int>
-##  1 FullM~       171694.  206164 -8.41e4 1.68e5 1.68e5  168275.      206149
+##  1 FullM…       171694.  206164 -8.41e4 1.68e5 1.68e5  168275.      206149
 ##  2 Three        171965.  206852 -8.44e4 1.69e5 1.69e5  168719.      206845
 ##  3 Seven        171694.  206164 -8.49e4 1.70e5 1.70e5  169703.      206157
 ##  4 Ten          171965.  206852 -8.51e4 1.70e5 1.70e5  170100.      206849
 ##  5 Two          172939.  207378 -8.51e4 1.70e5 1.70e5  170118.      207371
 ##  6 Six          173321.  208240 -8.53e4 1.71e5 1.71e5  170622.      208237
 ##  7 Nine         172939.  207378 -8.56e4 1.71e5 1.71e5  171265.      207375
-##  8 Fourt~       173321.  208240 -8.59e4 1.72e5 1.72e5  171755.      208239
+##  8 Fourt…       173321.  208240 -8.59e4 1.72e5 1.72e5  171755.      208239
 ##  9 One          175987.  210067 -8.66e4 1.73e5 1.73e5  173239.      210060
 ## 10 Four         176348.  210944 -8.69e4 1.74e5 1.74e5  173720.      210941
 ## 11 Eight        175987.  210067 -8.72e4 1.74e5 1.74e5  174308.      210064
-## 12 Thirt~       176348.  210944 -8.74e4 1.75e5 1.75e5  174728.      210943
+## 12 Thirt…       176348.  210944 -8.74e4 1.75e5 1.75e5  174728.      210943
 ## 13 Five         220518.  261641 -1.10e5 2.20e5 2.20e5  220249.      261638
 ## 14 Twelve       220518.  261641 -1.10e5 2.20e5 2.20e5  220370.      261640
 ## 15 Eleven       226115.  271115 -1.13e5 2.26e5 2.26e5  226101.      271114
-## 16 NullM~       226115.  271115 -1.13e5 2.26e5 2.26e5  226115.      271115
+## 16 NullM…       226115.  271115 -1.13e5 2.26e5 2.26e5  226115.      271115
 ```
 
 Tada! Looks like all our models outperformed the null model by a good margin - and our full model is the best model of the set, with no other model getting particularly close to it. If we wanted, we could now measure just how accurate our best model is, using either AUC or a pseudo-R^2^:
@@ -1458,22 +1464,24 @@ Glances
 ```
 
 ```
-##    null.deviance df.null     logLik      AIC      BIC deviance df.residual
-## 1       226115.5  271115 -113050.31 226104.6 226125.6 226100.6      271114
-## 2       220518.2  261641 -110184.96 220373.9 220394.9 220369.9      261640
-## 3       176348.0  210944  -87363.78 174731.6 174752.1 174727.6      210943
-## 4       173321.1  208240  -85877.53 171759.1 171779.5 171755.1      208239
-## 5       220518.2  261641 -110124.47 220256.9 220298.8 220248.9      261638
-## 6       176348.0  210944  -86860.23 173728.5 173769.5 173720.5      210941
-## 7       173321.1  208240  -85310.91 170629.8 170670.8 170621.8      208237
-## 8       175987.3  210067  -87154.19 174316.4 174357.4 174308.4      210064
-## 9       172938.8  207378  -85632.43 171272.9 171313.8 171264.9      207375
-## 10      171964.6  206852  -85050.08 170108.2 170149.1 170100.2      206849
-## 11      175987.3  210067  -86619.28 173254.6 173336.6 173238.6      210060
-## 12      172938.8  207378  -85059.12 170134.2 170216.2 170118.2      207371
-## 13      171964.6  206852  -84359.50 168735.0 168816.9 168719.0      206845
-## 14      171694.2  206164  -84851.69 169719.4 169801.3 169703.4      206157
-## 15      171694.2  206164  -84137.37 168306.7 168470.5 168274.7      206149
+## # A tibble: 15 x 7
+##    null.deviance df.null   logLik     AIC     BIC deviance df.residual
+##  *         <dbl>   <int>    <dbl>   <dbl>   <dbl>    <dbl>       <int>
+##  1       226115.  271115 -113050. 226105. 226126.  226101.      271114
+##  2       220518.  261641 -110185. 220374. 220395.  220370.      261640
+##  3       176348.  210944  -87364. 174732. 174752.  174728.      210943
+##  4       173321.  208240  -85878. 171759. 171780.  171755.      208239
+##  5       220518.  261641 -110124. 220257. 220299.  220249.      261638
+##  6       176348.  210944  -86860. 173728. 173769.  173720.      210941
+##  7       173321.  208240  -85311. 170630. 170671.  170622.      208237
+##  8       175987.  210067  -87154. 174316. 174357.  174308.      210064
+##  9       172939.  207378  -85632. 171273. 171314.  171265.      207375
+## 10       171965.  206852  -85050. 170108. 170149.  170100.      206849
+## 11       175987.  210067  -86619. 173255. 173337.  173239.      210060
+## 12       172939.  207378  -85059. 170134. 170216.  170118.      207371
+## 13       171965.  206852  -84360. 168735. 168817.  168719.      206845
+## 14       171694.  206164  -84852. 169719. 169801.  169703.      206157
+## 15       171694.  206164  -84137. 168307. 168471.  168275.      206149
 ```
 
 ## Relational Data
@@ -1492,22 +1500,24 @@ Glances
 ```
 
 ```
-##    FormNum      AIC
-## 1        1 226104.6
-## 2        2 220373.9
-## 3        3 174731.6
-## 4        4 171759.1
-## 5        5 220256.9
-## 6        6 173728.5
-## 7        7 170629.8
-## 8        8 174316.4
-## 9        9 171272.9
-## 10      10 170108.2
-## 11      11 173254.6
-## 12      12 170134.2
-## 13      13 168735.0
-## 14      14 169719.4
-## 15      15 168306.7
+## # A tibble: 15 x 2
+##    FormNum     AIC
+##      <dbl>   <dbl>
+##  1       1 226105.
+##  2       2 220374.
+##  3       3 174732.
+##  4       4 171759.
+##  5       5 220257.
+##  6       6 173728.
+##  7       7 170630.
+##  8       8 174316.
+##  9       9 171273.
+## 10      10 170108.
+## 11      11 173255.
+## 12      12 170134.
+## 13      13 168735.
+## 14      14 169719.
+## 15      15 168307.
 ```
 
 I also want to point out one important difference between our dataframes - the ```Glances``` dataframe doesn't include our null model, while ```Tidies``` has it as ```FormNum == 0```. We can check to make sure by ```factor()```ing our dataframes' ```FormNum``` fields, which identifies each unique level in the vector. We can then find all the ```levels()``` contained in that factor, confirming that ```0``` is only present in the ```Tidies``` dataframe:

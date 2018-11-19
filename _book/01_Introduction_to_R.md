@@ -316,20 +316,20 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ---------------------------------------------------------------------------------------- tidyverse 1.2.1 --
+## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
-## v ggplot2 3.0.0     v purrr   0.2.4
-## v tibble  1.4.2     v dplyr   0.7.4
-## v tidyr   0.8.0     v stringr 1.3.0
-## v readr   1.1.1     v forcats 0.3.0
+## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
+## ✔ readr   1.1.1     ✔ forcats 0.3.0
 ```
 
 ```
-## -- Conflicts ------------------------------------------------------------------------------------------- tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
+## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
 ```
 
 Note the quotes around "tidyverse" when you go to install it, but **not** when it's inside of ```library()```. The reason for this is a little complicated - basically, you don't use quotes for things that are inside of R's memory, like data, functions, and packages. You use quotes for everything else.
@@ -620,12 +620,12 @@ head(diamonds)
 ## # A tibble: 6 x 10
 ##   carat cut       color clarity depth table price     x     y     z
 ##   <dbl> <ord>     <ord> <ord>   <dbl> <dbl> <int> <dbl> <dbl> <dbl>
-## 1 0.230 Ideal     E     SI2      61.5   55.   326  3.95  3.98  2.43
-## 2 0.210 Premium   E     SI1      59.8   61.   326  3.89  3.84  2.31
-## 3 0.230 Good      E     VS1      56.9   65.   327  4.05  4.07  2.31
-## 4 0.290 Premium   I     VS2      62.4   58.   334  4.20  4.23  2.63
-## 5 0.310 Good      J     SI2      63.3   58.   335  4.34  4.35  2.75
-## 6 0.240 Very Good J     VVS2     62.8   57.   336  3.94  3.96  2.48
+## 1 0.23  Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43
+## 2 0.21  Premium   E     SI1      59.8    61   326  3.89  3.84  2.31
+## 3 0.23  Good      E     VS1      56.9    65   327  4.05  4.07  2.31
+## 4 0.290 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63
+## 5 0.31  Good      J     SI2      63.3    58   335  4.34  4.35  2.75
+## 6 0.24  Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48
 ```
 
 We can plot the price of each diamond against its weight (or carat) pretty easily, using ```geom_point()``` like before:

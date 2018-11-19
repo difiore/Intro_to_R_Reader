@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Introduction to Data Exploration and Analysis with R</title>
+  <meta name="description" content="This is a course reader for a class that will never be taught. Hopefully it helps you nonetheless.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Introduction to Data Exploration and Analysis with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a course reader for a class that will never be taught. Hopefully it helps you nonetheless." />
+  <meta name="github-repo" content="MikeMahoney218/Intro_to_R_Reader" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduction to Data Exploration and Analysis with R" />
+  
+  <meta name="twitter:description" content="This is a course reader for a class that will never be taught. Hopefully it helps you nonetheless." />
+  
+
+<meta name="author" content="Michael Mahoney">
+
+
+<meta name="date" content="2018-11-18">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="working-with-dates-and-times.html">
+<link rel="next" href="other-resources.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to IDEAR</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#course-outline"><i class="fa fa-check"></i><b>0.1</b> Course Outline</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#citing-my-sources"><i class="fa fa-check"></i><b>0.2</b> Citing My Sources</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and Data Visualization</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#lecture-notes"><i class="fa fa-check"></i><b>1.1</b> Lecture Notes</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#what-is-r"><i class="fa fa-check"></i><b>1.1.1</b> What is R?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#what-is-coding"><i class="fa fa-check"></i><b>1.1.2</b> What is coding?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#conventions-of-the-course-and-this-reader"><i class="fa fa-check"></i><b>1.1.3</b> Conventions of the course (and this reader)</a></li>
+<li class="chapter" data-level="1.1.4" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#things-youll-need"><i class="fa fa-check"></i><b>1.1.4</b> Things You’ll Need</a></li>
+<li class="chapter" data-level="1.1.5" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#introduction-to-rstudio"><i class="fa fa-check"></i><b>1.1.5</b> Introduction to RStudio</a></li>
+<li class="chapter" data-level="1.1.6" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#your-first-program"><i class="fa fa-check"></i><b>1.1.6</b> Your First Program</a></li>
+<li class="chapter" data-level="1.1.7" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#the-iris-dataset"><i class="fa fa-check"></i><b>1.1.7</b> The iris Dataset</a></li>
+<li class="chapter" data-level="1.1.8" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#graphing-with-r"><i class="fa fa-check"></i><b>1.1.8</b> Graphing with R</a></li>
+<li class="chapter" data-level="1.1.9" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#the-tidyverse-package"><i class="fa fa-check"></i><b>1.1.9</b> The Tidyverse Package</a></li>
+<li class="chapter" data-level="1.1.10" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>1.1.10</b> ggplot2</a></li>
+<li class="chapter" data-level="1.1.11" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#facetting"><i class="fa fa-check"></i><b>1.1.11</b> Facetting</a></li>
+<li class="chapter" data-level="1.1.12" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#diamonds"><i class="fa fa-check"></i><b>1.1.12</b> diamonds</a></li>
+<li class="chapter" data-level="1.1.13" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#other-popular-geoms"><i class="fa fa-check"></i><b>1.1.13</b> Other Popular Geoms</a></li>
+<li class="chapter" data-level="1.1.14" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#designing-good-graphics"><i class="fa fa-check"></i><b>1.1.14</b> Designing Good Graphics</a></li>
+<li class="chapter" data-level="1.1.15" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#saving-your-graphics"><i class="fa fa-check"></i><b>1.1.15</b> Saving Your Graphics</a></li>
+<li class="chapter" data-level="1.1.16" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#more-resources"><i class="fa fa-check"></i><b>1.1.16</b> More Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#exercises"><i class="fa fa-check"></i><b>1.2</b> Exercises</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#calculate-the-following"><i class="fa fa-check"></i><b>1.2.1</b> Calculate the following:</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#graph-the-following"><i class="fa fa-check"></i><b>1.2.2</b> Graph the following:</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#use-a-new-dataset"><i class="fa fa-check"></i><b>1.2.3</b> Use a new dataset:</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#looking-ahead"><i class="fa fa-check"></i><b>1.2.4</b> Looking ahead:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html"><i class="fa fa-check"></i><b>2</b> R Functions and Workflow</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#workflow"><i class="fa fa-check"></i><b>2.1</b> Workflow</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#scripts"><i class="fa fa-check"></i><b>2.1.1</b> Scripts</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#notebooks"><i class="fa fa-check"></i><b>2.1.2</b> Notebooks</a></li>
+<li class="chapter" data-level="2.1.3" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#memory-objects-and-names"><i class="fa fa-check"></i><b>2.1.3</b> Memory, Objects, and Names</a></li>
+<li class="chapter" data-level="2.1.4" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#dataframes-and-transformations"><i class="fa fa-check"></i><b>2.1.4</b> Dataframes and Transformations</a></li>
+<li class="chapter" data-level="2.1.5" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#the-pipe"><i class="fa fa-check"></i><b>2.1.5</b> The Pipe</a></li>
+<li class="chapter" data-level="2.1.6" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#data-transformations"><i class="fa fa-check"></i><b>2.1.6</b> Data Transformations</a></li>
+<li class="chapter" data-level="2.1.7" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#working-with-groups"><i class="fa fa-check"></i><b>2.1.7</b> Working with Groups</a></li>
+<li class="chapter" data-level="2.1.8" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#missing-values"><i class="fa fa-check"></i><b>2.1.8</b> Missing Values</a></li>
+<li class="chapter" data-level="2.1.9" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#count-data"><i class="fa fa-check"></i><b>2.1.9</b> Count Data</a></li>
+<li class="chapter" data-level="2.1.10" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#oddballs"><i class="fa fa-check"></i><b>2.1.10</b> Oddballs</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#r-functions-and-workflow-exercises"><i class="fa fa-check"></i><b>2.2</b> R Functions and Workflow Exercises</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#do-the-following"><i class="fa fa-check"></i><b>2.2.1</b> Do the following:</a></li>
+<li class="chapter" data-level="2.2.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#work-with-other-datasets"><i class="fa fa-check"></i><b>2.2.2</b> Work with other datasets:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html"><i class="fa fa-check"></i><b>3</b> Basic Statistics (Using R)</a><ul>
+<li class="chapter" data-level="3.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#purpose-of-the-unit"><i class="fa fa-check"></i><b>3.1</b> Purpose of the Unit</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#definitions"><i class="fa fa-check"></i><b>3.2</b> Definitions</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#data-concepts"><i class="fa fa-check"></i><b>3.2.1</b> Data Concepts</a></li>
+<li class="chapter" data-level="3.2.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#statistical-terms"><i class="fa fa-check"></i><b>3.2.2</b> Statistical Terms</a></li>
+<li class="chapter" data-level="3.2.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#models-and-tests"><i class="fa fa-check"></i><b>3.2.3</b> Models and Tests</a></li>
+<li class="chapter" data-level="3.2.4" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#how-well-compare-models"><i class="fa fa-check"></i><b>3.2.4</b> How We’ll Compare Models</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#examples"><i class="fa fa-check"></i><b>3.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html"><i class="fa fa-check"></i><b>4</b> Introduction to Data Analysis</a><ul>
+<li class="chapter" data-level="4.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>4.1</b> Exploratory Data Analysis</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#gapminder"><i class="fa fa-check"></i><b>4.1.1</b> gapminder</a></li>
+<li class="chapter" data-level="4.1.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#describing-your-data"><i class="fa fa-check"></i><b>4.1.2</b> Describing Your Data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#statistical-tests-and-regressions"><i class="fa fa-check"></i><b>4.2</b> Statistical Tests and Regressions</a></li>
+<li class="chapter" data-level="4.3" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#functional-programming"><i class="fa fa-check"></i><b>4.3</b> Functional Programming</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#column-names"><i class="fa fa-check"></i><b>4.3.1</b> Column Names</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#modeling"><i class="fa fa-check"></i><b>4.4</b> Modeling</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#mixed-models"><i class="fa fa-check"></i>Mixed Models</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="4.5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exercises-1"><i class="fa fa-check"></i><b>4.5</b> Exercises</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#answer-the-following"><i class="fa fa-check"></i><b>4.5.1</b> Answer the following:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html"><i class="fa fa-check"></i><b>5</b> Functions and Scripting</a><ul>
+<li class="chapter" data-level="5.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#notes"><i class="fa fa-check"></i><b>5.1</b> Notes</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#writing-functions"><i class="fa fa-check"></i><b>5.1.1</b> Writing Functions</a></li>
+<li class="chapter" data-level="5.1.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#conditional-statements"><i class="fa fa-check"></i><b>5.1.2</b> Conditional Statements</a></li>
+<li class="chapter" data-level="5.1.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#stops"><i class="fa fa-check"></i><b>5.1.3</b> Stops</a></li>
+<li class="chapter" data-level="5.1.4" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#saving-and-loading-functions"><i class="fa fa-check"></i><b>5.1.4</b> Saving and Loading Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#loops"><i class="fa fa-check"></i><b>5.2</b> Loops</a></li>
+<li class="chapter" data-level="5.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#mapping-functions"><i class="fa fa-check"></i><b>5.3</b> Mapping Functions</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#more-information"><i class="fa fa-check"></i><b>5.3.1</b> More Information</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#exercises-2"><i class="fa fa-check"></i><b>5.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html"><i class="fa fa-check"></i><b>6</b> More Complicated Analyses</a><ul>
+<li class="chapter" data-level="6.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#other-datasets"><i class="fa fa-check"></i><b>6.1</b> Other Datasets</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#importing-your-own-data"><i class="fa fa-check"></i><b>6.1.1</b> Importing Your Own Data</a></li>
+<li class="chapter" data-level="6.1.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#exporting-data"><i class="fa fa-check"></i><b>6.1.2</b> Exporting Data</a></li>
+<li class="chapter" data-level="6.1.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#data-exploration"><i class="fa fa-check"></i><b>6.1.3</b> Data Exploration</a></li>
+<li class="chapter" data-level="6.1.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#modeling-winners"><i class="fa fa-check"></i><b>6.1.4</b> Modeling Winners</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#logistic-models"><i class="fa fa-check"></i><b>6.2</b> Logistic Models</a></li>
+<li class="chapter" data-level="6.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#modelling-metrics"><i class="fa fa-check"></i><b>6.3</b> Modelling Metrics</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#pseudo-r2"><i class="fa fa-check"></i><b>6.3.1</b> Pseudo-R<sup>2</sup></a></li>
+<li class="chapter" data-level="6.3.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#area-under-the-roc-curve-auc"><i class="fa fa-check"></i><b>6.3.2</b> Area Under the ROC Curve (AUC)</a></li>
+<li class="chapter" data-level="6.3.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#model-comparisons"><i class="fa fa-check"></i><b>6.3.3</b> Model Comparisons</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#more-complicated-analyses-1"><i class="fa fa-check"></i><b>6.4</b> More Complicated Analyses</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#model-selection"><i class="fa fa-check"></i><b>6.4.1</b> Model Selection</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#relational-data"><i class="fa fa-check"></i><b>6.5</b> Relational Data</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#inner-join"><i class="fa fa-check"></i><b>6.5.1</b> Inner Join</a></li>
+<li class="chapter" data-level="6.5.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#left-join"><i class="fa fa-check"></i><b>6.5.2</b> Left Join</a></li>
+<li class="chapter" data-level="6.5.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#right-join"><i class="fa fa-check"></i><b>6.5.3</b> Right Join</a></li>
+<li class="chapter" data-level="6.5.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#full-join"><i class="fa fa-check"></i><b>6.5.4</b> Full Join</a></li>
+<li class="chapter" data-level="6.5.5" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#semi-join"><i class="fa fa-check"></i><b>6.5.5</b> Semi Join</a></li>
+<li class="chapter" data-level="6.5.6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#anti-join"><i class="fa fa-check"></i><b>6.5.6</b> Anti Join</a></li>
+<li class="chapter" data-level="6.5.7" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#specifying-key-columns"><i class="fa fa-check"></i><b>6.5.7</b> Specifying Key Columns</a></li>
+<li class="chapter" data-level="6.5.8" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#merging-multiple-dataframes"><i class="fa fa-check"></i><b>6.5.8</b> Merging Multiple Dataframes</a></li>
+<li class="chapter" data-level="6.5.9" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#binding-dataframes"><i class="fa fa-check"></i><b>6.5.9</b> Binding Dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#exercises-3"><i class="fa fa-check"></i><b>6.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html"><i class="fa fa-check"></i><b>7</b> Achieving Graphical Excellence</a><ul>
+<li class="chapter" data-level="7.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#getting-started"><i class="fa fa-check"></i><b>7.2</b> Getting Started</a></li>
+<li class="chapter" data-level="7.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#themes"><i class="fa fa-check"></i><b>7.3</b> Themes</a></li>
+<li class="chapter" data-level="7.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#colors"><i class="fa fa-check"></i><b>7.4</b> Colors</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#viridis"><i class="fa fa-check"></i><b>7.4.1</b> Viridis</a></li>
+<li class="chapter" data-level="7.4.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#color-brewer"><i class="fa fa-check"></i><b>7.4.2</b> Color Brewer</a></li>
+<li class="chapter" data-level="7.4.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#other-packages"><i class="fa fa-check"></i><b>7.4.3</b> Other Packages</a></li>
+<li class="chapter" data-level="7.4.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#making-your-own"><i class="fa fa-check"></i><b>7.4.4</b> Making Your Own</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#labels"><i class="fa fa-check"></i><b>7.5</b> Labels</a></li>
+<li class="chapter" data-level="7.6" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#animation"><i class="fa fa-check"></i><b>7.6</b> Animation</a></li>
+<li class="chapter" data-level="7.7" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#specialized-visualizations"><i class="fa fa-check"></i><b>7.7</b> Specialized Visualizations</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#stacked-area-plots"><i class="fa fa-check"></i><b>7.7.1</b> Stacked Area Plots</a></li>
+<li class="chapter" data-level="7.7.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#ggridges"><i class="fa fa-check"></i><b>7.7.2</b> ggridges</a></li>
+<li class="chapter" data-level="7.7.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#maps"><i class="fa fa-check"></i><b>7.7.3</b> Maps</a></li>
+<li class="chapter" data-level="7.7.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#circular-charts"><i class="fa fa-check"></i><b>7.7.4</b> Circular Charts</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#rearranging-groups"><i class="fa fa-check"></i><b>7.8</b> Rearranging Groups</a></li>
+<li class="chapter" data-level="7.9" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#further-reading"><i class="fa fa-check"></i><b>7.9</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html"><i class="fa fa-check"></i><b>8</b> Playing Nicely With Others</a><ul>
+<li class="chapter" data-level="8.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#work-in-progress"><i class="fa fa-check"></i><b>8.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="8.2" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#r-markdown"><i class="fa fa-check"></i><b>8.2</b> R Markdown</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#kable"><i class="fa fa-check"></i><b>8.2.1</b> Kable</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#latex"><i class="fa fa-check"></i><b>8.3</b> LaTex</a></li>
+<li class="chapter" data-level="8.4" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#github"><i class="fa fa-check"></i><b>8.4</b> Git(Hub)</a></li>
+<li class="chapter" data-level="8.5" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#commenting-code"><i class="fa fa-check"></i><b>8.5</b> Commenting Code</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="working-with-text.html"><a href="working-with-text.html"><i class="fa fa-check"></i><b>9</b> Working with Text</a><ul>
+<li class="chapter" data-level="9.1" data-path="working-with-text.html"><a href="working-with-text.html#work-in-progress-1"><i class="fa fa-check"></i><b>9.1</b> Work in Progress</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="special-applications.html"><a href="special-applications.html"><i class="fa fa-check"></i><b>10</b> Special Applications</a><ul>
+<li class="chapter" data-level="10.1" data-path="special-applications.html"><a href="special-applications.html#work-in-progress-2"><i class="fa fa-check"></i><b>10.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="10.2" data-path="special-applications.html"><a href="special-applications.html#even-more-special-applications"><i class="fa fa-check"></i><b>10.2</b> Even More Special Applications</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>11</b> Working with Dates and Times</a><ul>
+<li class="chapter" data-level="11.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#work-in-progress-3"><i class="fa fa-check"></i><b>11.1</b> Work in Progress</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>12</b> Machine Learning</a><ul>
+<li class="chapter" data-level="12.1" data-path="machine-learning.html"><a href="machine-learning.html#work-in-progress-4"><i class="fa fa-check"></i><b>12.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="12.2" data-path="machine-learning.html"><a href="machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>12.2</b> What is Machine Learning?</a></li>
+<li class="chapter" data-level="12.3" data-path="machine-learning.html"><a href="machine-learning.html#some-definitions"><i class="fa fa-check"></i><b>12.3</b> Some Definitions</a></li>
+<li class="chapter" data-level="12.4" data-path="machine-learning.html"><a href="machine-learning.html#supervised-learning"><i class="fa fa-check"></i><b>12.4</b> Supervised Learning</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="machine-learning.html"><a href="machine-learning.html#classification"><i class="fa fa-check"></i><b>12.4.1</b> Classification</a></li>
+<li class="chapter" data-level="12.4.2" data-path="machine-learning.html"><a href="machine-learning.html#regression-models"><i class="fa fa-check"></i><b>12.4.2</b> Regression Models</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="other-resources.html"><a href="other-resources.html"><i class="fa fa-check"></i><b>13</b> Other Resources</a><ul>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#infographics"><i class="fa fa-check"></i>Infographics</a></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#courses"><i class="fa fa-check"></i>Courses</a><ul>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#basic-r"><i class="fa fa-check"></i>Basic R</a></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#advanced-r"><i class="fa fa-check"></i>Advanced R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#textbooks"><i class="fa fa-check"></i>Textbooks</a><ul>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#data-science"><i class="fa fa-check"></i>Data Science</a></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#r-as-a-coding-language"><i class="fa fa-check"></i>R as a Coding Language</a></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#r-markdown-applications"><i class="fa fa-check"></i>(R) Markdown Applications</a></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#other-programs-weve-used"><i class="fa fa-check"></i>Other Programs We’ve Used</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#blog-links"><i class="fa fa-check"></i>Blog Links</a></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#data-sources"><i class="fa fa-check"></i>Data Sources</a></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#non-coding-resources"><i class="fa fa-check"></i>Non-Coding Resources</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Data Exploration and Analysis with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="machine-learning" class="section level1">
+<h1><span class="header-section-number">12</span> Machine Learning</h1>
+<div id="work-in-progress-4" class="section level2">
+<h2><span class="header-section-number">12.1</span> Work in Progress</h2>
+</div>
+<div id="what-is-machine-learning" class="section level2">
+<h2><span class="header-section-number">12.2</span> What is Machine Learning?</h2>
+<p>Machine learning (ML) is one of the most attractive skills you can have on a resume - it’s a complex, rapidly evolving field, taking advantage of continuing improvements in technology to accomplish increasingly difficult tasks. At the most abstract form, machine learning is just a way for computers to automatically make the same sort of models we’ve used in the past - by providing a large amount of data as an input, the machine can figure out which models give the best results, and “learn” how to improve its predictions without any human input. These models can be used for predictions - which customers will respond best to targeted ads; which areas need the most attention to prevent wildfires - or more complicated tasks, such as identifying the objects in images and the basic tasks associated with artifical intelligence.</p>
+<p>We’re barely going to scratch the surface of machine learning - it’s a little deeper than most entry level jobs will require, and is beyond where most non-computational researchers are currently working. The goal isn’t to comprehensively cover all machine learning topics, as that’s a course in and of itself (usually taught a few years into a programming degree). Instead, we’ll be briefly covering the more basic and fundamental concepts - and how to implement them in R - in order to give you the tools and vocabulary you’ll need to learn more on your own.</p>
+</div>
+<div id="some-definitions" class="section level2">
+<h2><span class="header-section-number">12.3</span> Some Definitions</h2>
+<p>The first important piece of that vocabulary is knowing whether we’re asking a computer to perform <em>supervised</em> or <em>unsupervised</em> tasks. In both of these formats, we’re providing a large amount of data to an algorithm as an input to work with and learn from. In <em>supervised</em> learning, we’re then asking the computer to sort the data into a number of pre-defined classifications - for instance, is this email spam or not? What species is that tree?</p>
+<p>With <em>unsupervised</em> learning, we’re asking the machine to find interesting patterns in the data by itself - this is what people mean when they refer to <em>data mining</em>.</p>
+<p>There’s also a third type of learning, less applicable to the sort of work we’ve done in this course, known as <em>reinforcement</em> learning. This is what we use to teach robots to drive cars or play chess - certain outcomes are flagged as “good” or “bad”, so the machine starts avoiding the bad options and aiming for good ones.</p>
+<p>We won’t be practicing any reinforcement techniques today. Instead, we’ll just do a brief overview of the most common supervised and unsupervised learning techniques.</p>
+</div>
+<div id="supervised-learning" class="section level2">
+<h2><span class="header-section-number">12.4</span> Supervised Learning</h2>
+<p>Supervised learning tasks can be further broken into two factions:</p>
+<ul>
+<li><em>Classification</em> problems, where the output is a category (spam/not spam, species of tree).</li>
+<li><em>Regression</em> problems, where the output is a number (height, length).</li>
+</ul>
+<p>You might recognize these as types of problems we’ve seen before - classification problems are natural fits for logistic models, while regression problems can be solved with linear modelling. In fact, these simpler models are the most basic forms of machine learning, and are sometimes better solutions to problems than these more modern techniques!</p>
+<div id="classification" class="section level3">
+<h3><span class="header-section-number">12.4.1</span> Classification</h3>
+<div id="k-nearest-neighbors" class="section level4">
+<h4><span class="header-section-number">12.4.1.1</span> k-Nearest Neighbors</h4>
+<p>You might remember using logistic models in Unit 6 in order to predict a binary outcome - in that example, whether someone would win an Olympic medal. That model was relatively fast and effective, but had one pretty major downside - we could only predict whether someone won or not, rather than what sort of medal they had earned.</p>
+<p>This is a pretty classic classification problem - we want to know what class each observation falls into, not just a binary outcome. We’ll be using the <code>iris</code> dataset to walk through the ML approach to this sort of problem, looking to predict what species a flower is by the measured variables. Remember that this dataset looks like the following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(iris)</code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<p>We’re going to be walking through the steps necessary to use the <em>k-Nearest Neighbors</em> algorithm to classify our dataset. This algorithm makes class predictions based on the known attributes of the data used to build the model - if setosa flowers have tiny petals, for instance, an unknown flower with tiny petals will probably be a setosa.</p>
+<p>To do this, the algorithm finds the <em>k</em> nearest neighbors of each unknown data point - that is, the <em>k</em> known data points closest to the one we’re making predictions for, where <em>k</em> is a number that we get to define ourselves as best fits our datasets. To do this, the machine will first find the distance between datapoints by calculating the difference in each of their variables.</p>
+<p>This is where some very cool packages come in - in this case, the package <code>caret</code>. Let’s install it now - warning, this could take a minute:</p>
+<pre><code>install.packages(&quot;caret&quot;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(caret)</code></pre></div>
+<pre><code>## Loading required package: lattice</code></pre>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<p>The first thing we have to do is split our data into two sets - the training set, which will build the model, and the test set, which will evaluate its performance. To do so, we first have to randomly select which observations will go into each dataset.</p>
+<p>Now, randomness is a complicated thing that’s <a href="https://www.random.org/randomness/">incredibly hard for a computer to compute.</a> But funnily enough, we really don’t want to purely randomly split our data up. If we did that, our work would be unreplicable, and our results would change every time we loaded R back up.</p>
+<p>Instead, we want numbers that are random enough that we as humans can’t predict them - that way we can’t bias our results - but are replicable by a computer. These are called <em>pseudorandom</em> numbers, and we can control exactly what set we use by specifying <code>set.seed()</code> earlier in our code. So long as you’re working from the same seed, you should get the same sequence of random numbers as other researchers.</p>
+<p>We then want to partition, or split, our data into training and test datasets. We can do so using <code>createDataPartition()</code> from <code>caret</code>, specifying what we want to split (the species in our dataset), what proportion of the data should make up each set (0.75 in the training and 0.25 in the test, in this case - you’ll frequently see between 60 and 80 percent of data being used for training), and how we want our output (in this example, a matrix, not a list):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
+index &lt;-<span class="st"> </span><span class="kw">createDataPartition</span>(iris<span class="op">$</span>Species, <span class="dt">p =</span> <span class="fl">0.75</span>, <span class="dt">list =</span> <span class="ot">FALSE</span>)
+<span class="kw">head</span>(index)</code></pre></div>
+<pre><code>##      Resample1
+## [1,]         1
+## [2,]         3
+## [3,]         4
+## [4,]         5
+## [5,]         6
+## [6,]         7</code></pre>
+<p>Now we have an index as an output, which is a matrix of numbers we’ll use to subdivide our data in the next step. Specifically, we’ll make a training dataset by selecting all the rows present in <code>index</code>, and a test dataset by selecting the rows which aren’t:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">irisTrain &lt;-<span class="st"> </span>iris[index, ]
+irisTest &lt;-<span class="st"> </span>iris[<span class="op">-</span>index, ]</code></pre></div>
+<p>Feel free to inspect those datasets if you want confirmation that this worked the way it should have.</p>
+<p>Now it’s time to train our model! Models in <code>caret</code> are built using the <code>train()</code> function, which works similarly to <code>glm()</code>. We’ll still specify our formula and data in the same format, and the type of model we want (though now we’ll use <code>method =</code> rather than <code>family =</code>). There are only two big differences with this format:</p>
+<ul>
+<li>Instead of specifying predictor variables in our formula, we’ll use <code>.</code> to tell the algorithm to use all the data available to it</li>
+<li>We’ll be specifying two preprocessing options - that we want to center and scale our data</li>
+</ul>
+<p>That second one is a key step in kNN modeling. Remember that kNN calculates the distance between the variables of your training dataset and the point that it’s trying to predict. As such, variables with larger ranges can sometimes overpower a prediction - there’s a lot more distance to measure if your range is 1 to 1,000,000 than 1 to 10! As such, we’re going to rescale our data inside the training model, in order to treat all our variables equally. This all adds up to an equation that looks like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">train</span>(Species <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> irisTrain, <span class="dt">method =</span> <span class="st">&quot;knn&quot;</span>, <span class="dt">preProcess =</span> <span class="kw">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;scale&quot;</span>))</code></pre></div>
+<pre><code>## k-Nearest Neighbors 
+## 
+## 114 samples
+##   4 predictor
+##   3 classes: &#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39; 
+## 
+## Pre-processing: centered (4), scaled (4) 
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 114, 114, 114, 114, 114, 114, ... 
+## Resampling results across tuning parameters:
+## 
+##   k  Accuracy   Kappa    
+##   5  0.9428585  0.9128917
+##   7  0.9441087  0.9150565
+##   9  0.9413363  0.9106879
+## 
+## Accuracy was used to select the optimal model using the largest value.
+## The final value used for the model was k = 7.</code></pre>
+<p>That’s a pretty cool output, and one that’s easy to get excited about. What we just did was resample from our training set 25 times, fitting a different model each time. The best model from those 25 iterations is the <em>k</em> value specified at the bottom of the output. We can visualize how each level of <em>k</em> tested was by plotting our model:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knnModel &lt;-<span class="st"> </span><span class="kw">train</span>(Species <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> irisTrain, <span class="dt">method =</span> <span class="st">&quot;knn&quot;</span>, <span class="dt">preProcess =</span> <span class="kw">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;scale&quot;</span>))
+<span class="kw">plot</span>(knnModel)</code></pre></div>
+<p><img src="12_Machine_Learning_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>The x axis is the number of neighbors used by a model, and the y axis is how accurate that model is.</p>
+<p>You might notice that by re-running your code, you’ll sometimes get different results, but they all have about 90% accuracy. That’s because none of our models are dramatically better than any other - with larger datasets, you’ll often see a few models function significantly better than the other options. Here, all of ours are generally within a percentage point of each other.</p>
+<p>We can’t report any of these results yet, however. We still have to test our model out on our test dataset!</p>
+<p>To do this, we have to take three steps:</p>
+<ul>
+<li>Factor the species vector in the <code>irisTest</code> dataset, so that our code works</li>
+<li>Make predictions from our <code>knnModel</code>, testing it against our <code>irisTest</code> dataset</li>
+<li>Make a confusion matrix, comparing the predicted results to our known values</li>
+</ul>
+<p>Those first two steps are pretty easy:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">irisTest<span class="op">$</span>Species &lt;-<span class="st"> </span><span class="kw">factor</span>(irisTest<span class="op">$</span>Species)
+knnPredict &lt;-<span class="st"> </span><span class="kw">predict</span>(knnModel, <span class="dt">newdata =</span> irisTest)</code></pre></div>
+<p>And now we do the more, well, confusing part of that. Let’s use <code>confusionMatrix()</code> with our predicted and actual variables as arguments, then we’ll walk through what exactly we did:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confusionMatrix</span>(knnPredict, irisTest<span class="op">$</span>Species)</code></pre></div>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##             Reference
+## Prediction   setosa versicolor virginica
+##   setosa         12          0         0
+##   versicolor      0         11         3
+##   virginica       0          1         9
+## 
+## Overall Statistics
+##                                           
+##                Accuracy : 0.8889          
+##                  95% CI : (0.7394, 0.9689)
+##     No Information Rate : 0.3333          
+##     P-Value [Acc &gt; NIR] : 6.677e-12       
+##                                           
+##                   Kappa : 0.8333          
+##  Mcnemar&#39;s Test P-Value : NA              
+## 
+## Statistics by Class:
+## 
+##                      Class: setosa Class: versicolor Class: virginica
+## Sensitivity                 1.0000            0.9167           0.7500
+## Specificity                 1.0000            0.8750           0.9583
+## Pos Pred Value              1.0000            0.7857           0.9000
+## Neg Pred Value              1.0000            0.9545           0.8846
+## Prevalence                  0.3333            0.3333           0.3333
+## Detection Rate              0.3333            0.3056           0.2500
+## Detection Prevalence        0.3333            0.3889           0.2778
+## Balanced Accuracy           1.0000            0.8958           0.8542</code></pre>
+<p>What we’re looking at now are our actual results - this is what we’d report for our model. Our model is significantly better than the null model (that p value [Acc &gt; NIR]), with about an 88.9% accuracy rate. We can also see exactly where our model gets confused - one versicolor flower was misclassed as virginica, while three virginica flowers were mis-classed as versicolor.</p>
+</div>
+<div id="decision-trees" class="section level4">
+<h4><span class="header-section-number">12.4.1.2</span> Decision Trees</h4>
+<p>kNN is only one of the several popular classification algorithms available in R. Another of the most commonly used methods (kinda - we’ll get to that in a minute) is known as the decision tree. Basically, this method creates a flowchart with each of your variables - at each split in the chart (known as a “node”), the algorithm uses a selection of variables to try and classify your data.</p>
+<p>The general structure looks something like this:</p>
+<p><img src="12_Machine_Learning_files/figure-html/unnamed-chunk-9-1.png" width="672" /> Where the end of each branch is one of your classifications.</p>
+<p>We’re going to use the <code>rpart</code> package to make our decision trees for this unit. First, we have to install the package, then load it using <code>library()</code>:</p>
+<pre><code>install.packages(&quot;rpart&quot;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rpart)</code></pre></div>
+<p>And now we fit the tree much like we did for our kNN model. In fact, I’m going to use almost the exact same code as we did above, except for a few important differences. One of the biggest is including <code>type = &quot;class&quot;</code> in the <code>predict()</code> call - otherwise, we’ll get a table of the probability each flower is a given species, rather than a prediction.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TreeFit &lt;-<span class="st"> </span><span class="kw">rpart</span>(Species <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> irisTest)
+TreeFit</code></pre></div>
+<pre><code>## n= 36 
+## 
+## node), split, n, loss, yval, (yprob)
+##       * denotes terminal node
+## 
+## 1) root 36 24 setosa (0.3333333 0.3333333 0.3333333)  
+##   2) Petal.Length&lt; 2.5 12  0 setosa (1.0000000 0.0000000 0.0000000) *
+##   3) Petal.Length&gt;=2.5 24 12 versicolor (0.0000000 0.5000000 0.5000000)  
+##     6) Petal.Width&lt; 1.65 14  2 versicolor (0.0000000 0.8571429 0.1428571) *
+##     7) Petal.Width&gt;=1.65 10  0 virginica (0.0000000 0.0000000 1.0000000) *</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TreePredict &lt;-<span class="st"> </span><span class="kw">predict</span>(TreeFit, <span class="dt">newdata =</span> irisTest, <span class="dt">type =</span> <span class="st">&quot;class&quot;</span>)
+<span class="kw">confusionMatrix</span>(TreePredict, irisTest<span class="op">$</span>Species)</code></pre></div>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##             Reference
+## Prediction   setosa versicolor virginica
+##   setosa         12          0         0
+##   versicolor      0         12         2
+##   virginica       0          0        10
+## 
+## Overall Statistics
+##                                           
+##                Accuracy : 0.9444          
+##                  95% CI : (0.8134, 0.9932)
+##     No Information Rate : 0.3333          
+##     P-Value [Acc &gt; NIR] : 1.728e-14       
+##                                           
+##                   Kappa : 0.9167          
+##  Mcnemar&#39;s Test P-Value : NA              
+## 
+## Statistics by Class:
+## 
+##                      Class: setosa Class: versicolor Class: virginica
+## Sensitivity                 1.0000            1.0000           0.8333
+## Specificity                 1.0000            0.9167           1.0000
+## Pos Pred Value              1.0000            0.8571           1.0000
+## Neg Pred Value              1.0000            1.0000           0.9231
+## Prevalence                  0.3333            0.3333           0.3333
+## Detection Rate              0.3333            0.3333           0.2778
+## Detection Prevalence        0.3333            0.3889           0.2778
+## Balanced Accuracy           1.0000            0.9583           0.9167</code></pre>
+<p>94.4% accuracy! It’s important to note exactly what’s changed since last time - we’ve classified two flowers better, which - on this small dataset - means we were incredibly more predictive.</p>
+<p>However, decision trees on their own aren’t particularly great classifiers. For one thing, they tend to overfit the data, making your model less applicable to other datasets. They also generally require a decent amount of tuning to be optimally accurate. Luckily, there’s a better way to classify your data than using a single tree:</p>
+</div>
+<div id="random-forests" class="section level4">
+<h4><span class="header-section-number">12.4.1.3</span> Random Forests</h4>
+<p>Random forests!</p>
+<p>These forests are collections of trees (get it?), all of which may overfit the data in some weird way and have oddly bad fits in others. The idea is to collect as many trees as we can in one model and find out what the majority of models want to classify the datapoint as - by aggregating large numbers of trees, we can avoid the pitfalls that individual trees tend to lead us towards.</p>
+<p>There’s a ton of random forest implementations in R, because these are some of the most current and useful ML applications we’ve developed so far. I’m going to, for the sake of simplicity, stick with one of the better-known applications. We’ll keep using our functions from <code>caret()</code>, but first, we have to install the <code>ranger</code> application:</p>
+<pre><code>install.packages(&quot;ranger&quot;)</code></pre>
+<p>We can now use the exact same code as our kNN model to fit a random forest model to our data and test its accuracy. The only difference is that this time, we’re using <code>method = &quot;ranger&quot;</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ForestFit &lt;-<span class="st"> </span><span class="kw">train</span>(Species <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> irisTrain, <span class="dt">method =</span> <span class="st">&quot;ranger&quot;</span>)
+ForestFit</code></pre></div>
+<pre><code>## Random Forest 
+## 
+## 114 samples
+##   4 predictor
+##   3 classes: &#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39; 
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 114, 114, 114, 114, 114, 114, ... 
+## Resampling results across tuning parameters:
+## 
+##   mtry  splitrule   Accuracy   Kappa    
+##   2     gini        0.9687933  0.9524066
+##   2     extratrees  0.9772694  0.9654495
+##   3     gini        0.9688665  0.9526608
+##   3     extratrees  0.9761735  0.9637235
+##   4     gini        0.9705871  0.9552767
+##   4     extratrees  0.9751478  0.9620407
+## 
+## Tuning parameter &#39;min.node.size&#39; was held constant at a value of 1
+## Accuracy was used to select the optimal model using the largest value.
+## The final values used for the model were mtry = 2, splitrule =
+##  extratrees and min.node.size = 1.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ForestPredict &lt;-<span class="st"> </span><span class="kw">predict</span>(ForestFit, irisTest)
+<span class="kw">confusionMatrix</span>(ForestPredict, irisTest<span class="op">$</span>Species)</code></pre></div>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##             Reference
+## Prediction   setosa versicolor virginica
+##   setosa         12          0         0
+##   versicolor      0         11         3
+##   virginica       0          1         9
+## 
+## Overall Statistics
+##                                           
+##                Accuracy : 0.8889          
+##                  95% CI : (0.7394, 0.9689)
+##     No Information Rate : 0.3333          
+##     P-Value [Acc &gt; NIR] : 6.677e-12       
+##                                           
+##                   Kappa : 0.8333          
+##  Mcnemar&#39;s Test P-Value : NA              
+## 
+## Statistics by Class:
+## 
+##                      Class: setosa Class: versicolor Class: virginica
+## Sensitivity                 1.0000            0.9167           0.7500
+## Specificity                 1.0000            0.8750           0.9583
+## Pos Pred Value              1.0000            0.7857           0.9000
+## Neg Pred Value              1.0000            0.9545           0.8846
+## Prevalence                  0.3333            0.3333           0.3333
+## Detection Rate              0.3333            0.3056           0.2500
+## Detection Prevalence        0.3333            0.3889           0.2778
+## Balanced Accuracy           1.0000            0.8958           0.8542</code></pre>
+<p>Our accuracy is lower! How could that be?</p>
+<p>As it happens, that’s almost a good thing in this situation. While the decision tree we made earlier was <em>extremely</em> accurate on the small dataset we tested it on, in most situations these trees will falter when presented with new data. The lower accuracy represented here means that the model may not be as good a fit for <em>our</em> data, but it’s likely more generalizable as a result.</p>
+<p>If we want a little bit more information about our forest, we can call <code>ForestFit$finalModel</code> for a few extra details:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ForestFit<span class="op">$</span>finalModel</code></pre></div>
+<pre><code>## Ranger result
+## 
+## Call:
+##  ranger::ranger(dependent.variable.name = &quot;.outcome&quot;, data = x,      mtry = param$mtry, min.node.size = param$min.node.size, splitrule = as.character(param$splitrule),      write.forest = TRUE, probability = classProbs, ...) 
+## 
+## Type:                             Classification 
+## Number of trees:                  500 
+## Sample size:                      114 
+## Number of independent variables:  4 
+## Mtry:                             2 
+## Target node size:                 1 
+## Variable importance mode:         none 
+## Splitrule:                        extratrees 
+## OOB prediction error:             1.75 %</code></pre>
+<p>This tells us that we’ve built 500 decision trees for our training sample of 114 observations, using all 4 predictors in at least <em>some</em> of the trees, with 2 variables used in each individual tree.</p>
+</div>
+</div>
+<div id="regression-models" class="section level3">
+<h3><span class="header-section-number">12.4.2</span> Regression Models</h3>
+<p>For this next section, we’ll be working with a dataset contained in the <code>MASS</code> package:</p>
+<pre><code>install.packages(&quot;MASS&quot;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(MASS)</code></pre></div>
+<p>This package contains a bunch of datasets for a 2002 textbook. We’ll be using the <code>Boston</code> dataset to predict median home prices based on neighborhood demographics and traits. Let’s look at our dataset:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(Boston)</code></pre></div>
+<pre><code>##      crim zn indus chas   nox    rm  age    dis rad tax ptratio  black
+## 1 0.00632 18  2.31    0 0.538 6.575 65.2 4.0900   1 296    15.3 396.90
+## 2 0.02731  0  7.07    0 0.469 6.421 78.9 4.9671   2 242    17.8 396.90
+## 3 0.02729  0  7.07    0 0.469 7.185 61.1 4.9671   2 242    17.8 392.83
+## 4 0.03237  0  2.18    0 0.458 6.998 45.8 6.0622   3 222    18.7 394.63
+## 5 0.06905  0  2.18    0 0.458 7.147 54.2 6.0622   3 222    18.7 396.90
+## 6 0.02985  0  2.18    0 0.458 6.430 58.7 6.0622   3 222    18.7 394.12
+##   lstat medv
+## 1  4.98 24.0
+## 2  9.14 21.6
+## 3  4.03 34.7
+## 4  2.94 33.4
+## 5  5.33 36.2
+## 6  5.21 28.7</code></pre>
+<p>That last column, <code>medv</code>, is the one that we’re interested in predicting. If you want to know what the other variables mean, try <code>?Boston</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BostonIndex &lt;-<span class="st"> </span><span class="kw">createDataPartition</span>(Boston<span class="op">$</span>medv, <span class="dt">p =</span> <span class="fl">0.75</span>, <span class="dt">list =</span> <span class="ot">FALSE</span>)
+
+BostonTrain &lt;-<span class="st"> </span>Boston[BostonIndex, ]
+BostonTest &lt;-<span class="st"> </span>Boston[<span class="op">-</span>BostonIndex, ]</code></pre></div>
+<p>Now, historically, we’d predict <code>medv</code> with a regression model, such as a linear model.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BostonLinear &lt;-<span class="st"> </span><span class="kw">lm</span>(medv <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> Boston)</code></pre></div>
+<p>We can then find the R<sup>2</sup> value for that model (or, if you want all the model statistics, cut all the text after the right parenthesis):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(BostonLinear)<span class="op">$</span>r.sq</code></pre></div>
+<pre><code>## [1] 0.7406427</code></pre>
+<p>And that’s pretty successful! Not perfect, but successful enough.</p>
+<p>If we build a random forest, meanwhile, following the same steps as above:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BostonForest &lt;-<span class="st"> </span><span class="kw">train</span>(medv <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> BostonTrain, <span class="dt">method =</span> <span class="st">&quot;ranger&quot;</span>)
+BostonForest</code></pre></div>
+<pre><code>## Random Forest 
+## 
+## 381 samples
+##  13 predictor
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 381, 381, 381, 381, 381, 381, ... 
+## Resampling results across tuning parameters:
+## 
+##   mtry  splitrule   RMSE      Rsquared   MAE     
+##    2    variance    3.834885  0.8509522  2.550913
+##    2    extratrees  4.209154  0.8294238  2.790089
+##    7    variance    3.513002  0.8622802  2.344736
+##    7    extratrees  3.383016  0.8791969  2.295471
+##   13    variance    3.733353  0.8417900  2.467037
+##   13    extratrees  3.362181  0.8760661  2.293708
+## 
+## Tuning parameter &#39;min.node.size&#39; was held constant at a value of 5
+## RMSE was used to select the optimal model using the smallest value.
+## The final values used for the model were mtry = 13, splitrule =
+##  extratrees and min.node.size = 5.</code></pre>
+<p>We can see that our best model has an R<sup>2</sup> around 85%! Even better!</p>
+<p>Now, there’s a lot of discussion about whether or not you need to have separate training and testing datasets with random forest datasets. A lot of this conversation concerns data with tens of thousands of observations, if not more - in those cases, the random forest will automatically use about 2/3 of the data to build each model, and will report R<sup>2</sup> values that theoretically reflect how the model does with new data.</p>
+<p>With our tiny data, however, we can see that each model is built with the entirety of the dataset. As such, it’s still worth splitting our data, in order to get more accurate representations of how our model does with new data. To do so, I’m going to build a new function to calculate R<sup>2</sup>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rsqcalc &lt;-<span class="st"> </span><span class="cf">function</span>(y, predicted){
+  <span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">sum</span>((y <span class="op">-</span><span class="st"> </span>predicted)<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span><span class="kw">sum</span>((y <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(y))<span class="op">^</span><span class="dv">2</span>)
+}</code></pre></div>
+<p>Then generate predictions for our training dataset, and use this new function to find the R<sup>2</sup>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BostonTest<span class="op">$</span>Predicted &lt;-<span class="st"> </span><span class="kw">predict</span>(BostonForest, BostonTest)
+<span class="kw">rsqcalc</span>(BostonTest<span class="op">$</span>medv, BostonTest<span class="op">$</span>Predicted)</code></pre></div>
+<pre><code>## [1] 0.798782</code></pre>
+<p>Even higher!</p>
+<p>Note, by the way, that we are <em>barely</em> scratching the surface of what <code>caret</code> can do - there’s a full book on this package <a href="https://topepo.github.io/caret/index.html">at this link</a>, though fair warning, it’s a little intimidating.</p>
+<p>We also aren’t getting further into supervised learning methods, as other methods - such as neural networks - require a little more conceptual backing than I’m willing to dive into in this space.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="working-with-dates-and-times.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="other-resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -92,7 +92,7 @@ When I see this output, TK things catch my eye:
 
 If we want to get a sense of correlations in the data, we can try using ```pairs()``` again - but be warned, this one might take a while due to the size of the data.
 
-```{r}
+```{r cache = TRUE}
 pairs(select_if(AthleteEvents, is.numeric))
 ```
 

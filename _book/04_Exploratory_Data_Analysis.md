@@ -33,20 +33,20 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ---------------------------------------------------------------------------------------- tidyverse 1.2.1 --
+## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
-## v ggplot2 3.0.0     v purrr   0.2.4
-## v tibble  1.4.2     v dplyr   0.7.4
-## v tidyr   0.8.0     v stringr 1.3.0
-## v readr   1.1.1     v forcats 0.3.0
+## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
+## ✔ readr   1.1.1     ✔ forcats 0.3.0
 ```
 
 ```
-## -- Conflicts ------------------------------------------------------------------------------------------- tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
+## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
 ```
 
 The gapminder package includes four tables, of which we only care about one: ```gapminder```. We can preview the data, as usual, by typing the name of the table:
@@ -197,27 +197,37 @@ install.packages("broom")
 CorMatrix <- broom::tidy(cor(gapminder[, 3:6])) %>%
   rename(Var1 = ".rownames") %>%
   gather(Var2, Cor, -Var1)
+```
+
+```
+## Warning: 'tidy.matrix' is deprecated.
+## See help("Deprecated")
+```
+
+```r
 CorMatrix
 ```
 
 ```
-##         Var1      Var2         Cor
-## 1       year      year  1.00000000
-## 2    lifeExp      year  0.43561122
-## 3        pop      year  0.08230808
-## 4  gdpPercap      year  0.22731807
-## 5       year   lifeExp  0.43561122
-## 6    lifeExp   lifeExp  1.00000000
-## 7        pop   lifeExp  0.06495537
-## 8  gdpPercap   lifeExp  0.58370622
-## 9       year       pop  0.08230808
-## 10   lifeExp       pop  0.06495537
-## 11       pop       pop  1.00000000
-## 12 gdpPercap       pop -0.02559958
-## 13      year gdpPercap  0.22731807
-## 14   lifeExp gdpPercap  0.58370622
-## 15       pop gdpPercap -0.02559958
-## 16 gdpPercap gdpPercap  1.00000000
+## # A tibble: 16 x 3
+##    Var1      Var2          Cor
+##    <chr>     <chr>       <dbl>
+##  1 year      year       1     
+##  2 lifeExp   year       0.436 
+##  3 pop       year       0.0823
+##  4 gdpPercap year       0.227 
+##  5 year      lifeExp    0.436 
+##  6 lifeExp   lifeExp    1     
+##  7 pop       lifeExp    0.0650
+##  8 gdpPercap lifeExp    0.584 
+##  9 year      pop        0.0823
+## 10 lifeExp   pop        0.0650
+## 11 pop       pop        1     
+## 12 gdpPercap pop       -0.0256
+## 13 year      gdpPercap  0.227 
+## 14 lifeExp   gdpPercap  0.584 
+## 15 pop       gdpPercap -0.0256
+## 16 gdpPercap gdpPercap  1
 ```
 
 ```r
@@ -382,17 +392,19 @@ broom::tidy(TukeyHSD(aov(lifeExp ~ continent, data = gapminder), ordered = TRUE)
 ```
 
 ```
-##         term       comparison  estimate  conf.low conf.high  adj.p.value
-## 1  continent      Asia-Africa 11.199573  9.579887 12.819259 2.727152e-12
-## 2  continent  Americas-Africa 15.793407 14.022263 17.564550 2.727152e-12
-## 3  continent    Europe-Africa 23.038356 21.369862 24.706850 2.727152e-12
-## 4  continent   Oceania-Africa 25.460878 20.216908 30.704848 2.727152e-12
-## 5  continent    Americas-Asia  4.593833  2.664235  6.523432 1.047859e-09
-## 6  continent      Europe-Asia 11.838783 10.002952 13.674614 2.727152e-12
-## 7  continent     Oceania-Asia 14.261305  8.961718 19.560892 5.862422e-12
-## 8  continent  Europe-Americas  7.244949  5.274203  9.215696 2.775336e-12
-## 9  continent Oceania-Americas  9.667472  4.319650 15.015293 8.648670e-06
-## 10 continent   Oceania-Europe  2.422522 -2.892185  7.737230 7.250559e-01
+## # A tibble: 10 x 6
+##    term      comparison       estimate conf.low conf.high adj.p.value
+##    <chr>     <chr>               <dbl>    <dbl>     <dbl>       <dbl>
+##  1 continent Asia-Africa         11.2      9.58     12.8     2.73e-12
+##  2 continent Americas-Africa     15.8     14.0      17.6     2.73e-12
+##  3 continent Europe-Africa       23.0     21.4      24.7     2.73e-12
+##  4 continent Oceania-Africa      25.5     20.2      30.7     2.73e-12
+##  5 continent Americas-Asia        4.59     2.66      6.52    1.05e- 9
+##  6 continent Europe-Asia         11.8     10.0      13.7     2.73e-12
+##  7 continent Oceania-Asia        14.3      8.96     19.6     5.86e-12
+##  8 continent Europe-Americas      7.24     5.27      9.22    2.78e-12
+##  9 continent Oceania-Americas     9.67     4.32     15.0     8.65e- 6
+## 10 continent Oceania-Europe       2.42    -2.89      7.74    7.25e- 1
 ```
 
 This will make your life a lot better when you're trying to export data.
@@ -423,7 +435,7 @@ gapminder %>%
 ## # A tibble: 1 x 1
 ##   data                
 ##   <list>              
-## 1 <tibble [1,704 x 6]>
+## 1 <tibble [1,704 × 6]>
 ```
 
 All of our data is now stored in a single cell, as a tibble!
@@ -440,11 +452,11 @@ gapminder %>%
 ## # A tibble: 5 x 2
 ##   continent data              
 ##   <fct>     <list>            
-## 1 Asia      <tibble [396 x 5]>
-## 2 Europe    <tibble [360 x 5]>
-## 3 Africa    <tibble [624 x 5]>
-## 4 Americas  <tibble [300 x 5]>
-## 5 Oceania   <tibble [24 x 5]>
+## 1 Asia      <tibble [396 × 5]>
+## 2 Europe    <tibble [360 × 5]>
+## 3 Africa    <tibble [624 × 5]>
+## 4 Americas  <tibble [300 × 5]>
+## 5 Oceania   <tibble [24 × 5]>
 ```
 
 And when we do this, we can subset the list in the exact same way we would a normal vector:
@@ -461,7 +473,7 @@ Nested[1, 2]
 ## # A tibble: 1 x 1
 ##   data              
 ##   <list>            
-## 1 <tibble [396 x 5]>
+## 1 <tibble [396 × 5]>
 ```
 
 If we then wanted to, we can ```unnest()``` the data:
@@ -507,11 +519,11 @@ gapminder %>%
 ## # A tibble: 5 x 3
 ##   continent data               Cor        
 ##   <fct>     <list>             <list>     
-## 1 Asia      <tibble [396 x 5]> <S3: htest>
-## 2 Europe    <tibble [360 x 5]> <S3: htest>
-## 3 Africa    <tibble [624 x 5]> <S3: htest>
-## 4 Americas  <tibble [300 x 5]> <S3: htest>
-## 5 Oceania   <tibble [24 x 5]>  <S3: htest>
+## 1 Asia      <tibble [396 × 5]> <S3: htest>
+## 2 Europe    <tibble [360 × 5]> <S3: htest>
+## 3 Africa    <tibble [624 × 5]> <S3: htest>
+## 4 Americas  <tibble [300 × 5]> <S3: htest>
+## 5 Oceania   <tibble [24 × 5]>  <S3: htest>
 ```
 
 The ```~``` indicates that the next word is a _function_ that should be applied to each element of the list. ```.``` is what's referred to as a _pronoun_ - it's the short name for the data that's being applied to the function. That's why we can subset it with ```$``` - while we're inside the map function, ```.``` _is_ your data. We'll be using ```.``` repeatedly for the rest of the course.
@@ -528,13 +540,13 @@ gapminder %>%
 
 ```
 ## # A tibble: 5 x 4
-##   continent data               Cor         TidyCor             
-##   <fct>     <list>             <list>      <list>              
-## 1 Asia      <tibble [396 x 5]> <S3: htest> <data.frame [1 x 8]>
-## 2 Europe    <tibble [360 x 5]> <S3: htest> <data.frame [1 x 8]>
-## 3 Africa    <tibble [624 x 5]> <S3: htest> <data.frame [1 x 8]>
-## 4 Americas  <tibble [300 x 5]> <S3: htest> <data.frame [1 x 8]>
-## 5 Oceania   <tibble [24 x 5]>  <S3: htest> <data.frame [1 x 8]>
+##   continent data               Cor         TidyCor         
+##   <fct>     <list>             <list>      <list>          
+## 1 Asia      <tibble [396 × 5]> <S3: htest> <tibble [1 × 8]>
+## 2 Europe    <tibble [360 × 5]> <S3: htest> <tibble [1 × 8]>
+## 3 Africa    <tibble [624 × 5]> <S3: htest> <tibble [1 × 8]>
+## 4 Americas  <tibble [300 × 5]> <S3: htest> <tibble [1 × 8]>
+## 5 Oceania   <tibble [24 × 5]>  <S3: htest> <tibble [1 × 8]>
 ```
 
 That last column - made up of dataframes - is exactly what we want. We can extract it from this dataframe using ```unnest(.drop = TRUE)```, which will drop the other nested columns:
@@ -550,14 +562,14 @@ gapminder %>%
 
 ```
 ## # A tibble: 5 x 9
-##   continent estimate statistic  p.value parameter conf.low conf.high
-##   <fct>        <dbl>     <dbl>    <dbl>     <int>    <dbl>     <dbl>
-## 1 Asia         0.382      8.21 3.29e-15       394    0.295     0.463
-## 2 Europe       0.781     23.6  4.05e-75       358    0.737     0.818
-## 3 Africa       0.426     11.7  7.60e-29       622    0.359     0.488
-## 4 Americas     0.558     11.6  5.45e-26       298    0.475     0.632
-## 5 Oceania      0.956     15.4  2.99e-13        22    0.901     0.981
-## # ... with 2 more variables: method <fct>, alternative <fct>
+##   continent estimate statistic  p.value parameter conf.low conf.high method
+##   <fct>        <dbl>     <dbl>    <dbl>     <int>    <dbl>     <dbl> <chr> 
+## 1 Asia         0.382      8.21 3.29e-15       394    0.295     0.463 Pears…
+## 2 Europe       0.781     23.6  4.05e-75       358    0.737     0.818 Pears…
+## 3 Africa       0.426     11.7  7.60e-29       622    0.359     0.488 Pears…
+## 4 Americas     0.558     11.6  5.45e-26       298    0.475     0.632 Pears…
+## 5 Oceania      0.956     15.4  2.99e-13        22    0.901     0.981 Pears…
+## # ... with 1 more variable: alternative <chr>
 ```
 
 And tada, we have the output from five correlation tests in one step, rather than the ten it would take to do the long way.

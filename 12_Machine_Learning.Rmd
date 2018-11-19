@@ -245,4 +245,4 @@ Even higher!
 
 Note, by the way, that we are _barely_ scratching the surface of what `caret` can do - there's a full book on this package [at this link](https://topepo.github.io/caret/index.html), though fair warning, it's a little intimidating.
 
-We also aren't getting further into 
+We also aren't getting further into supervised learning methods, as other methods - such as neural networks - require a little more conceptual backing than I'm willing to dive into in this space. 

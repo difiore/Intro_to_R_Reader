@@ -361,22 +361,22 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ---------------------------------------------------------------------------------------- tidyverse 1.2.1 --
+## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
-## v ggplot2 3.0.0     v purrr   0.2.4
-## v tibble  1.4.2     v dplyr   0.7.4
-## v tidyr   0.8.0     v stringr 1.3.0
-## v readr   1.1.1     v forcats 0.3.0
+## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
+## ✔ readr   1.1.1     ✔ forcats 0.3.0
 ```
 
 ```
-## -- Conflicts ------------------------------------------------------------------------------------------- tidyverse_conflicts() --
-## x ggplot2::%+%()   masks psych::%+%()
-## x ggplot2::alpha() masks psych::alpha()
-## x dplyr::filter()  masks stats::filter()
-## x dplyr::lag()     masks stats::lag()
+## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ ggplot2::%+%()   masks psych::%+%()
+## ✖ ggplot2::alpha() masks psych::alpha()
+## ✖ dplyr::filter()  masks stats::filter()
+## ✖ dplyr::lag()     masks stats::lag()
 ```
 
 ```r
@@ -426,10 +426,10 @@ df1
 ## # A tibble: 4 x 2
 ##       a     b
 ##   <dbl> <dbl>
-## 1    2.    4.
-## 2    2.    4.
-## 3    2.    4.
-## 4    2.    4.
+## 1     2     4
+## 2     2     4
+## 3     2     4
+## 4     2     4
 ```
 
 But as usual, we want to find a way to reduce that repetition. The best tool in R for this sort of thing is what's known as a _for loop_, which will repeat an action a specified number of times. To complete this task, we'd write a for loop that looked something like this:
