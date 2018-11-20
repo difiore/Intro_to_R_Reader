@@ -1,0 +1,10 @@
+# Frequently Asked Questions
+
+Here are the answers to some assorted questions I've been asked, which are either not common, important, or interesting enough to put in the main text of the reader.
+
+## Why is (_X_ package) named that?
+
+* `ggplot` refers to the _grammar of graphics_, used to plot things in a consistent manner
+* `tibble` refers to an old command for making tables, written _tbl()_ and pronounced, well...
+* `rpart` stands for **R** **Part**itioning, as decision trees are made by partitioning the data
+* `caret` stands for **C**lassification **A**nd **RE**gression **T**raining (oof)

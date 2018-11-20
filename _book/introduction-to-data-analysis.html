@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2018-11-18">
+<meta name="date" content="2018-11-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -167,11 +167,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.3" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#functional-programming"><i class="fa fa-check"></i><b>4.3</b> Functional Programming</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#column-names"><i class="fa fa-check"></i><b>4.3.1</b> Column Names</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#modeling"><i class="fa fa-check"></i><b>4.4</b> Modeling</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#mixed-models"><i class="fa fa-check"></i>Mixed Models</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
-<li class="chapter" data-level="4.5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exercises-1"><i class="fa fa-check"></i><b>4.5</b> Exercises</a><ul>
-<li class="chapter" data-level="4.5.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#answer-the-following"><i class="fa fa-check"></i><b>4.5.1</b> Answer the following:</a></li>
+<li class="chapter" data-level="4.4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#modeling"><i class="fa fa-check"></i><b>4.4</b> Modeling</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#dummy-models"><i class="fa fa-check"></i><b>4.4.1</b> Dummy Models</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#conclusion"><i class="fa fa-check"></i><b>4.5</b> Conclusion</a></li>
+<li class="chapter" data-level="4.6" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exercises-1"><i class="fa fa-check"></i><b>4.6</b> Exercises</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#answer-the-following"><i class="fa fa-check"></i><b>4.6.1</b> Answer the following:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html"><i class="fa fa-check"></i><b>5</b> Functions and Scripting</a><ul>
@@ -279,7 +280,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#blog-links"><i class="fa fa-check"></i>Blog Links</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#data-sources"><i class="fa fa-check"></i>Data Sources</a></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#graphing-aids"><i class="fa fa-check"></i>Graphing Aids</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#non-coding-resources"><i class="fa fa-check"></i>Non-Coding Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html"><i class="fa fa-check"></i><b>14</b> Frequently Asked Questions</a><ul>
+<li class="chapter" data-level="14.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-x-package-named-that"><i class="fa fa-check"></i><b>14.1</b> Why is (<em>X</em> package) named that?</a></li>
 </ul></li>
 </ul>
 
@@ -747,10 +752,9 @@ Nested[<span class="dv">1</span>, <span class="dv">2</span>] <span class="op">%&
 ## Multiple R-squared:  0.442,  Adjusted R-squared:  0.441 
 ## F-statistic: 448.8 on 3 and 1700 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>As you can see, these outputs are identical. Even so, I personally prefer using the second format, because it makes the interaction term a more explicit part of your model. While it doesn’t matter in simple models like the one we’ve developed here, once you have a large number of terms, it’s helpful to specify which interactions you’re measuring.</p>
-</div>
-<div id="mixed-models" class="section level2 unnumbered">
-<h2>Mixed Models</h2>
-<p>That R<sup>2</sup> pf 0.44 is an improvement, but still not great. We could try combining continuous and categorical variables in a single model, to try and better predict life expectancy.</p>
+<div id="dummy-models" class="section level3">
+<h3><span class="header-section-number">4.4.1</span> Dummy Models</h3>
+<p>That R<sup>2</sup> of 0.44 is an improvement, but still not great. We could try combining continuous and categorical variables in a single model, to try and better predict life expectancy.</p>
 <p>Doing that in R is very simple - just add the categorical variable to your model like you would a continuous. Let’s do that with continents:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Model &lt;-<span class="st"> </span><span class="kw">lm</span>(lifeExp <span class="op">~</span><span class="st"> </span>gdpPercap <span class="op">+</span><span class="st"> </span>year <span class="op">+</span><span class="st"> </span>continent <span class="op">+</span><span class="st"> </span>gdpPercap<span class="op">:</span>year <span class="op">+</span><span class="st"> </span>gdpPercap<span class="op">:</span>continent <span class="op">+</span><span class="st"> </span>year<span class="op">:</span>continent <span class="op">+</span><span class="st"> </span>gdpPercap<span class="op">:</span>year<span class="op">:</span>continent, <span class="dt">data =</span> gapminder)
 
@@ -862,16 +866,17 @@ Nested[<span class="dv">1</span>, <span class="dv">2</span>] <span class="op">%&
 <p>Note that I deleted all the “continent” terms from the model, because we’re now making a different model for each continent available. I’ve also used the <code>.</code> pronoun to represent our data here.</p>
 <p>In this case, <code>estimate</code> represents the coefficient (beta) for each variable, while the statistic is the F statistic.</p>
 </div>
-<div id="conclusion" class="section level2 unnumbered">
-<h2>Conclusion</h2>
+</div>
+<div id="conclusion" class="section level2">
+<h2><span class="header-section-number">4.5</span> Conclusion</h2>
 <p>The important takeaways from this unit are not necessarily the statistical tests used - since those will vary dependent upon your purpose - so much as the methods highlighted. Understanding how to generate hypotheses from a new dataset - and then how to drill down and analyze them each in turn - is a cross-disciplinary skill used in any new analysis project.</p>
 <p>Later in the course, you’ll be given projects which will require you to understand brand new datasets, manipulate them, perform complex analyses on them, and visualise them. EDA will give you the familiarity with your data to find these patterns, isolate them appropriately, and perform the right analyses moving forward. The entire purpose of this unit is to give you the skillset to identify what those analyses might be, by understanding how to generate hypotheses from a combination of data visualization and manipulation.</p>
 <p>What we haven’t done is confirmatory analysis, where we start our work with a model in mind and then report how well it fit the data. Once data is used for exploratory analysis, it can’t be used again for confirmatory work. There are methods to split data for confirmatory analysis, while still being able to use some data for exploration - for an overview, see <a href="https://r4ds.had.co.nz/model-intro.html">Hadley Wickham’s overview here</a>. We’ll be working with these methods in unit 10.</p>
 </div>
 <div id="exercises-1" class="section level2">
-<h2><span class="header-section-number">4.5</span> Exercises</h2>
+<h2><span class="header-section-number">4.6</span> Exercises</h2>
 <div id="answer-the-following" class="section level3">
-<h3><span class="header-section-number">4.5.1</span> Answer the following:</h3>
+<h3><span class="header-section-number">4.6.1</span> Answer the following:</h3>
 <ol style="list-style-type: decimal">
 <li>The output of <code>psych::describe(gapminder_unfiltered)</code> put stars after <code>country</code> and <code>continent</code>. Why?</li>
 <li>Make a histogram of a gapminder variable other than population. Describe the graph with regards to its skewdness and kurtosis.</li>

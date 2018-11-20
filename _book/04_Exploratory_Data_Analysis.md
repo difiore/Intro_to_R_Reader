@@ -724,8 +724,8 @@ summary(Model)
 
 As you can see, these outputs are identical. Even so, I personally prefer using the second format, because it makes the interaction term a more explicit part of your model. While it doesn't matter in simple models like the one we've developed here, once you have a large number of terms, it's helpful to specify which interactions you're measuring.
 
-## Mixed Models {-}
-That R^2^ pf 0.44 is an improvement, but still not great. We could try combining continuous and categorical variables in a single model, to try and better predict life expectancy.
+### Dummy Models
+That R^2^ of 0.44 is an improvement, but still not great. We could try combining continuous and categorical variables in a single model, to try and better predict life expectancy.
 
 Doing that in R is very simple - just add the categorical variable to your model like you would a continuous. Let's do that with continents:
 
@@ -864,7 +864,7 @@ Note that I deleted all the "continent" terms from the model, because we're now 
 
 In this case, ```estimate``` represents the coefficient (beta) for each variable, while the statistic is the F statistic.  
 
-## Conclusion {-}
+## Conclusion
 The important takeaways from this unit are not necessarily the statistical tests used - since those will vary dependent upon your purpose - so much as the methods highlighted. Understanding how to generate hypotheses from a new dataset - and then how to drill down and analyze them each in turn - is a cross-disciplinary skill used in any new analysis project.
 
 Later in the course, you'll be given projects which will require you to understand brand new datasets, manipulate them, perform complex analyses on them, and visualise them. EDA will give you the familiarity with your data to find these patterns, isolate them appropriately, and perform the right analyses moving forward. The entire purpose of this unit is to give you the skillset to identify what those analyses might be, by understanding how to generate hypotheses from a combination of data visualization and manipulation.  

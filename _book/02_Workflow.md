@@ -142,9 +142,28 @@ ggplot() +
 
 You'll notice that ```a``` is now listed in the upper-lefthand corner of RStudio, under the "Environment" tab. That's because a is now defined in memory - we can use it in any of our code, anywhere we want. In fact, you can even define ```a``` in one file and call it in another, so long as you've already run the code defining it in your current RStudio session. 
 
-This is really cool for a lot of reasons - it lets us do more complicated things with R - but can also cause some problems. If you keep defining objects with names like ```a```, it's easy to forget which variable stands for what - and so you can wind up making mistakes when using those variables later on. In order to avoid that sort of confusion, you should use descriptive names when creating objects. You should also decide on a standard way you're going to format those object names - some people prefer ```snake_case_names```, others ```use.periods```, and I personally prefer what's known as ```CamelCase```. Different organizations and groups have different preferred styles (here's [Google's](https://google.github.io/styleguide/Rguide.xml)), but what's important right now is that you pick a style that makes sense to you. Be consistent using this style whenever you code - R won't understand you if you mess up your capitalization!
+This is really cool for a lot of reasons - it lets us do more complicated things with R - but can also cause some problems. If you keep defining objects with names like ```a```, it's easy to forget which variable stands for what - and so you can wind up making mistakes when using those variables later on. For instance, we just overwrote `a` 3 times in that last example - imagine if we had important data stored in there!
 
-By the way - you might remember that I mentioned last unit that ```=``` could also be used as an assignment operator. That's true, but you should try to never do it - it makes your code much harder to understand, since at a glance it looks like you're checking if two things are equal. It's always better to use ```<-```.
+In order to avoid that sort of confusion, you should use descriptive names when creating objects. You should also decide on a standard way you're going to format those object names - some people prefer ```snake_case_names```, others ```use.periods```, and I personally prefer what's known as ```CamelCase```. Different organizations and groups have different preferred styles (here's [Google's](https://google.github.io/styleguide/Rguide.xml)), but what's important right now is that you pick a style that makes sense to you. Be consistent using this style whenever you code - R won't understand you if you mess up your capitalization!
+
+By the way - you might remember that I mentioned last unit that `=` could also be used as an assignment operator. That's true, but you should try to never do it - it makes your code much harder to understand - for instance, compare these two formats:
+
+
+```r
+a <- 10
+a <- a + 1
+
+b = 10
+b = b+1
+
+a == b
+```
+
+```
+## [1] TRUE
+```
+
+R's telling us that these two formats do exactly the same thing - define a variable as 10, and then overwrite the variable as the original value, plus one. But the top block of code makes a bit more sense than the lower one, which looks like we're trying to test if `b` is equal to `b + 1`, which is nonsense. This is just one of the reasons it's usually better to use `<-` for assignments.
 
 
 ### Dataframes and Transformations
@@ -178,21 +197,13 @@ data.frame(x = c(1,2,3),
 ## 3 3 c FALSE
 ```
 
-This is an example of something known as _rectangular data_ - the sort you're likely to find in spreadsheets and many, if not most, scientific applications. We'll be dealing with rectangular data almost exclusively in this course - while non-rectangular data is useful in many applications, it's much harder for a beginner to wrap their heads around.
+This is an example of something known as _rectangular data_ - the sort you're likely to find in spreadsheets and many, if not most, scientific applications. We'll be dealing with rectangular data almost exclusively in this course - while non-rectangular data is useful in many applications, it's much harder to get started with.
 
 In fact, we'll almost always be working with a very specific type of rectangular data known as _tidy data_. Tidy dataframes always take the same shape:
 
 
-```r
-data.frame("." = c("Observation 1", "Observation 2","...", "Observation n"),
-           "Variable 1" = c("Value", "Value", "...", "Value"),
-           "Variable 2" = c("Value", "Value", "...", "Value"),
-           "Variable .." = c("Value", "Value", "...", "Value"),
-           "Variable n" = c("Value", "Value", "...", "Value"))
 ```
-
-```
-##               . Variable.1 Variable.2 Variable... Variable.n
+##               . Variable_1 Variable_2 Variable... Variable_n
 ## 1 Observation 1      Value      Value       Value      Value
 ## 2 Observation 2      Value      Value       Value      Value
 ## 3           ...        ...        ...         ...        ...
@@ -205,7 +216,7 @@ Tidy data is organized as follows:
 * Each row is a single **observation**
 * Each cell is a single **value**
 
-As you might guess from the name, the ```tidyverse``` is specifically designed to work with tidy datasets. By storing all data in this format, we're able to quickly apply the same sets of tools to multiple different types of data. For instance, imagine a dataframe of seasonal temperatures, built as such:
+As you might guess from the name, the `tidyverse` is specifically designed to work with tidy datasets. By storing all data in this format, we're able to quickly apply the same sets of tools to multiple different types of data. For instance, imagine a dataframe of seasonal temperatures, built as such:
 
 
 ```r
@@ -236,7 +247,7 @@ ggplot(SeasonalTemps, aes(x = Year)) +
   geom_line(aes(y = Fall), color = "red")
 ```
 
-<img src="02_Workflow_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="02_Workflow_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 What a mess! That took far too long to type - a good general rule of thumb is that if you have to repeat yourself more than twice to do something, there's a better way to do it. And, even after all our effort, our graph doesn't have a legend, and the Y axis is labeled wrong.
 
 Luckily enough, the ```tidyverse``` contains a package designed for making our data tidier - called, helpfully enough, ```tidyr```. We already loaded this package when we called the tidyverse earlier.
@@ -289,7 +300,7 @@ ggplot(LongTemps, aes(x = Year, y = AvgTemp, color = Season)) +
   geom_line()
 ```
 
-<img src="02_Workflow_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+<img src="02_Workflow_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
 If, after all our hard work, we want to get back to our original wide format, we can undo our ```gather()``` using ```spread()```. Again, I'm giving spread a data, key, and value argument - but this time, the function is making a new column for each value of our key:
 
@@ -396,7 +407,7 @@ LongTemps %>%
 ## 4 2018   56     48     44
 ```
 
-This makes our code much more easy to understand than constantly using the ```<-``` operator. While marginally slower than performing repeated assignments, it's an improved way to perform multiple steps in a way that's harder to make serious mistakes doing.
+This makes our code much more easy to understand than constantly using the ```<-``` operator, plus it's an improved way to perform multiple steps in a way that's harder to make serious mistakes doing.
 
 Even when a function doesn't have data as its first input, you can still use a pipe by typing ```data = .``` into the function:
 
@@ -424,7 +435,7 @@ LongTemps %>%
   geom_line()
 ```
 
-<img src="02_Workflow_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+<img src="02_Workflow_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
 ### Data Transformations 
 
@@ -439,7 +450,7 @@ LongTemps %>%
   scale_y_log10()
 ```
 
-<img src="02_Workflow_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+<img src="02_Workflow_files/figure-html/unnamed-chunk-26-1.png" width="672" />
 
 This is useful, but ggplot only has a certain number of transformations built in (type ```?scale_y_continuous()``` for more info). Additionally, sometimes we'll want to transform our data for analyses - not just graphing. For this purpose, we can use ```dplyr```'s ```mutate()``` function. Mutate takes three arguments: the dataframe (which it can get from ```%>%```), the name of your new column, and what value the new column should have. Say, for example, we wanted to multiply our average temperatures by two:
 
@@ -564,7 +575,7 @@ As I mentioned earlier, data in R is stored in _dataframes_. However, you may ha
 
 Of course, the outputs in this book are pretty much the same - the technology I'm using to publish this isn't quite that advanced, yet.
 
-We don't need to get too far into the mechanics of this package - if you load the tidyverse, any new dataframes you make will be converted into tibbles by default. If you want to force any old dataframe into this format, use ```as.tibble()```; if you need the basic dataframe, use ```as.data.frame()```.
+We don't need to get too far into the mechanics of this package - if you load the tidyverse, any new dataframes you make will be converted into tibbles by default. If you want to force a dataframe into this format, use ```as.tibble()```; if you need the basic dataframe, use ```as.data.frame()```.
 
 #### Subsetting Data
 

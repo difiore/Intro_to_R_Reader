@@ -329,8 +329,8 @@ summary(Model)
 
 As you can see, these outputs are identical. Even so, I personally prefer using the second format, because it makes the interaction term a more explicit part of your model. While it doesn't matter in simple models like the one we've developed here, once you have a large number of terms, it's helpful to specify which interactions you're measuring.
 
-### Mixed Models
-That R^2^ pf 0.44 is an improvement, but still not great. We could try combining continuous and categorical variables in a single model, to try and better predict life expectancy.
+### Dummy Models
+That R^2^ of 0.44 is an improvement, but still not great. We could try combining continuous and categorical variables in a single model, to try and better predict life expectancy.
 
 Doing that in R is very simple - just add the categorical variable to your model like you would a continuous. Let's do that with continents:
 

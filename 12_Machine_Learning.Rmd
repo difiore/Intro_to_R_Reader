@@ -29,7 +29,7 @@ You might remember using logistic models in Unit 6 in order to predict a binary 
 
 This is a pretty classic classification problem - we want to know what class each observation falls into, not just a binary outcome. We'll be using the `iris` dataset to walk through the ML approach to this sort of problem, looking to predict what species a flower is by the measured variables. Remember that this dataset looks like the following:
 
-```{r}
+```{r show iris}
 head(iris)
 ```
 
@@ -41,7 +41,7 @@ This is where some very cool packages come in - in this case, the package `caret
 ```
 install.packages("caret")
 ```
-```{r}
+```{r load caret}
 library(caret)
 ```
 
@@ -53,7 +53,7 @@ Instead, we want numbers that are random enough that we as humans can't predict 
 
 We then want to partition, or split, our data into training and test datasets. We can do so using `createDataPartition()` from `caret`, specifying what we want to split (the species in our dataset), what proportion of the data should make up each set (0.75 in the training and 0.25 in the test, in this case - you'll frequently see between 60 and 80 percent of data being used for training), and how we want our output (in this example, a matrix, not a list):
 
-```{r}
+```{r first partition}
 set.seed(42)
 index <- createDataPartition(iris$Species, p = 0.75, list = FALSE)
 head(index)
@@ -61,7 +61,7 @@ head(index)
 
 Now we have an index as an output, which is a matrix of numbers we'll use to subdivide our data in the next step. Specifically, we'll make a training dataset by selecting all the rows present in `index`, and a test dataset by selecting the rows which aren't:
 
-```{r}
+```{r making train test datasets}
 irisTrain <- iris[index, ]
 irisTest <- iris[-index, ]
 ```
@@ -75,13 +75,13 @@ Now it's time to train our model! Models in `caret` are built using the `train()
 
 That second one is a key step in kNN modeling. Remember that kNN calculates the distance between the variables of your training dataset and the point that it's trying to predict. As such, variables with larger ranges can sometimes overpower a prediction - there's a lot more distance to measure if your range is 1 to 1,000,000 than 1 to 10! As such, we're going to rescale our data inside the training model, in order to treat all our variables equally. This all adds up to an equation that looks like this:
 
-```{r}
+```{r make knn model}
 train(Species ~ ., data = irisTrain, method = "knn", preProcess = c("center", "scale"))
 ```
 
 That's a pretty cool output, and one that's easy to get excited about. What we just did was resample from our training set 25 times, fitting a different model each time. The best model from those 25 iterations is the _k_ value specified at the bottom of the output. We can visualize how each level of _k_ tested was by plotting our model:
 
-```{r}
+```{r plot knn model}
 knnModel <- train(Species ~ ., data = irisTrain, method = "knn", preProcess = c("center", "scale"))
 plot(knnModel)
 ```
@@ -100,13 +100,13 @@ To do this, we have to take three steps:
 
 Those first two steps are pretty easy:
 
-```{r}
+```{r make knn predictions}
 irisTest$Species <- factor(irisTest$Species)
 knnPredict <- predict(knnModel, newdata = irisTest)
 ```
 
 And now we do the more, well, confusing part of that. Let's use `confusionMatrix()` with our predicted and actual variables as arguments, then we'll walk through what exactly we did:
-```{r}
+```{r get knn accuracy}
 confusionMatrix(knnPredict, irisTest$Species)
 ```
 
@@ -118,7 +118,7 @@ kNN is only one of the several popular classification algorithms available in R.
 
 The general structure looks something like this:
 
-```{r echo = FALSE}
+```{r hidden: make decision tree, echo = FALSE}
 library(rpart)
 TreeFit <- rpart(Species ~ ., data = iris)
 plot(TreeFit)
@@ -129,13 +129,13 @@ We're going to use the `rpart` package to make our decision trees for this unit.
 ```
 install.packages("rpart")
 ```
-```{r}
+```{r load rpart}
 library(rpart)
 ```
 
 And now we fit the tree much like we did for our kNN model. In fact, I'm going to use almost the exact same code as we did above, except for a few important differences. One of the biggest is including `type = "class"` in the `predict()` call - otherwise, we'll get a table of the probability each flower is a given species, rather than a prediction.
 
-```{r}
+```{r make tree, test accuracy}
 TreeFit <- rpart(Species ~ ., data = irisTest)
 TreeFit
 
@@ -158,7 +158,7 @@ install.packages("ranger")
 ```
 
 We can now use the exact same code as our kNN model to fit a random forest model to our data and test its accuracy. The only difference is that this time, we're using `method = "ranger"`:
-```{r}
+```{r random forest classification}
 ForestFit <- train(Species ~ ., data = irisTrain, method = "ranger")
 ForestFit
 
@@ -172,7 +172,7 @@ As it happens, that's almost a good thing in this situation. While the decision 
 
 If we want a little bit more information about our forest, we can call `ForestFit$finalModel` for a few extra details:
 
-```{r}
+```{r random forest output}
 ForestFit$finalModel
 ```
 
@@ -184,19 +184,19 @@ For this next section, we'll be working with a dataset contained in the `MASS` p
 ```
 install.packages("MASS")
 ```
-```{r}
+```{r load mass}
 library(MASS)
 ```
 
 This package contains a bunch of datasets for a 2002 textbook. We'll be using the `Boston` dataset to predict median home prices based on neighborhood demographics and traits. Let's look at our dataset:
 
-```{r}
+```{r view boston}
 head(Boston)
 ```
 
 That last column, `medv`, is the one that we're interested in predicting. If you want to know what the other variables mean, try `?Boston`. 
 
-```{r}
+```{r partition boston}
 BostonIndex <- createDataPartition(Boston$medv, p = 0.75, list = FALSE)
 
 BostonTrain <- Boston[BostonIndex, ]
@@ -205,7 +205,7 @@ BostonTest <- Boston[-BostonIndex, ]
 
 Now, historically, we'd predict `medv` with a regression model, such as a linear model. 
 
-```{r}
+```{r linear model boston}
 BostonLinear <- lm(medv ~ ., data = Boston)
 ```
 

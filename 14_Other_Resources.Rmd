@@ -45,6 +45,10 @@ These links go to other courses on R and related topics. Note that most of the p
 ## Data Sources {-}
 * [UC Irvine's Machine Learning Repository](http://archive.ics.uci.edu/ml/index.php)
 
+## Graphing Aids {-}
+* [ColorSupply](http://colorsupplyyy.com/) is a helpful tool for selecting colors
+* [ColorBrewer.org](http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3) lets you see all the palettes available in the RColorBrewer package
+
 ## Non-Coding Resources {-}
 * I'm a really big fan of the [Leek Group](http://jtleek.com/) tutorials on scientific purposes. Here are the non-programming related resources they've produced:
   * [Data Sharing](https://github.com/jtleek/datasharing)

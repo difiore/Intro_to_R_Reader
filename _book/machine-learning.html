@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2018-11-18">
+<meta name="date" content="2018-11-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -167,11 +167,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.3" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#functional-programming"><i class="fa fa-check"></i><b>4.3</b> Functional Programming</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#column-names"><i class="fa fa-check"></i><b>4.3.1</b> Column Names</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#modeling"><i class="fa fa-check"></i><b>4.4</b> Modeling</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#mixed-models"><i class="fa fa-check"></i>Mixed Models</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
-<li class="chapter" data-level="4.5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exercises-1"><i class="fa fa-check"></i><b>4.5</b> Exercises</a><ul>
-<li class="chapter" data-level="4.5.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#answer-the-following"><i class="fa fa-check"></i><b>4.5.1</b> Answer the following:</a></li>
+<li class="chapter" data-level="4.4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#modeling"><i class="fa fa-check"></i><b>4.4</b> Modeling</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#dummy-models"><i class="fa fa-check"></i><b>4.4.1</b> Dummy Models</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#conclusion"><i class="fa fa-check"></i><b>4.5</b> Conclusion</a></li>
+<li class="chapter" data-level="4.6" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exercises-1"><i class="fa fa-check"></i><b>4.6</b> Exercises</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#answer-the-following"><i class="fa fa-check"></i><b>4.6.1</b> Answer the following:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html"><i class="fa fa-check"></i><b>5</b> Functions and Scripting</a><ul>
@@ -279,7 +280,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#blog-links"><i class="fa fa-check"></i>Blog Links</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#data-sources"><i class="fa fa-check"></i>Data Sources</a></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#graphing-aids"><i class="fa fa-check"></i>Graphing Aids</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#non-coding-resources"><i class="fa fa-check"></i>Non-Coding Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html"><i class="fa fa-check"></i><b>14</b> Frequently Asked Questions</a><ul>
+<li class="chapter" data-level="14.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-x-package-named-that"><i class="fa fa-check"></i><b>14.1</b> Why is (<em>X</em> package) named that?</a></li>
 </ul></li>
 </ul>
 
@@ -390,7 +395,7 @@ irisTest &lt;-<span class="st"> </span>iris[<span class="op">-</span>index, ]</c
 <p>That’s a pretty cool output, and one that’s easy to get excited about. What we just did was resample from our training set 25 times, fitting a different model each time. The best model from those 25 iterations is the <em>k</em> value specified at the bottom of the output. We can visualize how each level of <em>k</em> tested was by plotting our model:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knnModel &lt;-<span class="st"> </span><span class="kw">train</span>(Species <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> irisTrain, <span class="dt">method =</span> <span class="st">&quot;knn&quot;</span>, <span class="dt">preProcess =</span> <span class="kw">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;scale&quot;</span>))
 <span class="kw">plot</span>(knnModel)</code></pre></div>
-<p><img src="12_Machine_Learning_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="12_Machine_Learning_files/figure-html/plot%20knn%20model-1.png" width="672" /></p>
 <p>The x axis is the number of neighbors used by a model, and the y axis is how accurate that model is.</p>
 <p>You might notice that by re-running your code, you’ll sometimes get different results, but they all have about 90% accuracy. That’s because none of our models are dramatically better than any other - with larger datasets, you’ll often see a few models function significantly better than the other options. Here, all of ours are generally within a percentage point of each other.</p>
 <p>We can’t report any of these results yet, however. We still have to test our model out on our test dataset!</p>
@@ -440,7 +445,7 @@ knnPredict &lt;-<span class="st"> </span><span class="kw">predict</span>(knnMode
 <h4><span class="header-section-number">12.4.1.2</span> Decision Trees</h4>
 <p>kNN is only one of the several popular classification algorithms available in R. Another of the most commonly used methods (kinda - we’ll get to that in a minute) is known as the decision tree. Basically, this method creates a flowchart with each of your variables - at each split in the chart (known as a “node”), the algorithm uses a selection of variables to try and classify your data.</p>
 <p>The general structure looks something like this:</p>
-<p><img src="12_Machine_Learning_files/figure-html/unnamed-chunk-9-1.png" width="672" /> Where the end of each branch is one of your classifications.</p>
+<p><img src="12_Machine_Learning_files/figure-html/hidden:%20make%20decision%20tree-1.png" width="672" /> Where the end of each branch is one of your classifications.</p>
 <p>We’re going to use the <code>rpart</code> package to make our decision trees for this unit. First, we have to install the package, then load it using <code>library()</code>:</p>
 <pre><code>install.packages(&quot;rpart&quot;)</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rpart)</code></pre></div>

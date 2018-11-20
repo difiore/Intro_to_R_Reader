@@ -141,7 +141,7 @@ knnModel <- train(Species ~ ., data = irisTrain, method = "knn", preProcess = c(
 plot(knnModel)
 ```
 
-<img src="12_Machine_Learning_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<img src="12_Machine_Learning_files/figure-html/plot knn model-1.png" width="672" />
 
 The x axis is the number of neighbors used by a model, and the y axis is how accurate that model is.
 
@@ -209,7 +209,7 @@ kNN is only one of the several popular classification algorithms available in R.
 
 The general structure looks something like this:
 
-<img src="12_Machine_Learning_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<img src="12_Machine_Learning_files/figure-html/hidden: make decision tree-1.png" width="672" />
 Where the end of each branch is one of your classifications.
  
 We're going to use the `rpart` package to make our decision trees for this unit. First, we have to install the package, then load it using `library()`:

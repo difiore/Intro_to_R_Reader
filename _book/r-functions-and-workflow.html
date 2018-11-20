@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2018-11-18">
+<meta name="date" content="2018-11-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -167,11 +167,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.3" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#functional-programming"><i class="fa fa-check"></i><b>4.3</b> Functional Programming</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#column-names"><i class="fa fa-check"></i><b>4.3.1</b> Column Names</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#modeling"><i class="fa fa-check"></i><b>4.4</b> Modeling</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#mixed-models"><i class="fa fa-check"></i>Mixed Models</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
-<li class="chapter" data-level="4.5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exercises-1"><i class="fa fa-check"></i><b>4.5</b> Exercises</a><ul>
-<li class="chapter" data-level="4.5.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#answer-the-following"><i class="fa fa-check"></i><b>4.5.1</b> Answer the following:</a></li>
+<li class="chapter" data-level="4.4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#modeling"><i class="fa fa-check"></i><b>4.4</b> Modeling</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#dummy-models"><i class="fa fa-check"></i><b>4.4.1</b> Dummy Models</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#conclusion"><i class="fa fa-check"></i><b>4.5</b> Conclusion</a></li>
+<li class="chapter" data-level="4.6" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exercises-1"><i class="fa fa-check"></i><b>4.6</b> Exercises</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#answer-the-following"><i class="fa fa-check"></i><b>4.6.1</b> Answer the following:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html"><i class="fa fa-check"></i><b>5</b> Functions and Scripting</a><ul>
@@ -279,7 +280,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#blog-links"><i class="fa fa-check"></i>Blog Links</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#data-sources"><i class="fa fa-check"></i>Data Sources</a></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#graphing-aids"><i class="fa fa-check"></i>Graphing Aids</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#non-coding-resources"><i class="fa fa-check"></i>Non-Coding Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html"><i class="fa fa-check"></i><b>14</b> Frequently Asked Questions</a><ul>
+<li class="chapter" data-level="14.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-x-package-named-that"><i class="fa fa-check"></i><b>14.1</b> Why is (<em>X</em> package) named that?</a></li>
 </ul></li>
 </ul>
 
@@ -371,8 +376,18 @@ a</code></pre></div>
 <span class="st">  </span>a</code></pre></div>
 <p><img src="02_Workflow_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>You’ll notice that <code>a</code> is now listed in the upper-lefthand corner of RStudio, under the “Environment” tab. That’s because a is now defined in memory - we can use it in any of our code, anywhere we want. In fact, you can even define <code>a</code> in one file and call it in another, so long as you’ve already run the code defining it in your current RStudio session.</p>
-<p>This is really cool for a lot of reasons - it lets us do more complicated things with R - but can also cause some problems. If you keep defining objects with names like <code>a</code>, it’s easy to forget which variable stands for what - and so you can wind up making mistakes when using those variables later on. In order to avoid that sort of confusion, you should use descriptive names when creating objects. You should also decide on a standard way you’re going to format those object names - some people prefer <code>snake_case_names</code>, others <code>use.periods</code>, and I personally prefer what’s known as <code>CamelCase</code>. Different organizations and groups have different preferred styles (here’s <a href="https://google.github.io/styleguide/Rguide.xml">Google’s</a>), but what’s important right now is that you pick a style that makes sense to you. Be consistent using this style whenever you code - R won’t understand you if you mess up your capitalization!</p>
-<p>By the way - you might remember that I mentioned last unit that <code>=</code> could also be used as an assignment operator. That’s true, but you should try to never do it - it makes your code much harder to understand, since at a glance it looks like you’re checking if two things are equal. It’s always better to use <code>&lt;-</code>.</p>
+<p>This is really cool for a lot of reasons - it lets us do more complicated things with R - but can also cause some problems. If you keep defining objects with names like <code>a</code>, it’s easy to forget which variable stands for what - and so you can wind up making mistakes when using those variables later on. For instance, we just overwrote <code>a</code> 3 times in that last example - imagine if we had important data stored in there!</p>
+<p>In order to avoid that sort of confusion, you should use descriptive names when creating objects. You should also decide on a standard way you’re going to format those object names - some people prefer <code>snake_case_names</code>, others <code>use.periods</code>, and I personally prefer what’s known as <code>CamelCase</code>. Different organizations and groups have different preferred styles (here’s <a href="https://google.github.io/styleguide/Rguide.xml">Google’s</a>), but what’s important right now is that you pick a style that makes sense to you. Be consistent using this style whenever you code - R won’t understand you if you mess up your capitalization!</p>
+<p>By the way - you might remember that I mentioned last unit that <code>=</code> could also be used as an assignment operator. That’s true, but you should try to never do it - it makes your code much harder to understand - for instance, compare these two formats:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="dv">10</span>
+a &lt;-<span class="st"> </span>a <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+
+b =<span class="st"> </span><span class="dv">10</span>
+b =<span class="st"> </span>b<span class="op">+</span><span class="dv">1</span>
+
+a <span class="op">==</span><span class="st"> </span>b</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>R’s telling us that these two formats do exactly the same thing - define a variable as 10, and then overwrite the variable as the original value, plus one. But the top block of code makes a bit more sense than the lower one, which looks like we’re trying to test if <code>b</code> is equal to <code>b + 1</code>, which is nonsense. This is just one of the reasons it’s usually better to use <code>&lt;-</code> for assignments.</p>
 </div>
 <div id="dataframes-and-transformations" class="section level3">
 <h3><span class="header-section-number">2.1.4</span> Dataframes and Transformations</h3>
@@ -389,14 +404,9 @@ a</code></pre></div>
 ## 1 1 a  TRUE
 ## 2 2 b  TRUE
 ## 3 3 c FALSE</code></pre>
-<p>This is an example of something known as <em>rectangular data</em> - the sort you’re likely to find in spreadsheets and many, if not most, scientific applications. We’ll be dealing with rectangular data almost exclusively in this course - while non-rectangular data is useful in many applications, it’s much harder for a beginner to wrap their heads around.</p>
+<p>This is an example of something known as <em>rectangular data</em> - the sort you’re likely to find in spreadsheets and many, if not most, scientific applications. We’ll be dealing with rectangular data almost exclusively in this course - while non-rectangular data is useful in many applications, it’s much harder to get started with.</p>
 <p>In fact, we’ll almost always be working with a very specific type of rectangular data known as <em>tidy data</em>. Tidy dataframes always take the same shape:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="st">&quot;.&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Observation 1&quot;</span>, <span class="st">&quot;Observation 2&quot;</span>,<span class="st">&quot;...&quot;</span>, <span class="st">&quot;Observation n&quot;</span>),
-           <span class="st">&quot;Variable 1&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Value&quot;</span>, <span class="st">&quot;Value&quot;</span>, <span class="st">&quot;...&quot;</span>, <span class="st">&quot;Value&quot;</span>),
-           <span class="st">&quot;Variable 2&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Value&quot;</span>, <span class="st">&quot;Value&quot;</span>, <span class="st">&quot;...&quot;</span>, <span class="st">&quot;Value&quot;</span>),
-           <span class="st">&quot;Variable ..&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Value&quot;</span>, <span class="st">&quot;Value&quot;</span>, <span class="st">&quot;...&quot;</span>, <span class="st">&quot;Value&quot;</span>),
-           <span class="st">&quot;Variable n&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Value&quot;</span>, <span class="st">&quot;Value&quot;</span>, <span class="st">&quot;...&quot;</span>, <span class="st">&quot;Value&quot;</span>))</code></pre></div>
-<pre><code>##               . Variable.1 Variable.2 Variable... Variable.n
+<pre><code>##               . Variable_1 Variable_2 Variable... Variable_n
 ## 1 Observation 1      Value      Value       Value      Value
 ## 2 Observation 2      Value      Value       Value      Value
 ## 3           ...        ...        ...         ...        ...
@@ -425,7 +435,7 @@ SeasonalTemps</code></pre></div>
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Spring), <span class="dt">color =</span> <span class="st">&quot;green&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Summer), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Fall), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
-<p><img src="02_Workflow_files/figure-html/unnamed-chunk-13-1.png" width="672" /> What a mess! That took far too long to type - a good general rule of thumb is that if you have to repeat yourself more than twice to do something, there’s a better way to do it. And, even after all our effort, our graph doesn’t have a legend, and the Y axis is labeled wrong.</p>
+<p><img src="02_Workflow_files/figure-html/unnamed-chunk-14-1.png" width="672" /> What a mess! That took far too long to type - a good general rule of thumb is that if you have to repeat yourself more than twice to do something, there’s a better way to do it. And, even after all our effort, our graph doesn’t have a legend, and the Y axis is labeled wrong.</p>
 <p>Luckily enough, the <code>tidyverse</code> contains a package designed for making our data tidier - called, helpfully enough, <code>tidyr</code>. We already loaded this package when we called the tidyverse earlier.</p>
 <p>tidyr provides two essential functions for “reshaping” the data - changing back and forth between the <em>wide</em> format we used above and a <em>long</em> format, easier used by our functions. To change our <code>SeasonalTemps</code> data to a long format, we can use the <code>gather()</code> function. This function <em>gathers</em> values stores in multiple columns into a single variable, and makes another variable - the <em>key</em> variable - representing what column the data was originally in.</p>
 <p><code>gather()</code> takes three important arguments:</p>
@@ -461,7 +471,7 @@ LongTemps</code></pre></div>
 <p>This format makes graphing significantly easier:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(LongTemps, <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> AvgTemp, <span class="dt">color =</span> Season)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
-<p><img src="02_Workflow_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="02_Workflow_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>If, after all our hard work, we want to get back to our original wide format, we can undo our <code>gather()</code> using <code>spread()</code>. Again, I’m giving spread a data, key, and value argument - but this time, the function is making a new column for each value of our key:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">WideTemps &lt;-<span class="st"> </span><span class="kw">spread</span>(LongTemps, Season, AvgTemp)
 WideTemps</code></pre></div>
@@ -515,7 +525,7 @@ Numbers <span class="op">%&gt;%</span>
 ## 2 2016   46     40     38
 ## 3 2017   54     50     42
 ## 4 2018   56     48     44</code></pre>
-<p>This makes our code much more easy to understand than constantly using the <code>&lt;-</code> operator. While marginally slower than performing repeated assignments, it’s an improved way to perform multiple steps in a way that’s harder to make serious mistakes doing.</p>
+<p>This makes our code much more easy to understand than constantly using the <code>&lt;-</code> operator, plus it’s an improved way to perform multiple steps in a way that’s harder to make serious mistakes doing.</p>
 <p>Even when a function doesn’t have data as its first input, you can still use a pipe by typing <code>data = .</code> into the function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">spread</span>(<span class="dt">data =</span> ., Season, AvgTemp) <span class="op">%&gt;%</span>
@@ -529,7 +539,7 @@ Numbers <span class="op">%&gt;%</span>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> AvgTemp, <span class="dt">color =</span> Season)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
-<p><img src="02_Workflow_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="02_Workflow_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 </div>
 <div id="data-transformations" class="section level3">
 <h3><span class="header-section-number">2.1.6</span> Data Transformations</h3>
@@ -540,7 +550,7 @@ Numbers <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> AvgTemp, <span class="dt">color =</span> Season)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_y_log10</span>()</code></pre></div>
-<p><img src="02_Workflow_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="02_Workflow_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <p>This is useful, but ggplot only has a certain number of transformations built in (type <code>?scale_y_continuous()</code> for more info). Additionally, sometimes we’ll want to transform our data for analyses - not just graphing. For this purpose, we can use <code>dplyr</code>’s <code>mutate()</code> function. Mutate takes three arguments: the dataframe (which it can get from <code>%&gt;%</code>), the name of your new column, and what value the new column should have. Say, for example, we wanted to multiply our average temperatures by two:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TwiceTemp =</span> AvgTemp <span class="op">*</span><span class="st"> </span><span class="dv">2</span>)</code></pre></div>
@@ -631,7 +641,7 @@ Numbers <span class="op">%&gt;%</span>
 <h4><span class="header-section-number">2.1.6.2</span> Tibbles</h4>
 <p>As I mentioned earlier, data in R is stored in <em>dataframes</em>. However, you may have noticed that the dataframe outputs from tidyverse functions look pretty different in your R session (I’d even say nicer) than our raw datasets! That’s because of another useful tidyverse package, <code>tibble</code>.</p>
 <p>Of course, the outputs in this book are pretty much the same - the technology I’m using to publish this isn’t quite that advanced, yet.</p>
-<p>We don’t need to get too far into the mechanics of this package - if you load the tidyverse, any new dataframes you make will be converted into tibbles by default. If you want to force any old dataframe into this format, use <code>as.tibble()</code>; if you need the basic dataframe, use <code>as.data.frame()</code>.</p>
+<p>We don’t need to get too far into the mechanics of this package - if you load the tidyverse, any new dataframes you make will be converted into tibbles by default. If you want to force a dataframe into this format, use <code>as.tibble()</code>; if you need the basic dataframe, use <code>as.data.frame()</code>.</p>
 </div>
 <div id="subsetting-data" class="section level4">
 <h4><span class="header-section-number">2.1.6.3</span> Subsetting Data</h4>
