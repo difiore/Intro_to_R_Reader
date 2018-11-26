@@ -18,6 +18,7 @@ These links go to other courses on R and related topics. Note that most of the p
 ### Data Science {-}
 
 * [R for Data Science](https://r4ds.had.co.nz/) covers many of the same topics we've touched on in this course, but is structured differently and may explain some points better than I have or chose to do.
+* [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Seventh%20Printing.pdf) provides a much more thorough introduction to machine learning methods than our brief overview.
 
 ### R as a Coding Language {-}
 
@@ -50,7 +51,8 @@ These links go to other courses on R and related topics. Note that most of the p
 * [ColorBrewer.org](http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3) lets you see all the palettes available in the RColorBrewer package
 
 ## Non-Coding Resources {-}
-* I'm a really big fan of the [Leek Group](http://jtleek.com/) tutorials on scientific purposes. Here are the non-programming related resources they've produced:
+
+* I'm a really big fan of the [Leek Group](http://jtleek.com/) tutorials on scientific skills. Here are the non-programming related resources they've produced:
   * [Data Sharing](https://github.com/jtleek/datasharing)
   * [Giving Talks](https://github.com/jtleek/talkguide)
   * [Reading Papers](https://github.com/jtleek/readingpapers)

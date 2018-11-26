@@ -1,5 +1,4 @@
 # Machine Learning
-## Work in Progress
 ## What is Machine Learning?
 Machine learning (ML) is one of the most attractive skills you can have on a resume - it's a complex, rapidly evolving field, taking advantage of continuing improvements in technology to accomplish increasingly difficult tasks. At the most abstract form, machine learning is just a way for computers to automatically make the same sort of models we've used in the past - by providing a large amount of data as an input, the machine can figure out which models give the best results, and "learn" how to improve its predictions without any human input. These models can be used for predictions - which customers will respond best to targeted ads; which areas need the most attention to prevent wildfires - or more complicated tasks, such as identifying the objects in images and the basic tasks associated with artifical intelligence.
 
@@ -12,7 +11,7 @@ With _unsupervised_ learning, we're asking the machine to find interesting patte
 
 There's also a third type of learning, less applicable to the sort of work we've done in this course, known as _reinforcement_ learning. This is what we use to teach robots to drive cars or play chess - certain outcomes are flagged as "good" or "bad", so the machine starts avoiding the bad options and aiming for good ones.
 
-We won't be practicing any reinforcement techniques today. Instead, we'll just do a brief overview of the most common supervised and unsupervised learning techniques.
+We won't be practicing any reinforcement or unsupervised techniques today. Instead, we'll just do a brief overview of the most common supervised learning techniques.
 
 ## Supervised Learning
 Supervised learning tasks can be further broken into two factions:
@@ -79,14 +78,7 @@ That second one is a key step in kNN modeling. Remember that kNN calculates the 
 train(Species ~ ., data = irisTrain, method = "knn", preProcess = c("center", "scale"))
 ```
 
-That's a pretty cool output, and one that's easy to get excited about. What we just did was resample from our training set 25 times, fitting a different model each time. The best model from those 25 iterations is the _k_ value specified at the bottom of the output. We can visualize how each level of _k_ tested was by plotting our model:
-
-```{r plot knn model}
-knnModel <- train(Species ~ ., data = irisTrain, method = "knn", preProcess = c("center", "scale"))
-plot(knnModel)
-```
-
-The x axis is the number of neighbors used by a model, and the y axis is how accurate that model is.
+That's a pretty cool output, and one that's easy to get excited about. What we just did was resample from our training set 25 times, fitting a different model each time. The best model from those 25 iterations is the _k_ value specified at the bottom of the output. 
 
 You might notice that by re-running your code, you'll sometimes get different results, but they all have about 90% accuracy. That's because none of our models are dramatically better than any other - with larger datasets, you'll often see a few models function significantly better than the other options. Here, all of ours are generally within a percentage point of each other.
 
@@ -101,6 +93,7 @@ To do this, we have to take three steps:
 Those first two steps are pretty easy:
 
 ```{r make knn predictions}
+knnModel <- train(Species ~ ., data = irisTrain, method = "knn", preProcess = c("center", "scale"))
 irisTest$Species <- factor(irisTest$Species)
 knnPredict <- predict(knnModel, newdata = irisTest)
 ```
@@ -116,15 +109,6 @@ What we're looking at now are our actual results - this is what we'd report for 
 
 kNN is only one of the several popular classification algorithms available in R. Another of the most commonly used methods (kinda - we'll get to that in a minute) is known as the decision tree. Basically, this method creates a flowchart with each of your variables - at each split in the chart (known as a "node"), the algorithm uses a selection of variables to try and classify your data. 
 
-The general structure looks something like this:
-
-```{r hidden: make decision tree, echo = FALSE}
-library(rpart)
-TreeFit <- rpart(Species ~ ., data = iris)
-plot(TreeFit)
-```
-Where the end of each branch is one of your classifications.
- 
 We're going to use the `rpart` package to make our decision trees for this unit. First, we have to install the package, then load it using `library()`:
 ```
 install.packages("rpart")
@@ -226,7 +210,9 @@ We can see that our best model has an R^2^ around 85%! Even better!
 
 Now, there's a lot of discussion about whether or not you need to have separate training and testing datasets with random forest datasets. A lot of this conversation concerns data with tens of thousands of observations, if not more - in those cases, the random forest will automatically use about 2/3 of the data to build each model, and will report R^2^ values that theoretically reflect how the model does with new data.
 
-With our tiny data, however, we can see that each model is built with the entirety of the dataset. As such, it's still worth splitting our data, in order to get more accurate representations of how our model does with new data. To do so, I'm going to build a new function to calculate R^2^:
+With our tiny data, however, we can see that each model is built with the entirety of the dataset. As such, it's still worth splitting our data, in order to get more accurate representations of how our model does with new data. To do so, I'm going to build a new function to calculate R^2^, following the equation: $$R^2 = 1 - \frac{\sum (y - \hat{y})^2}{\sum (y - \bar{y})^2} $$
+
+Which, in our code, looks like this:
 
 ```{r}
 rsqcalc <- function(y, predicted){
@@ -243,6 +229,13 @@ rsqcalc(BostonTest$medv, BostonTest$Predicted)
 
 Even higher!
 
+We aren't going to get further into supervised learning methods, as other methods - such as neural networks - require a little more conceptual backing than I'm willing to dive into in this space. If you want to learn more, the textbook [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Seventh%20Printing.pdf) is a good place to start, with a free PDF online.
+
 Note, by the way, that we are _barely_ scratching the surface of what `caret` can do - there's a full book on this package [at this link](https://topepo.github.io/caret/index.html), though fair warning, it's a little intimidating.
 
-We also aren't getting further into supervised learning methods, as other methods - such as neural networks - require a little more conceptual backing than I'm willing to dive into in this space. 
+## Unsupervised Learning
+By contrast to supervised learning, unsupervised learning does not make predictions on new groups. Instead, the focus of unsupervised techniques is to discover patterns in the data - to see if there are groups or patterns to be identified in the variables you have collected. It can often be used as a part of exploratory analyses and inspire further questions.
+
+If that all sounds rather squishy to you, it is - which is one of the hardest parts about unsupervised techniques. As there is no obvious metric to objectively evaluate these models - after all, we aren't making predictions, so there's no use for test datasets in evaluating our outputs - and no obvious true answer we can gut-check against. 
+
+As such, unsupervised learning can be incredibly difficult, and requires a strong background in other statistical analyses - putting it somewhat beyond the scope of this reader. If you're interested in learning more, chapters 6 and 10 of [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Seventh%20Printing.pdf) provide a great introduction using R.
