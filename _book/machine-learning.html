@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2018-11-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -258,13 +258,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#work-in-progress-3"><i class="fa fa-check"></i><b>11.1</b> Work in Progress</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>12</b> Machine Learning</a><ul>
-<li class="chapter" data-level="12.1" data-path="machine-learning.html"><a href="machine-learning.html#work-in-progress-4"><i class="fa fa-check"></i><b>12.1</b> Work in Progress</a></li>
-<li class="chapter" data-level="12.2" data-path="machine-learning.html"><a href="machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>12.2</b> What is Machine Learning?</a></li>
-<li class="chapter" data-level="12.3" data-path="machine-learning.html"><a href="machine-learning.html#some-definitions"><i class="fa fa-check"></i><b>12.3</b> Some Definitions</a></li>
-<li class="chapter" data-level="12.4" data-path="machine-learning.html"><a href="machine-learning.html#supervised-learning"><i class="fa fa-check"></i><b>12.4</b> Supervised Learning</a><ul>
-<li class="chapter" data-level="12.4.1" data-path="machine-learning.html"><a href="machine-learning.html#classification"><i class="fa fa-check"></i><b>12.4.1</b> Classification</a></li>
-<li class="chapter" data-level="12.4.2" data-path="machine-learning.html"><a href="machine-learning.html#regression-models"><i class="fa fa-check"></i><b>12.4.2</b> Regression Models</a></li>
+<li class="chapter" data-level="12.1" data-path="machine-learning.html"><a href="machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>12.1</b> What is Machine Learning?</a></li>
+<li class="chapter" data-level="12.2" data-path="machine-learning.html"><a href="machine-learning.html#some-definitions"><i class="fa fa-check"></i><b>12.2</b> Some Definitions</a></li>
+<li class="chapter" data-level="12.3" data-path="machine-learning.html"><a href="machine-learning.html#supervised-learning"><i class="fa fa-check"></i><b>12.3</b> Supervised Learning</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="machine-learning.html"><a href="machine-learning.html#classification"><i class="fa fa-check"></i><b>12.3.1</b> Classification</a></li>
+<li class="chapter" data-level="12.3.2" data-path="machine-learning.html"><a href="machine-learning.html#regression-models"><i class="fa fa-check"></i><b>12.3.2</b> Regression Models</a></li>
 </ul></li>
+<li class="chapter" data-level="12.4" data-path="machine-learning.html"><a href="machine-learning.html#unsupervised-learning"><i class="fa fa-check"></i><b>12.4</b> Unsupervised Learning</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="other-resources.html"><a href="other-resources.html"><i class="fa fa-check"></i><b>13</b> Other Resources</a><ul>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#infographics"><i class="fa fa-check"></i>Infographics</a></li>
@@ -305,23 +305,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="machine-learning" class="section level1">
 <h1><span class="header-section-number">12</span> Machine Learning</h1>
-<div id="work-in-progress-4" class="section level2">
-<h2><span class="header-section-number">12.1</span> Work in Progress</h2>
-</div>
 <div id="what-is-machine-learning" class="section level2">
-<h2><span class="header-section-number">12.2</span> What is Machine Learning?</h2>
+<h2><span class="header-section-number">12.1</span> What is Machine Learning?</h2>
 <p>Machine learning (ML) is one of the most attractive skills you can have on a resume - it’s a complex, rapidly evolving field, taking advantage of continuing improvements in technology to accomplish increasingly difficult tasks. At the most abstract form, machine learning is just a way for computers to automatically make the same sort of models we’ve used in the past - by providing a large amount of data as an input, the machine can figure out which models give the best results, and “learn” how to improve its predictions without any human input. These models can be used for predictions - which customers will respond best to targeted ads; which areas need the most attention to prevent wildfires - or more complicated tasks, such as identifying the objects in images and the basic tasks associated with artifical intelligence.</p>
 <p>We’re barely going to scratch the surface of machine learning - it’s a little deeper than most entry level jobs will require, and is beyond where most non-computational researchers are currently working. The goal isn’t to comprehensively cover all machine learning topics, as that’s a course in and of itself (usually taught a few years into a programming degree). Instead, we’ll be briefly covering the more basic and fundamental concepts - and how to implement them in R - in order to give you the tools and vocabulary you’ll need to learn more on your own.</p>
 </div>
 <div id="some-definitions" class="section level2">
-<h2><span class="header-section-number">12.3</span> Some Definitions</h2>
+<h2><span class="header-section-number">12.2</span> Some Definitions</h2>
 <p>The first important piece of that vocabulary is knowing whether we’re asking a computer to perform <em>supervised</em> or <em>unsupervised</em> tasks. In both of these formats, we’re providing a large amount of data to an algorithm as an input to work with and learn from. In <em>supervised</em> learning, we’re then asking the computer to sort the data into a number of pre-defined classifications - for instance, is this email spam or not? What species is that tree?</p>
 <p>With <em>unsupervised</em> learning, we’re asking the machine to find interesting patterns in the data by itself - this is what people mean when they refer to <em>data mining</em>.</p>
 <p>There’s also a third type of learning, less applicable to the sort of work we’ve done in this course, known as <em>reinforcement</em> learning. This is what we use to teach robots to drive cars or play chess - certain outcomes are flagged as “good” or “bad”, so the machine starts avoiding the bad options and aiming for good ones.</p>
-<p>We won’t be practicing any reinforcement techniques today. Instead, we’ll just do a brief overview of the most common supervised and unsupervised learning techniques.</p>
+<p>We won’t be practicing any reinforcement or unsupervised techniques today. Instead, we’ll just do a brief overview of the most common supervised learning techniques.</p>
 </div>
 <div id="supervised-learning" class="section level2">
-<h2><span class="header-section-number">12.4</span> Supervised Learning</h2>
+<h2><span class="header-section-number">12.3</span> Supervised Learning</h2>
 <p>Supervised learning tasks can be further broken into two factions:</p>
 <ul>
 <li><em>Classification</em> problems, where the output is a category (spam/not spam, species of tree).</li>
@@ -329,9 +326,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <p>You might recognize these as types of problems we’ve seen before - classification problems are natural fits for logistic models, while regression problems can be solved with linear modelling. In fact, these simpler models are the most basic forms of machine learning, and are sometimes better solutions to problems than these more modern techniques!</p>
 <div id="classification" class="section level3">
-<h3><span class="header-section-number">12.4.1</span> Classification</h3>
+<h3><span class="header-section-number">12.3.1</span> Classification</h3>
 <div id="k-nearest-neighbors" class="section level4">
-<h4><span class="header-section-number">12.4.1.1</span> k-Nearest Neighbors</h4>
+<h4><span class="header-section-number">12.3.1.1</span> k-Nearest Neighbors</h4>
 <p>You might remember using logistic models in Unit 6 in order to predict a binary outcome - in that example, whether someone would win an Olympic medal. That model was relatively fast and effective, but had one pretty major downside - we could only predict whether someone won or not, rather than what sort of medal they had earned.</p>
 <p>This is a pretty classic classification problem - we want to know what class each observation falls into, not just a binary outcome. We’ll be using the <code>iris</code> dataset to walk through the ML approach to this sort of problem, looking to predict what species a flower is by the measured variables. Remember that this dataset looks like the following:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(iris)</code></pre></div>
@@ -392,11 +389,7 @@ irisTest &lt;-<span class="st"> </span>iris[<span class="op">-</span>index, ]</c
 ## 
 ## Accuracy was used to select the optimal model using the largest value.
 ## The final value used for the model was k = 7.</code></pre>
-<p>That’s a pretty cool output, and one that’s easy to get excited about. What we just did was resample from our training set 25 times, fitting a different model each time. The best model from those 25 iterations is the <em>k</em> value specified at the bottom of the output. We can visualize how each level of <em>k</em> tested was by plotting our model:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knnModel &lt;-<span class="st"> </span><span class="kw">train</span>(Species <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> irisTrain, <span class="dt">method =</span> <span class="st">&quot;knn&quot;</span>, <span class="dt">preProcess =</span> <span class="kw">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;scale&quot;</span>))
-<span class="kw">plot</span>(knnModel)</code></pre></div>
-<p><img src="12_Machine_Learning_files/figure-html/plot%20knn%20model-1.png" width="672" /></p>
-<p>The x axis is the number of neighbors used by a model, and the y axis is how accurate that model is.</p>
+<p>That’s a pretty cool output, and one that’s easy to get excited about. What we just did was resample from our training set 25 times, fitting a different model each time. The best model from those 25 iterations is the <em>k</em> value specified at the bottom of the output.</p>
 <p>You might notice that by re-running your code, you’ll sometimes get different results, but they all have about 90% accuracy. That’s because none of our models are dramatically better than any other - with larger datasets, you’ll often see a few models function significantly better than the other options. Here, all of ours are generally within a percentage point of each other.</p>
 <p>We can’t report any of these results yet, however. We still have to test our model out on our test dataset!</p>
 <p>To do this, we have to take three steps:</p>
@@ -406,7 +399,8 @@ irisTest &lt;-<span class="st"> </span>iris[<span class="op">-</span>index, ]</c
 <li>Make a confusion matrix, comparing the predicted results to our known values</li>
 </ul>
 <p>Those first two steps are pretty easy:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">irisTest<span class="op">$</span>Species &lt;-<span class="st"> </span><span class="kw">factor</span>(irisTest<span class="op">$</span>Species)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knnModel &lt;-<span class="st"> </span><span class="kw">train</span>(Species <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> irisTrain, <span class="dt">method =</span> <span class="st">&quot;knn&quot;</span>, <span class="dt">preProcess =</span> <span class="kw">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;scale&quot;</span>))
+irisTest<span class="op">$</span>Species &lt;-<span class="st"> </span><span class="kw">factor</span>(irisTest<span class="op">$</span>Species)
 knnPredict &lt;-<span class="st"> </span><span class="kw">predict</span>(knnModel, <span class="dt">newdata =</span> irisTest)</code></pre></div>
 <p>And now we do the more, well, confusing part of that. Let’s use <code>confusionMatrix()</code> with our predicted and actual variables as arguments, then we’ll walk through what exactly we did:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confusionMatrix</span>(knnPredict, irisTest<span class="op">$</span>Species)</code></pre></div>
@@ -442,10 +436,8 @@ knnPredict &lt;-<span class="st"> </span><span class="kw">predict</span>(knnMode
 <p>What we’re looking at now are our actual results - this is what we’d report for our model. Our model is significantly better than the null model (that p value [Acc &gt; NIR]), with about an 88.9% accuracy rate. We can also see exactly where our model gets confused - one versicolor flower was misclassed as virginica, while three virginica flowers were mis-classed as versicolor.</p>
 </div>
 <div id="decision-trees" class="section level4">
-<h4><span class="header-section-number">12.4.1.2</span> Decision Trees</h4>
+<h4><span class="header-section-number">12.3.1.2</span> Decision Trees</h4>
 <p>kNN is only one of the several popular classification algorithms available in R. Another of the most commonly used methods (kinda - we’ll get to that in a minute) is known as the decision tree. Basically, this method creates a flowchart with each of your variables - at each split in the chart (known as a “node”), the algorithm uses a selection of variables to try and classify your data.</p>
-<p>The general structure looks something like this:</p>
-<p><img src="12_Machine_Learning_files/figure-html/hidden:%20make%20decision%20tree-1.png" width="672" /> Where the end of each branch is one of your classifications.</p>
 <p>We’re going to use the <code>rpart</code> package to make our decision trees for this unit. First, we have to install the package, then load it using <code>library()</code>:</p>
 <pre><code>install.packages(&quot;rpart&quot;)</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rpart)</code></pre></div>
@@ -497,7 +489,7 @@ TreeFit</code></pre></div>
 <p>However, decision trees on their own aren’t particularly great classifiers. For one thing, they tend to overfit the data, making your model less applicable to other datasets. They also generally require a decent amount of tuning to be optimally accurate. Luckily, there’s a better way to classify your data than using a single tree:</p>
 </div>
 <div id="random-forests" class="section level4">
-<h4><span class="header-section-number">12.4.1.3</span> Random Forests</h4>
+<h4><span class="header-section-number">12.3.1.3</span> Random Forests</h4>
 <p>Random forests!</p>
 <p>These forests are collections of trees (get it?), all of which may overfit the data in some weird way and have oddly bad fits in others. The idea is to collect as many trees as we can in one model and find out what the majority of models want to classify the datapoint as - by aggregating large numbers of trees, we can avoid the pitfalls that individual trees tend to lead us towards.</p>
 <p>There’s a ton of random forest implementations in R, because these are some of the most current and useful ML applications we’ve developed so far. I’m going to, for the sake of simplicity, stick with one of the better-known applications. We’ll keep using our functions from <code>caret()</code>, but first, we have to install the <code>ranger</code> application:</p>
@@ -517,16 +509,16 @@ ForestFit</code></pre></div>
 ## Resampling results across tuning parameters:
 ## 
 ##   mtry  splitrule   Accuracy   Kappa    
-##   2     gini        0.9687933  0.9524066
-##   2     extratrees  0.9772694  0.9654495
-##   3     gini        0.9688665  0.9526608
-##   3     extratrees  0.9761735  0.9637235
-##   4     gini        0.9705871  0.9552767
-##   4     extratrees  0.9751478  0.9620407
+##   2     gini        0.9574076  0.9352822
+##   2     extratrees  0.9708435  0.9556539
+##   3     gini        0.9611391  0.9410078
+##   3     extratrees  0.9689377  0.9526828
+##   4     gini        0.9582746  0.9366988
+##   4     extratrees  0.9717770  0.9569799
 ## 
 ## Tuning parameter &#39;min.node.size&#39; was held constant at a value of 1
 ## Accuracy was used to select the optimal model using the largest value.
-## The final values used for the model were mtry = 2, splitrule =
+## The final values used for the model were mtry = 4, splitrule =
 ##  extratrees and min.node.size = 1.</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ForestPredict &lt;-<span class="st"> </span><span class="kw">predict</span>(ForestFit, irisTest)
 <span class="kw">confusionMatrix</span>(ForestPredict, irisTest<span class="op">$</span>Species)</code></pre></div>
@@ -535,30 +527,30 @@ ForestFit</code></pre></div>
 ##             Reference
 ## Prediction   setosa versicolor virginica
 ##   setosa         12          0         0
-##   versicolor      0         11         3
-##   virginica       0          1         9
+##   versicolor      0         12         3
+##   virginica       0          0         9
 ## 
 ## Overall Statistics
 ##                                           
-##                Accuracy : 0.8889          
-##                  95% CI : (0.7394, 0.9689)
+##                Accuracy : 0.9167          
+##                  95% CI : (0.7753, 0.9825)
 ##     No Information Rate : 0.3333          
-##     P-Value [Acc &gt; NIR] : 6.677e-12       
+##     P-Value [Acc &gt; NIR] : 3.978e-13       
 ##                                           
-##                   Kappa : 0.8333          
+##                   Kappa : 0.875           
 ##  Mcnemar&#39;s Test P-Value : NA              
 ## 
 ## Statistics by Class:
 ## 
 ##                      Class: setosa Class: versicolor Class: virginica
-## Sensitivity                 1.0000            0.9167           0.7500
-## Specificity                 1.0000            0.8750           0.9583
-## Pos Pred Value              1.0000            0.7857           0.9000
-## Neg Pred Value              1.0000            0.9545           0.8846
+## Sensitivity                 1.0000            1.0000           0.7500
+## Specificity                 1.0000            0.8750           1.0000
+## Pos Pred Value              1.0000            0.8000           1.0000
+## Neg Pred Value              1.0000            1.0000           0.8889
 ## Prevalence                  0.3333            0.3333           0.3333
-## Detection Rate              0.3333            0.3056           0.2500
-## Detection Prevalence        0.3333            0.3889           0.2778
-## Balanced Accuracy           1.0000            0.8958           0.8542</code></pre>
+## Detection Rate              0.3333            0.3333           0.2500
+## Detection Prevalence        0.3333            0.4167           0.2500
+## Balanced Accuracy           1.0000            0.9375           0.8750</code></pre>
 <p>Our accuracy is lower! How could that be?</p>
 <p>As it happens, that’s almost a good thing in this situation. While the decision tree we made earlier was <em>extremely</em> accurate on the small dataset we tested it on, in most situations these trees will falter when presented with new data. The lower accuracy represented here means that the model may not be as good a fit for <em>our</em> data, but it’s likely more generalizable as a result.</p>
 <p>If we want a little bit more information about our forest, we can call <code>ForestFit$finalModel</code> for a few extra details:</p>
@@ -572,16 +564,16 @@ ForestFit</code></pre></div>
 ## Number of trees:                  500 
 ## Sample size:                      114 
 ## Number of independent variables:  4 
-## Mtry:                             2 
+## Mtry:                             4 
 ## Target node size:                 1 
 ## Variable importance mode:         none 
 ## Splitrule:                        extratrees 
-## OOB prediction error:             1.75 %</code></pre>
+## OOB prediction error:             2.63 %</code></pre>
 <p>This tells us that we’ve built 500 decision trees for our training sample of 114 observations, using all 4 predictors in at least <em>some</em> of the trees, with 2 variables used in each individual tree.</p>
 </div>
 </div>
 <div id="regression-models" class="section level3">
-<h3><span class="header-section-number">12.4.2</span> Regression Models</h3>
+<h3><span class="header-section-number">12.3.2</span> Regression Models</h3>
 <p>For this next section, we’ll be working with a dataset contained in the <code>MASS</code> package:</p>
 <pre><code>install.packages(&quot;MASS&quot;)</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(MASS)</code></pre></div>
@@ -626,12 +618,12 @@ BostonForest</code></pre></div>
 ## Resampling results across tuning parameters:
 ## 
 ##   mtry  splitrule   RMSE      Rsquared   MAE     
-##    2    variance    3.834885  0.8509522  2.550913
-##    2    extratrees  4.209154  0.8294238  2.790089
-##    7    variance    3.513002  0.8622802  2.344736
-##    7    extratrees  3.383016  0.8791969  2.295471
-##   13    variance    3.733353  0.8417900  2.467037
-##   13    extratrees  3.362181  0.8760661  2.293708
+##    2    variance    3.666900  0.8597065  2.459786
+##    2    extratrees  4.122954  0.8284502  2.755923
+##    7    variance    3.478394  0.8608275  2.328622
+##    7    extratrees  3.338858  0.8761119  2.217015
+##   13    variance    3.817819  0.8289860  2.484904
+##   13    extratrees  3.289980  0.8756224  2.192851
 ## 
 ## Tuning parameter &#39;min.node.size&#39; was held constant at a value of 5
 ## RMSE was used to select the optimal model using the smallest value.
@@ -639,19 +631,26 @@ BostonForest</code></pre></div>
 ##  extratrees and min.node.size = 5.</code></pre>
 <p>We can see that our best model has an R<sup>2</sup> around 85%! Even better!</p>
 <p>Now, there’s a lot of discussion about whether or not you need to have separate training and testing datasets with random forest datasets. A lot of this conversation concerns data with tens of thousands of observations, if not more - in those cases, the random forest will automatically use about 2/3 of the data to build each model, and will report R<sup>2</sup> values that theoretically reflect how the model does with new data.</p>
-<p>With our tiny data, however, we can see that each model is built with the entirety of the dataset. As such, it’s still worth splitting our data, in order to get more accurate representations of how our model does with new data. To do so, I’m going to build a new function to calculate R<sup>2</sup>:</p>
+<p>With our tiny data, however, we can see that each model is built with the entirety of the dataset. As such, it’s still worth splitting our data, in order to get more accurate representations of how our model does with new data. To do so, I’m going to build a new function to calculate R<sup>2</sup>, following the equation: <span class="math display">\[R^2 = 1 - \frac{\sum (y - \hat{y})^2}{\sum (y - \bar{y})^2} \]</span></p>
+<p>Which, in our code, looks like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rsqcalc &lt;-<span class="st"> </span><span class="cf">function</span>(y, predicted){
   <span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">sum</span>((y <span class="op">-</span><span class="st"> </span>predicted)<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span><span class="kw">sum</span>((y <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(y))<span class="op">^</span><span class="dv">2</span>)
 }</code></pre></div>
 <p>Then generate predictions for our training dataset, and use this new function to find the R<sup>2</sup>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BostonTest<span class="op">$</span>Predicted &lt;-<span class="st"> </span><span class="kw">predict</span>(BostonForest, BostonTest)
 <span class="kw">rsqcalc</span>(BostonTest<span class="op">$</span>medv, BostonTest<span class="op">$</span>Predicted)</code></pre></div>
-<pre><code>## [1] 0.798782</code></pre>
+<pre><code>## [1] 0.8206364</code></pre>
 <p>Even higher!</p>
+<p>We aren’t going to get further into supervised learning methods, as other methods - such as neural networks - require a little more conceptual backing than I’m willing to dive into in this space. If you want to learn more, the textbook <a href="http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Seventh%20Printing.pdf">Introduction to Statistical Learning</a> is a good place to start, with a free PDF online.</p>
 <p>Note, by the way, that we are <em>barely</em> scratching the surface of what <code>caret</code> can do - there’s a full book on this package <a href="https://topepo.github.io/caret/index.html">at this link</a>, though fair warning, it’s a little intimidating.</p>
-<p>We also aren’t getting further into supervised learning methods, as other methods - such as neural networks - require a little more conceptual backing than I’m willing to dive into in this space.</p>
-
 </div>
+</div>
+<div id="unsupervised-learning" class="section level2">
+<h2><span class="header-section-number">12.4</span> Unsupervised Learning</h2>
+<p>By contrast to supervised learning, unsupervised learning does not make predictions on new groups. Instead, the focus of unsupervised techniques is to discover patterns in the data - to see if there are groups or patterns to be identified in the variables you have collected. It can often be used as a part of exploratory analyses and inspire further questions.</p>
+<p>If that all sounds rather squishy to you, it is - which is one of the hardest parts about unsupervised techniques. As there is no obvious metric to objectively evaluate these models - after all, we aren’t making predictions, so there’s no use for test datasets in evaluating our outputs - and no obvious true answer we can gut-check against.</p>
+<p>As such, unsupervised learning can be incredibly difficult, and requires a strong background in other statistical analyses - putting it somewhat beyond the scope of this reader. If you’re interested in learning more, chapters 6 and 10 of <a href="http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Seventh%20Printing.pdf">Introduction to Statistical Learning</a> provide a great introduction using R.</p>
+
 </div>
 </div>
             </section>

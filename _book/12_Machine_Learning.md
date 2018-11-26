@@ -1,5 +1,4 @@
 # Machine Learning
-## Work in Progress
 ## What is Machine Learning?
 Machine learning (ML) is one of the most attractive skills you can have on a resume - it's a complex, rapidly evolving field, taking advantage of continuing improvements in technology to accomplish increasingly difficult tasks. At the most abstract form, machine learning is just a way for computers to automatically make the same sort of models we've used in the past - by providing a large amount of data as an input, the machine can figure out which models give the best results, and "learn" how to improve its predictions without any human input. These models can be used for predictions - which customers will respond best to targeted ads; which areas need the most attention to prevent wildfires - or more complicated tasks, such as identifying the objects in images and the basic tasks associated with artifical intelligence.
 
@@ -12,7 +11,7 @@ With _unsupervised_ learning, we're asking the machine to find interesting patte
 
 There's also a third type of learning, less applicable to the sort of work we've done in this course, known as _reinforcement_ learning. This is what we use to teach robots to drive cars or play chess - certain outcomes are flagged as "good" or "bad", so the machine starts avoiding the bad options and aiming for good ones.
 
-We won't be practicing any reinforcement techniques today. Instead, we'll just do a brief overview of the most common supervised and unsupervised learning techniques.
+We won't be practicing any reinforcement or unsupervised techniques today. Instead, we'll just do a brief overview of the most common supervised learning techniques.
 
 ## Supervised Learning
 Supervised learning tasks can be further broken into two factions:
@@ -133,17 +132,7 @@ train(Species ~ ., data = irisTrain, method = "knn", preProcess = c("center", "s
 ## The final value used for the model was k = 7.
 ```
 
-That's a pretty cool output, and one that's easy to get excited about. What we just did was resample from our training set 25 times, fitting a different model each time. The best model from those 25 iterations is the _k_ value specified at the bottom of the output. We can visualize how each level of _k_ tested was by plotting our model:
-
-
-```r
-knnModel <- train(Species ~ ., data = irisTrain, method = "knn", preProcess = c("center", "scale"))
-plot(knnModel)
-```
-
-<img src="12_Machine_Learning_files/figure-html/plot knn model-1.png" width="672" />
-
-The x axis is the number of neighbors used by a model, and the y axis is how accurate that model is.
+That's a pretty cool output, and one that's easy to get excited about. What we just did was resample from our training set 25 times, fitting a different model each time. The best model from those 25 iterations is the _k_ value specified at the bottom of the output. 
 
 You might notice that by re-running your code, you'll sometimes get different results, but they all have about 90% accuracy. That's because none of our models are dramatically better than any other - with larger datasets, you'll often see a few models function significantly better than the other options. Here, all of ours are generally within a percentage point of each other.
 
@@ -159,6 +148,7 @@ Those first two steps are pretty easy:
 
 
 ```r
+knnModel <- train(Species ~ ., data = irisTrain, method = "knn", preProcess = c("center", "scale"))
 irisTest$Species <- factor(irisTest$Species)
 knnPredict <- predict(knnModel, newdata = irisTest)
 ```
@@ -207,11 +197,6 @@ What we're looking at now are our actual results - this is what we'd report for 
 
 kNN is only one of the several popular classification algorithms available in R. Another of the most commonly used methods (kinda - we'll get to that in a minute) is known as the decision tree. Basically, this method creates a flowchart with each of your variables - at each split in the chart (known as a "node"), the algorithm uses a selection of variables to try and classify your data. 
 
-The general structure looks something like this:
-
-<img src="12_Machine_Learning_files/figure-html/hidden: make decision tree-1.png" width="672" />
-Where the end of each branch is one of your classifications.
- 
 We're going to use the `rpart` package to make our decision trees for this unit. First, we have to install the package, then load it using `library()`:
 ```
 install.packages("rpart")
@@ -313,16 +298,16 @@ ForestFit
 ## Resampling results across tuning parameters:
 ## 
 ##   mtry  splitrule   Accuracy   Kappa    
-##   2     gini        0.9687933  0.9524066
-##   2     extratrees  0.9772694  0.9654495
-##   3     gini        0.9688665  0.9526608
-##   3     extratrees  0.9761735  0.9637235
-##   4     gini        0.9705871  0.9552767
-##   4     extratrees  0.9751478  0.9620407
+##   2     gini        0.9574076  0.9352822
+##   2     extratrees  0.9708435  0.9556539
+##   3     gini        0.9611391  0.9410078
+##   3     extratrees  0.9689377  0.9526828
+##   4     gini        0.9582746  0.9366988
+##   4     extratrees  0.9717770  0.9569799
 ## 
 ## Tuning parameter 'min.node.size' was held constant at a value of 1
 ## Accuracy was used to select the optimal model using the largest value.
-## The final values used for the model were mtry = 2, splitrule =
+## The final values used for the model were mtry = 4, splitrule =
 ##  extratrees and min.node.size = 1.
 ```
 
@@ -337,30 +322,30 @@ confusionMatrix(ForestPredict, irisTest$Species)
 ##             Reference
 ## Prediction   setosa versicolor virginica
 ##   setosa         12          0         0
-##   versicolor      0         11         3
-##   virginica       0          1         9
+##   versicolor      0         12         3
+##   virginica       0          0         9
 ## 
 ## Overall Statistics
 ##                                           
-##                Accuracy : 0.8889          
-##                  95% CI : (0.7394, 0.9689)
+##                Accuracy : 0.9167          
+##                  95% CI : (0.7753, 0.9825)
 ##     No Information Rate : 0.3333          
-##     P-Value [Acc > NIR] : 6.677e-12       
+##     P-Value [Acc > NIR] : 3.978e-13       
 ##                                           
-##                   Kappa : 0.8333          
+##                   Kappa : 0.875           
 ##  Mcnemar's Test P-Value : NA              
 ## 
 ## Statistics by Class:
 ## 
 ##                      Class: setosa Class: versicolor Class: virginica
-## Sensitivity                 1.0000            0.9167           0.7500
-## Specificity                 1.0000            0.8750           0.9583
-## Pos Pred Value              1.0000            0.7857           0.9000
-## Neg Pred Value              1.0000            0.9545           0.8846
+## Sensitivity                 1.0000            1.0000           0.7500
+## Specificity                 1.0000            0.8750           1.0000
+## Pos Pred Value              1.0000            0.8000           1.0000
+## Neg Pred Value              1.0000            1.0000           0.8889
 ## Prevalence                  0.3333            0.3333           0.3333
-## Detection Rate              0.3333            0.3056           0.2500
-## Detection Prevalence        0.3333            0.3889           0.2778
-## Balanced Accuracy           1.0000            0.8958           0.8542
+## Detection Rate              0.3333            0.3333           0.2500
+## Detection Prevalence        0.3333            0.4167           0.2500
+## Balanced Accuracy           1.0000            0.9375           0.8750
 ```
 
 Our accuracy is lower! How could that be?
@@ -384,11 +369,11 @@ ForestFit$finalModel
 ## Number of trees:                  500 
 ## Sample size:                      114 
 ## Number of independent variables:  4 
-## Mtry:                             2 
+## Mtry:                             4 
 ## Target node size:                 1 
 ## Variable importance mode:         none 
 ## Splitrule:                        extratrees 
-## OOB prediction error:             1.75 %
+## OOB prediction error:             2.63 %
 ```
 
 This tells us that we've built 500 decision trees for our training sample of 114 observations, using all 4 predictors in at least _some_ of the trees, with 2 variables used in each individual tree. 
@@ -476,12 +461,12 @@ BostonForest
 ## Resampling results across tuning parameters:
 ## 
 ##   mtry  splitrule   RMSE      Rsquared   MAE     
-##    2    variance    3.834885  0.8509522  2.550913
-##    2    extratrees  4.209154  0.8294238  2.790089
-##    7    variance    3.513002  0.8622802  2.344736
-##    7    extratrees  3.383016  0.8791969  2.295471
-##   13    variance    3.733353  0.8417900  2.467037
-##   13    extratrees  3.362181  0.8760661  2.293708
+##    2    variance    3.666900  0.8597065  2.459786
+##    2    extratrees  4.122954  0.8284502  2.755923
+##    7    variance    3.478394  0.8608275  2.328622
+##    7    extratrees  3.338858  0.8761119  2.217015
+##   13    variance    3.817819  0.8289860  2.484904
+##   13    extratrees  3.289980  0.8756224  2.192851
 ## 
 ## Tuning parameter 'min.node.size' was held constant at a value of 5
 ## RMSE was used to select the optimal model using the smallest value.
@@ -493,7 +478,9 @@ We can see that our best model has an R^2^ around 85%! Even better!
 
 Now, there's a lot of discussion about whether or not you need to have separate training and testing datasets with random forest datasets. A lot of this conversation concerns data with tens of thousands of observations, if not more - in those cases, the random forest will automatically use about 2/3 of the data to build each model, and will report R^2^ values that theoretically reflect how the model does with new data.
 
-With our tiny data, however, we can see that each model is built with the entirety of the dataset. As such, it's still worth splitting our data, in order to get more accurate representations of how our model does with new data. To do so, I'm going to build a new function to calculate R^2^:
+With our tiny data, however, we can see that each model is built with the entirety of the dataset. As such, it's still worth splitting our data, in order to get more accurate representations of how our model does with new data. To do so, I'm going to build a new function to calculate R^2^, following the equation: $$R^2 = 1 - \frac{\sum (y - \hat{y})^2}{\sum (y - \bar{y})^2} $$
+
+Which, in our code, looks like this:
 
 
 ```r
@@ -511,11 +498,18 @@ rsqcalc(BostonTest$medv, BostonTest$Predicted)
 ```
 
 ```
-## [1] 0.798782
+## [1] 0.8206364
 ```
 
 Even higher!
 
+We aren't going to get further into supervised learning methods, as other methods - such as neural networks - require a little more conceptual backing than I'm willing to dive into in this space. If you want to learn more, the textbook [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Seventh%20Printing.pdf) is a good place to start, with a free PDF online.
+
 Note, by the way, that we are _barely_ scratching the surface of what `caret` can do - there's a full book on this package [at this link](https://topepo.github.io/caret/index.html), though fair warning, it's a little intimidating.
 
-We also aren't getting further into supervised learning methods, as other methods - such as neural networks - require a little more conceptual backing than I'm willing to dive into in this space. 
+## Unsupervised Learning
+By contrast to supervised learning, unsupervised learning does not make predictions on new groups. Instead, the focus of unsupervised techniques is to discover patterns in the data - to see if there are groups or patterns to be identified in the variables you have collected. It can often be used as a part of exploratory analyses and inspire further questions.
+
+If that all sounds rather squishy to you, it is - which is one of the hardest parts about unsupervised techniques. As there is no obvious metric to objectively evaluate these models - after all, we aren't making predictions, so there's no use for test datasets in evaluating our outputs - and no obvious true answer we can gut-check against. 
+
+As such, unsupervised learning can be incredibly difficult, and requires a strong background in other statistical analyses - putting it somewhat beyond the scope of this reader. If you're interested in learning more, chapters 6 and 10 of [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Seventh%20Printing.pdf) provide a great introduction using R.
