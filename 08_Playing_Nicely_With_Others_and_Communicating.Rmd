@@ -69,7 +69,6 @@ First off, let's load the tidyverse:
 library(tidyverse)
 ```
 
-
 When you print out tables in a Markdown document, the generic output looks a lot like the plain text I've been using in the past units:
 ```{r}
 head(iris)
@@ -142,13 +141,62 @@ Two dollar signs will start the equation (or symbol) centered on the next line, 
 That's about all the Latex we'll have a need to go over in this course. If you're interested in learning more, there's a pretty good tutorial available on [OverLeaf](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes), and a publicly available [cheatsheet](https://www.rstudio.com/resources/cheatsheets/).
 
 ## Git(Hub)
-Git is a version control system originally developed in 2005 to let a lot of extremely talented coders work together on one of the largest, most complex open source projects the world has ever seen. It is a nightmare to learn, and every company does it slightly differently.
+Git is a version control system originally developed in 2005 to let a lot of extremely talented coders work together on one of the largest, most complex open source projects the world has ever seen. It is a nightmare to learn, and every company does it slightly differently. However, it lets you document the changes you make to your code, your reasons for making those changes, and lets you revert to any historical state of the project - which can save tons of work reconstructing past states, if you find out one of your most recent changes breaks an important part of the software!
 
-GitHub is a company founded in 2008, designed to provide streamlined servers and plugins to allow teams and non-professionals to use Git on various projects. The tools it provides are less powerful than Git itself, but much faster to learn.
+GitHub is a company founded in 2008, designed to provide streamlined servers and plugins to allow teams and non-professionals to use Git on various projects. The tools it provides are less powerful than Git itself, but much faster to learn. For that reason, we'll be using GitHub - and the tools developed specifically for using Git with GitHub - exclusively in this unit. There's really no reason to learn Git by itself right now; it's a good skill to pick up eventually, but not while busy learning another computer language. If you're interested in a tutorial written specifically for Git, check out [this blog](http://kbroman.org/github_tutorial/) by Karl Broman.
 
-For that reason, we'll be using GitHub - and the tools developed specifically for using Git with GitHub - exclusively in this unit. There's really no reason to learn Git by itself right now; it's a good skill to pick up eventually, but not while busy learning another computer language. If you're interested in a tutorial written specifically for Git, check out [this blog](http://kbroman.org/github_tutorial/) by Karl Broman.
+My preferred workflow involves using tools that are built specifically for GitHub - I've personally switched to [GitKraken](https://www.gitkraken.com/) recently, though [GitHub Desktop](https://desktop.github.com/) provides a solid experience for new users. The instructions throughout this section will assume you're also working with GitKraken - while you can use any other service (or just pure Git), there are no directions for those alternative services.
+
+Once you've installed one of these softwares, you'll be asked to connect it to your account at [GitHub](https://github.com/). The biggest advantage GitHub gives (as opposed to Git by itself) is the ability to share your work with a broader community, and for that community to contribute to the development of your product. At the same time, that's the biggest disadvantage - unless you're paying for a premium account, your code is public for everyone to see. While it's not particularly likely that anyone will find your code unless you advertise it - think of how many hits the average YouTube video gets, for instance - it's still advisable to not host company secrets or unpublished data on the service.
+
+Luckily, Git supports hosting your project locally, rather than putting it out onto GitHub. While this loses the collaborative advantages of GitHub - and won't serve as a backup, should your computer kick the bucket - it will still let you track your project and revert to past stages. 
+
+### My First Repository
+It's time to make your first repository! A repository - or, more commonly, a repo - is the folder where your project lives. Git will track the changes you make to every single file within the repo, and you'll be able to revert to past commits any time you want.
+
+In GitKraken, we can make a new repo by clicking "Start a local repository" or via File->Init Repo. Let's call this repository "GitExample". You can choose a license if you want - I'm not going to get into the details of what each license entails - and save the repo wherever makes sense.
+
+Your GitKraken should now look something like this:
+```{r echo=FALSE}
+knitr::include_graphics("KrakenStart.png")
+```
+
+Let's make a new project R project now through R Studio. We want to create a project in an existing directory, and select our repository as the folder to create the project in.
+
+Once your new project has loaded, open a new script file (Ctrl/Cmd+Shift+N) and type in the following code:
+
+```{r example code eval = FALSE}
+library(tidyverse)
+ggplot(iris, aes(Sepal.Length, Sepal.Width)) + 
+  geom_point()
+```
+
+We should know what this code will give us by now - the same `iris` scatterplot we've been working with for most of this reader.
+
+Save your script using whatever name makes sense to you (I went with `Scatterplot.R`). If we open GitKraken now, we should see a screen that looks like this:
+
+```{r echo=FALSE}
+knitr::include_graphics("UnStaged.png")
+```
+
+You'll notice that the left-hand side of the screen has changed, and our new files are listed as "unstaged" changes. To understand what this means, let's back up a little and talk about what a Git workflow looks like:
+
+#### Commits
+The most recent version of your code - the one that anyone with access to your repository should see, that works and is up-to-date - is what's known as your most recent _commit_. _Commits_ are versions of the code where you've decided to confirm that you like your changes, and want to save them in your project's development history. 
+
+In order to do that, you have to be very specific in telling Git which files you want to include in that commit. Git keeps track of every file you've changed since your last commit, and will include them in that "Unstaged Files" window you see our files in. For those changes to be saved, however, we need to _stage_ our changes, and then _commit_ them. GitKraken makes that easy enough - we just click "Stage All Changes", add a commit message, and then click "Commit Changes".
+
+A note on commit messages, by the way - these are the main ways you'll identify what each change actually _did_ to your code when you're looking at the history, and will be super important if you have to revert to a prior state! As such, try and keep each commit message short but explanatory - "did stuff" is much less helpful than "model selection algorithim now supports AIC", for instance!
+
+On a similar note, you should commit whenever it _makes sense_ to you to do so - when your code is in a place you may want to get back to. Generally this means that whatever you've written works, or is very close to working, or was enough effort to do that you don't want to bother retyping it should you accidentally break it. There isn't a hard and fast rule as to when you should commit - but the general rule is "early and often". 
+
+Anyway, go ahead and commit all your changes now. Personally, my message was "made the base scatterplot".
+
+#### Branches
 
 
+
+#### Push + Pull
 
 ## Commenting Code
 

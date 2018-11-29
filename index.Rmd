@@ -62,6 +62,11 @@ The end of the course then covers topics which I have found to be more specializ
 11. Dates and Times
 12. Machine Learning
 
+The backmatter of the reader then concerns how to get help outside of this book, containing both links to useful resources and some frequently asked questions. The two units in this section are:
+
+13. Useful Resources
+14. FAQ
+
 ## Citing My Sources
 Much of this reader draws from Hadley Wickham's 2012 [stat405](http://stat405.had.co.nz/) class, as well as his wonderful textbooks [R for Data Science](http://r4ds.had.co.nz/index.html) (with Garrett Grolemund) and [Advanced R](https://adv-r.hadley.nz/index.html). I've updated some elements, distilled others, and not kept much of the content, but the ideas and steering come very directly from those works.  
 Many other resources can be found in Chapter 14, at the end of this book. 
