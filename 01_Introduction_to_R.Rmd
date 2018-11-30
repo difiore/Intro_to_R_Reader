@@ -44,9 +44,9 @@ There are some exceptions to these general rules, but this is enough to get us s
 ### Things You'll Need  
 There are several pieces of software integral to this course reader, namely:
 
-* R - [download it here](https://cloud.r-project.org/)
+* R - [download it here](https://cloud.r-project.org/).
 * RStudio - [download it here](https://www.rstudio.com/products/rstudio/download/#download). Choose the free desktop version - you don't need the server software, and you don't need the commercial license.
-* GitHub Desktop - [download it here](https://desktop.github.com/). You don't need this until later in the course - and if you're not actually enrolled in the course, you'll technically never need it. You'll be better off for knowing it, and it'll make your life better - but you can get away without it.
+* GitKraken - [download it here](https://www.gitkraken.com/). You don't need this until later in the course - and if you're not actually enrolled in the course, you'll technically never need it. You'll be better off for knowing it, and it'll make your life better - but you can get away without it.
   
 We'll be installing other pieces of software (in the form of R packages) throughout this reader, but each of those will be explicitly labeled when we use them. 
 
