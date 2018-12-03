@@ -164,7 +164,7 @@ Let's make a new project R project now through R Studio. We want to create a pro
 
 Once your new project has loaded, open a new script file (Ctrl/Cmd+Shift+N) and type in the following code:
 
-```{r example code eval = FALSE}
+```{r eval = FALSE}
 library(tidyverse)
 ggplot(iris, aes(Sepal.Length, Sepal.Width)) + 
   geom_point()
