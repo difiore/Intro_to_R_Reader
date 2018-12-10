@@ -23,6 +23,7 @@ This section will focus on brief overviews of each application, with links to wh
 
 ### Blogdown
 
+
 ### Shiny
 People really, really like interactive graphics. Being able to click their way through a series of visualizations - or maybe just alter the aesthetic choices of a final output - satisfies a lot of non-data-professionals in a big way. I think interactive graphics are usually a waste of resources - while they're cool, they take away your ability to narrate a story and effectively demonstrate your arguments, which are the main purposes of communicative graphics. While interactive graphics are more useful for data exploration, the amount of time they take to generate and polish makes them cost-prohibitive for this type of use. Plus, this book isn't _Introduction to R for Web Design_ - there are better tools for making these sorts of interactives, and they aren't particularly useful in the printable types of documents most readers of this book will find themselves making.
 

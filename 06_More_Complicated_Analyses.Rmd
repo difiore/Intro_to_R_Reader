@@ -1,5 +1,8 @@
 # More Complicated Analyses
 
+> Computers are cheap, and thinking hurts.
+><div align = "right">---Uwe Ligges</div>
+
 ## Other Datasets
 
 ### Importing Your Own Data
