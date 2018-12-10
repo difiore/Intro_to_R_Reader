@@ -1,5 +1,4 @@
 # Playing Nicely With Others
-## Work in Progress
 
 So far, we've gotten ourselves to a point where we can explore our data, perform some analyses, and graph our results intelligently. That's all great, and are incredibly important skills. However, even more important than the hard coding skills we've been building is the ability to communicate our results - to our peers, bosses, and the larger outside world.
 
@@ -71,7 +70,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
@@ -82,11 +81,10 @@ library(tidyverse)
 ```
 
 ```
-## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ```
-
 
 When you print out tables in a Markdown document, the generic output looks a lot like the plain text I've been using in the past units:
 
@@ -1363,14 +1361,99 @@ Two dollar signs will start the equation (or symbol) centered on the next line, 
 That's about all the Latex we'll have a need to go over in this course. If you're interested in learning more, there's a pretty good tutorial available on [OverLeaf](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes), and a publicly available [cheatsheet](https://www.rstudio.com/resources/cheatsheets/).
 
 ## Git(Hub)
-Git is a version control system originally developed in 2005 to let a lot of extremely talented coders work together on one of the largest, most complex open source projects the world has ever seen. It is a nightmare to learn, and every company does it slightly differently.
+Git is a version control system originally developed in 2005 to let a lot of extremely talented coders work together on one of the largest, most complex open source projects the world has ever seen. It is a nightmare to learn, and every company does it slightly differently. However, it lets you document the changes you make to your code, your reasons for making those changes, and lets you revert to any historical state of the project - which can save tons of work reconstructing past states, if you find out one of your most recent changes breaks an important part of the software!
 
-GitHub is a company founded in 2008, designed to provide streamlined servers and plugins to allow teams and non-professionals to use Git on various projects. The tools it provides are less powerful than Git itself, but much faster to learn.
+GitHub is a company founded in 2008, designed to provide streamlined servers and plugins to allow teams and non-professionals to use Git on various projects. The tools it provides are less powerful than Git itself, but much faster to learn. For that reason, we'll be using GitHub - and the tools developed specifically for using Git with GitHub - exclusively in this unit. There's really no reason to learn Git by itself right now; it's a good skill to pick up eventually, but not while busy learning another computer language. If you're interested in a tutorial written specifically for Git, check out [this blog](http://kbroman.org/github_tutorial/) by Karl Broman.
 
-For that reason, we'll be using GitHub - and the tools developed specifically for using Git with GitHub - exclusively in this unit. There's really no reason to learn Git by itself right now; it's a good skill to pick up eventually, but not while busy learning another computer language. If you're interested in a tutorial written specifically for Git, check out [this blog](http://kbroman.org/github_tutorial/) by Karl Broman.
+My preferred workflow involves using tools that are built specifically for GitHub - I've personally switched to [GitKraken](https://www.gitkraken.com/) recently, though [GitHub Desktop](https://desktop.github.com/) provides a solid experience for new users. The instructions throughout this section will assume you're also working with GitKraken - while you can use any other service (or just pure Git), there are no directions for those alternative services.
+
+Once you've installed one of these softwares, you'll be asked to connect it to your account at [GitHub](https://github.com/). The biggest advantage GitHub gives (as opposed to Git by itself) is the ability to share your work with a broader community, and for that community to contribute to the development of your product. At the same time, that's the biggest disadvantage - unless you're paying for a premium account, your code is public for everyone to see. While it's not particularly likely that anyone will find your code unless you advertise it - think of how many hits the average YouTube video gets, for instance - it's still advisable to not host company secrets or unpublished data on the service.
+
+Luckily, Git supports hosting your project locally, rather than putting it out onto GitHub. While this loses the collaborative advantages of GitHub - and won't serve as a backup, should your computer kick the bucket - it will still let you track your project and revert to past stages. 
+
+### My First Repository
+It's time to make your first repository! A repository - or, more commonly, a repo - is the folder where your project lives. Git will track the changes you make to every single file within the repo, and you'll be able to revert to past commits any time you want.
+
+In GitKraken, we can make a new repo by clicking "Start a local repository" or via File->Init Repo. Let's call this repository "GitExample". You can choose a license if you want - I'm not going to get into the details of what each license entails - and save the repo wherever makes sense.
+
+Your GitKraken should now look something like this:
+<img src="KrakenStart.png" width="683" />
+
+Let's make a new project R project now through R Studio. We want to create a project in an existing directory, and select our repository as the folder to create the project in.
+
+Once your new project has loaded, open a new script file (Ctrl/Cmd+Shift+N) and type in the following code:
 
 
+```r
+library(tidyverse)
+ggplot(iris, aes(Sepal.Length, Sepal.Width)) + 
+  geom_point()
+```
+
+We should know what this code will give us by now - the same `iris` scatterplot we've been working with for most of this reader.
+
+Save your script using whatever name makes sense to you (I went with `Scatterplot.R`). If we open GitKraken now, we should see a screen that looks like this:
+
+<img src="UnStaged.png" width="683" />
+
+You'll notice that the left-hand side of the screen has changed, and our new files are listed as "unstaged" changes. To understand what this means, let's back up a little and talk about what a Git workflow looks like:
+
+#### Commits
+The most recent version of your code - the one that anyone with access to your repository should see, that works and is up-to-date - is what's known as your most recent _commit_. _Commits_ are versions of the code where you've decided to confirm that you like your changes, and want to save them in your project's development history. 
+
+In order to do that, you have to be very specific in telling Git which files you want to include in that commit. Git keeps track of every file you've changed since your last commit, and will include them in that "Unstaged Files" window you see our files in. For those changes to be saved, however, we need to _stage_ our changes, and then _commit_ them. GitKraken makes that easy enough - we just click "Stage All Changes", add a commit message, and then click "Commit Changes".
+
+A note on commit messages, by the way - these are the main ways you'll identify what each change actually _did_ to your code when you're looking at the history, and will be super important if you have to revert to a prior state! As such, try and keep each commit message short but explanatory - "did stuff" is much less helpful than "model selection algorithim now supports AIC", for instance!
+
+On a similar note, you should commit whenever it _makes sense_ to you to do so - when your code is in a place you may want to get back to. Generally this means that whatever you've written works, or is very close to working, or was enough effort to do that you don't want to bother retyping it should you accidentally break it. There isn't a hard and fast rule as to when you should commit - but the general rule is "early and often". 
+
+Anyway, go ahead and commit all your changes now. Personally, my message was "made the base scatterplot".
+
+#### Branches
+
+In the top bar of GitKraken, you should notice a button labeled "branch". Clicking this will open a box that tells you to "enter branch name". Right now, I'm naming this branch `redplot`.
+
+A "branch" is a copy of the code at the time that it's created - so it "branches" off of the master code (sometimes referred to as the "trunk"). This way, multiple people can work on different parts of the project at the same time - and if you leave an idea half-baked for a while, it won't disturb the main body of code. GitHub has a nice explanation of how branches work [here](https://guides.github.com/introduction/flow/), if you want more detail.
+
+Now that we're working in the `redplot` branch, let's change our code so that the points are red:
+
+```r
+library(tidyverse)
+ggplot(iris, aes(Sepal.Length, Sepal.Width)) + 
+  geom_point(color = "red")
+```
+
+We can now commit this change to our branch, updating the code there without disturbing the code in the master branch. Let's do this now!
+
+You'll notice now that you have two labels to your commit messages - `master` and `redplot`. If we've decided we like our plots red, we can merge the branch into the trunk by right clicking on `master` and selecting "merge redplot into master". 
+
+Tada! Our branches have merged, our change to the code has become incorporated in the master repository, and we're understanding the basics of Git. The only thing left to do in this unit is to talk about working with GitHub.
+
+#### Push + Pull
+Again, GitHub is an online service which makes working with others using Git much easier than most other services. It will host your repositories online and let others access them. 
+
+To do that, we first have to make an online repository. Log into GitHub (or create an account, if you still haven't) and then click the "+" sign next to your profile photo, then click "New Repository". Give a name that makes sense (I chose "GitExample") and don't check any boxes, then click "Create Repository". Copy the URL inside the blue box (labeled "Quick Setup").
+
+Then, in GitKraken, hover over the "0/0" displayed next to "Remote" and click the "+" sign that appears. Type your repository's name into the "Name" field, then paste the URL into the "Pull URL" field. Once you click "add remote" you'll be connected to your online repository!
+
+We can now upload our code to this repository, using the "Push" button (located next to "Branch") and then clicking "Submit". Your code is now online (reload the GitHub page to see it), and accessible by collaborators! This is called "pushing" your code, and is the next step up from commits - if you're committing early and often, you should be pushing every time you've got something new that works.
+
+The other side of "pushing" is "pulling", done through the "pull" button in the top bar. If your collaborators have pushed code that impacts your work, you should make sure to pull it to your machine - otherwise, you might be introducing bugs into the system!
+
+This is a super basic introduction to Git, but should be enough to get you started using version control on your own projects. Once you do, it becomes much, MUCH easier to interact with other developers, and to collaborate on projects with people working anywhere in the world.
 
 ## Commenting Code
 
-https://uc3.cdlib.org/2014/05/05/github-a-primer-for-researchers/
+When you insert a hashtag (`#`) before a line in your code, R won't try to run it. This can be used to explain what you're doing at each step of a complicated process, and is referred to as commenting your code. For instance:
+
+
+```r
+## Comments like this usually explain the purpose of a block of code
+ggplot(iris, aes(Sepal.Length, Sepal.Width)) +
+  geom_point() # Whereas comments like this usually explain a specific line
+```
+
+It's a best practice to continuously comment your code - both so that any collaborators you may have can understand what you've done, and so that you understand your own work when you come back to it in the future. However, you shouldn't write comments only explaining _what_ your code does - everyone touching your project should be able to understand that. Instead, good comments explain _why_ you're doing a particular thing - what your end goal and motivations for each step of the process are, so that others can follow your line of thinking. 
+
+## Further Reading
+I had originally planned to write a section of this chapter on the basics of making R packages, in order to quickly and easily share functions and code with a wide variety of people. However, I think that may be slightly outside of the scope of this introduction level text - and there's already a [very good textbook](http://r-pkgs.had.co.nz/) on the subject written by people far more qualified than I. For a full explanation of why (and, to an extent, how) you should build packages, check out the [Leek Group guide to developing R packages](https://github.com/jtleek/rpackages).

@@ -198,7 +198,7 @@ In the top bar of GitKraken, you should notice a button labeled "branch". Clicki
 A "branch" is a copy of the code at the time that it's created - so it "branches" off of the master code (sometimes referred to as the "trunk"). This way, multiple people can work on different parts of the project at the same time - and if you leave an idea half-baked for a while, it won't disturb the main body of code. GitHub has a nice explanation of how branches work [here](https://guides.github.com/introduction/flow/), if you want more detail.
 
 Now that we're working in the `redplot` branch, let's change our code so that the points are red:
-```{r example code eval = FALSE}
+```{r eval = FALSE}
 library(tidyverse)
 ggplot(iris, aes(Sepal.Length, Sepal.Width)) + 
   geom_point(color = "red")

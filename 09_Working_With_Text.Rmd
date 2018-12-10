@@ -61,7 +61,9 @@ str_replace(string, "orange", "apple")
 
 (Note that if we wanted to update our `string` object, we'd have to assign the new value using `string <- str_replace()`.)
 
-This is all pretty useful, but what happens if we didn't know 
+You can find a listing of all the other useful `stringr` functions on the [package cheatsheet](http://edrub.in/CheatSheets/cheatSheetStringr.pdf) or the accompanying [vignette](https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html).
+
+This is all pretty neat, but what happens if we didn't know exactly what we're looking for - just specific parts of the string that we want? For instance, say we have a set of GPS points that look like the following:
 
 ```{r}
 str_extract(string, "o.*e")

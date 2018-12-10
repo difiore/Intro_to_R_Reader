@@ -2,9 +2,16 @@
 
 Here are the answers to some assorted questions I've been asked, which are either not common, important, or interesting enough to put in the main text of the reader.
 
+## Why is my code broken?
+* Are all your parentheses in the right places?
+* Do you have commas where you should?
+* How's your capitalization?
+* Did you load the package you're trying to use?
+* If none of these fix your problem, try googling the error message R gives you. There's usually a good StackOverflow question on whatever you're trying to accomplish.
+
 ## Why is (_X_ package) named that?
 
-* `ggplot` refers to the _grammar of graphics_, used to plot things in a consistent manner
+* `ggplot` refers to the _**G**rammar of **G**raphics_, used to _plot_ things in a consistent manner
 * `tibble` refers to an old command for making tables, written _tbl()_ and pronounced, well...
 * `rpart` stands for **R** **Part**itioning, as decision trees are made by partitioning the data
 * `caret` stands for **C**lassification **A**nd **RE**gression **T**raining (oof)

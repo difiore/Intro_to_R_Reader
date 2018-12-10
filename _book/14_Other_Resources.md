@@ -19,6 +19,7 @@ These links go to other courses on R and related topics. Note that most of the p
 
 * [R for Data Science](https://r4ds.had.co.nz/) covers many of the same topics we've touched on in this course, but is structured differently and may explain some points better than I have or chose to do.
 * [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Seventh%20Printing.pdf) provides a much more thorough introduction to machine learning methods than our brief overview.
+* [Text Mining with R](https://www.tidytextmining.com/index.html) serves as an introduction to text-based analyses (such as sentiment analysis and n-grams).
 
 ### R as a Coding Language {-}
 

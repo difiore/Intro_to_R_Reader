@@ -13,7 +13,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
@@ -24,7 +24,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ```
@@ -85,7 +85,9 @@ While scripts are great, they do have some drawbacks. For instance, if you have 
 
 For that reason, I tend to work in R Notebooks. Open your new notebook file, and you'll see a new welcome page! The welcome page has a lot of good information in it - you can delete everything after the second set of three dashes once you've read it.
 
-Inside a notebook, you can make chunks by pressing Cmd/Ctrl+Alt+I. These chunks run as individual scripts, which you can run the exact same way by using combinations of Cmd/Ctrl, Shift, and Enter. Using notebooks can be a little more efficient than scripts, though, because it offers you the ability to split your code steps into multiple pieces, which can let you iterate on an idea faster than using scripts alone.
+Inside a notebook, you can make chunks by pressing Cmd/Ctrl+Alt+I. These chunks run as individual scripts, which you can run the exact same way by using combinations of Cmd/Ctrl, Shift, and Enter. Note, though, that your code _must be inside_ these grey chunks to run - anything in the whitespace outside chunks will be interpreted as plain text by R! This becomes super useful - it lets you label your chunks easily and understandably - but is a common area for beginners to mess up.
+
+Using notebooks can be a little more efficient than scripts, because it offers you the ability to split your code steps into multiple pieces, which can let you iterate on an idea faster than using scripts alone.
 
 No matter which you prefer, you should aim to have one script or notebook per task you perform - don't just have one long, continous notebook for everything you're doing. Also, make sure you give everything a descriptive name - there's nothing worse than needing a file a month or so later and having to open every notebook you've ever made to find it!
 

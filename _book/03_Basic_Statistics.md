@@ -1,5 +1,8 @@
 # Basic Statistics (Using R)
 
+> You ever hear the joke that a data scientist is someone who knows more computer science than a statistician and more statistics than a data scientist?  (I never said it was a good joke.)
+> <div align = "right">--- Joel Gruss </div>
+
 ## Purpose of the Unit
 This isn't a statistics course. However, R is a statistical computing language, and many of the functions built into R are designed for statistical purposes. As such, we're going to very quickly go over some statistical terms and a few of the statistical functions built into R. That way, you'll have a better understanding of what exactly it is that we're doing later in the course. 
 

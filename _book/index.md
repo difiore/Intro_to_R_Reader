@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Data Exploration and Analysis with R"
 author: "Michael Mahoney"
-date: "2018-11-26"
+date: "2018-12-10"
 site: bookdown::bookdown_site
 bookdown::gitbook:
   config:
@@ -25,14 +25,8 @@ description: "This is a course reader for a class that will never be taught. Hop
 
 # Welcome to IDEAR {-}
 
->Figures often beguile me, particularly when I have the arranging of them myself; in which case the remark attributed to Disraeli would often apply with justice and force: 'There are three kinds of lies: lies, damned lies, and statistics.  
-><div align = "right"> --- Mark Twain </div>
-
 > There are only two kinds of programming languages: those people always bitch about and those nobody uses.  
 ><div align = "right"> --- Bjarne Stroustrup  </div>
-
-> Computers are cheap, and thinking hurts.
-><div align = "right">---Uwe Ligges</div>
 
 This is a course reader for a hypothetical 3-credit undergraduate class, focusing on getting those with no prior exposure to R up to speed in coding and data analysis procedures.
 
@@ -61,6 +55,11 @@ The end of the course then covers topics which I have found to be more specializ
 10. Specialized Applications
 11. Dates and Times
 12. Machine Learning
+
+The backmatter of the reader then concerns how to get help outside of this book, containing both links to useful resources and some frequently asked questions. The two units in this section are:
+
+13. Useful Resources
+14. FAQ
 
 ## Citing My Sources
 Much of this reader draws from Hadley Wickham's 2012 [stat405](http://stat405.had.co.nz/) class, as well as his wonderful textbooks [R for Data Science](http://r4ds.had.co.nz/index.html) (with Garrett Grolemund) and [Advanced R](https://adv-r.hadley.nz/index.html). I've updated some elements, distilled others, and not kept much of the content, but the ideas and steering come very directly from those works.  
