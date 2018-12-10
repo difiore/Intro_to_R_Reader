@@ -250,11 +250,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.5" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#further-reading-1"><i class="fa fa-check"></i><b>8.5</b> Further Reading</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="working-with-text.html"><a href="working-with-text.html"><i class="fa fa-check"></i><b>9</b> Working with Text</a><ul>
-<li class="chapter" data-level="9.1" data-path="working-with-text.html"><a href="working-with-text.html#work-in-progress"><i class="fa fa-check"></i><b>9.1</b> Work in Progress</a></li>
-<li class="chapter" data-level="9.2" data-path="working-with-text.html"><a href="working-with-text.html#working-with-strings"><i class="fa fa-check"></i><b>9.2</b> Working with Strings</a></li>
+<li class="chapter" data-level="9.1" data-path="working-with-text.html"><a href="working-with-text.html#working-with-stringr"><i class="fa fa-check"></i><b>9.1</b> Working with Stringr</a></li>
+<li class="chapter" data-level="9.2" data-path="working-with-text.html"><a href="working-with-text.html#regular-expressions"><i class="fa fa-check"></i><b>9.2</b> Regular Expressions</a></li>
+<li class="chapter" data-level="9.3" data-path="working-with-text.html"><a href="working-with-text.html#case-study"><i class="fa fa-check"></i><b>9.3</b> Case Study</a></li>
+<li class="chapter" data-level="9.4" data-path="working-with-text.html"><a href="working-with-text.html#further-reading-2"><i class="fa fa-check"></i><b>9.4</b> Further Reading</a></li>
+<li class="chapter" data-level="9.5" data-path="working-with-text.html"><a href="working-with-text.html#exercises-4"><i class="fa fa-check"></i><b>9.5</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="special-applications.html"><a href="special-applications.html"><i class="fa fa-check"></i><b>10</b> Special Applications</a><ul>
-<li class="chapter" data-level="10.1" data-path="special-applications.html"><a href="special-applications.html#work-in-progress-1"><i class="fa fa-check"></i><b>10.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="10.1" data-path="special-applications.html"><a href="special-applications.html#work-in-progress"><i class="fa fa-check"></i><b>10.1</b> Work in Progress</a></li>
 <li class="chapter" data-level="10.2" data-path="special-applications.html"><a href="special-applications.html#even-more-special-applications"><i class="fa fa-check"></i><b>10.2</b> Even More Special Applications</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="special-applications.html"><a href="special-applications.html#leaflet-maps"><i class="fa fa-check"></i><b>10.2.1</b> Leaflet Maps</a></li>
 <li class="chapter" data-level="10.2.2" data-path="special-applications.html"><a href="special-applications.html#flexdashboard"><i class="fa fa-check"></i><b>10.2.2</b> FlexDashboard</a></li>
@@ -264,7 +267,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>11</b> Working with Dates and Times</a><ul>
-<li class="chapter" data-level="11.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#work-in-progress-2"><i class="fa fa-check"></i><b>11.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="11.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#work-in-progress-1"><i class="fa fa-check"></i><b>11.1</b> Work in Progress</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>12</b> Machine Learning</a><ul>
 <li class="chapter" data-level="12.1" data-path="machine-learning.html"><a href="machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>12.1</b> What is Machine Learning?</a></li>
@@ -326,7 +329,7 @@ Computers are cheap, and thinking hurts.
 <div id="importing-your-own-data" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> Importing Your Own Data</h3>
 <p>So far in this course, we’ve been working exclusively with the data pre-available in R and a few of the packages we’ve taken advantage of. While this is a good way to learn R, at some point you may want to use your own data for analysis.</p>
-<p>Luckily, R has a number of functions used to import data from external files. To demonstrate these, I’ll be using datasets located <a href="https://github.com/mikemahoney218/Unit6Data">on GitHub</a>, in the “Datasets” folder. You don’t necessarily need to download these files - but we’ll be using these for demonstration throughout this unit.</p>
+<p>Luckily, R has a number of functions used to import data from external files. To demonstrate these, I’ll be using datasets located <a href="https://github.com/mikemahoney218/IntroToRData">on GitHub</a>, in the “Unit 6 Data” folder. You don’t necessarily need to download these files - but we’ll be using these for demonstration throughout this unit.</p>
 <p>These datasets are from the website <a href="https://www.kaggle.com/">Kaggle</a>, where a number of data professionals share methods and datasets. Specifically, we’ll be working with two datasets concerning <a href="https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results">all Olympic athletes from the first 120 years of the game</a>. Additionally, we’ll use data on <a href="https://www.kaggle.com/drgilermo/nba-players-stats-20142015">NBA athletes from the 2014-2015 season</a>. I’m not a huge sports guy myself, but there’s a huge amount of sports-related data available publicly online, so it’s a good tool for our analyses.</p>
 <p>We’re going to be assuming that your data are located in the same folder as your script - this is usually the easiest way to manage datasets. Otherwise, you’ll have to wrestle a little with using relative pathways and directory names - Hadley Wickham explains these in more detail here.</p>
 <p>In order to do this, we’ll be using the <code>readr</code> package, which is included in the base tidyverse:</p>

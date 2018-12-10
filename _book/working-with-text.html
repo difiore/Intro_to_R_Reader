@@ -250,11 +250,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.5" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#further-reading-1"><i class="fa fa-check"></i><b>8.5</b> Further Reading</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="working-with-text.html"><a href="working-with-text.html"><i class="fa fa-check"></i><b>9</b> Working with Text</a><ul>
-<li class="chapter" data-level="9.1" data-path="working-with-text.html"><a href="working-with-text.html#work-in-progress"><i class="fa fa-check"></i><b>9.1</b> Work in Progress</a></li>
-<li class="chapter" data-level="9.2" data-path="working-with-text.html"><a href="working-with-text.html#working-with-strings"><i class="fa fa-check"></i><b>9.2</b> Working with Strings</a></li>
+<li class="chapter" data-level="9.1" data-path="working-with-text.html"><a href="working-with-text.html#working-with-stringr"><i class="fa fa-check"></i><b>9.1</b> Working with Stringr</a></li>
+<li class="chapter" data-level="9.2" data-path="working-with-text.html"><a href="working-with-text.html#regular-expressions"><i class="fa fa-check"></i><b>9.2</b> Regular Expressions</a></li>
+<li class="chapter" data-level="9.3" data-path="working-with-text.html"><a href="working-with-text.html#case-study"><i class="fa fa-check"></i><b>9.3</b> Case Study</a></li>
+<li class="chapter" data-level="9.4" data-path="working-with-text.html"><a href="working-with-text.html#further-reading-2"><i class="fa fa-check"></i><b>9.4</b> Further Reading</a></li>
+<li class="chapter" data-level="9.5" data-path="working-with-text.html"><a href="working-with-text.html#exercises-4"><i class="fa fa-check"></i><b>9.5</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="special-applications.html"><a href="special-applications.html"><i class="fa fa-check"></i><b>10</b> Special Applications</a><ul>
-<li class="chapter" data-level="10.1" data-path="special-applications.html"><a href="special-applications.html#work-in-progress-1"><i class="fa fa-check"></i><b>10.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="10.1" data-path="special-applications.html"><a href="special-applications.html#work-in-progress"><i class="fa fa-check"></i><b>10.1</b> Work in Progress</a></li>
 <li class="chapter" data-level="10.2" data-path="special-applications.html"><a href="special-applications.html#even-more-special-applications"><i class="fa fa-check"></i><b>10.2</b> Even More Special Applications</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="special-applications.html"><a href="special-applications.html#leaflet-maps"><i class="fa fa-check"></i><b>10.2.1</b> Leaflet Maps</a></li>
 <li class="chapter" data-level="10.2.2" data-path="special-applications.html"><a href="special-applications.html#flexdashboard"><i class="fa fa-check"></i><b>10.2.2</b> FlexDashboard</a></li>
@@ -264,7 +267,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>11</b> Working with Dates and Times</a><ul>
-<li class="chapter" data-level="11.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#work-in-progress-2"><i class="fa fa-check"></i><b>11.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="11.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#work-in-progress-1"><i class="fa fa-check"></i><b>11.1</b> Work in Progress</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>12</b> Machine Learning</a><ul>
 <li class="chapter" data-level="12.1" data-path="machine-learning.html"><a href="machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>12.1</b> What is Machine Learning?</a></li>
@@ -315,23 +318,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="working-with-text" class="section level1">
 <h1><span class="header-section-number">9</span> Working with Text</h1>
-<div id="work-in-progress" class="section level2">
-<h2><span class="header-section-number">9.1</span> Work in Progress</h2>
 <p>So far, all of our work has dealt with numeric data. We’ve even gone so far as to convert categorical data (such as the type of medal won in the Olympics) into numeric formats when we want to include it in our analyses.</p>
 <p>There’s a few reasons for this. First off, the majority of data used in business and scientific applications can be treated as numeric in nature, meaning it makes the most sense for the front of this book to focus on that more common application. But mostly we started off with numeric data due to how much <em>harder</em> text can be to work with - it doesn’t lend itself to nice rectangular dataframes as easily as numeric data does, and tends to be much messier to wrangle than easy numeric formats.</p>
 <p>However, much data originates in text format, whether or not it will be used that way, and as such data scientists have to understand how to interpret and process it as easily as numeric data. As such, this chapter will teach you how to wrangle and manipulate text data into more usable formats for your analyses. This is, I believe, one of the hardest topics in this book, but a good understanding of how to use these tools will allow you to handle a much wider variety of datasets than numerical methods alone.</p>
 <p>Before we begin, I want to highlight that the title of this chapter is <em>Working with Text</em>, as opposed to <em>Text-Based Analyses</em>. While text-based analyses are commonly used in some spheres - for instance, sentiment analysis is popular in both the digital humanities and political science - we’re more focused on the tools used to work with text than the following analyses. For good resources on those topics, check out the <a href="https://www.tidytextmining.com/index.html">Text Mining with R</a> book.</p>
-</div>
-<div id="working-with-strings" class="section level2">
-<h2><span class="header-section-number">9.2</span> Working with Strings</h2>
-<blockquote>
-Some people, when confronted with a problem, think “I know, I’ll use regular expressions.” Now they have two problems.
-<div align="right">
-— Jamie Zawinski
-</div>
-</blockquote>
+<div id="working-with-stringr" class="section level2">
+<h2><span class="header-section-number">9.1</span> Working with Stringr</h2>
 <p>Let’s say we have some text in a vector - known as a <em>string</em>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">string &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;lzGDHgldkh3orange25ght&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">string &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;lzGDHgldkh3orange2o5ghte&quot;</span>)</code></pre></div>
 <p>(I never said it would be a pretty string.)</p>
 <p>We’re going to be working with this data using the <code>stringr</code> package, conveniently located in the <code>tidyverse</code> suite. As such, let’s load the tidyverse now:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
@@ -359,13 +353,133 @@ Some people, when confronted with a problem, think “I know, I’ll use regular
 <pre><code>## [1] &quot;orange&quot;</code></pre>
 <p>We can also replace the fruit, if we so desire:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_replace</span>(string, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;apple&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;lzGDHgldkh3apple25ght&quot;</code></pre>
+<pre><code>## [1] &quot;lzGDHgldkh3apple2o5ghte&quot;</code></pre>
 <p>(Note that if we wanted to update our <code>string</code> object, we’d have to assign the new value using <code>string &lt;- str_replace()</code>.)</p>
-<p>This is all pretty useful, but what happens if we didn’t know exactly</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract</span>(string, <span class="st">&quot;o.*e&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;orange&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">string &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;lzGDHodegldopenkh3orange25ght&quot;</span>)</code></pre></div>
-<p>WORKING WITH STRING MATRICES</p>
+<p>You can find a listing of all the other useful <code>stringr</code> functions on the <a href="http://edrub.in/CheatSheets/cheatSheetStringr.pdf">package cheatsheet</a> or the accompanying <a href="https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html">vignette</a>.</p>
+</div>
+<div id="regular-expressions" class="section level2">
+<h2><span class="header-section-number">9.2</span> Regular Expressions</h2>
+<blockquote>
+Some people, when confronted with a problem, think “I know, I’ll use regular expressions.” Now they have two problems.
+<div align="right">
+— Jamie Zawinski
+</div>
+</blockquote>
+<p>This is all pretty neat, but what happens if we didn’t know exactly what we’re looking for - just specific parts of the string that we want? For instance, GPS data is often stored in a messy text file, where the latitude and longitude - that is, the data we care about - are specifically marked with start and end brackets or similar markings. In those cases, we can’t type out each datapoint that we want - by introducing human errors and taking a long time to complete, that would seem to defeat the entire purpose of coding in the first place!</p>
+<p>In this case, we’d have to begin wading into the world of <code>regular expressions</code>, also known as <code>regex</code> or <code>regexp</code>. These are concise statements that let us find specific chunks of strings that we’re interested in by generalizing our problems slightly. For instance, the <code>.</code> operator in regex lets us select any character:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string, <span class="st">&quot;o....e&quot;</span>)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;orange&quot; &quot;o5ghte&quot;</code></pre>
+<p>Note that we’re using <code>str_extract_all()</code> here, so that our regex doesn’t just pick up the first match and terminate. While that would actually help in this situation - what’s that ugly thing doing in our output? - there’s better ways to only get what we’re interested in. For instance, the <code>\\D</code> operator will select any character that <em>isn’t</em> a number - so switching it out for <code>.</code> should do the trick:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string, <span class="st">&quot;o</span><span class="ch">\\</span><span class="st">D</span><span class="ch">\\</span><span class="st">D</span><span class="ch">\\</span><span class="st">D</span><span class="ch">\\</span><span class="st">De&quot;</span>)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;orange&quot;</code></pre>
+<p>If we wanted to select the ugly thing instead (for instance, to correct it to whatever it should be), we can use the <code>\\d</code> operator, which will select any numeric digit.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string, <span class="st">&quot;o</span><span class="ch">\\</span><span class="st">d</span><span class="ch">\\</span><span class="st">D</span><span class="ch">\\</span><span class="st">D</span><span class="ch">\\</span><span class="st">De&quot;</span>)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;o5ghte&quot;</code></pre>
+<p>You’ll notice this pattern throughout regex expressions, by the way - a lowercase letter will select any of the things it stands for (so <code>\\d</code> selects any digit, while <code>\\s</code> will select any blank space) while an uppercase letter will select everything BUT that thing (so <code>\\D</code> doesn’t select digits, <code>\\S</code> will erase blank spaces, and so on).</p>
+<p>Another commonly used operator is the <code>*</code> function, which means “as many times as it shows up”. For instance, say we had a string that looked like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">string2 &lt;-<span class="st"> &quot;aeeeeeeeeeeeaeee&quot;</span></code></pre></div>
+<p>If we wanted to select everything from the first a to the second, we <em>could</em> type out all the e’s. But rather than trying to make sure we typed the right number, it’s a lot easier for us to do something like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract</span>(string2, <span class="st">&quot;ae*a&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;aeeeeeeeeeeea&quot;</code></pre>
+<p>This function also works with other operators - for instance, you can type <code>.*</code> to select all the characters within your other specifications:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string, <span class="st">&quot;o.*e&quot;</span>)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;orange2o5ghte&quot;</code></pre>
+<p>Note, though, that <code>*</code> always looks for the longest string it can find. To make it select the shortest string instead, add <code>?</code> after the <code>*</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string, <span class="st">&quot;o.*?e&quot;</span>)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;orange&quot; &quot;o5ghte&quot;</code></pre>
+<p>So now <code>*</code> splits the strings at each e, rather than continuing on to the last e in the string.</p>
+<p>This becomes helpful if you’re trying to extract multiple strings with the same pattern - for instance, let’s say we had a string with multiple o_e words in it, like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">string3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;lzGDHodegldopenkh3orange2o5ghte&quot;</span>)</code></pre></div>
+<p>We can get each of our words out by combining the operators we’ve discussed above:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string3, <span class="st">&quot;o</span><span class="ch">\\</span><span class="st">D*?e&quot;</span>)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;ode&quot;    &quot;ope&quot;    &quot;orange&quot;</code></pre>
+<p>And if we want to incorporate those words into a dataframe, it’s as easy as <code>unlist()</code>ing them:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,
+       <span class="dt">y =</span> <span class="kw">unlist</span>(<span class="kw">str_extract_all</span>(string3, <span class="st">&quot;o</span><span class="ch">\\</span><span class="st">D*?e&quot;</span>)))</code></pre></div>
+<pre><code>## # A tibble: 3 x 2
+##       x y     
+##   &lt;int&gt; &lt;chr&gt; 
+## 1     1 ode   
+## 2     2 ope   
+## 3     3 orange</code></pre>
+<p>Hopefully you can start to see how these techniques can be useful - we can start turning chunks of text into usable dataframes! We’ve only covered the basics of regular expressions here - there are <em>plenty</em> of further specifications you can use, to make your code ever more efficient. A good reference moving forward is the <a href="https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf">regex cheatsheet</a>, which contains an at-a-glance overview of the operators available for your use.</p>
+</div>
+<div id="case-study" class="section level2">
+<h2><span class="header-section-number">9.3</span> Case Study</h2>
+<p>For this example, we’re going to be using data located in the <a href="https://github.com/mikemahoney218/IntroToRData">GitHub data repository</a> for this book, in the “Unit 9 Data” folder. This file - named <code>LatLongFile.txt</code> contains a good number of GPS data points, and runs approximately 1154 lines, with 190 individual datapoints. Looking at the file (in a text editor) shows me that each datapoint is stored as follows:</p>
+<div align="center">
+wpt lat=“43.485087” lon=“-74.949118”
+</div>
+<p>Since these are consistently labeled, I can extract them from the text file using my sick new regex skills. First, I’ll load the file into R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LatLong &lt;-<span class="st"> </span><span class="kw">read_file</span>(<span class="st">&quot;LatLongFile.txt&quot;</span>)</code></pre></div>
+<p>I’m now going to work on the regex expressions, starting with the one for latitude. Since our latitude is always signified by <code>lat = &quot;</code>, that’s how I’ll start my expression. However, remember that R will assume the <code>&quot;</code> means you’ve finished entering your pattern, and will throw an error about anything following the quote mark. As such, we’ll have to <em>escape</em> that character using <code>\</code> - writing <code>\&quot;</code> in the place of <code>&quot;</code> will tell R to interpret the quote as part of the string, rather than as the end of the pattern.</p>
+<p>After the quote comes a whole bunch of data - the digits of our latitude - and then the string ends with another quote mark. As such, we can represent all the data inside the quotes using <code>.*?</code> - we can’t just use <code>\\d*?</code>, since we need to extract a period as well, and we need <code>*?</code> instead of <code>*</code> alone, in order to not just select the majority of the document text!</p>
+<p>We now have a regex that looks something like <code>lat=\&quot;.*?</code>, which is very close to being finished. The last thing we’re going to do is tell R what the last character in the string is - another quotation mark. As such, we add <code>\&quot;</code> to the end of our regex, for a final product of <code>lat=\&quot;.*?\&quot;</code>. Even though it looks like something a comic book character might swear at someone, that little expression is powerful enough to extract every single latitude in our file.</p>
+<p>We can actually use the exact same formula to get our longitudes - we just have to swap “lon” for “lat” in the expression. In practice, this looks something like:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lat &lt;-<span class="st"> </span><span class="kw">str_extract_all</span>(LatLong, <span class="st">&quot;lat=</span><span class="ch">\&quot;</span><span class="st">.*?</span><span class="ch">\&quot;</span><span class="st">&quot;</span>)
+lon &lt;-<span class="st"> </span><span class="kw">str_extract_all</span>(LatLong, <span class="st">&quot;lon=</span><span class="ch">\&quot;</span><span class="st">.*?</span><span class="ch">\&quot;</span><span class="st">&quot;</span>)</code></pre></div>
+<p>If we want to then convert those objects into vectors, we can use <code>unlist</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lat &lt;-<span class="st"> </span><span class="kw">unlist</span>(lat)
+lon &lt;-<span class="st"> </span><span class="kw">unlist</span>(lon)</code></pre></div>
+<p>And then we can look at our results by making a tibble:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">tibble</span>(<span class="dt">lon =</span> lon, <span class="dt">lat =</span> lat))</code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   lon                  lat                
+##   &lt;chr&gt;                &lt;chr&gt;              
+## 1 &quot;lon=\&quot;-74.949134\&quot;&quot; &quot;lat=\&quot;43.485033\&quot;&quot;
+## 2 &quot;lon=\&quot;-74.949118\&quot;&quot; &quot;lat=\&quot;43.485087\&quot;&quot;
+## 3 &quot;lon=\&quot;-74.948893\&quot;&quot; &quot;lat=\&quot;43.485093\&quot;&quot;
+## 4 &quot;lon=\&quot;-74.948766\&quot;&quot; &quot;lat=\&quot;43.485156\&quot;&quot;
+## 5 &quot;lon=\&quot;-74.948748\&quot;&quot; &quot;lat=\&quot;43.485245\&quot;&quot;
+## 6 &quot;lon=\&quot;-74.948725\&quot;&quot; &quot;lat=\&quot;43.485268\&quot;&quot;</code></pre>
+<p>It looks like we have a little work left for us! If we want to use the latitude and longitude for anything, we’re going to need to extract those numbers out from the text they’re in.</p>
+<p>For latitude, we want our expression to start at the first digit and select everything it can until the last digit in the cell. For longitude, we want our expression to start at the negative sign (since all our longitudes are negative - I recorded this data in the Western Hemisphere) and select everything it can until the last digit in the cell. As such, both of our patterns will make use of <code>.*\\d</code> - that is, “select everything until the last digit”. The only difference is that latitude will start with <code>\\d</code>, while longitude will start with <code>-</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lat2 &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">str_extract_all</span>(lat, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">d.*</span><span class="ch">\\</span><span class="st">d&quot;</span>))
+lon2 &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">str_extract_all</span>(lon, <span class="st">&quot;-.*</span><span class="ch">\\</span><span class="st">d&quot;</span>))</code></pre></div>
+<p>Let’s see what that looks like:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LatLonTib &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">lon =</span> lon2, <span class="dt">lat =</span> lat2)
+<span class="kw">head</span>(LatLonTib)</code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   lon        lat      
+##   &lt;chr&gt;      &lt;chr&gt;    
+## 1 -74.949134 43.485033
+## 2 -74.949118 43.485087
+## 3 -74.948893 43.485093
+## 4 -74.948766 43.485156
+## 5 -74.948748 43.485245
+## 6 -74.948725 43.485268</code></pre>
+<p>While we could have done this all in one step, I was feeling like those regex were getting complicated enough as they were - I decided splitting things up might make it easier to learn.</p>
+<p>Either way, our output is a much neater table than we started out with! You might notice that our columns are still character vectors, though. That’s an easy enough fix, using <code>mutate_all</code> from <code>dplyr</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LatLonTib &lt;-<span class="st"> </span>LatLonTib <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate_all</span>(as.numeric)
+<span class="kw">head</span>(LatLonTib)</code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##     lon   lat
+##   &lt;dbl&gt; &lt;dbl&gt;
+## 1 -74.9  43.5
+## 2 -74.9  43.5
+## 3 -74.9  43.5
+## 4 -74.9  43.5
+## 5 -74.9  43.5
+## 6 -74.9  43.5</code></pre>
+</div>
+<div id="further-reading-2" class="section level2">
+<h2><span class="header-section-number">9.4</span> Further Reading</h2>
+<p>As I mentioned earlier in this chapter, I view text-based analyses as beyond the scope of this book, and am only covering ways of wranging text data into tidy formats.</p>
+<p>For more information on text mining and text-based analyses in R, check out the <a href="https://cran.r-project.org/web/packages/tm/vignettes/tm.pdf">tm package vignette</a>, as well as the prior-linked <a href="https://www.tidytextmining.com/index.html">Text Mining with R</a> book.</p>
+</div>
+<div id="exercises-4" class="section level2">
+<h2><span class="header-section-number">9.5</span> Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>Each datapoint in the LatLonFile also has an elevation and a name associated with it - try extracting those as well, and making a dataframe with columns for all four variables. Note that you won’t be able to use <code>mutate_all()</code> once the name column is added - either add it (with <code>cbind()</code>) after converting the columns to numeric, or use <code>mutate_at(-name, as.numeric)</code> to select all the other columns.</li>
+<li>What’s the longest regex you can come up with to extract the times for each point? What’s the shortest?</li>
+</ol>
 
 </div>
 </div>
