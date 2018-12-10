@@ -8,7 +8,7 @@
 ### Importing Your Own Data
 So far in this course, we've been working exclusively with the data pre-available in R and a few of the packages we've taken advantage of. While this is a good way to learn R, at some point you may want to use your own data for analysis.
 
-Luckily, R has a number of functions used to import data from external files. To demonstrate these, I'll be using datasets located [on GitHub](https://github.com/mikemahoney218/Unit6Data), in the "Unit 6 Data" folder. You don't necessarily need to download these files - but we'll be using these for demonstration throughout this unit.
+Luckily, R has a number of functions used to import data from external files. To demonstrate these, I'll be using datasets located [on GitHub](https://github.com/mikemahoney218/IntroToRData), in the "Unit 6 Data" folder. You don't necessarily need to download these files - but we'll be using these for demonstration throughout this unit.
 
 These datasets are from the website [Kaggle](https://www.kaggle.com/), where a number of data professionals share methods and datasets. Specifically, we'll be working with two datasets concerning [all Olympic athletes from the first 120 years of the game](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results). Additionally, we'll use data on [NBA athletes from the 2014-2015 season](https://www.kaggle.com/drgilermo/nba-players-stats-20142015). I'm not a huge sports guy myself, but there's a huge amount of sports-related data available publicly online, so it's a good tool for our analyses.
 
