@@ -1,17 +1,12 @@
 # Working with Dates and Times
 ## Work in Progress
-## A Quick Diatribe
-There are many, many different formats for how you can write dates. A lot of our work in this unit will be focused on dealing with the many ways you may find dates written in the wild. None of this work is particularly fun, and there's no good reason that we still have to do it?
-
-Why?
-
-Because [EVERYONE SHOULD WRITE DATES IN YYYY-MM-DD FORMAT.](https://xkcd.com/1179/) This format is unambiguous, sorts dates correctly in spreadsheet programs, doesn't have the same computational issues that other formats do (such as the ones that caused Y2K), is an actual ISO standard, and is better. Do things this way from now on. You can find further discussion on this topic [here](http://www.thetechnicalgeekery.com/2013/06/yyyy-mm-dd-the-best-way-to-write-dates/) and [here](https://www.w3.org/QA/Tips/iso-date).
-
-Unfortunately, not everyone has read this book, so not all dates you'll find in the wild will abide by these rules. As such, we'll have to learn how to process dates found in other formats, making use of the `lubridate` package from the tidyverse.
-
+## Dates and R
+The last time I compiled this book, it was `r Sys.Date()` (that's YYYY-MM-DD format, which we'll come back to). 
+## Date Formats
 lubridate functions
 plotting time series
 ```{r}
 library(tidyverse)
+
 ```
 
