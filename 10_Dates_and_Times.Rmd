@@ -11,3 +11,7 @@ Unfortunately, not everyone has read this book, so not all dates you'll find in 
 
 lubridate functions
 plotting time series
+```{r}
+library(tidyverse)
+```
+
