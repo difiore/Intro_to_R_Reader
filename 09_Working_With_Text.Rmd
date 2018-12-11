@@ -136,7 +136,8 @@ Hopefully you can start to see how these techniques can be useful - we can start
 ## Case Study
 For this example, we're going to be using data located in the [GitHub data repository](https://github.com/mikemahoney218/IntroToRData) for this book, in the "Unit 9 Data" folder. This file - named `LatLongFile.txt` contains a good number of GPS data points, and runs approximately 1154 lines, with 190 individual datapoints. Looking at the file (in a text editor) shows me that each datapoint is stored as follows:
 
-<div align = "center"> wpt lat="43.485087" lon="-74.949118" </div>
+<div align = "center"> `wpt lat="43.485087" lon="-74.949118"` </div>
+
 
 Since these are consistently labeled, I can extract them from the text file using my sick new regex skills. First, I'll load the file into R:
 
@@ -146,7 +147,7 @@ LatLong <- read_file("LatLongFile.txt")
 
 I'm now going to work on the regex expressions, starting with the one for latitude. Since our latitude is always signified by `lat = "`, that's how I'll start my expression. However, remember that R will assume the `"` means you've finished entering your pattern, and will throw an error about anything following the quote mark. As such, we'll have to _escape_ that character using `\` - writing `\"` in the place of `"` will tell R to interpret the quote as part of the string, rather than as the end of the pattern.
 
-After the quote comes a whole bunch of data - the digits of our latitude - and then the string ends with another quote mark. As such, we can represent all the data inside the quotes using `.*?` - we can't just use `\\d*?`, since we need to extract a period as well, and we need `*?` instead of `*` alone, in order to not just select the majority of the document text!
+After the quote comes a whole bunch of data - the digits of our latitude - and then the string ends with another quote mark. As such, we can represent all the data inside the quotes using `.*?` - we can't just use `\\d*?`, since we need to extract a period as well, and we need `*?` instead of `*` alone, in order to not just select the majority of the document text.
 
 We now have a regex that looks something like `lat=\".*?`, which is very close to being finished. The last thing we're going to do is tell R what the last character in the string is - another quotation mark. As such, we add `\"` to the end of our regex, for a final product of `lat=\".*?\"`. Even though it looks like something a comic book character might swear at someone, that little expression is powerful enough to extract every single latitude in our file.
 

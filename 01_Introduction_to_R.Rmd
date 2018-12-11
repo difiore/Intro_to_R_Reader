@@ -13,6 +13,7 @@ But all that comes later. First off, we have to answer one of the most basic que
 
 Once you know how to code in R, learning about and implementing those different adaptations is a piece of cake. The purpose of this class is to get you up to speed with the coding!
 
+
 ### What is coding?  
 Coding is giving very specific instructions to a very stupid machine.  
 Or rather, a very _literal_ machine - if you do things out of order, or misspell something, or capitalize things you shouldn't, the computer won't do it - instead, it'll give you an error message. But if you get the syntax exactly right, the computer can do very complex tasks very quickly.

@@ -1,8 +1,17 @@
 # Special Applications
 ## Work in Progress
-Study design  
-Random grouping  
-Sampling  
+
+## Sampling
+When we perform statistical analyses, we almost always work on sample data - that is, data that represents all data on the subject that exists, but is not that full dataset. 
+
+### Random Samples
+
+### Sample Random Samples
+### Systematic Random Samples
+### Cluster Sampling
+
+
+### Stratified Random Sampling
 Predictive models, heatmaps  
 Bootstrapping, confirmatory analysis  
 
