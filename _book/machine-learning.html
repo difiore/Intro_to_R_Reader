@@ -32,7 +32,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="working-with-dates-and-times.html">
+<link rel="prev" href="special-applications.html">
 <link rel="next" href="other-resources.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -48,6 +48,17 @@
 
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+<link href="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.css" rel="stylesheet" />
+<script src="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.min.js"></script>
+<link href="libs/fontawesome-4.7.0/font-awesome.min.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -102,7 +113,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to IDEAR</a><ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#course-outline"><i class="fa fa-check"></i><b>0.1</b> Course Outline</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#citing-my-sources"><i class="fa fa-check"></i><b>0.2</b> Citing My Sources</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#other-sources"><i class="fa fa-check"></i><b>0.2</b> Other Sources</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and Data Visualization</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#lecture-notes"><i class="fa fa-check"></i><b>1.1</b> Lecture Notes</a><ul>
@@ -256,18 +267,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.4" data-path="working-with-text.html"><a href="working-with-text.html#further-reading-2"><i class="fa fa-check"></i><b>9.4</b> Further Reading</a></li>
 <li class="chapter" data-level="9.5" data-path="working-with-text.html"><a href="working-with-text.html#exercises-4"><i class="fa fa-check"></i><b>9.5</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="special-applications.html"><a href="special-applications.html"><i class="fa fa-check"></i><b>10</b> Special Applications</a><ul>
-<li class="chapter" data-level="10.1" data-path="special-applications.html"><a href="special-applications.html#work-in-progress"><i class="fa fa-check"></i><b>10.1</b> Work in Progress</a></li>
-<li class="chapter" data-level="10.2" data-path="special-applications.html"><a href="special-applications.html#even-more-special-applications"><i class="fa fa-check"></i><b>10.2</b> Even More Special Applications</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="special-applications.html"><a href="special-applications.html#leaflet-maps"><i class="fa fa-check"></i><b>10.2.1</b> Leaflet Maps</a></li>
-<li class="chapter" data-level="10.2.2" data-path="special-applications.html"><a href="special-applications.html#flexdashboard"><i class="fa fa-check"></i><b>10.2.2</b> FlexDashboard</a></li>
-<li class="chapter" data-level="10.2.3" data-path="special-applications.html"><a href="special-applications.html#bookdown"><i class="fa fa-check"></i><b>10.2.3</b> Bookdown</a></li>
-<li class="chapter" data-level="10.2.4" data-path="special-applications.html"><a href="special-applications.html#blogdown"><i class="fa fa-check"></i><b>10.2.4</b> Blogdown</a></li>
-<li class="chapter" data-level="10.2.5" data-path="special-applications.html"><a href="special-applications.html#shiny"><i class="fa fa-check"></i><b>10.2.5</b> Shiny</a></li>
+<li class="chapter" data-level="10" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>10</b> Working with Dates and Times</a><ul>
+<li class="chapter" data-level="10.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#work-in-progress"><i class="fa fa-check"></i><b>10.1</b> Work in Progress</a></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="special-applications.html"><a href="special-applications.html"><i class="fa fa-check"></i><b>11</b> Special Applications</a><ul>
+<li class="chapter" data-level="11.1" data-path="special-applications.html"><a href="special-applications.html#sampling"><i class="fa fa-check"></i><b>11.1</b> Sampling</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="special-applications.html"><a href="special-applications.html#sample-random-samples"><i class="fa fa-check"></i><b>11.1.1</b> Sample Random Samples</a></li>
+<li class="chapter" data-level="11.1.2" data-path="special-applications.html"><a href="special-applications.html#stratified-random-sampling"><i class="fa fa-check"></i><b>11.1.2</b> Stratified Random Sampling</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>11</b> Working with Dates and Times</a><ul>
-<li class="chapter" data-level="11.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#work-in-progress-1"><i class="fa fa-check"></i><b>11.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="11.2" data-path="special-applications.html"><a href="special-applications.html#bootstrapping"><i class="fa fa-check"></i><b>11.2</b> Bootstrapping</a></li>
+<li class="chapter" data-level="11.3" data-path="special-applications.html"><a href="special-applications.html#model-predictions"><i class="fa fa-check"></i><b>11.3</b> Model Predictions</a></li>
+<li class="chapter" data-level="11.4" data-path="special-applications.html"><a href="special-applications.html#even-more-special-applications"><i class="fa fa-check"></i><b>11.4</b> Even More Special Applications</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="special-applications.html"><a href="special-applications.html#leaflet-maps"><i class="fa fa-check"></i><b>11.4.1</b> Leaflet Maps</a></li>
+<li class="chapter" data-level="11.4.2" data-path="special-applications.html"><a href="special-applications.html#flexdashboard"><i class="fa fa-check"></i><b>11.4.2</b> FlexDashboard</a></li>
+<li class="chapter" data-level="11.4.3" data-path="special-applications.html"><a href="special-applications.html#bookdown"><i class="fa fa-check"></i><b>11.4.3</b> Bookdown</a></li>
+<li class="chapter" data-level="11.4.4" data-path="special-applications.html"><a href="special-applications.html#blogdown"><i class="fa fa-check"></i><b>11.4.4</b> Blogdown</a></li>
+<li class="chapter" data-level="11.4.5" data-path="special-applications.html"><a href="special-applications.html#shiny"><i class="fa fa-check"></i><b>11.4.5</b> Shiny</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>12</b> Machine Learning</a><ul>
 <li class="chapter" data-level="12.1" data-path="machine-learning.html"><a href="machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>12.1</b> What is Machine Learning?</a></li>
@@ -280,24 +296,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="13" data-path="other-resources.html"><a href="other-resources.html"><i class="fa fa-check"></i><b>13</b> Other Resources</a><ul>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#infographics"><i class="fa fa-check"></i>Infographics</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#courses"><i class="fa fa-check"></i>Courses</a><ul>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#basic-r"><i class="fa fa-check"></i>Basic R</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#advanced-r"><i class="fa fa-check"></i>Advanced R</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#textbooks"><i class="fa fa-check"></i>Textbooks</a><ul>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#data-science"><i class="fa fa-check"></i>Data Science</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#r-as-a-coding-language"><i class="fa fa-check"></i>R as a Coding Language</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#r-markdown-applications"><i class="fa fa-check"></i>(R) Markdown Applications</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#other-programs-weve-used"><i class="fa fa-check"></i>Other Programs We’ve Used</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#courses"><i class="fa fa-check"></i>Courses</a></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#textbooks"><i class="fa fa-check"></i>Textbooks</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#blog-links"><i class="fa fa-check"></i>Blog Links</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#data-sources"><i class="fa fa-check"></i>Data Sources</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#graphing-aids"><i class="fa fa-check"></i>Graphing Aids</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#non-coding-resources"><i class="fa fa-check"></i>Non-Coding Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html"><i class="fa fa-check"></i><b>14</b> Frequently Asked Questions</a><ul>
-<li class="chapter" data-level="14.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-my-code-broken"><i class="fa fa-check"></i><b>14.1</b> Why is my code broken?</a></li>
-<li class="chapter" data-level="14.2" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-x-package-named-that"><i class="fa fa-check"></i><b>14.2</b> Why is (<em>X</em> package) named that?</a></li>
+<li class="chapter" data-level="14.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-r"><i class="fa fa-check"></i><b>14.1</b> Why R?</a></li>
+<li class="chapter" data-level="14.2" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-my-code-broken"><i class="fa fa-check"></i><b>14.2</b> Why is my code broken?</a></li>
+<li class="chapter" data-level="14.3" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-x-package-named-that"><i class="fa fa-check"></i><b>14.3</b> Why is (<em>X</em> package) named that?</a></li>
 </ul></li>
 </ul>
 
@@ -450,7 +458,7 @@ knnPredict &lt;-<span class="st"> </span><span class="kw">predict</span>(knnMode
 </div>
 <div id="decision-trees" class="section level4">
 <h4><span class="header-section-number">12.3.1.2</span> Decision Trees</h4>
-<p>kNN is only one of the several popular classification algorithms available in R. Another of the most commonly used methods (kinda - we’ll get to that in a minute) is known as the decision tree. Basically, this method creates a flowchart with each of your variables - at each split in the chart (known as a “node”), the algorithm uses a selection of variables to try and classify your data.</p>
+<p>kNN is only one of the several popular classification algorithms available in R. Another of the most commonly used methods (kinda - we’ll get to that in a minute) is known as the decision tree. Basically, this method creates a flowchart with each of your variables - at each split in the chart (known as a “node”), the algorithm uses a selection of variables to try and classify your data. This technique makes use of the bootstrapping we discussed in the past unit - by increasing our sample size, we’re able to increase the predictive power of each tree.</p>
 <p>We’re going to use the <code>rpart</code> package to make our decision trees for this unit. First, we have to install the package, then load it using <code>library()</code>:</p>
 <pre><code>install.packages(&quot;rpart&quot;)</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rpart)</code></pre></div>
@@ -504,7 +512,7 @@ TreeFit</code></pre></div>
 <div id="random-forests" class="section level4">
 <h4><span class="header-section-number">12.3.1.3</span> Random Forests</h4>
 <p>Random forests!</p>
-<p>These forests are collections of trees (get it?), all of which may overfit the data in some weird way and have oddly bad fits in others. The idea is to collect as many trees as we can in one model and find out what the majority of models want to classify the datapoint as - by aggregating large numbers of trees, we can avoid the pitfalls that individual trees tend to lead us towards.</p>
+<p>These forests are collections of trees (get it?), all of which may overfit the data in some weird way and have oddly bad fits in others. The idea is to collect as many trees as we can in one model and find out what the majority of models want to classify the datapoint as - by aggregating large numbers of trees, we can avoid the pitfalls that individual trees tend to lead us towards. These random forests also randomize the variables used in each tree, increasing the applicability of the model to different datasets.</p>
 <p>There’s a ton of random forest implementations in R, because these are some of the most current and useful ML applications we’ve developed so far. I’m going to, for the sake of simplicity, stick with one of the better-known applications. We’ll keep using our functions from <code>caret()</code>, but first, we have to install the <code>ranger</code> application:</p>
 <pre><code>install.packages(&quot;ranger&quot;)</code></pre>
 <p>We can now use the exact same code as our kNN model to fit a random forest model to our data and test its accuracy. The only difference is that this time, we’re using <code>method = &quot;ranger&quot;</code>:</p>
@@ -671,7 +679,7 @@ BostonForest</code></pre></div>
           </div>
         </div>
       </div>
-<a href="working-with-dates-and-times.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="special-applications.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="other-resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

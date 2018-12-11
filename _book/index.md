@@ -28,7 +28,7 @@ description: "This is a course reader for a class that will never be taught. Hop
 > There are only two kinds of programming languages: those people always bitch about and those nobody uses.  
 ><div align = "right"> --- Bjarne Stroustrup  </div>
 
-This is a course reader for a hypothetical 3-credit undergraduate class, focusing on getting those with no prior exposure to R up to speed in coding and data analysis procedures.
+This book is designed as a crash course in coding with R and data analysis, built to be usable for a course spanning either a semester or a year. The book assumes no prior experience with R or data analysis, and aims to be equally applicable to industry and scientific purposes.
 
 This reader is currently being continuously deployed to  [bookdown.org](https://bookdown.org/connect/#/apps/2008/access) and [GitHub](https://github.com/mikemahoney218/Intro_to_R_Reader), particularly as new sections are completed or old ones restructured. This is so that I can get feedback from the small group of people who are using this book to learn R themselves, so I can adjust and adapt the text as needed. If you'd like to help with this process, I'd love to hear from you, at <mike.mahoney.218@gmail.com>, or see a pull request made on GitHub. More information about me can be found at [my website](https://www.mikemahoney218.com), which just so happens to have been built in R.
 
@@ -52,8 +52,8 @@ The middle section of the course then focuses on communicating your results and 
 The end of the course then covers topics which I have found to be more specialized, and - while important - not as common in day-to-day data analyses. We also finish with a brief introduction to machine learning techniques, to give you the basic knowledge to be familiar with the future of statistical analyses. This section includes the units:
 
 9. Working with Text
-10. Specialized Applications
-11. Dates and Times
+10. Dates and Times
+11. Specialized Applications
 12. Machine Learning
 
 The backmatter of the reader then concerns how to get help outside of this book, containing both links to useful resources and some frequently asked questions. The two units in this section are:
@@ -61,6 +61,5 @@ The backmatter of the reader then concerns how to get help outside of this book,
 13. Useful Resources
 14. FAQ
 
-## Citing My Sources
-Much of this reader draws from Hadley Wickham's 2012 [stat405](http://stat405.had.co.nz/) class, as well as his wonderful textbooks [R for Data Science](http://r4ds.had.co.nz/index.html) (with Garrett Grolemund) and [Advanced R](https://adv-r.hadley.nz/index.html). I've updated some elements, distilled others, and not kept much of the content, but the ideas and steering come very directly from those works.  
-Many other resources can be found in Chapter 14, at the end of this book. 
+## Other Sources
+If this introduction isn't quite your style, I'd highly recommend Garrett Grolemund and Hadley Wickham's [R for Data Science](http://r4ds.had.co.nz/index.html), as well as Wickham's [Advanced R](https://adv-r.hadley.nz/index.html). Many other useful resources can be found in Chapter 13, at the end of this book. 

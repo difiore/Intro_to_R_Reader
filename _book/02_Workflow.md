@@ -1,4 +1,9 @@
 # R Functions and Workflow
+
+> Don’t worry if it doesn’t work right.  If everything did, you’d be out of a job.
+> <div align = "right"> --- (Mosher’s Law of Software Engineering) </div>
+
+
 ## Workflow
 
 ### Scripts

@@ -48,6 +48,17 @@
 
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+<link href="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.css" rel="stylesheet" />
+<script src="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.min.js"></script>
+<link href="libs/fontawesome-4.7.0/font-awesome.min.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -102,7 +113,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to IDEAR</a><ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#course-outline"><i class="fa fa-check"></i><b>0.1</b> Course Outline</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#citing-my-sources"><i class="fa fa-check"></i><b>0.2</b> Citing My Sources</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#other-sources"><i class="fa fa-check"></i><b>0.2</b> Other Sources</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and Data Visualization</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#lecture-notes"><i class="fa fa-check"></i><b>1.1</b> Lecture Notes</a><ul>
@@ -256,18 +267,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.4" data-path="working-with-text.html"><a href="working-with-text.html#further-reading-2"><i class="fa fa-check"></i><b>9.4</b> Further Reading</a></li>
 <li class="chapter" data-level="9.5" data-path="working-with-text.html"><a href="working-with-text.html#exercises-4"><i class="fa fa-check"></i><b>9.5</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="special-applications.html"><a href="special-applications.html"><i class="fa fa-check"></i><b>10</b> Special Applications</a><ul>
-<li class="chapter" data-level="10.1" data-path="special-applications.html"><a href="special-applications.html#work-in-progress"><i class="fa fa-check"></i><b>10.1</b> Work in Progress</a></li>
-<li class="chapter" data-level="10.2" data-path="special-applications.html"><a href="special-applications.html#even-more-special-applications"><i class="fa fa-check"></i><b>10.2</b> Even More Special Applications</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="special-applications.html"><a href="special-applications.html#leaflet-maps"><i class="fa fa-check"></i><b>10.2.1</b> Leaflet Maps</a></li>
-<li class="chapter" data-level="10.2.2" data-path="special-applications.html"><a href="special-applications.html#flexdashboard"><i class="fa fa-check"></i><b>10.2.2</b> FlexDashboard</a></li>
-<li class="chapter" data-level="10.2.3" data-path="special-applications.html"><a href="special-applications.html#bookdown"><i class="fa fa-check"></i><b>10.2.3</b> Bookdown</a></li>
-<li class="chapter" data-level="10.2.4" data-path="special-applications.html"><a href="special-applications.html#blogdown"><i class="fa fa-check"></i><b>10.2.4</b> Blogdown</a></li>
-<li class="chapter" data-level="10.2.5" data-path="special-applications.html"><a href="special-applications.html#shiny"><i class="fa fa-check"></i><b>10.2.5</b> Shiny</a></li>
+<li class="chapter" data-level="10" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>10</b> Working with Dates and Times</a><ul>
+<li class="chapter" data-level="10.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#work-in-progress"><i class="fa fa-check"></i><b>10.1</b> Work in Progress</a></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="special-applications.html"><a href="special-applications.html"><i class="fa fa-check"></i><b>11</b> Special Applications</a><ul>
+<li class="chapter" data-level="11.1" data-path="special-applications.html"><a href="special-applications.html#sampling"><i class="fa fa-check"></i><b>11.1</b> Sampling</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="special-applications.html"><a href="special-applications.html#sample-random-samples"><i class="fa fa-check"></i><b>11.1.1</b> Sample Random Samples</a></li>
+<li class="chapter" data-level="11.1.2" data-path="special-applications.html"><a href="special-applications.html#stratified-random-sampling"><i class="fa fa-check"></i><b>11.1.2</b> Stratified Random Sampling</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>11</b> Working with Dates and Times</a><ul>
-<li class="chapter" data-level="11.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#work-in-progress-1"><i class="fa fa-check"></i><b>11.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="11.2" data-path="special-applications.html"><a href="special-applications.html#bootstrapping"><i class="fa fa-check"></i><b>11.2</b> Bootstrapping</a></li>
+<li class="chapter" data-level="11.3" data-path="special-applications.html"><a href="special-applications.html#model-predictions"><i class="fa fa-check"></i><b>11.3</b> Model Predictions</a></li>
+<li class="chapter" data-level="11.4" data-path="special-applications.html"><a href="special-applications.html#even-more-special-applications"><i class="fa fa-check"></i><b>11.4</b> Even More Special Applications</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="special-applications.html"><a href="special-applications.html#leaflet-maps"><i class="fa fa-check"></i><b>11.4.1</b> Leaflet Maps</a></li>
+<li class="chapter" data-level="11.4.2" data-path="special-applications.html"><a href="special-applications.html#flexdashboard"><i class="fa fa-check"></i><b>11.4.2</b> FlexDashboard</a></li>
+<li class="chapter" data-level="11.4.3" data-path="special-applications.html"><a href="special-applications.html#bookdown"><i class="fa fa-check"></i><b>11.4.3</b> Bookdown</a></li>
+<li class="chapter" data-level="11.4.4" data-path="special-applications.html"><a href="special-applications.html#blogdown"><i class="fa fa-check"></i><b>11.4.4</b> Blogdown</a></li>
+<li class="chapter" data-level="11.4.5" data-path="special-applications.html"><a href="special-applications.html#shiny"><i class="fa fa-check"></i><b>11.4.5</b> Shiny</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>12</b> Machine Learning</a><ul>
 <li class="chapter" data-level="12.1" data-path="machine-learning.html"><a href="machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>12.1</b> What is Machine Learning?</a></li>
@@ -280,24 +296,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="13" data-path="other-resources.html"><a href="other-resources.html"><i class="fa fa-check"></i><b>13</b> Other Resources</a><ul>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#infographics"><i class="fa fa-check"></i>Infographics</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#courses"><i class="fa fa-check"></i>Courses</a><ul>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#basic-r"><i class="fa fa-check"></i>Basic R</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#advanced-r"><i class="fa fa-check"></i>Advanced R</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#textbooks"><i class="fa fa-check"></i>Textbooks</a><ul>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#data-science"><i class="fa fa-check"></i>Data Science</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#r-as-a-coding-language"><i class="fa fa-check"></i>R as a Coding Language</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#r-markdown-applications"><i class="fa fa-check"></i>(R) Markdown Applications</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#other-programs-weve-used"><i class="fa fa-check"></i>Other Programs We’ve Used</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#courses"><i class="fa fa-check"></i>Courses</a></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#textbooks"><i class="fa fa-check"></i>Textbooks</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#blog-links"><i class="fa fa-check"></i>Blog Links</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#data-sources"><i class="fa fa-check"></i>Data Sources</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#graphing-aids"><i class="fa fa-check"></i>Graphing Aids</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#non-coding-resources"><i class="fa fa-check"></i>Non-Coding Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html"><i class="fa fa-check"></i><b>14</b> Frequently Asked Questions</a><ul>
-<li class="chapter" data-level="14.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-my-code-broken"><i class="fa fa-check"></i><b>14.1</b> Why is my code broken?</a></li>
-<li class="chapter" data-level="14.2" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-x-package-named-that"><i class="fa fa-check"></i><b>14.2</b> Why is (<em>X</em> package) named that?</a></li>
+<li class="chapter" data-level="14.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-r"><i class="fa fa-check"></i><b>14.1</b> Why R?</a></li>
+<li class="chapter" data-level="14.2" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-my-code-broken"><i class="fa fa-check"></i><b>14.2</b> Why is my code broken?</a></li>
+<li class="chapter" data-level="14.3" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-x-package-named-that"><i class="fa fa-check"></i><b>14.3</b> Why is (<em>X</em> package) named that?</a></li>
 </ul></li>
 </ul>
 
@@ -328,60 +336,39 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="courses" class="section level2 unnumbered">
 <h2>Courses</h2>
 <p>These links go to other courses on R and related topics. Note that most of the packages we use were developed c. 2017 - courses older than that probably use different methods to do the same tasks, as a result.</p>
-<div id="basic-r" class="section level3 unnumbered">
-<h3>Basic R</h3>
 <ul>
-<li><a href="http://eriqande.github.io/rep-res-web/syllabus.html">Reproducible Research</a> from 2014 by Eric C. Anderson</li>
+<li><a href="http://eriqande.github.io/rep-res-web/syllabus.html">Reproducible Research</a> from 2014 by Eric C. Anderson is a good primer on basic R</li>
+<li><a href="https://jhu-advdatasci.github.io/2018/">Advanced Data Science</a> from 2018 at John Hopkins University is a nice introduction to more advanced R coding.</li>
 </ul>
-</div>
-<div id="advanced-r" class="section level3 unnumbered">
-<h3>Advanced R</h3>
-<ul>
-<li><a href="https://jhu-advdatasci.github.io/2018/">Advanced Data Science</a> from 2018 at John Hopkins University.</li>
-</ul>
-</div>
 </div>
 <div id="textbooks" class="section level2 unnumbered">
 <h2>Textbooks</h2>
-<div id="data-science" class="section level3 unnumbered">
-<h3>Data Science</h3>
 <ul>
 <li><a href="https://r4ds.had.co.nz/">R for Data Science</a> covers many of the same topics we’ve touched on in this course, but is structured differently and may explain some points better than I have or chose to do.</li>
 <li><a href="http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Seventh%20Printing.pdf">Introduction to Statistical Learning</a> provides a much more thorough introduction to machine learning methods than our brief overview.</li>
 <li><a href="https://www.tidytextmining.com/index.html">Text Mining with R</a> serves as an introduction to text-based analyses (such as sentiment analysis and n-grams).</li>
-</ul>
-</div>
-<div id="r-as-a-coding-language" class="section level3 unnumbered">
-<h3>R as a Coding Language</h3>
-<ul>
 <li><a href="https://d1b10bmlvqabco.cloudfront.net/attach/ighbo26t3ua52t/igp9099yy4v10/igz7vp4w5su9/OReilly_HandsOn_Programming_with_R_2014.pdf">Hands-on Programming with R</a> by Garrett Grolemund approaches R from a more coding-oriented perspective, as opposed to our output-focused method. Some parts of the subject are already well-covered in this course, while others - the sections on objects and environments, for instance - we barely touch on.</li>
 <li><a href="https://adv-r.hadley.nz/index.html">Advanced R</a> by Hadley Wickham similarly addresses many coding-focused aspects of R that we’ve glossed over in this course. This book might be a bit harder to get started with, but will make you a better programmer.</li>
 <li><a href="http://www.burns-stat.com/pages/Tutor/R_inferno.pdf">The R Inferno</a> by Patrick Burns provides a humorous look at many of the most common mistakes made by R users.</li>
-</ul>
-</div>
-<div id="r-markdown-applications" class="section level3 unnumbered">
-<h3>(R) Markdown Applications</h3>
-<ul>
 <li>The <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown Textbook</a> by Yihui Xie provides a comprehensive overview of writing markdown documents.</li>
 <li>The <a href="https://bookdown.org/yihui/bookdown/">bookdown</a> textbook by Yihui Xie gives you all the information you need to start putting together your own book documents.</li>
 <li>The <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> book by Yihui Xie will get your website up and running in no time at all.</li>
-</ul>
-</div>
-<div id="other-programs-weve-used" class="section level3 unnumbered">
-<h3>Other Programs We’ve Used</h3>
-<ul>
 <li><a href="https://git-scm.com/book/en/v2">Pro Git</a> covers a lot of the basics of Git itself, in case you have a need to move beyond depending upon Github.</li>
 <li>[Git Guide] by Karl Broman offers a minimalist tutorial to the basics of Git.</li>
 </ul>
 </div>
-</div>
 <div id="blog-links" class="section level2 unnumbered">
 <h2>Blog Links</h2>
 <ul>
+<li><a href="https://kbroman.org/dataorg/">Data Organization</a> by Karl Broseman is a must-read on how to format your raw datasheets - and <a href="https://doi.org/10.1080/00031305.2017.1375989">here’s a citation</a>.</li>
 <li><a href="https://uc3.cdlib.org/2014/10/14/the-10-things-every-new-grad-student-should-do/">10 things any new grad student should do</a></li>
 <li><a href="https://uc3.cdlib.org/2014/05/05/github-a-primer-for-researchers/">GitHub: a primer for researchers</a> (in my opinion, should be named “why use GitHub?” - it isn’t a tutorial)</li>
 <li><a href="https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners">An Intro to Git and Github for Beginners</a></li>
 <li><a href="https://github.com/jtleek/rpackages">The Leek Group Guide to Developing R Packages</a></li>
+<li>I’m a really big fan of the <a href="http://jtleek.com/">Leek Group</a> tutorials on scientific skills. Here are the non-programming related resources they’ve produced:</li>
+<li><a href="https://github.com/jtleek/datasharing">Data Sharing</a></li>
+<li><a href="https://github.com/jtleek/talkguide">Giving Talks</a></li>
+<li><a href="https://github.com/jtleek/readingpapers">Reading Papers</a></li>
 </ul>
 </div>
 <div id="data-sources" class="section level2 unnumbered">
@@ -395,15 +382,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li><a href="http://colorsupplyyy.com/">ColorSupply</a> is a helpful tool for selecting colors</li>
 <li><a href="http://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3">ColorBrewer.org</a> lets you see all the palettes available in the RColorBrewer package</li>
-</ul>
-</div>
-<div id="non-coding-resources" class="section level2 unnumbered">
-<h2>Non-Coding Resources</h2>
-<ul>
-<li>I’m a really big fan of the <a href="http://jtleek.com/">Leek Group</a> tutorials on scientific skills. Here are the non-programming related resources they’ve produced:</li>
-<li><a href="https://github.com/jtleek/datasharing">Data Sharing</a></li>
-<li><a href="https://github.com/jtleek/talkguide">Giving Talks</a></li>
-<li><a href="https://github.com/jtleek/readingpapers">Reading Papers</a></li>
 </ul>
 
 </div>

@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="working-with-text.html">
-<link rel="next" href="working-with-dates-and-times.html">
+<link rel="prev" href="working-with-dates-and-times.html">
+<link rel="next" href="machine-learning.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,6 +48,17 @@
 
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+<link href="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.css" rel="stylesheet" />
+<script src="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.min.js"></script>
+<link href="libs/fontawesome-4.7.0/font-awesome.min.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -102,7 +113,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to IDEAR</a><ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#course-outline"><i class="fa fa-check"></i><b>0.1</b> Course Outline</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#citing-my-sources"><i class="fa fa-check"></i><b>0.2</b> Citing My Sources</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#other-sources"><i class="fa fa-check"></i><b>0.2</b> Other Sources</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and Data Visualization</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#lecture-notes"><i class="fa fa-check"></i><b>1.1</b> Lecture Notes</a><ul>
@@ -256,18 +267,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.4" data-path="working-with-text.html"><a href="working-with-text.html#further-reading-2"><i class="fa fa-check"></i><b>9.4</b> Further Reading</a></li>
 <li class="chapter" data-level="9.5" data-path="working-with-text.html"><a href="working-with-text.html#exercises-4"><i class="fa fa-check"></i><b>9.5</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="special-applications.html"><a href="special-applications.html"><i class="fa fa-check"></i><b>10</b> Special Applications</a><ul>
-<li class="chapter" data-level="10.1" data-path="special-applications.html"><a href="special-applications.html#work-in-progress"><i class="fa fa-check"></i><b>10.1</b> Work in Progress</a></li>
-<li class="chapter" data-level="10.2" data-path="special-applications.html"><a href="special-applications.html#even-more-special-applications"><i class="fa fa-check"></i><b>10.2</b> Even More Special Applications</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="special-applications.html"><a href="special-applications.html#leaflet-maps"><i class="fa fa-check"></i><b>10.2.1</b> Leaflet Maps</a></li>
-<li class="chapter" data-level="10.2.2" data-path="special-applications.html"><a href="special-applications.html#flexdashboard"><i class="fa fa-check"></i><b>10.2.2</b> FlexDashboard</a></li>
-<li class="chapter" data-level="10.2.3" data-path="special-applications.html"><a href="special-applications.html#bookdown"><i class="fa fa-check"></i><b>10.2.3</b> Bookdown</a></li>
-<li class="chapter" data-level="10.2.4" data-path="special-applications.html"><a href="special-applications.html#blogdown"><i class="fa fa-check"></i><b>10.2.4</b> Blogdown</a></li>
-<li class="chapter" data-level="10.2.5" data-path="special-applications.html"><a href="special-applications.html#shiny"><i class="fa fa-check"></i><b>10.2.5</b> Shiny</a></li>
+<li class="chapter" data-level="10" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>10</b> Working with Dates and Times</a><ul>
+<li class="chapter" data-level="10.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#work-in-progress"><i class="fa fa-check"></i><b>10.1</b> Work in Progress</a></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="special-applications.html"><a href="special-applications.html"><i class="fa fa-check"></i><b>11</b> Special Applications</a><ul>
+<li class="chapter" data-level="11.1" data-path="special-applications.html"><a href="special-applications.html#sampling"><i class="fa fa-check"></i><b>11.1</b> Sampling</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="special-applications.html"><a href="special-applications.html#sample-random-samples"><i class="fa fa-check"></i><b>11.1.1</b> Sample Random Samples</a></li>
+<li class="chapter" data-level="11.1.2" data-path="special-applications.html"><a href="special-applications.html#stratified-random-sampling"><i class="fa fa-check"></i><b>11.1.2</b> Stratified Random Sampling</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>11</b> Working with Dates and Times</a><ul>
-<li class="chapter" data-level="11.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#work-in-progress-1"><i class="fa fa-check"></i><b>11.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="11.2" data-path="special-applications.html"><a href="special-applications.html#bootstrapping"><i class="fa fa-check"></i><b>11.2</b> Bootstrapping</a></li>
+<li class="chapter" data-level="11.3" data-path="special-applications.html"><a href="special-applications.html#model-predictions"><i class="fa fa-check"></i><b>11.3</b> Model Predictions</a></li>
+<li class="chapter" data-level="11.4" data-path="special-applications.html"><a href="special-applications.html#even-more-special-applications"><i class="fa fa-check"></i><b>11.4</b> Even More Special Applications</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="special-applications.html"><a href="special-applications.html#leaflet-maps"><i class="fa fa-check"></i><b>11.4.1</b> Leaflet Maps</a></li>
+<li class="chapter" data-level="11.4.2" data-path="special-applications.html"><a href="special-applications.html#flexdashboard"><i class="fa fa-check"></i><b>11.4.2</b> FlexDashboard</a></li>
+<li class="chapter" data-level="11.4.3" data-path="special-applications.html"><a href="special-applications.html#bookdown"><i class="fa fa-check"></i><b>11.4.3</b> Bookdown</a></li>
+<li class="chapter" data-level="11.4.4" data-path="special-applications.html"><a href="special-applications.html#blogdown"><i class="fa fa-check"></i><b>11.4.4</b> Blogdown</a></li>
+<li class="chapter" data-level="11.4.5" data-path="special-applications.html"><a href="special-applications.html#shiny"><i class="fa fa-check"></i><b>11.4.5</b> Shiny</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>12</b> Machine Learning</a><ul>
 <li class="chapter" data-level="12.1" data-path="machine-learning.html"><a href="machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>12.1</b> What is Machine Learning?</a></li>
@@ -280,24 +296,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="13" data-path="other-resources.html"><a href="other-resources.html"><i class="fa fa-check"></i><b>13</b> Other Resources</a><ul>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#infographics"><i class="fa fa-check"></i>Infographics</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#courses"><i class="fa fa-check"></i>Courses</a><ul>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#basic-r"><i class="fa fa-check"></i>Basic R</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#advanced-r"><i class="fa fa-check"></i>Advanced R</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#textbooks"><i class="fa fa-check"></i>Textbooks</a><ul>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#data-science"><i class="fa fa-check"></i>Data Science</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#r-as-a-coding-language"><i class="fa fa-check"></i>R as a Coding Language</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#r-markdown-applications"><i class="fa fa-check"></i>(R) Markdown Applications</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#other-programs-weve-used"><i class="fa fa-check"></i>Other Programs We’ve Used</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#courses"><i class="fa fa-check"></i>Courses</a></li>
+<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#textbooks"><i class="fa fa-check"></i>Textbooks</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#blog-links"><i class="fa fa-check"></i>Blog Links</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#data-sources"><i class="fa fa-check"></i>Data Sources</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#graphing-aids"><i class="fa fa-check"></i>Graphing Aids</a></li>
-<li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#non-coding-resources"><i class="fa fa-check"></i>Non-Coding Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html"><i class="fa fa-check"></i><b>14</b> Frequently Asked Questions</a><ul>
-<li class="chapter" data-level="14.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-my-code-broken"><i class="fa fa-check"></i><b>14.1</b> Why is my code broken?</a></li>
-<li class="chapter" data-level="14.2" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-x-package-named-that"><i class="fa fa-check"></i><b>14.2</b> Why is (<em>X</em> package) named that?</a></li>
+<li class="chapter" data-level="14.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-r"><i class="fa fa-check"></i><b>14.1</b> Why R?</a></li>
+<li class="chapter" data-level="14.2" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-my-code-broken"><i class="fa fa-check"></i><b>14.2</b> Why is my code broken?</a></li>
+<li class="chapter" data-level="14.3" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-x-package-named-that"><i class="fa fa-check"></i><b>14.3</b> Why is (<em>X</em> package) named that?</a></li>
 </ul></li>
 </ul>
 
@@ -317,17 +325,141 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="special-applications" class="section level1">
-<h1><span class="header-section-number">10</span> Special Applications</h1>
-<div id="work-in-progress" class="section level2">
-<h2><span class="header-section-number">10.1</span> Work in Progress</h2>
-<p>Study design<br />
-Random grouping<br />
-Sampling<br />
-Predictive models, heatmaps<br />
-Bootstrapping, confirmatory analysis</p>
+<h1><span class="header-section-number">11</span> Special Applications</h1>
+<p>At this point in the book, we’ve covered most of the most essential tools you’ll use in R. However, there’s a wealth of alternative uses for R that we haven’t even begun to touch, but are good for new programmers and data analysts to be aware of. As such, this chapter will hopefully touch on the most important more specialized applications that we’ve yet to mention, giving you either a brief tutorial or links to where you can learn more.</p>
+<div id="sampling" class="section level2">
+<h2><span class="header-section-number">11.1</span> Sampling</h2>
+<p>When we perform statistical analyses, we almost always work on sample data - a dataset of observations selected from a larger population, from which we can make assumptions about that larger population. Oftentimes, we’ve done some sampling by the time we first load R - for instance, by only measuring certain trees in the forest, or only looking at website activity for a certain time period. However, there are times where we need to sample from a digital dataset - often in order to perform further analyses faster or cheaper - where R can be quite helpful.</p>
+<p>There’s quite a number of sampling methods we can undertake in R, but we’ll run through the two most common here. Before we get started, we’ll set our seed (so our “random” numbers are always the same - we’ll cover this concept in more detail in chapter 12) and load the tidyverse:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
+<span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
+## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<div id="sample-random-samples" class="section level3">
+<h3><span class="header-section-number">11.1.1</span> Sample Random Samples</h3>
+<p>A simple random sample is exactly what it sounds like - out of a dataset with N observations, you select n of them at random. If your data is stored in a vector, this is easy enough to do with <code>sample()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Create a vector of 20 random numbers pulled from the normal distribution
+vector1 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>)
+
+## Sample 5 of those numbers at random
+<span class="kw">sample</span>(vector1, <span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] -0.09465904  2.01842371  1.37095845 -0.28425292  1.51152200</code></pre>
+<p>If we want to select entire rows from a dataframe, the process is slightly more complicated. For instance, say we wanted to sample a single row from the <code>iris</code> dataset. The obvious solution has a confusing result:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">sample</span>(iris, <span class="dv">1</span>))</code></pre></div>
+<pre><code>##   Species
+## 1  setosa
+## 2  setosa
+## 3  setosa
+## 4  setosa
+## 5  setosa
+## 6  setosa</code></pre>
+<p>Rather than sampling a <em>row</em> at random, <code>sample()</code> is instead selecting a random <em>column</em>. Instead, we need to follow a two-step process to randomly select full rows. First, we create an index of selected rows, by calling <code>sample()</code> on a vector of <em>row numbers</em> from our dataset:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">index &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(iris), <span class="dv">6</span>)</code></pre></div>
+<p>We can now subset our dataframe using this index to get our random sample:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[index, ]</code></pre></div>
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 134          6.3         2.8          5.1         1.5  virginica
+## 96           5.7         3.0          4.2         1.2 versicolor
+## 144          6.8         3.2          5.9         2.3  virginica
+## 91           5.5         2.6          4.4         1.2 versicolor
+## 49           5.3         3.7          1.5         0.2     setosa
+## 51           7.0         3.2          4.7         1.4 versicolor</code></pre>
+</div>
+<div id="stratified-random-sampling" class="section level3">
+<h3><span class="header-section-number">11.1.2</span> Stratified Random Sampling</h3>
+<p>Sometimes there’s a pretty good reason to not select your sample purely randomly. For instance, in our above example, we’ve somehow selected three versicolor and only one setosa flower, which might be a problem in our future analyses.</p>
+<p>If we wanted to ensure that we sample evenly from each species of flower - known in stats terminology as a strata - we can make use of the <code>sample_n()</code> function from <code>dplyr</code>. To do so, we just group our dataset by the stratifying variable, then tell <code>sample_n()</code> how many samples we’d like to take from each strata:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">2</span>)</code></pre></div>
+<pre><code>## # A tibble: 6 x 5
+## # Groups:   Species [3]
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
+##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;     
+## 1          5.1         3.8          1.5         0.3 setosa    
+## 2          4.4         3            1.3         0.2 setosa    
+## 3          6.4         3.2          4.5         1.5 versicolor
+## 4          6.7         3.1          4.7         1.5 versicolor
+## 5          6.3         2.8          5.1         1.5 virginica 
+## 6          6.7         2.5          5.8         1.8 virginica</code></pre>
+</div>
+</div>
+<div id="bootstrapping" class="section level2">
+<h2><span class="header-section-number">11.2</span> Bootstrapping</h2>
+<p>If your sample is itself random, you can safely assume that it resembles your population - the mean, standard deviation, and other characteristics of the distribution are relatively close to the true values for the population. You also assume that each observation in your dataset occurs about as often in your sample as it does in the population, on a proportional basis.</p>
+<p>As such, it sometimes makes sense to replicate your sample several times in order to increase your effective sample size, making statistical analyses much more powerful. However, to do so we don’t want to simply multiply the original sample - instead, we want to resample from our original sample <em>with replacement</em>, to simulate drawing from the original population. This is slightly less preferred than just increasing your original sample size - but usually there’s a pretty good reason for your original sample size (either the cost or practicality of collecting more data), so bootstrapping is the best we can do.</p>
+<p>We can use bootstrapping to tell us how variable our parameter estimates are - that is, if we had a different sample, how close would our estimates be? In order to apply this technique, we have to install the <code>boot</code> package:</p>
+<pre><code>install.packages(&quot;boot&quot;)</code></pre>
+<p>The main function in this package - <code>boot()</code> - will sample from a vector with replacement a set number of times, and return an indexed vector containing these samples. When we provide a statistic argument, we can then test to see just how accurate our original estimates were:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(boot)
+mean_func &lt;-<span class="st"> </span><span class="cf">function</span>(x, index){
+  <span class="kw">mean</span>(x[index])
+}
+<span class="kw">boot</span>(iris<span class="op">$</span>Sepal.Length, <span class="dt">R =</span> <span class="dv">10000</span>, <span class="dt">statistic =</span> mean_func)</code></pre></div>
+<pre><code>## 
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+## 
+## 
+## Call:
+## boot(data = iris$Sepal.Length, statistic = mean_func, R = 10000)
+## 
+## 
+## Bootstrap Statistics :
+##     original      bias    std. error
+## t1* 5.843333 0.001110733  0.06731316</code></pre>
+<p>So our original estimate (labeled “original”) has an <em>extremely</em> low bias, with a small standard error to match. It seems like our sample mean is pretty close to the population mean!</p>
+<p>Most often, bootstrapping isn’t used in these sorts of situations to evaluate parameter estimates. More commonly this technique is used behind-the-scenes to aggregate predictive models, as we’ll see next unit.</p>
+</div>
+<div id="model-predictions" class="section level2">
+<h2><span class="header-section-number">11.3</span> Model Predictions</h2>
+<p>Say we made a model to predict flower sepal lengths:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">IrisForm &lt;-<span class="st"> </span><span class="kw">lm</span>(Sepal.Length <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> iris)</code></pre></div>
+<p>We already know that we can assess this model in a number of ways - for instance, we can check the R^2 value and coefficient significance using <code>summary()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(IrisForm)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Sepal.Length ~ ., data = iris)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.79424 -0.21874  0.00899  0.20255  0.73103 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)        2.17127    0.27979   7.760 1.43e-12 ***
+## Sepal.Width        0.49589    0.08607   5.761 4.87e-08 ***
+## Petal.Length       0.82924    0.06853  12.101  &lt; 2e-16 ***
+## Petal.Width       -0.31516    0.15120  -2.084  0.03889 *  
+## Speciesversicolor -0.72356    0.24017  -3.013  0.00306 ** 
+## Speciesvirginica  -1.02350    0.33373  -3.067  0.00258 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.3068 on 144 degrees of freedom
+## Multiple R-squared:  0.8673, Adjusted R-squared:  0.8627 
+## F-statistic: 188.3 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>However, if we wanted to actually use this model to generate predictions, we could do so using the <code>predict()</code> function in base R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris2 &lt;-<span class="st"> </span>iris
+iris2<span class="op">$</span>Predict &lt;-<span class="st"> </span><span class="kw">predict</span>(IrisForm, <span class="dt">newdata =</span> iris2)</code></pre></div>
+<p>We can then use this to generate residual plots for our model:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris2, <span class="kw">aes</span>(Predict, Sepal.Length)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;segment&quot;</span>, <span class="dt">x =</span> <span class="op">-</span><span class="ot">Inf</span>, <span class="dt">xend =</span> <span class="ot">Inf</span>, <span class="dt">y =</span> <span class="op">-</span><span class="ot">Inf</span>, <span class="dt">yend =</span> <span class="ot">Inf</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
+<p><img src="11_Specialized_Applications_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris2, <span class="kw">aes</span>(Predict, Predict<span class="op">-</span>Sepal.Length)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;segment&quot;</span>, <span class="dt">x =</span> <span class="op">-</span><span class="ot">Inf</span>, <span class="dt">xend =</span> <span class="ot">Inf</span>, <span class="dt">y =</span> <span class="dv">0</span>, <span class="dt">yend =</span> <span class="dv">0</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
+<p><img src="11_Specialized_Applications_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+<p>Looks like a pretty good fit! We’ll be using <code>predict()</code> more in our next chapter, but I wanted to introduce it before we got too deep into the machine learning topics.</p>
 </div>
 <div id="even-more-special-applications" class="section level2">
-<h2><span class="header-section-number">10.2</span> Even More Special Applications</h2>
+<h2><span class="header-section-number">11.4</span> Even More Special Applications</h2>
 <p>The R community has built an incredible number of tools for all sorts of purposes, such as interactive apps, books, and full websites. R often isn’t the best - or, at least, the most straightforward - tool to use to build these, but it does have a few advanges over traditional methods:</p>
 <ul>
 <li>The packages used in making these products usually have shortcuts built in to handle the most common use cases.</li>
@@ -336,20 +468,30 @@ Bootstrapping, confirmatory analysis</p>
 </ul>
 <p>This section will focus on brief overviews of each application, with links to where you can learn more. The point is not to turn you into an expert on web development or HTML applets, but rather to give a sense of the possibility space your R skills have opened up for you.</p>
 <div id="leaflet-maps" class="section level3">
-<h3><span class="header-section-number">10.2.1</span> Leaflet Maps</h3>
+<h3><span class="header-section-number">11.4.1</span> Leaflet Maps</h3>
+<div id="htmlwidget-80d043b121131ce94f81" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-80d043b121131ce94f81">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addAwesomeMarkers","args":[[43.8508,43.5664,43.8459,44.1493897289999,44.7087,44.33397,43.832326807,43.5054999999999,43.488087,44.41293,44.039,43.4209999999999,44.1666077933999,44.1893,43.7712999999999,44.1908,44.3279,43.5931,43.4763],[-73.6752,-75.0782999999999,-74.2617,-74.7282145965999,-74.2112999999999,-74.1951449999999,-73.7076339359,-74.6453999999999,-74.9463899999999,-74.110634,-75.0956999999999,-74.8812999999999,-74.7189280153999,-74.0652999999999,-74.6856999999999,-74.301,-73.8944,-74.5820999999999,-74.232],{"icon":"map-marker-alt","markerColor":["orange","purple","purple","orange","purple","purple","orange","purple","orange","purple","purple","purple","orange","purple","purple","orange","orange","purple","purple"],"iconColor":"black","spin":false,"squareMarker":false,"iconRotate":0,"font":"monospace","prefix":"fa"},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Alder Pond, in the Pharaoh Lake Wilderness Area. Eleveation 327 meters.","Bear Creek, in the Black River Wild Forest. Elevation 477 meters.","Cedar Creek, in the Pine Lake Primitive Area. Elevation 470 meters.","Dog Pond, in the Cranberry Lake Wild Forest. Elevation 583 meters.","Duane Stream, in the Debar Mountain Wild Forest. Elevation 395 meters.","Fish Creek, in the Saranac Lake Wild Forest. Elevation 468 meters.","Gull Pond, in the Pharaoh Lake Wilderness Area. Elevation 350 meters.","Indian River, in the West Canada Lake Wilderness Area. Elevation 660 meters.","Twin Lake, in the Black River Wild Forest. Elevation 592 meters.","Lyon's Brook, in the McKenzie Mountain Range Wilderness Area. Elevation 474 meters.","Masawepie Creek, in the Watson's East Triangle Wild Forest. Elevation 490 meters.","Mill Creek, in the Black River Wild Forest. Elevation 520 meters.","Pond Two, in the Cranberry Lake Wild Forest. Elevation 664 meters.","Moose Creek, in the High Peaks Wilderness Area. Elevation 695 meters.","Death Brook, in the Moose River Plains Wild Forest. Elevation 611 meters.","Rock Pond, in the High Peaks Wilderness Area. Elevation 485 meters.","Copperas Pond, in the Sentinel Range Wilderness Area. Elevation 538 meters.","Whitney Creek, in the West Canada Lake Wilderness Area. Elevation 729 meters.","Towers Brook, in the Siamese Ponds Wilderness Area. Elevation 971 meters."],null,null,null,["Alder Pond","Bear Creek","Cedar Creek","Dog Pond","Duane Stream","Fish Creek","Gull Pond","Indian River","Twin Lake","Lyon's Brook","Masawepie Creek","Mill Creek","Pond Two","Moose Creek","Death Brook","Rock Pond","Copperas Pond","Whitney Creek","Towers Brook"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[43.4209999999999,44.7087],"lng":[-75.0956999999999,-73.6752]}},"evals":[],"jsHooks":[]}</script>
+<p><a href="https://leafletjs.com/">Leaflet</a> is, in its original form, a JavaScript library for making interactive maps. The implementation in R, via the <code>leaflet</code> package, allows you to embed these maps in R Markdown documents and other web-based formats. For a great tutorial on how to use this package, check out the <a href="https://rstudio.github.io/leaflet/">RStudio leaflet website</a>.</p>
 </div>
 <div id="flexdashboard" class="section level3">
-<h3><span class="header-section-number">10.2.2</span> FlexDashboard</h3>
+<h3><span class="header-section-number">11.4.2</span> FlexDashboard</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;Dash.png&quot;</span>)</code></pre></div>
+<p><img src="Dash.png" width="682" /></p>
+<p><a href="https://rmarkdown.rstudio.com/flexdashboard/">FlexDashboard</a> is a system for making dashboards via R Markdown, combining text and visualizations into highly effective data-driven dashboards well suited to communicate your results to any stakeholders. These boards can be split across multiple pages, scroll, and incorporate all sorts of useful packages, making this package a wonderful resource for communicating your results. The best way to learn more is on the <a href="https://rmarkdown.rstudio.com/flexdashboard/">FlexDashboard website</a>.</p>
 </div>
 <div id="bookdown" class="section level3">
-<h3><span class="header-section-number">10.2.3</span> Bookdown</h3>
+<h3><span class="header-section-number">11.4.3</span> Bookdown</h3>
+<p>If you’re writing a book which incorporates R code, outputs, and can be formatted using R Markdown, one of the best packages for your needs is the <a href="https://bookdown.org/">Bookdown</a> package. By formatting your book as a collection of R Markdown documents, you’re able to write your entire book in the RStudio environment, and see how your graphics and code will look to the reader while you write. The best resource for starting with Bookdown is the <a href="https://bookdown.org/yihui/bookdown/">Bookdown book</a>, with this <a href="http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html">blog by Sean Kross</a> another useful reference.</p>
+<p>(And yes, this book was entirely written in Bookdown).</p>
 </div>
 <div id="blogdown" class="section level3">
-<h3><span class="header-section-number">10.2.4</span> Blogdown</h3>
+<h3><span class="header-section-number">11.4.4</span> Blogdown</h3>
+<p>Similar to the Bookdown package is Blogdown, which lets you use R Markdown to create <a href="https://www.mikemahoney218.com/">websites</a>. While it’s slightly more complicated - it requires you to fuss with <a href="https://gohugo.io/">Hugo</a> somewhat, and understand a little about web design - it’s pretty easy to install a template and produce a professional looking website, with minimal coding required. The best place to learn more about Blogdown is the <a href="https://bookdown.org/yihui/blogdown/">Blogdown book</a>, with this <a href="https://alison.rbind.io/post/up-and-running-with-blogdown/">blog by Alison Hill</a> also useful in getting started.</p>
 </div>
 <div id="shiny" class="section level3">
-<h3><span class="header-section-number">10.2.5</span> Shiny</h3>
-<p>People really, really like interactive graphics. Being able to click their way through a series of visualizations - or maybe just alter the aesthetic choices of a final output - satisfies a lot of non-data-professionals in a big way. I think interactive graphics are usually a waste of resources - while they’re cool, they take away your ability to narrate a story and effectively demonstrate your arguments, which are the main purposes of communicative graphics. While interactive graphics are more useful for data exploration, the amount of time they take to generate and polish makes them cost-prohibitive for this type of use. Plus, this book isn’t <em>Introduction to R for Web Design</em> - there are better tools for making these sorts of interactives, and they aren’t particularly useful in the printable types of documents most readers of this book will find themselves making.</p>
+<h3><span class="header-section-number">11.4.5</span> Shiny</h3>
+<p>People really, really like interactive graphics. Being able to click their way through a series of visualizations - or maybe just alter the aesthetic choices of a final output - satisfies a lot of non-data-professionals in a big way.</p>
+<p>I think interactive graphics are usually a waste of resources - while they’re cool, they take away your ability to narrate a story and effectively demonstrate your arguments, which are the main purposes of communicative graphics. While interactive graphics are more useful for data exploration, the amount of time they take to generate and polish makes them cost-prohibitive for this type of use. There are better tools for making these sorts of interactives, and they aren’t particularly useful in the printable types of documents most readers of this book will find themselves making.</p>
 <p>With that screed out of the way, R’s <code>shiny</code> package does a pretty good job of letting people make interactive charts and HTML widgets with minimal pain - and some jobs do view proficency with Shiny a plus. You can find a list of resources for learning Shiny at the <a href="https://shiny.rstudio.com/">official website</a>, including written tutorials and a free DataCamp course.</p>
 
 </div>
@@ -360,8 +502,8 @@ Bootstrapping, confirmatory analysis</p>
           </div>
         </div>
       </div>
-<a href="working-with-text.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="working-with-dates-and-times.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="working-with-dates-and-times.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="machine-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
