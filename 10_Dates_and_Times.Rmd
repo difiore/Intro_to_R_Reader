@@ -1,7 +1,10 @@
 # Working with Dates and Times
 ## Work in Progress
+Time series data is essential to a huge number of analysis tasks, with data readers
+
 ## Dates and R
-The last time I compiled this book, it was `r Sys.Date()` (that's YYYY-MM-DD format, which we'll come back to). 
+The last time I compiled this book, it was `r Sys.Date()` - that's YYYY-MM-DD format, which we'll talk about in a minute. It was over 2000 years from 
+
 ## Date Formats
 lubridate functions
 plotting time series
