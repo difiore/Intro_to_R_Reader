@@ -1,5 +1,5 @@
 # Special Applications
-## Work in Progress
+At this point in the book, we've covered most of the most essential tools you'll use in R. However, there's a wealth of alternative uses for R that we haven't even begun to touch, but are good for new programmers and data analysts to be aware of. As such, this chapter will hopefully touch on the most important more specialized applications that we've yet to mention, giving you either a brief tutorial or links to where you can learn more. 
 
 ## Sampling
 When we perform statistical analyses, we almost always work on sample data - a dataset of observations selected from a larger population, from which we can make assumptions about that larger population. Oftentimes, we've done some sampling by the time we first load R - for instance, by only measuring certain trees in the forest, or only looking at website activity for a certain time period. However, there are times where we need to sample from a digital dataset - often in order to perform further analyses faster or cheaper - where R can be quite helpful.
@@ -71,11 +71,37 @@ So our original estimate (labeled "original") has an _extremely_ low bias, with 
 
 Most often, bootstrapping isn't used in these sorts of situations to evaluate parameter estimates. More commonly this technique is used behind-the-scenes to aggregate predictive models, as we'll see next unit.
 
-## Predictive Models
+## Model Predictions
+Say we made a model to predict flower sepal lengths:
+```{r}
+IrisForm <- lm(Sepal.Length ~ ., data = iris)
+```
 
+We already know that we can assess this model in a number of ways - for instance, we can check the R^2 value and coefficient significance using `summary()`:
 
-## Heatmaps
+```{r}
+summary(IrisForm)
+```
 
+However, if we wanted to actually use this model to generate predictions, we could do so using the `predict()` function in base R:
+
+```{r}
+iris2 <- iris
+iris2$Predict <- predict(IrisForm, newdata = iris2)
+```
+
+We can then use this to generate residual plots for our model:
+
+```{r}
+ggplot(iris2, aes(Predict, Sepal.Length)) + 
+  geom_point() + 
+  annotate("segment", x = -Inf, xend = Inf, y = -Inf, yend = Inf, color = "red")
+ggplot(iris2, aes(Predict, Predict-Sepal.Length)) + 
+  geom_point() + 
+  annotate("segment", x = -Inf, xend = Inf, y = 0, yend = 0, color = "red")
+```
+
+Looks like a pretty good fit! We'll be using `predict()` more in our next chapter, but I wanted to introduce it before we got too deep into the machine learning topics.
 
 ## Even More Special Applications
 The R community has built an incredible number of tools for all sorts of purposes, such as interactive apps, books, and full websites. R often isn't the best - or, at least, the most straightforward - tool to use to build these, but it does have a few advanges over traditional methods:
