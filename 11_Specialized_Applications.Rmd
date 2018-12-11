@@ -1,0 +1,130 @@
+# Special Applications
+## Work in Progress
+
+## Sampling
+When we perform statistical analyses, we almost always work on sample data - a dataset of observations selected from a larger population, from which we can make assumptions about that larger population. Oftentimes, we've done some sampling by the time we first load R - for instance, by only measuring certain trees in the forest, or only looking at website activity for a certain time period. However, there are times where we need to sample from a digital dataset - often in order to perform further analyses faster or cheaper - where R can be quite helpful.
+
+There's quite a number of sampling methods we can undertake in R, but we'll run through the two most common here. Before we get started, we'll set our seed (so our "random" numbers are always the same - we'll cover this concept in more detail in chapter 12) and load the tidyverse:
+```{r}
+set.seed(42)
+library(tidyverse)
+```
+
+### Sample Random Samples
+A simple random sample is exactly what it sounds like - out of a dataset with N observations, you select n of them at random. If your data is stored in a vector, this is easy enough to do with `sample()`:
+```{r}
+## Create a vector of 20 random numbers pulled from the normal distribution
+vector1 <- rnorm(20)
+
+## Sample 5 of those numbers at random
+sample(vector1, 5)
+```
+
+If we want to select entire rows from a dataframe, the process is slightly more complicated. For instance, say we wanted to sample a single row from the `iris` dataset. The obvious solution has a confusing result:
+```{r}
+head(sample(iris, 1))
+```
+
+Rather than sampling a _row_ at random, `sample()` is instead selecting a random _column_. Instead, we need to follow a two-step process to randomly select full rows. First, we create an index of selected rows, by calling `sample()` on a vector of _row numbers_ from our dataset:
+```{r}
+index <- sample(1:nrow(iris), 6)
+```
+
+We can now subset our dataframe using this index to get our random sample:
+```{r}
+iris[index, ]
+```
+
+
+### Stratified Random Sampling
+Sometimes there's a pretty good reason to not select your sample purely randomly. For instance, in our above example, we've somehow selected three versicolor and only one setosa flower, which might be a problem in our future analyses.
+
+If we wanted to ensure that we sample evenly from each species of flower - known in stats terminology as a strata - we can make use of the `sample_n()` function from `dplyr`. To do so, we just group our dataset by the stratifying variable, then tell `sample_n()` how many samples we'd like to take from each strata:
+```{r}
+iris %>%
+  group_by(Species) %>%
+  sample_n(2)
+```
+
+## Bootstrapping
+If your sample is itself random, you can safely assume that it resembles your population - the mean, standard deviation, and other characteristics of the distribution are relatively close to the true values for the population. You also assume that each observation in your dataset occurs about as often in your sample as it does in the population, on a proportional basis.
+
+As such, it sometimes makes sense to replicate your sample several times in order to increase your effective sample size, making statistical analyses much more powerful. However, to do so we don't want to simply multiply the original sample - instead, we want to resample from our original sample _with replacement_, to simulate drawing from the original population. This is slightly less preferred than just increasing your original sample size - but usually there's a pretty good reason for your original sample size (either the cost or practicality of collecting more data), so bootstrapping is the best we can do.
+
+We can use bootstrapping to tell us how variable our parameter estimates are - that is, if we had a different sample, how close would our estimates be? In order to apply this technique, we have to install the `boot` package:
+
+```
+install.packages("boot")
+```
+
+The main function in this package - `boot()` - will sample from a vector with replacement a set number of times, and return an indexed vector containing these samples. When we provide a statistic argument, we can then test to see just how accurate our original estimates were:
+
+```{r}
+library(boot)
+mean_func <- function(x, index){
+  mean(x[index])
+}
+boot(iris$Sepal.Length, R = 10000, statistic = mean_func)
+```
+
+So our original estimate (labeled "original") has an _extremely_ low bias, with a small standard error to match. It seems like our sample mean is pretty close to the population mean!
+
+Most often, bootstrapping isn't used in these sorts of situations to evaluate parameter estimates. More commonly this technique is used behind-the-scenes to aggregate predictive models, as we'll see next unit.
+
+## Predictive Models
+
+
+## Heatmaps
+
+
+## Even More Special Applications
+The R community has built an incredible number of tools for all sorts of purposes, such as interactive apps, books, and full websites. R often isn't the best - or, at least, the most straightforward - tool to use to build these, but it does have a few advanges over traditional methods:
+
+* The packages used in making these products usually have shortcuts built in to handle the most common use cases.
+* Building these things with R allows you to embed R code in your app/book/website, letting your graphs and other outputs adapt to different web browsers/viewers better than an image file would - and letting you build interactive visualizations.
+* You already know R, and while these may require some HTML code to become fully polished, you can do the majority of the work in a language you already speak.
+
+This section will focus on brief overviews of each application, with links to where you can learn more. The point is not to turn you into an expert on web development or HTML applets, but rather to give a sense of the possibility space your R skills have opened up for you.
+
+### Leaflet Maps
+```{r echo=FALSE}
+library(leaflet)
+library(readxl)
+SiteData <- read_excel("Field Data Sheets.xlsx")
+SiteData$Color <- ifelse(SiteData$LakeRiver == "Lake", "orange", "purple")
+  
+icons <- awesomeIcons(
+  icon = "map-marker-alt",
+  iconColor = "black",
+  library = "fa",
+  markerColor = SiteData$Color
+)
+
+leaflet() %>%
+  addTiles() %>%
+  addAwesomeMarkers(data = SiteData, lat = ~ Lat, lng = ~ Long, icon = icons, label = ~ as.character(Site), popup = ~ as.character(Text))
+```
+
+[Leaflet](https://leafletjs.com/) is, in its original form, a JavaScript library for making interactive maps. The implementation in R, via the `leaflet` package, allows you to embed these maps in R Markdown documents and other web-based formats. For a great tutorial on how to use this package, check out the [RStudio leaflet website](https://rstudio.github.io/leaflet/).
+
+### FlexDashboard
+```{r}
+knitr::include_graphics("Dash.png")
+```
+
+[FlexDashboard](https://rmarkdown.rstudio.com/flexdashboard/) is a system for making dashboards via R Markdown, combining text and visualizations into highly effective data-driven dashboards well suited to communicate your results to any stakeholders. These boards can be split across multiple pages, scroll, and incorporate all sorts of useful packages, making this package a wonderful resource for communicating your results. The best way to learn more is on the [FlexDashboard website](https://rmarkdown.rstudio.com/flexdashboard/).
+
+### Bookdown
+If you're writing a book which incorporates R code, outputs, and can be formatted using R Markdown, one of the best packages for your needs is the [Bookdown](https://bookdown.org/) package. By formatting your book as a collection of R Markdown documents, you're able to write your entire book in the RStudio environment, and see how your graphics and code will look to the reader while you write. The best resource for starting with Bookdown is the [Bookdown book](https://bookdown.org/yihui/bookdown/), with this [blog by Sean Kross](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html) another useful reference.
+
+(And yes, this book was entirely written in Bookdown).
+
+### Blogdown
+Similar to the Bookdown package is Blogdown, which lets you use R Markdown to create [websites](https://www.mikemahoney218.com/). While it's slightly more complicated - it requires you to fuss with [Hugo](https://gohugo.io/) somewhat, and understand a little about web design - it's pretty easy to install a template and produce a professional looking website, with minimal coding required. The best place to learn more about Blogdown is the [Blogdown book](https://bookdown.org/yihui/blogdown/), with this [blog by Alison Hill](https://alison.rbind.io/post/up-and-running-with-blogdown/) also useful in getting started.
+
+### Shiny
+People really, really like interactive graphics. Being able to click their way through a series of visualizations - or maybe just alter the aesthetic choices of a final output - satisfies a lot of non-data-professionals in a big way. 
+
+I think interactive graphics are usually a waste of resources - while they're cool, they take away your ability to narrate a story and effectively demonstrate your arguments, which are the main purposes of communicative graphics. While interactive graphics are more useful for data exploration, the amount of time they take to generate and polish makes them cost-prohibitive for this type of use. There are better tools for making these sorts of interactives, and they aren't particularly useful in the printable types of documents most readers of this book will find themselves making.
+
+With that screed out of the way, R's `shiny` package does a pretty good job of letting people make interactive charts and HTML widgets with minimal pain - and some jobs do view proficency with Shiny a plus. You can find a list of resources for learning Shiny at the [official website](https://shiny.rstudio.com/), including written tutorials and a free DataCamp course.

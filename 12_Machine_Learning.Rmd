@@ -107,7 +107,7 @@ What we're looking at now are our actual results - this is what we'd report for 
 
 #### Decision Trees
 
-kNN is only one of the several popular classification algorithms available in R. Another of the most commonly used methods (kinda - we'll get to that in a minute) is known as the decision tree. Basically, this method creates a flowchart with each of your variables - at each split in the chart (known as a "node"), the algorithm uses a selection of variables to try and classify your data. 
+kNN is only one of the several popular classification algorithms available in R. Another of the most commonly used methods (kinda - we'll get to that in a minute) is known as the decision tree. Basically, this method creates a flowchart with each of your variables - at each split in the chart (known as a "node"), the algorithm uses a selection of variables to try and classify your data. This technique makes use of the bootstrapping we discussed in the past unit - by increasing our sample size, we're able to increase the predictive power of each tree.
 
 We're going to use the `rpart` package to make our decision trees for this unit. First, we have to install the package, then load it using `library()`:
 ```
@@ -134,9 +134,10 @@ However, decision trees on their own aren't particularly great classifiers. For 
 #### Random Forests
 Random forests! 
 
-These forests are collections of trees (get it?), all of which may overfit the data in some weird way and have oddly bad fits in others. The idea is to collect as many trees as we can in one model and find out what the majority of models want to classify the datapoint as - by aggregating large numbers of trees, we can avoid the pitfalls that individual trees tend to lead us towards.
+These forests are collections of trees (get it?), all of which may overfit the data in some weird way and have oddly bad fits in others. The idea is to collect as many trees as we can in one model and find out what the majority of models want to classify the datapoint as - by aggregating large numbers of trees, we can avoid the pitfalls that individual trees tend to lead us towards. These random forests also randomize the variables used in each tree, increasing the applicability of the model to different datasets.
 
 There's a ton of random forest implementations in R, because these are some of the most current and useful ML applications we've developed so far. I'm going to, for the sake of simplicity, stick with one of the better-known applications. We'll keep using our functions from `caret()`, but first, we have to install the `ranger` application:
+
 ```
 install.packages("ranger")
 ```
