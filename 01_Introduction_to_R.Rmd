@@ -100,7 +100,7 @@ In addition to saying hi, you can use the R console to do math:
 18%%7
 ```
 
-Note that R _generally_ follows PEMDAS - we'll go over that later.  
+Note that R _generally_ follows PEMDAS, with a few exceptions - we'll cover those exceptions in another chapter.  
 Also, ```%%``` is an operator (in the same way that ```+```, ```*```, ```-```, and ```/``` are all operators - mathematical symbols that represent a function) which returns the remainder - the integer (whole number) which remains after you've divided as much as you can. So while 7 fits into 18 twice (7*2 = 14), it leaves 4 "left over" afterwards.
 
 R can also do a lot of more complicated things. By putting a list of values inside ```c()```, you create what's known as a _vector_ - a list of objects that R can interact with.

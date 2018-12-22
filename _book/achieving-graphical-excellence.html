@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2018-12-10">
+<meta name="date" content="2018-12-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -269,6 +269,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="10" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>10</b> Working with Dates and Times</a><ul>
 <li class="chapter" data-level="10.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#work-in-progress"><i class="fa fa-check"></i><b>10.1</b> Work in Progress</a></li>
+<li class="chapter" data-level="10.2" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#dates-in-r"><i class="fa fa-check"></i><b>10.2</b> Dates in R</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="special-applications.html"><a href="special-applications.html"><i class="fa fa-check"></i><b>11</b> Special Applications</a><ul>
 <li class="chapter" data-level="11.1" data-path="special-applications.html"><a href="special-applications.html#sampling"><i class="fa fa-check"></i><b>11.1</b> Sampling</a><ul>
@@ -338,12 +339,12 @@ Figures often beguile me, particularly when I have the arranging of them myself;
 <p>This unit is primarily designed to get you thinking about what exactly is possible with graphs made in R. We aren’t going to cover every possible tweak you can make to a graphic, since that’s almost impossible. We won’t showcase every extension and theme you could make use of, because that’s probably truly impossible. But by expanding our understanding about what exactly is possible with these graphics, we can begin to understand how to make the best visualizations with our own data possible. This unit is a bit easier and a bit less involved than the past few - don’t worry, we’ll be back to the hard stuff come unit 9.</p>
 <p>So far, we’ve used graphs repeatedly to help communicate and understand our data. While the fast graphics we’ve been using are more than sufficient for our own analyses, making graphics for publication or presentation requires a little more finesse. That’s where this unit comes in - we’ll be briefly touching on many of the options you have control over to make your graphics look exactly as you want them to. Before we get started, let’s load the tidyverse:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
 ## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
 ## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
 ## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 </div>
@@ -360,7 +361,7 @@ Figures often beguile me, particularly when I have the arranging of them myself;
 <p>But at the same time, even contrast isn’t quite enough for us to automatically interpret a color in a graph. For instance, the rainbow colors have different amounts of contrast against a white background, but when plotted:</p>
 <p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Which values are higher now?</p>
-<p>Humans make connections between different colors based on their <em>luminance</em> and <em>chroma</em>. We won’t go wading too far into what those terms mean; but it’s important to understand that the actual <em>colors</em> you use to compare values matter less than the differences in their shade and intensity.</p>
+<p>The colors that we use in a particular graph - or, at least, the <em>hue</em> of the colors - don’t really matter. What matters are the <em>shade</em> and <em>intensity</em> of these colors - these are the attributes that humans will use to draw conclusions based on these colors. Usually, darker shades and more intense colors imply a “larger” (or, at any rate, more extreme) value, while the lighter and fainter colors represent less extreme values.</p>
 <p>Moving away from color, we can also use other aesthetics to communicate a third variable. For instance:</p>
 <p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Which values are larger?</p>

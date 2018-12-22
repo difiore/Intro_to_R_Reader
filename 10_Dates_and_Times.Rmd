@@ -51,5 +51,129 @@ as_datetime(1)
 as_datetime(9910)
 ```
 
-Date-times are _incredibly_ more complicated than dates, for reasons that we'll discuss later. Generally speaking, however, it's best to use the date format unless your data require times be used as well.
+Date-times are _incredibly_ more complicated than dates, due to the need to manage time zones. Generally speaking, it's best to use the date format unless your data require times be used as well.
 
+## Converting To Dates
+Of course, most data won't store dates as integers - we usually store dates in more human readable forms, like 02/18/1997 or 1997-02-18. 
+
+Now, the best format to store dates in is the YYYY-MM-DD format, known as ISO 8601. This format - which is an internationally agreed upon standard - is clear and unambiguous, and lets newcomers to your data know automatically what they're looking at. This format requires you use dashes (-) instead of slashes (/), and that you always use the long form of each number - for instance, January 9, 2018 would be `2018-01-09`, never `18-1-8`. To parse strings formatted like this, use the `lubridate` command `ymd()` - an acronym for how your data is formatted: year-month-day:
+```{r}
+ymd("2018-02-18")
+```
+
+Unfortunately, you won't always be in control of how your data is formatted. Luckily, `lubridate` has a family of functions for understanding dates - just rearrange the letters of the acronym as needed:
+```{r collapse=FALSE}
+dmy("18/02/1997")
+mdy("2/18/97")
+```
+
+The same family of function can also be used with datetimes, with an underscore and some combination of "h" "m" "s" added:
+```{r}
+ymd_hms("2018-02-18 5:20:05 pm")
+```
+
+Note that you can either use 24-hour time or specify if a date is AM/PM - R will convert to 24-hour time either way.
+
+We can also build a time out of components stored in different columns, using the `make_date()` or `make_datetime()` commands:
+```{r}
+TimeTable <- tibble(year = 2018,
+       day = 18,
+       hour = 5,
+       month = 2,
+       seconds = 5,
+       minute = 20)
+
+TimeTable %>%
+  mutate(date = make_date(year, month, day),
+         time = make_datetime(year, month, day, hour, minute, seconds))
+```
+
+(Note that the inputs in the table are integers, not character vectors like we fed `ymd()` et. al.)
+
+## Extracting From Dates
+
+Say we have the following date:
+```{r}
+OurDate <- ymd_hms("2018-02-18 5:20:05 pm")
+```
+
+If we only want specific components, we can extract them one by one using a few helper functions:
+```{r}
+OurDateExploded <- tibble(year = year(OurDate),
+                          month = month(OurDate),
+                          day = day(OurDate),
+                          hour = hour(OurDate),
+                          second = second(OurDate),
+                          dayOfWeek = wday(OurDate),
+                          dayOfMonth = mday(OurDate),
+                          dayOfYear = yday(OurDate))
+OurDateExploded
+```
+(There's no difference between `day()` and `mday()`, as best as I can tell - but you'll see both used in example code online.)
+
+We can also use these commands to change an individual component faster than retyping the whole datetime:
+```{r}
+year(OurDate) <-  2020
+OurDate
+```
+
+We can also use `update()` to change multiple parts of our date at once:
+```{r}
+update(OurDate, year = 2021, hour = 19, mday = 20)
+```
+
+## Math with Dates
+Sometimes, rather than just updating our times by hand, we'll have to do a few more complicated things with them. For instance, if we need to truncate or round our date, we can use one of a family of functions:
+
+* `floor_date()` will round the date down to the unit specified
+* `round_date()` will round the date as appropriate to the specified unit
+* `ceiling_date()` will round the date up to the unit specified
+* `rollback()` will roll the date back to the last day of the previous month
+
+For instance, using each of these with our date looks like this:
+```{r collapse=TRUE}
+floor_date(OurDate, unit = "month")
+round_date(OurDate, unit = "month")
+ceiling_date(OurDate, unit = "month")
+rollback(OurDate)
+```
+
+More complicated math than that gets a little weird. For instance, say we have a date that's right next to a leap year:
+```{r}
+leap <- ymd("2019-03-01")
+```
+
+Now, if we wanted to add a year to this date, what would we expect as an output? Probably March 1, 2020, which is what we get if we add `years(1)` to our date:
+```{r}
+leap + years(1)
+```
+
+The problem is, this answer only makes sense if you care more about the unit than what it represents. That is, we just added a year to our date - but that year had 366 days, rather than the 365 we expect a year to represent. 
+
+As such, there are two different families of functions to do math with dates in R, depending on what you want as an output:
+
+* If you want to ignore the irregularities of the time numberline, you're working with **periods** - so adding a year to March 1, 2019, gives us March 1, 2020.
+* If you care about the actual passage of time - so adding a year means adding 365 days, no matter what - you're working with **durations**.
+
+Luckily, the functions to work with each are pretty similar - just add a "d" in front of any function that works with periods and you'll be working with durations. For instance:
+```{r}
+leap + dyears(1)
+```
+
+The same problem happens every year with daylight savings time - which is further complicated by the fact that it only happens in certain time zones. Luckily, the same family of functions works in these situations:
+```{r collapse=TRUE}
+lap <- ymd_hms("2018-11-04 00:30:00",tz="US/Eastern") 
+lap + minutes(90)
+lap + dminutes(90)
+```
+
+Note, by the way, there's no `dmonths()` function - every year has 12 months, so that one's a lot less likely to trip you up.
+
+Lastly, if you're trying to represent the span in between two times, you can do so using `interval()` - just specify the starting and ending dates in the function:
+```{r}
+interval(leap, leap + dyears(1))
+```
+
+By the way, the `lubridate` package has a wild amount of edge-case functions built into it - I highly recommend referencing the [cheatsheet](https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf) available online for functions that we aren't covering here. 
+
+## Time Zones

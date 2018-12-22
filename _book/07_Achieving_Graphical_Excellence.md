@@ -14,7 +14,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──
+## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
@@ -25,7 +25,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ```
@@ -56,7 +56,7 @@ But at the same time, even contrast isn't quite enough for us to automatically i
 
 Which values are higher now?
 
-Humans make connections between different colors based on their _luminance_ and _chroma_. We won't go wading too far into what those terms mean; but it's important to understand that the actual _colors_ you use to compare values matter less than the differences in their shade and intensity. 
+The colors that we use in a particular graph - or, at least, the _hue_ of the colors - don't really matter. What matters are the _shade_ and _intensity_ of these colors - these are the attributes that humans will use to draw conclusions based on these colors. Usually, darker shades and more intense colors imply a "larger" (or, at any rate, more extreme) value, while the lighter and fainter colors represent less extreme values.
 
 Moving away from color, we can also use other aesthetics to communicate a third variable. For instance:
 
