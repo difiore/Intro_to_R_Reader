@@ -1,5 +1,4 @@
 # Working with Dates and Times
-## Work in Progress
 Before we get started, let's load the `lubridate` package. While part of the tidyverse (so you've already got it installed), we have to load it separately, since it's not as commonly used as the other ones:
 ```{r}
 library(tidyverse)
@@ -174,6 +173,35 @@ Lastly, if you're trying to represent the span in between two times, you can do 
 interval(leap, leap + dyears(1))
 ```
 
-By the way, the `lubridate` package has a wild amount of edge-case functions built into it - I highly recommend referencing the [cheatsheet](https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf) available online for functions that we aren't covering here. 
-
 ## Time Zones
+Time zones are complicated as hell, since they're more political boundaries than any sort of real feature of how time passes or any other natural constant. There are over 600 time zones built into R, some with identical names (you'd be shocked how many countries have "Eastern standard time"), and which zone applies to a particular area changes based on time of year and political whims. 
+
+There's been some attempt to standardize how we work with time zones, most importantly by the [Internet Assigned Numbers Authority](https://www.iana.org/time-zones). The IANA specifies names for each zone, _generally_ using `Continent/City` format (`US/Eastern`, `Pacific/Auckland`). You can check your computer's timezone using the `Sys.timezone()` function:
+```{r}
+Sys.timezone()
+```
+
+Or see the full list using `OlsonNames()` (warning, it's a long list).
+
+By default, `lubridate` uses UTC, which is the standard for most computing:
+```{r}
+OurDate
+```
+
+But time zones don't really control anything other than how a date is printed - after all, R is just storing the date as a number, like we showed at the start of this chapter. 
+
+But if you need to change what time zone your data is stored as, there are two methods. First, if you want the same time represented in a different timezone, use `with_tz()`:
+```{r collapse=TRUE}
+with_tz(OurDate, tz = "America/New_York")
+OurDate == with_tz(OurDate, tz = "America/New_York")
+```
+
+Secondly, if your data has been mislabeled and you need to change the time zone (and the actual time with it), we can use `force_tz()`:
+```{r collapse=TRUE}
+force_tz(OurDate, tz = "America/New_York")
+OurDate == force_tz(OurDate, tz = "America/New_York")
+```
+
+With these functions, you should be all set to start wrangling date and time data with R. 
+
+By the way, the `lubridate` package has a wild amount of edge-case functions built into it - I highly recommend referencing the [cheatsheet](https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf) available online for functions that we aren't covering here. 
