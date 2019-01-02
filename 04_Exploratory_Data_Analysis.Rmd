@@ -1,5 +1,8 @@
 # Introduction to Data Analysis
 
+> In God we trust. All others must bring data.
+> <div align = "right"> --- W. Edwards Deming</div>
+
 ## Exploratory Data Analysis 
 So far, we've learned about how to manipulate our data and how to graph our outputs. Both of these are critically important parts of what's known as exploratory data analysis - or EDA. When you're starting with a new dataset, you won't always immediately know what trends and patterns might be there to discover. The idea at this stage isn't to find out what's causing any trends in the data, to identify any significant results you might have, or to get publishable figures and tables - the point is to understand exactly what it is that you're dealing with.
 

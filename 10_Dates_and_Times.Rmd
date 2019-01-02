@@ -1,4 +1,8 @@
 # Working with Dates and Times
+
+> How did it get so late so soon? It's night before it's afternoon. December is here before it's June. My goodness how the time has flewn.
+> <div align = "right">--- Dr. Seuss</div>
+
 Before we get started, let's load the `lubridate` package. While part of the tidyverse (so you've already got it installed), we have to load it separately, since it's not as commonly used as the other ones:
 ```{r}
 library(tidyverse)

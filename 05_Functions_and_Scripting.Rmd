@@ -1,12 +1,14 @@
 # Functions and Scripting
 
-## Notes
-### Writing Functions
+> "How hard can it be? What can go wrong?"
+> <div align = "right"> ---Jack Crenshaw </div>
+
+## Writing Functions
 By now, we've started understanding how to use the prebuilt functions available for us within R. However, those functions don't cover everything that we might need to do - and so sometimes, we need to build them for ourselves.
 
 At first, it might not make sense to spend your time writing functions, when you could just copy and paste the same code snippets to multiple places. But - in addition to this failing our rule that, if you have to repeat something more than twice, there's a better way - copying and pasting increases the chance of typos, makes the important parts of your code harder to understand, and makes your script or notebook unnecessarily long. Additionally, if the needs of your project change - or you catch a mistake in your code - functions only need to be changed in one place. Plus, once we move into working with others and sharing your code, functions make cleaning data and standardizing analyses between partners much easier.
 
-#### Our First Function
+### Our First Function
 Some functions might seem impossibly complex - coding something like ggplot's geoms, for instance, is probably a bit beyond us right now. But others really aren't that hard - for instance, if we wanted to code another function to calculate the mean, our code would look like this:
 
 ```{r}
@@ -34,7 +36,7 @@ mean2(iris$Sepal.Length)
 
 Not bad!
 
-#### Returns
+### Returns
 As a quick sidenote, not all the code you'll see in the wild will be quite as explicit about what it ```return()```s. For instance, the same code will run exactly like ```mean2()``` did, and is a bit shorter:
 
 ```{r}
@@ -45,7 +47,7 @@ mean3 <- function(x){
 
 In general, functions will return the last thing they evaluate. ```return()``` is typically used to stop a function early - if it fails a conditional (as we'll discuss below) or other similar cases. I personally like being explicit about what a function returns, but most developers will let their function return values implicitly instead.
 
-#### More Complicated Functions
+### More Complicated Functions
 Where other functions get more complicated is in the number of arguments they take. In ```mean2()```, we defined ```x``` as our only argument. This is the _data_ argument - it tells us what dataset we should use in our function. However, plenty of functions have _detail_ arguments as well - for instance, the ```na.rm``` argument in ```mean()```, or the ```method``` argument in ```cor.test()```. These allow us to specify exactly how our function is implemented. For instance, if we wanted to code a new function, ```multistat()```, which let us run any function on a dataset ```x```: 
 
 ```{r}
@@ -68,7 +70,7 @@ This is a pretty stupid reason to make a function - it doesn't do anything that 
 
 You don't have to give your detail arguments a default value - and it's often helpful if you don't, as it makes you be explicit about what you want as an output. However, if you're expecting that you - or anyone else using your function - will usually want a particular output, you can specify the default using ```=``` like we did above.
 
-#### About Names...
+## About Names...
 You might remember our discussion in unit 1 about why R occasionally requires quotes around things, while othertimes it doesn't. This is what our explanation was then:
 
 > Note the quotes around "tidyverse" when you go to install it, but **not** when it's inside of ```library()```. The reason for this is a little complicated - basically, you don't use quotes for things that are inside of R's memory, like data, functions, and packages. You use quotes for everything else.
@@ -76,7 +78,7 @@ You might remember our discussion in unit 1 about why R occasionally requires qu
 This is still true inside of functions, but with a twist - objects that are defined inside of functions are only defined inside of that function. For instance, even though our ```mean``` functions have assigned ```Sepal.Length``` to ```x```, we can't then call ```mean(x)```. As such, there's not as much worry about creatively naming objects created inside of functions - while your names should still be short and descriptive, they don't need to be distinct from names that exist outside of the function. 
 
 
-### Conditional Statements
+## Conditional Statements
 Let's go back to our ```mean()``` copycat functions. Now, to be fully honest, the code for ```mean()``` is a little more complicated - the function checks to make sure your vector isn't a character vector, removes NA values if specified, trims your data, and then calculates the mean. But we've come close with our basic functions!
 
 In order to come a bit closer, we'd have to make use of something known as a _conditional statement_. In their simplest form, these statements evaluate whether or not something is true, then return the appropriate output. 
@@ -150,7 +152,7 @@ mean2("h")
 mean4("h")
 ```
 
-### Stops
+## Stops
 The proper way to handle that sort of error-catching is to use ```stop()``` statements. While our ```mean4()``` function will ID when it's given a non-numeric dataset, it will still return a value - in this case, the string "That's not a number!" The problem with this is that it won't make it obvious that something's gone wrong - it lets the mess-up be implicit, instead of explicit.
 
 We can fix that by giving the error message to ```stop()``` instead of ```return```:
@@ -190,7 +192,7 @@ mean6("h")
 
 You might have noticed, by the way, that I haven't been using descriptive object names for our ```mean()``` functions. That's because it's hard to come up with short, descriptive names for such similar objects - this is the problem that we solve with ```%>%``` for our datasets! But still, I tripped up once or twice while writing this chapter, and accidentally called the wrong function - you should make sure you're naming your functions much more descriptively than I am!
 
-#### Function Dependencies
+## Function Dependencies
 As you've seen, we can include functions inside of our functions - and, in fact, most of the most useful functions do exactly this. In that last example, we used ```mean()``` and ```sd()``` inside of our ```multistat()``` function - both of which are included in base R. However, we can even use functions from other libraries if we want. For instance, we can use the ```describe()``` function from psych below - but note that we're preceeding it with ```psych::```, so that it'll run even if the user doesn't have the psych library loaded:
 
 ```{r}
@@ -235,7 +237,7 @@ This isn't a great practice, though - you should only load a library inside a fu
 
 Also, make sure to be careful with how many other packages your functions depend upon - the more packages, the more chances something breaks when one of them updates! 
 
-##### Sidenote:
+#### Sidenote:
 Note that I had to use "list" in ```summary_describe()``` above to return more than one object - and that both objects are written with a $ in front of their name. One cool side effect of this is that I can ask R to return only one of the outputs:
 
 ```{r}
@@ -255,7 +257,7 @@ iris %>%
 This is another workaround to the map functions we described in unit 4. Map functions have a lot of advantages to this approach - for instance, they don't require repeating yourself as much, and they run faster - but there's nothing _wrong_ with doing it this way. However, not all functions return lists, so you may have some challenges if you only rely on this approach.
 
 
-### Saving and Loading Functions
+## Saving and Loading Functions
 If you want to use a function in multiple scripts or notebooks, you have to save it in its own ```.r``` file - that is, its own R script file. After doing so, you'll be able to load the function in other scripts and notebooks using the ```source()``` command, with the filename (in quotes, with the extension, case sensitive) as the only argument. Once you do that, you'll be able to use the function as normal.
 
 Saving and loading functions in this way has a lot of the same benefits as writing functions in the first place - it cuts down on repetition, makes editing and debugging easier, and makes your code easier for other people to understand.
@@ -350,7 +352,7 @@ df1 %>%
 Which is a lot cleaner to read, and easier to write!
 
 
-### More Information 
+## More Information 
 There's a world of depth to constructing functions, with mountains of methods to make your functions work cleaner and more efficiently. The majority of R users don't think of themselves as software developers, who need to be concerned with speed and efficiency - instead, they want things to work, preferably with as little time spent coding as possible. However, if you ever want to write functions for other people to use - or use R for more complex tasks in your own work - it's worth understanding how to code efficiently in R. [Here's a good primer on that subject](https://bookdown.org/csgillespie/efficientR/).
 
 
