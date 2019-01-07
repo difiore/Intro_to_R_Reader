@@ -1,5 +1,8 @@
 # Playing Nicely With Others
 
+> Any fool can write code that a computer can understand. Good programmers write code that humans can understand. 
+> <div align = "right>--- Martin Fowler</div>
+
 So far, we've gotten ourselves to a point where we can explore our data, perform some analyses, and graph our results intelligently. That's all great, and are incredibly important skills. However, even more important than the hard coding skills we've been building is the ability to communicate our results - to our peers, bosses, and the larger outside world.
 
 We'll be using a lot of non-R technologies this unit, and focusing mostly on how to use these technologies in a workflow that resembles those used in the modern scientific world. Plenty of scientists don't use R Markdown. Even more don't use Git. Some may have never heard of LaTeX. But these are skills and tools which are growing in importance and acceptance throughout the scientific and business worlds, so getting used to them now will make your life significantly better. But even moreso than that, understanding how to learn tools like these - at least to the depths you need them - will help you pick up new tools and tech as the world continues to advance. We aren't going super deep into any tool - but we'll go deep enough to make their benefits obvious.
@@ -1444,6 +1447,9 @@ This is a super basic introduction to Git, but should be enough to get you start
 
 ## Commenting Code
 
+> Commenting your code is like cleaning your bathroom - you never want to do it, but it really does create a more pleasant experience for you and your guests.
+> <div align = "right">--- Ryan Campbell</div>
+
 When you insert a hashtag (`#`) before a line in your code, R won't try to run it. This can be used to explain what you're doing at each step of a complicated process, and is referred to as commenting your code. For instance:
 
 
@@ -1457,3 +1463,5 @@ It's a best practice to continuously comment your code - both so that any collab
 
 ## Further Reading
 I had originally planned to write a section of this chapter on the basics of making R packages, in order to quickly and easily share functions and code with a wide variety of people. However, I think that may be slightly outside of the scope of this introduction level text - and there's already a [very good textbook](http://r-pkgs.had.co.nz/) on the subject written by people far more qualified than I. For a full explanation of why (and, to an extent, how) you should build packages, check out the [Leek Group guide to developing R packages](https://github.com/jtleek/rpackages).
+
+Additionally, if you're interested in getting further into Git, check out [Pro Git](https://git-scm.com/book/en/v2) available for free online. 

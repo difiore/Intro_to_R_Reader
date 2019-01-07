@@ -1,4 +1,8 @@
 # Machine Learning
+
+> Go that way, really fast. If something gets in your way … turn.
+> <div align = "right">---Charles de Mar, "Better off Dead"</div>
+
 ## What is Machine Learning?
 Machine learning (ML) is one of the most attractive skills you can have on a resume - it's a complex, rapidly evolving field, taking advantage of continuing improvements in technology to accomplish increasingly difficult tasks. At the most abstract form, machine learning is just a way for computers to automatically make the same sort of models we've used in the past - by providing a large amount of data as an input, the machine can figure out which models give the best results, and "learn" how to improve its predictions without any human input. These models can be used for predictions - which customers will respond best to targeted ads; which areas need the most attention to prevent wildfires - or more complicated tasks, such as identifying the objects in images and the basic tasks associated with artifical intelligence.
 
@@ -193,9 +197,107 @@ confusionMatrix(knnPredict, irisTest$Species)
 
 What we're looking at now are our actual results - this is what we'd report for our model. Our model is significantly better than the null model (that p value [Acc > NIR]), with about an 88.9% accuracy rate. We can also see exactly where our model gets confused - one versicolor flower was misclassed as virginica, while three virginica flowers were mis-classed as versicolor. 
 
+### Support Vector Machines
+
+kNN is only one of the several popular classification algorithms available in R. One of the newest - and most popular - methods is the support vector machine, or SVM.  
+
+Exactly what an SVM does is a little tricky to explain - so we'll simplify things slightly, in order to make it a bit easier. Let's say you have an assortment of data points:
+
+
+```
+## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+```
+
+```
+## ✔ tibble  1.4.2     ✔ purrr   0.2.5
+## ✔ tidyr   0.8.2     ✔ dplyr   0.7.8
+## ✔ readr   1.1.1     ✔ stringr 1.3.1
+## ✔ tibble  1.4.2     ✔ forcats 0.3.0
+```
+
+```
+## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ✖ purrr::lift()   masks caret::lift()
+```
+
+<img src="12_Machine_Learning_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+
+We can see a pretty obvious line to separate the two groups of points:
+
+<img src="12_Machine_Learning_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+
+But if these points are a little more complicated, it can be harder to find the best line of separation.
+
+<img src="12_Machine_Learning_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+
+However, if we had a third variable for these data points, we might be able to find some line separating the data points:
+
+<img src="12_Machine_Learning_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+
+This is what SVMs do: find the best line (in hyperspace - basically, using as many dimensions as you have variables) to separate your data. The best implementation of SVMs in R comes from the `e1071` package - let's install that now:
+
+```
+install.packages("e1071")
+```
+
+```r
+library(e1071)
+```
+
+We then can train a SVM using the `smv()` command, in a similar fashion to the `train()` command from `caret`:
+
+```r
+SVMFit <- svm(Species ~ ., data = iris)
+```
+
+And then, just like before, we can assess our model using a confusion matrix:
+
+```r
+SVMPredict <- predict(SVMFit, newdata = irisTest)
+confusionMatrix(SVMPredict, irisTest$Species)
+```
+
+```
+## Confusion Matrix and Statistics
+## 
+##             Reference
+## Prediction   setosa versicolor virginica
+##   setosa         12          0         0
+##   versicolor      0         11         2
+##   virginica       0          1        10
+## 
+## Overall Statistics
+##                                           
+##                Accuracy : 0.9167          
+##                  95% CI : (0.7753, 0.9825)
+##     No Information Rate : 0.3333          
+##     P-Value [Acc > NIR] : 3.978e-13       
+##                                           
+##                   Kappa : 0.875           
+##  Mcnemar's Test P-Value : NA              
+## 
+## Statistics by Class:
+## 
+##                      Class: setosa Class: versicolor Class: virginica
+## Sensitivity                 1.0000            0.9167           0.8333
+## Specificity                 1.0000            0.9167           0.9583
+## Pos Pred Value              1.0000            0.8462           0.9091
+## Neg Pred Value              1.0000            0.9565           0.9200
+## Prevalence                  0.3333            0.3333           0.3333
+## Detection Rate              0.3333            0.3056           0.2778
+## Detection Prevalence        0.3333            0.3611           0.3056
+## Balanced Accuracy           1.0000            0.9167           0.8958
+```
+
+Almost 92% accuracy! That's pretty awesome! 
+
+If you want a techier explanation of SVMs, check out [this blog post](https://medium.com/machine-learning-101/chapter-2-svm-support-vector-machine-theory-f0812effc72) by Savan Patel.
+
 #### Decision Trees
 
-kNN is only one of the several popular classification algorithms available in R. Another of the most commonly used methods (kinda - we'll get to that in a minute) is known as the decision tree. Basically, this method creates a flowchart with each of your variables - at each split in the chart (known as a "node"), the algorithm uses a selection of variables to try and classify your data. This technique makes use of the bootstrapping we discussed in the past unit - by increasing our sample size, we're able to increase the predictive power of each tree.
+Another of the most commonly used methods (kinda - we'll get to that in a minute) is known as the decision tree. Basically, this method creates a flowchart with each of your variables - at each split in the chart (known as a "node"), the algorithm uses a selection of variables to try and classify your data. This technique makes use of the bootstrapping we discussed in the past unit - by increasing our sample size, we're able to increase the predictive power of each tree.
 
 We're going to use the `rpart` package to make our decision trees for this unit. First, we have to install the package, then load it using `library()`:
 ```
@@ -299,16 +401,16 @@ ForestFit
 ## Resampling results across tuning parameters:
 ## 
 ##   mtry  splitrule   Accuracy   Kappa    
-##   2     gini        0.9574076  0.9352822
-##   2     extratrees  0.9708435  0.9556539
-##   3     gini        0.9611391  0.9410078
-##   3     extratrees  0.9689377  0.9526828
-##   4     gini        0.9582746  0.9366988
-##   4     extratrees  0.9717770  0.9569799
+##   2     gini        0.9600118  0.9391308
+##   2     extratrees  0.9664561  0.9488236
+##   3     gini        0.9610118  0.9406517
+##   3     extratrees  0.9701867  0.9544365
+##   4     gini        0.9591513  0.9379683
+##   4     extratrees  0.9675020  0.9503870
 ## 
 ## Tuning parameter 'min.node.size' was held constant at a value of 1
 ## Accuracy was used to select the optimal model using the largest value.
-## The final values used for the model were mtry = 4, splitrule =
+## The final values used for the model were mtry = 3, splitrule =
 ##  extratrees and min.node.size = 1.
 ```
 
@@ -370,7 +472,7 @@ ForestFit$finalModel
 ## Number of trees:                  500 
 ## Sample size:                      114 
 ## Number of independent variables:  4 
-## Mtry:                             4 
+## Mtry:                             3 
 ## Target node size:                 1 
 ## Variable importance mode:         none 
 ## Splitrule:                        extratrees 
@@ -388,6 +490,17 @@ install.packages("MASS")
 
 ```r
 library(MASS)
+```
+
+```
+## 
+## Attaching package: 'MASS'
+```
+
+```
+## The following object is masked from 'package:dplyr':
+## 
+##     select
 ```
 
 This package contains a bunch of datasets for a 2002 textbook. We'll be using the `Boston` dataset to predict median home prices based on neighborhood demographics and traits. Let's look at our dataset:
@@ -462,17 +575,17 @@ BostonForest
 ## Resampling results across tuning parameters:
 ## 
 ##   mtry  splitrule   RMSE      Rsquared   MAE     
-##    2    variance    3.666900  0.8597065  2.459786
-##    2    extratrees  4.122954  0.8284502  2.755923
-##    7    variance    3.478394  0.8608275  2.328622
-##    7    extratrees  3.338858  0.8761119  2.217015
-##   13    variance    3.817819  0.8289860  2.484904
-##   13    extratrees  3.289980  0.8756224  2.192851
+##    2    variance    4.198524  0.8074691  2.682807
+##    2    extratrees  4.680094  0.7682666  2.988957
+##    7    variance    3.810779  0.8303916  2.448718
+##    7    extratrees  3.953657  0.8221902  2.473085
+##   13    variance    3.960433  0.8144638  2.560585
+##   13    extratrees  3.923580  0.8211972  2.458137
 ## 
 ## Tuning parameter 'min.node.size' was held constant at a value of 5
 ## RMSE was used to select the optimal model using the smallest value.
-## The final values used for the model were mtry = 13, splitrule =
-##  extratrees and min.node.size = 5.
+## The final values used for the model were mtry = 7, splitrule =
+##  variance and min.node.size = 5.
 ```
 
 We can see that our best model has an R^2^ around 85%! Even better!
@@ -499,7 +612,7 @@ rsqcalc(BostonTest$medv, BostonTest$Predicted)
 ```
 
 ```
-## [1] 0.8206364
+## [1] 0.914374
 ```
 
 Even higher!

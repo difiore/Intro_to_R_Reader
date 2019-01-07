@@ -1,11 +1,15 @@
 # Working with Text
+
+> "If it is not written down, it does not exist." 
+> <div align = "right"> --- Philippe Kruchten</div>
+
 So far, all of our work has dealt with numeric data. We've even gone so far as to convert categorical data (such as the type of medal won in the Olympics) into numeric formats when we want to include it in our analyses.
 
 There's a few reasons for this. First off, the majority of data used in business and scientific applications can be treated as numeric in nature, meaning it makes the most sense for the front of this book to focus on that more common application. But mostly we started off with numeric data due to how much _harder_ text can be to work with - it doesn't lend itself to nice rectangular dataframes as easily as numeric data does, and tends to be much messier to wrangle than easy numeric formats.
 
 However, much data originates in text format, whether or not it will be used that way, and as such data scientists have to understand how to interpret and process it as easily as numeric data. As such, this chapter will teach you how to wrangle and manipulate text data into more usable formats for your analyses. This is, I believe, one of the hardest topics in this book, but a good understanding of how to use these tools will allow you to handle a much wider variety of datasets than numerical methods alone.
 
-Before we begin, I want to highlight that the title of this chapter is _Working with Text_, as opposed to _Text-Based Analyses_. While text-based analyses are commonly used in some spheres - for instance, sentiment analysis is popular in both the digital humanities and political science - we're more focused on the tools used to work with text than the following analyses. For good resources on those topics, check out the [Text Mining with R](https://www.tidytextmining.com/index.html) book.
+Before we begin, I want to highlight that the title of this chapter is _Working with Text_, as opposed to _Text-Based Analyses_. While text-based analyses are commonly used in some spheres - for instance, sentiment analysis is popular in both the digital humanities and political science, and is gaining acceptance as a [business tool](https://www.northeastern.edu/levelblog/2018/08/02/companies-use-sentiment-analysis/) - we're more focused on the tools used to work with text than the following analyses. For good resources on those topics, check out the [Text Mining with R](https://www.tidytextmining.com/index.html) book.
 
 ## Working with Stringr
 

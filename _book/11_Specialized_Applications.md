@@ -1,4 +1,9 @@
 # Special Applications
+
+> Programming is like pinball. The reward for doing it is the opportunity of doing it again.
+> <div align = "right"> - Unknown </div>
+
+
 At this point in the book, we've covered most of the most essential tools you'll use in R. However, there's a wealth of alternative uses for R that we haven't even begun to touch, but are good for new programmers and data analysts to be aware of. As such, this chapter will hopefully touch on the most important more specialized applications that we've yet to mention, giving you either a brief tutorial or links to where you can learn more. 
 
 ## Sampling
