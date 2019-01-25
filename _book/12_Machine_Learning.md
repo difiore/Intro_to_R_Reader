@@ -205,7 +205,7 @@ Exactly what an SVM does is a little tricky to explain - so we'll simplify thing
 
 
 ```
-## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
@@ -216,7 +216,7 @@ Exactly what an SVM does is a little tricky to explain - so we'll simplify thing
 ```
 
 ```
-## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ✖ purrr::lift()   masks caret::lift()

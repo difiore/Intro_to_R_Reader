@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Data Exploration and Analysis with R"
 author: "Michael Mahoney"
-date: "2019-01-02"
+date: "2019-01-24"
 site: bookdown::bookdown_site
 bookdown::gitbook:
   config:

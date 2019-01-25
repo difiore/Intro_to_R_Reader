@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2019-01-02">
+<meta name="date" content="2019-01-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -342,12 +342,12 @@ How did it get so late so soon? It’s night before it’s afternoon. December i
 </blockquote>
 <p>Before we get started, let’s load the <code>lubridate</code> package. While part of the tidyverse (so you’ve already got it installed), we have to load it separately, since it’s not as commonly used as the other ones:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
 ## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
 ## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
 ## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)</code></pre></div>
@@ -357,7 +357,7 @@ How did it get so late so soon? It’s night before it’s afternoon. December i
 ## 
 ##     date</code></pre>
 <p>Time series data is essential to a huge number of analysis tasks, now that data readers can collect information every hour - or every second. Knowing how a process changes over time - whether it’s how warm soil is, how many animals a camera has seen, or how often people have clicked on your link - allows insight into a large variety of questions.</p>
-<p>However, dates and times can be surprisingly hard to deal with. For instance, the date the last time I compiled this book was 2019-01-02 - that’s YYYY-MM-DD format, which we’ll talk about in a minute. At first, this format makes a lot of sense - every 24 hours, we add a 1 to the day; after a certain number of days, we add a 1 to the month; and after 12 months (or 365 days), we add a 1 to the year. It’s just a slightly different form of numerical data.</p>
+<p>However, dates and times can be surprisingly hard to deal with. For instance, the date the last time I compiled this book was 2019-01-24 - that’s YYYY-MM-DD format, which we’ll talk about in a minute. At first, this format makes a lot of sense - every 24 hours, we add a 1 to the day; after a certain number of days, we add a 1 to the month; and after 12 months (or 365 days), we add a 1 to the year. It’s just a slightly different form of numerical data.</p>
 <p>But there’s a lot of messiness under those easy rules. For instance, not every year has 365 days, and not every day has 24 hours - thanks to the leap year’s lesser-known cousin, the leap-second, but also due to daylight savings time, where we sometimes have 23 or 25 hours in a day. There’s really no standardization of how many days a month has. Things are complicated.</p>
 <p>Plus, unlike other numerical data, there’s no good concept of what 0 means for dates. There’s no month 0, there’s no day 0, and - confusingly enough - there’s no year 0, with year 1 separating the BC and CE eras. And all that confusion comes before the fact that we use <a href="https://en.wikipedia.org/wiki/Gregorian_calendar#Proleptic_Gregorian_calendar">two different calendar systems to refer to years pre- and post-1582</a>.</p>
 <p>Luckily enough, you usually won’t have a ton of data from before 1582. But it’s still worth realizing that dates are just numbers on a kinda weird numberline - or, a perfectly normal numberline, where our labels are a little bit weird.</p>

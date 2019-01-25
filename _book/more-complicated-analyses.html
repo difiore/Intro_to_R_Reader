@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2019-01-02">
+<meta name="date" content="2019-01-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -350,12 +350,12 @@ Computers are cheap, and thinking hurts.
 <p>We’re going to be assuming that your data are located in the same folder as your script - this is usually the easiest way to manage datasets. Otherwise, you’ll have to wrestle a little with using relative pathways and directory names - Hadley Wickham explains these in more detail here.</p>
 <p>In order to do this, we’ll be using the <code>readr</code> package, which is included in the base tidyverse:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
 ## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
 ## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
 ## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <p>All the datasets included in our example use different <em>delimiters</em> - the character that tells R (or Excel, or whatever program you’re using) where one column stops and the next one begins. No matter what your delimiter is, we can parse the file using <code>read_delim()</code> - the first argument is the filename to read, while the second is the delimiter used. For instance, our text file is tab delimited - and since tabs are represented in R as <code>\t</code>, we’ll tell <code>read_delim()</code> to use that as a delimiter:</p>
