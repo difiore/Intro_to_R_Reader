@@ -1,0 +1,49 @@
+# What Next
+
+At this point, you've got a pretty solid understanding of the basics of coding in R. Depending on your purposes for learning the language, there's a number of different topics that you could focus in on next. The purpose of this chapter, near the end of our book, is to list a number of these possible areas with resources to learn about them, so that you may have an easier time discovering new topics of interest.
+
+## Machine Learning Methods
+Machine learning is a complicated set of tools used by analysts to make more accurate predictions than classical regression and classification methods allow. R is pretty good at implementing these algorithms, using packages such as `caret` and `keras`. While a full discussion of machine learning is outside the scope of this text, there are a number of useful resources available online for further learning. [This book](https://lgatto.github.io/IntroMachineLearningWithR/index.html) is the best resource I've found for free, but there are a number of (not-free) courses available online after a quick Google.
+
+## Leaflet Maps
+```{r echo=FALSE}
+library(leaflet)
+library(readxl)
+SiteData <- read_excel("Field Data Sheets.xlsx")
+SiteData$Color <- ifelse(SiteData$LakeRiver == "Lake", "orange", "purple")
+  
+icons <- awesomeIcons(
+  icon = "map-marker-alt",
+  iconColor = "black",
+  library = "fa",
+  markerColor = SiteData$Color
+)
+
+leaflet() %>%
+  addTiles() %>%
+  addAwesomeMarkers(data = SiteData, lat = ~ Lat, lng = ~ Long, icon = icons, label = ~ as.character(Site), popup = ~ as.character(Text))
+```
+
+[Leaflet](https://leafletjs.com/) is, in its original form, a JavaScript library for making interactive maps. The implementation in R, via the `leaflet` package, allows you to embed these maps in R Markdown documents and other web-based formats. For a great tutorial on how to use this package, check out the [RStudio leaflet website](https://rstudio.github.io/leaflet/).
+
+## FlexDashboard
+```{r}
+knitr::include_graphics("Dash.png")
+```
+
+[FlexDashboard](https://rmarkdown.rstudio.com/flexdashboard/) is a system for making dashboards via R Markdown, combining text and visualizations into highly effective data-driven dashboards well suited to communicate your results to any stakeholders. These boards can be split across multiple pages, scroll, and incorporate all sorts of useful packages, making this package a wonderful resource for communicating your results. The best way to learn more is on the [FlexDashboard website](https://rmarkdown.rstudio.com/flexdashboard/).
+
+## Bookdown
+If you're writing a book which incorporates R code, outputs, and can be formatted using R Markdown, one of the best packages for your needs is the [Bookdown](https://bookdown.org/) package. By formatting your book as a collection of R Markdown documents, you're able to write your entire book in the RStudio environment, and see how your graphics and code will look to the reader while you write. The best resource for starting with Bookdown is the [Bookdown book](https://bookdown.org/yihui/bookdown/), with this [blog by Sean Kross](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html) another useful reference.
+
+(And yes, this book was entirely written in Bookdown).
+
+## Blogdown
+Similar to the Bookdown package is Blogdown, which lets you use R Markdown to create [websites](https://www.mikemahoney218.com/). While it's slightly more complicated - it requires you to fuss with [Hugo](https://gohugo.io/) somewhat, and understand a little about web design - it's pretty easy to install a template and produce a professional looking website, with minimal coding required. The best place to learn more about Blogdown is the [Blogdown book](https://bookdown.org/yihui/blogdown/), with this [blog by Alison Hill](https://alison.rbind.io/post/up-and-running-with-blogdown/) also useful in getting started.
+
+## Shiny
+People really, really like interactive graphics. Being able to click their way through a series of visualizations - or maybe just alter the aesthetic choices of a final output - satisfies a lot of non-data-professionals in a big way. 
+
+I think interactive graphics are usually a waste of resources - while they're cool, they take away your ability to narrate a story and effectively demonstrate your arguments, which are the main purposes of communicative graphics. While interactive graphics are more useful for data exploration, the amount of time they take to generate and polish makes them cost-prohibitive for this type of use. There are better tools for making these sorts of interactives, and they aren't particularly useful in the printable types of documents most readers of this book will find themselves making.
+
+With that screed out of the way, it's worth noting that your boss (and clients) likely think interactives are cool, whether or not you like it. And so R's `shiny` package does a pretty good job of letting people make interactive charts and HTML widgets with minimal pain - and some jobs do view proficency with Shiny a plus. You can find a list of resources for learning Shiny at the [official website](https://shiny.rstudio.com/), including written tutorials and a free DataCamp course.

@@ -1,0 +1,82 @@
+---
+title: "Untitled"
+author: "Mike Mahoney"
+date: "April 1, 2019"
+output: html_document
+---
+## Model Predictions
+Say we made a model to predict flower sepal lengths:
+```{r}
+IrisForm <- lm(Sepal.Length ~ ., data = iris)
+```
+
+We already know that we can assess this model in a number of ways - for instance, we can check the R^2 value and coefficient significance using `summary()`:
+
+```{r}
+summary(IrisForm)
+```
+
+However, if we wanted to actually use this model to generate predictions, we could do so using the `predict()` function in base R:
+
+```{r}
+iris2 <- iris
+iris2$Predict <- predict(IrisForm, newdata = iris2)
+```
+
+We can then use this to generate residual plots for our model:
+
+```{r}
+ggplot(iris2, aes(Predict, Sepal.Length)) + 
+  geom_point() + 
+  annotate("segment", x = -Inf, xend = Inf, y = -Inf, yend = Inf, color = "red")
+ggplot(iris2, aes(Predict, Predict-Sepal.Length)) + 
+  geom_point() + 
+  annotate("segment", x = -Inf, xend = Inf, y = 0, yend = 0, color = "red")
+```
+
+Looks like a pretty good fit! We'll be using `predict()` more in our next chapter, but I wanted to introduce it before we got too deep into the machine learning topics.
+
+## Sampling
+When we perform statistical analyses, we almost always work on sample data - a dataset of observations selected from a larger population, from which we can make assumptions about that larger population. Oftentimes, we've done some sampling by the time we first load R - for instance, by only measuring certain trees in the forest, or only looking at website activity for a certain time period. However, there are times where we need to sample from a digital dataset - often in order to perform further analyses faster or cheaper - where R can be quite helpful.
+
+There's quite a number of sampling methods we can undertake in R, but we'll run through the two most common here. Before we get started, we'll set our seed (so our "random" numbers are always the same - we'll cover this concept in more detail in chapter 12) and load the tidyverse:
+```{r}
+set.seed(42)
+library(tidyverse)
+```
+
+### Sample Random Samples
+A simple random sample is exactly what it sounds like - out of a dataset with N observations, you select n of them at random. If your data is stored in a vector, this is easy enough to do with `sample()`:
+```{r}
+## Create a vector of 20 random numbers pulled from the normal distribution
+vector1 <- rnorm(20)
+
+## Sample 5 of those numbers at random
+sample(vector1, 5)
+```
+
+If we want to select entire rows from a dataframe, the process is slightly more complicated. For instance, say we wanted to sample a single row from the `iris` dataset. The obvious solution has a confusing result:
+```{r}
+head(sample(iris, 1))
+```
+
+Rather than sampling a _row_ at random, `sample()` is instead selecting a random _column_. Instead, we need to follow a two-step process to randomly select full rows. First, we create an index of selected rows, by calling `sample()` on a vector of _row numbers_ from our dataset:
+```{r}
+index <- sample(1:nrow(iris), 6)
+```
+
+We can now subset our dataframe using this index to get our random sample:
+```{r}
+iris[index, ]
+```
+
+
+### Stratified Random Sampling
+Sometimes there's a pretty good reason to not select your sample purely randomly. For instance, in our above example, we've somehow selected three versicolor and only one setosa flower, which might be a problem in our future analyses.
+
+If we wanted to ensure that we sample evenly from each species of flower - known in stats terminology as a strata - we can make use of the `sample_n()` function from `dplyr`. To do so, we just group our dataset by the stratifying variable, then tell `sample_n()` how many samples we'd like to take from each strata:
+```{r}
+iris %>%
+  group_by(Species) %>%
+  sample_n(2)
+```
