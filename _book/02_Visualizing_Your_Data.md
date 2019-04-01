@@ -1,0 +1,801 @@
+# Visualizing Your Data
+
+## What is a Visualization?
+A data visualization is a method of representing data in a graphical format, useful both in communicating results of analyses and in exploring datasets to determine what analyses might be appropriate. At the end of the last chapter, we used R's built in `plot()` function to make this graphic:
+
+
+```r
+plot(iris$Sepal.Length, iris$Sepal.Width)
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+
+This is our first data visualization in R! Unfortunately, it has some obvious challenges - the axis labels are unhelpful, there's no context as to what the graph is, and to be honest it's a little bit ugly. 
+
+If we wanted to, we could spend some time cleaning up this graphic and making it better:
+
+
+```r
+plot(iris$Sepal.Length,
+     iris$Sepal.Width,
+     xlab = "Sepal length (cm)",
+      ylab = "Sepal width (cm)",
+      pch = 19,
+      las = 1,
+     col = "deepskyblue4")
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+
+But doing anything much more than this gets very complicated very quickly. For this reason, I almost never use the base graphing functions in R - they're just so complicated to use!
+
+## The Tidyverse Package
+Thankfully enough, R has a ton of add-on softwares - called _packages_ - which make graphing (and many other tasks) with R significantly easier. Let's install some of the most common ones now:
+
+```
+install.packages("tidyverse")
+```
+
+```r
+library(tidyverse)
+```
+
+```
+## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──
+```
+
+```
+## ✔ ggplot2 3.1.0     ✔ purrr   0.3.0
+## ✔ tibble  2.1.1     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.3.0
+```
+
+```
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+```
+
+Note the quotes around "tidyverse" when you go to install it, but **not** when it's inside of `library()`. The reason for this is a little complicated - basically, you don't use quotes for things that are inside of R's memory, like data, functions, and packages. You use quotes for everything else.
+
+If you get an error saying "no package named tidyverse", try reinstalling the package. It might take a few minutes to load.
+
+What we just did was install a package called the `tidyverse` (with `install.packages`), and load it using `library`. Most common problems in R have already been solved by someone else, and most of those people have made their work publicly available for others to use in the form of a package. Packages only have to be installed once to be used - but you'll have to call them using `library()` each time you restart R.
+
+The tidyverse is a pretty unique example of a package - it actually contains six packages, most of which are essential to using R like a modern professional. The most important one for us right now is called `ggplot2`. Don't worry about having to load it - `library(tidyverse)` automatically loads this package for you.
+
+
+## ggplot2
+ggplot is an attempt to extend R's basic graphics abilities to make publication-quality graphics faster and easier than ever before. In fact, we can make a version of our scatterplot above, just by typing:
+
+
+```r
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) + 
+  geom_point()
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+
+Remember, R is case sensitive!
+
+There are five important steps that went into making that graph:
+
+* First, the `ggplot()` call tells R that we want to create a ggplot object
+* Second, the ` data = iris` tells ggplot that everything we do should use the iris dataset
+* Third, the `aes()` specifies the _aesthetics_ of the graph - what goes on the X and Y axes, but also any other data we want represented in our plot
+* Fourth, the `+` lets us add additional steps to our plot. Note that the `+` must **always** be at the end of a line - putting it at the start of a line will mess up your session! If you see a `+` in the console instead of a `>` after trying to plot something, this is most likely what happened - press your escape key to exit the command.
+* Finally, the `geom` tells ggplot what sort of graph we want. A geom is just the type of plot (or, well, the geometric object which represents data) - so `geom_boxplot()` generates a boxplot, while `geom_col()` makes a column chart. `geom_point` generates a scatterplot, but there are plenty of other options to choose from!x
+
+### Functions in ggplot
+The `ggplot()` and `geom_point` calls are known as _functions_ - a type of R object that, when given certain parameters, gives a certain output. Those parameters - in this plot, our `data = `, `x = `, and `y = ` calls - are known as _arguments_. 
+
+Each of these arguments can have different values, if we want to change our graph. For instance, if we wanted to color and add a trendline for each species of iris, we could do the following:
+
+
+```r
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
+  geom_point() + 
+  geom_smooth()
+```
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+
+`geom_smooth()` adds a trendline to your graphs, with a shadow representing the 95% confidence interval around it. While some people refer to this as a _line graph_, it's a separate thing entirely - a line graph connects the points, like this:
+
+
+```r
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
+  geom_point() + 
+  geom_line()
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+
+For now, we're going to stick with our pretty smoothed trendline.
+
+
+```r
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
+  geom_point() + 
+  geom_smooth()
+```
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+
+Notice how our points here are a little hard to see, as they're drawn under the line and shading? That's because we call `geom_smooth()` after `geom_point()`, and `ggplot` adds things to the graph in the order we call them. If we wanted to make the points slightly easier to see, we could just flip the order we call the functions:
+
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+
+Our graph makes a lot more sense now - sepal length and width seem to be correlated, but each species is different.
+
+### Changing Aesthetics
+If we really wanted to, we could make other aesthetics also change with `Species`:
+
+
+```r
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
+  geom_smooth(aes(linetype = Species)) + 
+  geom_point(aes(size = Species, shape = Species)) 
+```
+
+```
+## Warning: Using size for a discrete variable is not advised.
+```
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+
+But that's pretty ugly. We'll get into graph best practices a little bit further into the unit - but generally speaking, a graph should contain exactly as much as it takes to get your point across, and no more. One aesthetic per variable is usually enough.
+
+In an important exception to that rule, it's generally well advised to use different shapes and colors at the same time. Colorblind viewers may not be able to discern the different colors you're using - so varying the shape of your points or type of your lines helps make your graphics more accessible to the reader.
+
+If you want, you can specify shapes using `scale_shape` functions, such as `scale_shape_manual()`. There are 25 shapes available for use in ggplot, each of which is named after a number - the number to the left of the shape in the figure below:
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+
+So if we wanted, we could specify shapes for each species in our dataset pretty easily! I've done so below. I'm also going to control the colors by hand - R has [a ton of colors available](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf), and you can go crazy picking the best colors for a graph. You can also specify colors by using hex codes (e.g., `"#FFFFFF"`), but be warned that you might not get an exact match of what you were looking for - R will match as closely as it can from the colors it has available.
+
+
+```r
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
+  geom_point(aes(shape = Species), size = 3) + 
+  scale_shape_manual(values = c(16, 17, 18)) + 
+  scale_color_manual(values = c("purple",
+                                "black",
+                                "orange")) 
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+
+I also made the points a little bigger by specifying `size = 3` - note that it _isn't_ in the aesthetics function, because it doesn't care about any of the data. Things only go inside `aes()` if they're responsive to changes in the data you're graphing.
+
+We can also vary the type of line that gets drawn when we use `geom_smooth`. This one only has six options, each of which has both a number and a name:
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+
+You can manually specify linetypes with `scale_linetype` functions, similar to what we did with shapes. You can use either the names or the numbers - just make sure that the names go inside of quotes, while the numbers don't!
+
+I'm going to make our same graph again, manually controlling the linetypes. I'm also going to get rid of that shadow - it represents the 95% confidence interval around the line (which we'll discuss more in our statistics section), as identified via standard error. We can turn it off by setting `se = FALSE` in the `geom_smooth()` function call.
+
+
+```r
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
+  geom_smooth(aes(linetype = Species), size = 1, se = FALSE) + 
+  scale_color_manual(values = c("purple",
+                                "black",
+                                "orange")) + 
+  scale_linetype_manual(values = c("solid",
+                                   "dashed",
+                                   "twodash"))
+```
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+
+We can also combine both graphs into one, more useful graphic:
+
+
+```r
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
+  geom_smooth(aes(linetype = Species), size = 1, se = FALSE) + 
+  geom_point(aes(shape = Species), size = 3) + 
+  scale_shape_manual(values = c(16, 17, 18)) + 
+  scale_color_manual(values = c("purple",
+                                "black",
+                                "orange")) + 
+  scale_linetype_manual(values = c("solid",
+                                   "dashed",
+                                   "twodash"))
+```
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+Nifty! Hopefully you're getting a sense of how `ggplot` allows you to build a graph by addition, as it draws whatever functions you've called in turn.
+
+Note, by the way, that I've put `aes()` calls in both the `ggplot()` and `geom` functions. Geoms _inherit_ from the `ggplot()` call - they'll use whatever data and aesthetics are specified inside the parenthesis. However, if you want an aesthetic to only apply to one geom, you can put it inside that `geom()` call. This is pretty commonly used when an aesthetic only applies to one geom - for instance, our `geom_smooth()` can't take a `shape =`.  
+
+You have to be careful with this power, though! Sometimes, defining geom-specific aesthetics will give you misleading or simply wrong visualizations. For instance, what would happen if we draw our lines based on the petal length of each species, rather than the sepal width?
+
+
+```r
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
+  geom_point(aes(shape = Species), size = 3) + 
+  geom_smooth(aes(y = Petal.Length, linetype = Species), size = 1, se = FALSE) + 
+  scale_shape_manual(values = c(16, 17, 18)) + 
+  scale_color_manual(values = c("purple",
+                                "black",
+                                "orange")) + 
+  scale_linetype_manual(values = c("solid",
+                                   "dashed",
+                                   "twodash"))
+```
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+
+Our plot makes no sense!  
+
+Lots of beginners are tripped up by this when they're starting - a common assumption is that ggplot will add a second y-axis to the right hand of the plot. In reality, there is _no way_ to graph two y-axes (of different values) on the same ggplot graph - and [that's on purpose](https://kieranhealy.org/blog/archives/2016/01/16/two-y-axes/), as dual y-axis plots are almost always misleading. It's almost always better to just have two graphs next to each other, if you need to compare the data - though the linked article contains some other interesting suggestions.
+
+Anyway, thinking back to our other graphic:
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+
+This graph is nice, but I think it could be even nicer. Specifically, there's a lot of overlap between the _versicolor_ and _virginica_ species - it would be nice to see them side by side, rather than on the same plot.
+
+
+### Facetting
+Luckily, ggplot makes this easy for us via what's known as _facets_. By adding `facet_wrap()` to our plot, we're able to split the three species onto their own graphs, while keeping the axes standardized.
+
+
+```r
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) + 
+  geom_point(size = 3) + 
+  geom_smooth(size = 1, se = FALSE) + 
+  facet_wrap(~ Species)
+```
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+
+That makes seeing the differences much easier! Note that I got rid of the different species aesthetics - now that the species are each on their own plot, each species having a different color and shape doesn't add any information to the visualization. 
+
+`facet_wrap()` is very useful, in that it will automatically wrap our plots into however many rows and columns are required. If we want to be a little more specific in how our data is arranged, however, we can use `facet_grid()`. By specifying either `rows = ` or `cols = `, we can finely control how our data is split:
+
+
+```r
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) + 
+  geom_point(size = 3) + 
+  geom_smooth(size = 1, se = FALSE) + 
+  facet_grid(rows = vars(Species))
+```
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+
+Heck, if we have two groups we want to compare, we can use both `rows = ` and `cols = ` at the same time! Unfortunately, `iris` doesn't have two grouping variables in it - so I'm going to make another one (`color`):
+
+
+```r
+iris2  <- iris
+iris2$color <- rep(c("purple","red","black"), 50)
+head(iris2)
+```
+
+```
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species  color
+## 1          5.1         3.5          1.4         0.2  setosa purple
+## 2          4.9         3.0          1.4         0.2  setosa    red
+## 3          4.7         3.2          1.3         0.2  setosa  black
+## 4          4.6         3.1          1.5         0.2  setosa purple
+## 5          5.0         3.6          1.4         0.2  setosa    red
+## 6          5.4         3.9          1.7         0.4  setosa  black
+```
+
+As you can see, I've told R to `rep`licate (or `rep`eat, as I've always thought of it) the vector of `purple, red, black` 50 times - so about a third of each species will be in each color. Using that as our column grouping gives us:
+
+
+```r
+ggplot(data = iris2, aes(x = Sepal.Length, y = Sepal.Width)) + 
+  geom_point(size = 3) + 
+  geom_smooth(size = 1, se = FALSE) + 
+  facet_grid(rows = vars(Species), cols = vars(color))
+```
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+```
+## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+## parametric, : pseudoinverse used at 5.2
+```
+
+```
+## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+## parametric, : neighborhood radius 0.2
+```
+
+```
+## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+## parametric, : reciprocal condition number 0
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+
+## Diamonds
+### Visualizing Large Datasets
+
+For this next exercise, we're going to be using the `diamonds` dataset, which contains data about 54,000 different diamond sales. It looks like this:
+
+
+```r
+head(diamonds)
+```
+
+```
+## # A tibble: 6 x 10
+##   carat cut       color clarity depth table price     x     y     z
+##   <dbl> <ord>     <ord> <ord>   <dbl> <dbl> <int> <dbl> <dbl> <dbl>
+## 1 0.23  Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43
+## 2 0.21  Premium   E     SI1      59.8    61   326  3.89  3.84  2.31
+## 3 0.23  Good      E     VS1      56.9    65   327  4.05  4.07  2.31
+## 4 0.290 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63
+## 5 0.31  Good      J     SI2      63.3    58   335  4.34  4.35  2.75
+## 6 0.24  Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48
+```
+
+We can plot the price of each diamond against its weight (or carat) pretty easily, using `geom_point()` like before:
+
+
+```r
+ggplot(diamonds, aes(carat, price)) + 
+  geom_point()
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+
+Note that I've stopped explicitly writing `data = `, `x = `, and `y = `. Without that specification, R assumes that you're providing arguments to the function in the order the function normally expects them - which, for `ggplot()`, is in the form `ggplot(data, aes(x, y))`. Most code you'll find in the wild is written in this more compact format.
+
+Anyway, back to the graph. It's a bit of a mess! It's hard to discern a pattern when all 54,000 points are plotted in the same area. We can make things a bit better by making the points transparent, by giving them a low `alpha = ` value:
+
+
+```r
+ggplot(diamonds, aes(carat, price)) + 
+  geom_point(alpha = 0.05)
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+
+This is somewhat better! We can see that there's a correlation between price and carat - but it's hard to tell exactly what the trend looks like. Plus, there's a good amount of empty space on the graph, which we could probably make better use of.
+
+### Axis Transformations
+We can consider transforming our axes to solve all these problems. For instance, if we plotted both our axes on log<sub>10</sub> scales, we'd get the following graph:
+
+
+```r
+ggplot(diamonds, aes(carat, price)) + 
+  geom_point(alpha = 0.05) + 
+  scale_x_log10() + 
+  scale_y_log10()
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+
+So we can see that, by log-transforming our variables, we get a linear-looking relationship in our data.
+
+Now, I'm personally not a fan of log graphs - [and you shouldn't be, either](https://www.researchgate.net/publication/326450797_Logarithmic_scales_in_ecological_data_presentation_may_cause_misinterpretation). But you'll sometimes have data that can't be properly explained without logarithims - or bosses who won't listen to reason. As such, it's worth knowing how to make R plot things exactly as you want it to.
+
+You can perform plenty of other axes transformations by specifying the `trans` argument inside of your scale function. For instance, if we wanted to use a natural log instead, we could type:
+
+
+```r
+ggplot(diamonds, aes(carat, price)) + 
+  geom_point(alpha = 0.05) + 
+  scale_y_continuous(trans = "log") + 
+  scale_x_continuous(trans = "log")
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+
+To learn more about transformations, you can read the documentation by typing `?scale_x_continuous()` into the console.
+
+## Other Popular Geoms
+
+## Histograms
+One of the most popular geoms is the histogram, which allows you to quickly visualize the distribution of a numeric value:
+
+```r
+ggplot(diamonds, aes(price)) + 
+  geom_histogram()
+```
+
+```
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+Where did `count` come from? We only specified an x variable!
+
+The short answer is that ggplot calculated it by itself! ggplot only needs an x aesthetic to make a histogram - it will calculate the count of each level of the variable and use that as its y. 
+
+Base R also has a histogram function in `hist()`, which I occasionally use while making exploratory graphs. It works pretty similarly to the `ggplot` method, but collapsed into a single function:
+
+
+```r
+hist(diamonds$price)
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+
+## Bar Charts
+
+If we wanted to use a categorical value instead of a numeric one on the x-axis, we'd use a bar chart. It's easy enough to make this in ggplot, using `geom_bar()`:
+
+
+```r
+ggplot(diamonds, aes(x = cut)) + 
+  geom_bar()
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-28-1.png" width="672" />
+
+If we wanted to communicate more information with this chart, we could think about what number of each cut type is made up of each clarity level. One way to do that is to map the `fill` of the barplot to the `clarity` variable:
+
+
+```r
+ggplot(diamonds, aes(cut, fill = clarity)) + 
+  geom_bar()
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-29-1.png" width="672" />
+
+Note that we use `fill` in this case, as we're defining the color for the inside of the polygon, not the lines themselves. If we used `color` instead, we'd get something like this:
+
+
+```r
+ggplot(diamonds, aes(cut, color = clarity)) + 
+  geom_bar()
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-30-1.png" width="672" />
+
+Where only the borders of each polygon are colored.
+
+Now, ggplot's default behavior when given a color or fill aesthetic is to make a _stacked bar chart_, as shown above. Stacked bar charts [are awful](https://eagereyes.org/techniques/stacked-bars-are-the-worst). It's really hard to compare values between bars, because the lower limits aren't standardized. The one exception is if you're only comparing two values and all bars sum to the same amount, like so:
+
+
+```r
+## Make a table of x and y values, which are split into two groups by z. 
+## Each x has a y value for each level of z.
+df <- data.frame(x = c(1, 1, 2, 2, 3, 3), 
+                 y = c(40, 60, 30, 70, 20, 80), 
+                 z = c("A","B","A","B", "A", "B"))
+df
+```
+
+```
+##   x  y z
+## 1 1 40 A
+## 2 1 60 B
+## 3 2 30 A
+## 4 2 70 B
+## 5 3 20 A
+## 6 3 80 B
+```
+
+```r
+ggplot(df, aes(x, y, fill = z)) + 
+  geom_col()
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-31-1.png" width="672" />
+
+Note that I'm using `geom_col()`, which makes _column charts_. This lets us define y as values other than the simple count - useful if we're trying to graph the average value for each group, for instance.
+
+This simple stacked bar chart works well enough - it lets you compare the values of both A and B, since the groups share a border at either the top or bottom edge of the plot. For most purposes, though, a somewhat better option is the dodged bar chart:
+
+
+```r
+ggplot(diamonds, aes(cut, fill = clarity)) + 
+  geom_bar(position = "dodge")
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-32-1.png" width="672" />
+
+Dodged bar plots are better than stacked bars when comparing more than one value for each item on the x axis of a chart. However, with enough series, dodged bar charts can also be decently confusing - try comparing the I1 values between Premium and Fair on this chart, for instance. 
+
+## Jittered Points
+If you have to have this much information in a single graphic, `geom_jitter` can help. It generates a scatterplot, much like `geom_point()`, but "jitters" the points by adding statistical noise - making it easy to compare counts between all combinations of the two variables.
+
+
+```r
+ggplot(diamonds, aes(cut, clarity)) + 
+  geom_jitter(alpha = 0.05)
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-33-1.png" width="672" />
+
+You can use `geom_jitter` to make regular scatterplots, as well - for instance, we can see more of the points in our original `iris` scatterplot by adding a little bit of noise to the plot:
+
+
+```r
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+  geom_jitter() + 
+  scale_color_manual(values = c("purple",
+                                "black",
+                                "orange"))
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-34-1.png" width="672" />
+
+Note that this does actually move where your points are placed on the graph - if it's important that a reader can extract actual values from your graphic, don't jitter your points! That being said, in most cases where a reader needs specific numbers from your dataset, a table is usually better fit to your needs.
+
+## Boxplot
+The last main plot type we'll go over is the boxplot. This is mostly used to show the distribution of data - it draws a plot with a line at the data's median, box borders at the 25% and 75% values, and lines reaching to the 5% and 95% values.
+
+
+```r
+ggplot(diamonds, aes(cut, price)) + 
+  geom_boxplot()
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-35-1.png" width="672" />
+
+There are a lot of other things you can do with ggplot that we won't go over here - you can find cheatsheets on the package [here](https://www.rstudio.com/resources/cheatsheets/), and read more documentation [here](https://ggplot2.tidyverse.org/).
+
+Note that you can't make pie charts with ggplot. [You usually shouldn't be using a pie chart anyway,](http://info.slis.indiana.edu/~katy/S637-S11/cleveland84.pdf) but we'll go over this in unit 8.
+
+## Designing Good Graphics
+These earlier charts are good examples of graphs we might use for data exploration, early in an analysis, to see what patterns we might be able to identify and tease out through further work. They aren't, however, polished graphs ready for use in presentations. Graphics for communication require a little more attention to the principles of design.
+
+Graphics for communication, at their essence, exist to make arguments and communicate your point. In order to do that, a graphic has to be both visually clean and easily understood, while at the same time containing exactly enough information to get a point across - and nothing more. Learning how to make graphics like this is a skill unto itself, and should be a skill you pay attention to even after finishing this unit. After all, it doesn't matter how smart you are and how perfect your analysis is if you aren't able to tell anyone about it afterwards!
+
+The hard part about teaching graphic design is that it's as much an art as a science - there is no one right way to make compelling graphics. What I'm going to teach in this section is as much my opinion as it is the correct way to do things - other textbooks and other people have their own preferred methods, none of which are inherently better or worse. 
+
+For instance, ggplot comes with a number of preinstalled themes which you can add to any given plot. For a complete list, [click here](https://ggplot2.tidyverse.org/reference/ggtheme.html). We'll just demo a few of the most common ones, using our old `iris` scatterplot:
+
+
+```r
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+  geom_point() + 
+  scale_color_manual(values = c("purple",
+                                "black",
+                                "orange")) +
+  theme_bw()
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-36-1.png" width="672" />
+
+```r
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+  geom_point() + 
+  scale_color_manual(values = c("purple",
+                                "black",
+                                "orange")) +
+  theme_minimal()
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-36-2.png" width="672" />
+
+```r
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+  geom_point() + 
+  scale_color_manual(values = c("purple",
+                                "black",
+                                "orange")) +
+  theme_classic()
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-36-3.png" width="672" />
+
+Plenty of other packages introduce other ggplots for you to use. My personal favorite is `cowplot`. Written by [Claus O. Wilke](http://wilkelab.org/), it provides some really interesting new extensions to ggplot, and sets the default theme to something that generally looks better than ggplot's defaults. If we install it now:
+
+```
+install.packages("cowplot")
+```
+
+And then load it:
+
+
+```r
+library(cowplot)
+```
+
+```
+## 
+## Attaching package: 'cowplot'
+```
+
+```
+## The following object is masked from 'package:ggplot2':
+## 
+##     ggsave
+```
+
+
+```r
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+  geom_point() + 
+  scale_color_manual(values = c("purple",
+                                "black",
+                                "orange"))
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-38-1.png" width="672" />
+
+This default is pretty similar to `theme_classic()`, except with different font sizes. However, if we add `background_grid()` to our plot:
+
+
+```r
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+  geom_point() + 
+  scale_color_manual(values = c("purple",
+                                "black",
+                                "orange")) + 
+  background_grid()
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-39-1.png" width="672" />
+
+We get what I consider to be the nicest looking default option R will give you.
+
+If we want to override the default axis names, we can control that with `labs()`:
+
+
+```r
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+  geom_point() + 
+  scale_color_manual(values = c("purple",
+                                "black",
+                                "orange")) + 
+  background_grid() + 
+  labs(x = "Sepal Length", y = "Sepal Width")
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-40-1.png" width="672" />
+
+With `labs`, we can also give our graphs a title and caption. This is generally a bad idea - if you're going to include a graph in a report or publication, you'll want to typeset these outside of the image file - but it makes understanding these graphs a little easier.
+
+
+```r
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+  geom_point() + 
+  scale_color_manual(values = c("purple",
+                                "black",
+                                "orange")) + 
+  background_grid() + 
+  labs(x = "Sepal Length", 
+       y = "Sepal Width",
+       title = "Sepal Width as a Function of Sepal Length",
+       subtitle = "Data from R. A. Fischer's iris dataset, 1936",
+       caption = "Made in R with ggplot2")
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-41-1.png" width="672" />
+
+If we want to change anything about the theme (for instance, the text size or legend position), we can specify that in `theme()`:
+
+
+```r
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+  geom_point() + 
+  scale_color_manual(values = c("purple",
+                                "black",
+                                "orange")) + 
+  background_grid() + 
+  labs(x = "Sepal Length", y = "Sepal Width") + 
+  theme(text = element_text(size = 12),
+        axis.text = element_text(size = 10),
+        legend.position = "top")
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-42-1.png" width="672" />
+
+And we can keep specifying what we want until we're satisfied with our graph.
+
+ggplot will also let us focus on specific parts of the data:
+
+
+```r
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+  geom_point() + 
+  scale_color_manual(values = c("purple",
+                                "black",
+                                "orange")) + 
+  background_grid() + 
+  labs(x = "Sepal Length", y = "Sepal Width") + 
+  scale_x_continuous(limits = c(5, 7)) + 
+  scale_y_continuous(limits = c(2.5, 3.0))
+```
+
+```
+## Warning: Removed 93 rows containing missing values (geom_point).
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-43-1.png" width="672" />
+
+Of course, if you're graphing things such as percentages, you should be careful about where you set your axes. Say we had a dataset where every 1 increase in some variable `x` saw a 1% increase in `y`, so that `y` increased almost 10% over the course of all `x` values. If you let ggplot set your axis defaults, you'd wind up with a perfect correlation:
+
+
+```r
+df <- data.frame(x = 1:10, 
+                 y = 61:70)
+ggplot(df, aes(x, y)) + 
+  geom_line() + 
+  background_grid()
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-44-1.png" width="672" />
+
+However, it's probably more truthful to graph percentages on a 0-100 scale - doing so shows us that `x` has a weaker impact on `y` than the default would have us believe:
+
+
+```r
+ggplot(df, aes(x, y)) + 
+  geom_line() + 
+  background_grid() + 
+  scale_y_continuous(limits = c(0,100))
+```
+
+<img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-45-1.png" width="672" />
+
+If there's any part of your graph you want to change, try googling "change XX ggplot". The first link will almost certainly have what you're looking for. The [reference guide](https://ggplot2.tidyverse.org/reference/) is also a good place to go hunting for answers.
+
+## Saving Your Graphics
+When you're satisfied with your graph, simply call the `ggsave()` function to save it to whatever file you're working in. The first argument to this function should be your graph's desired file name, with the extension - ggplot can save graphs as pngs, jpegs, pdfs, and several other formats.
+
+You can either add it to your workflow with `+`, or call it after you've plotted your graph - `ggsave()` will save whatever image was drawn last. For more information on specific things ggsave can do, type `?ggsave()` into R.
+
+## More Resources
+In addition to the [ggplot documentation](https://ggplot2.tidyverse.org/), I highly reccomend the [ggplot book](https://www.amazon.com/dp/0387981403/ref=cm_sw_su_dp?tag=ggplot2-20). Additionally, almost any problem can be solved by googling - just put "ggplot" at the end of whatever your question is, and odds are you'll find the perfect solution.
+
+## Exercises
+### Graph the following:
+1. A boxplot of the iris data, with species on the x axis and sepal length on the y
+2. A scatterplot of the iris data, plotting sepal length against width, where the points get bigger as sepal width increases
+3. Can you change the color of the boxes in the graph you made for problem 1? Can you change the color of the lines?
+
+### Use a new dataset:
+Also included in ggplot is the ```mpg``` dataset, containing fuel economy data for 38 different models of car.
+
+1. Use ```head()``` to examine the data. You can also type ```?mpg``` to get documentation on what each variable represents.
+2. Is engine displacement (```displ```) correlated with highway miles per gallon (```hwy```)? Make a scatterplot to find out.
+3. What variables could we use to group the data? Does coloring points by any of these help explain the scatterplot from problem 2?
+4. What does the scatterplot look like if you make a scatterplot for ```cty``` plotted against ```hwy```? Why? What geom could we use to better represent the data?
+
+### Looking ahead:
+1. What happens if you type in ```summary(mpg)```? What do you think this output represents?
+2. What happens if you type in ```mpg[1]```? How does this compare to ```mpg[[1]]```?

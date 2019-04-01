@@ -1,5 +1,9 @@
-# Introductory Data Analysis
-## Work in progress 
+# Introduction to Data Analysis
+
+> In God we trust. All others must bring data.
+> <div align = "right"> --- W. Edwards Deming</div>
+
+## Exploratory Data Analysis 
 So far, we've learned about how to manipulate our data and how to graph our outputs. Both of these are critically important parts of what's known as exploratory data analysis - or EDA. When you're starting with a new dataset, you won't always immediately know what trends and patterns might be there to discover. The idea at this stage isn't to find out what's causing any trends in the data, to identify any significant results you might have, or to get publishable figures and tables - the point is to understand exactly what it is that you're dealing with.
 
 This unit gives examples of what EDA might look like with a sample dataset. But there aren't prescribed sets of steps to go through while working on EDA - you should feel free to create as many hypotheses as possible, and spend time analyzing them individually. You might find something surprising!
@@ -11,6 +15,7 @@ Speaking of surprises, I really enjoy [this quote](https://fivethirtyeight.com/f
 
 Surprises are awesome, and are how discoveries are made in science. But at the same time, a lot of papers are retracted because their big surprise was actually just a glitch in the code. Whenever you find something you didn't expect, make sure you go back through your code and assumptions - it never hurts to double check!
 
+For more on this topic, check out the awesome lecture notes for [Skepticism in Data Science](https://jhu-advdatasci.github.io/2018/lectures/12-being-skeptical.html) from John Hopkins University.
 
 ### gapminder
 Anyway. We'll be working with data from the gapminder database, which contains statistics on global development metrics. We can get the data like we get most packages:
@@ -31,20 +36,20 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages --------------------------------------- tidyverse 1.2.1 --
+## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
-## v ggplot2 3.0.0     v purrr   0.2.4
-## v tibble  1.4.2     v dplyr   0.7.4
-## v tidyr   0.8.0     v stringr 1.3.0
-## v readr   1.1.1     v forcats 0.3.0
+## ✔ ggplot2 3.1.0     ✔ purrr   0.3.0
+## ✔ tibble  2.1.1     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.3.0
 ```
 
 ```
-## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
 ```
 
 The gapminder package includes four tables, of which we only care about one: ```gapminder```. We can preview the data, as usual, by typing the name of the table:
@@ -68,7 +73,7 @@ gapminder
 ##  8 Afghanistan Asia       1987    40.8 13867957      852.
 ##  9 Afghanistan Asia       1992    41.7 16317921      649.
 ## 10 Afghanistan Asia       1997    41.8 22227415      635.
-## # ... with 1,694 more rows
+## # … with 1,694 more rows
 ```
 
 ### Describing Your Data
@@ -156,7 +161,9 @@ ggplot(gapminder, aes(pop)) +
 
 This makes some intuitive sense - most countries have decently small populations, while some countries - such as China and India - contain significant portions of the world's population.
 
-Now that we have a sense of what our data looks like, we can start attempting to identify trends in the data. This is one of the two primary uses of data visualizations - to quickly help you see what variables might vary together. Base R's ```pairs()``` function is useful for this purpose - it makes a matrix of scatterplots for all your variables, letting you see any correlations that exist visually. Note that we have to subset our data to make sure that we're only graphing numeric columns:
+Now that we have a sense of what our data looks like, we can start attempting to identify trends in the data. You should never trust your data before visualizing it - summary statistics and other tests may not give you critical insights about trends [present in your data](https://www.autodeskresearch.com/publications/samestats).
+
+Base R's ```pairs()``` function is useful for this purpose - it makes a matrix of scatterplots for all your variables, letting you see any correlations that exist visually. Note that we have to subset our data to make sure that we're only graphing numeric columns:
 
 
 ```r
@@ -193,27 +200,37 @@ install.packages("broom")
 CorMatrix <- broom::tidy(cor(gapminder[, 3:6])) %>%
   rename(Var1 = ".rownames") %>%
   gather(Var2, Cor, -Var1)
+```
+
+```
+## Warning: 'tidy.matrix' is deprecated.
+## See help("Deprecated")
+```
+
+```r
 CorMatrix
 ```
 
 ```
-##         Var1      Var2         Cor
-## 1       year      year  1.00000000
-## 2    lifeExp      year  0.43561122
-## 3        pop      year  0.08230808
-## 4  gdpPercap      year  0.22731807
-## 5       year   lifeExp  0.43561122
-## 6    lifeExp   lifeExp  1.00000000
-## 7        pop   lifeExp  0.06495537
-## 8  gdpPercap   lifeExp  0.58370622
-## 9       year       pop  0.08230808
-## 10   lifeExp       pop  0.06495537
-## 11       pop       pop  1.00000000
-## 12 gdpPercap       pop -0.02559958
-## 13      year gdpPercap  0.22731807
-## 14   lifeExp gdpPercap  0.58370622
-## 15       pop gdpPercap -0.02559958
-## 16 gdpPercap gdpPercap  1.00000000
+## # A tibble: 16 x 3
+##    Var1      Var2          Cor
+##    <chr>     <chr>       <dbl>
+##  1 year      year       1     
+##  2 lifeExp   year       0.436 
+##  3 pop       year       0.0823
+##  4 gdpPercap year       0.227 
+##  5 year      lifeExp    0.436 
+##  6 lifeExp   lifeExp    1     
+##  7 pop       lifeExp    0.0650
+##  8 gdpPercap lifeExp    0.584 
+##  9 year      pop        0.0823
+## 10 lifeExp   pop        0.0650
+## 11 pop       pop        1     
+## 12 gdpPercap pop       -0.0256
+## 13 year      gdpPercap  0.227 
+## 14 lifeExp   gdpPercap  0.584 
+## 15 pop       gdpPercap -0.0256
+## 16 gdpPercap gdpPercap  1
 ```
 
 ```r
@@ -222,6 +239,8 @@ ggplot(CorMatrix, aes(Var1, Var2, fill = Cor)) +
 ```
 
 <img src="05_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+
+Note that what we did above - calling ```cor()``` inside of ```tidy()``` - applies the outside function to the output of the inside function. Functions are run from the inside out. You might remember similar formulas from algebra classes - ```f(g(x))``` is the same as ```(f * g)(x)```. 
 
 Of course, there's no need to do all of these at once - you can do whichever method makes sense to you. Either way, we get similar results - the strongest correlation is between life expectancy and GDP. We can visualize this trend using our ggplot skills:
 
@@ -232,6 +251,8 @@ ggplot(gapminder, aes(gdpPercap, lifeExp)) +
 ```
 
 <img src="05_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+
+(See that example of nesting functions? ```ggplot(aes())```!)
 
 Hmm, weird! While we can see the correlation, it seems like there's another factor we aren't accounting for. What happens if we color the points by the year they represent?
 
@@ -256,7 +277,7 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, color = year)) +
 
 Hmm. We can see some obvious trends - it seems like Africa has a lower average life expectancy than the other continents, for instance - but they're hard to discern from the visuals alone. For that, we're going to have to get into some actual statistic computing.
 
-## Statistical Computing
+## Statistical Tests and Regressions
 Now that we've identified some hypotheses about our data, we're able to use the full power of R to try and prove them. First off, we can identify if any of the correlations we saw are statistically significant. For the full dataset, this is pretty easy - we can just feed two vectors into ```cor.test()```:
 
 
@@ -278,7 +299,7 @@ cor.test(gapminder$lifeExp, gapminder$gdpPercap)
 ## 0.5837062
 ```
 
-(Note that most likely we'd actually use a different correlation test, as the data on life expectancy are non-normal. You can control the test used by setting the ```method``` argument - information about the correlation tests available in this function can be found [here] (http://www.statisticssolutions.com/correlation-pearson-kendall-spearman/).)
+(Note that most likely we'd actually use a different correlation test, as the data on life expectancy are non-normal. You can control the test used by setting the ```method``` argument - information about the correlation tests available in this function can be found [here](http://www.statisticssolutions.com/correlation-pearson-kendall-spearman/).)
 
 Looks like a yes!
 
@@ -374,17 +395,19 @@ broom::tidy(TukeyHSD(aov(lifeExp ~ continent, data = gapminder), ordered = TRUE)
 ```
 
 ```
-##         term       comparison  estimate  conf.low conf.high  adj.p.value
-## 1  continent      Asia-Africa 11.199573  9.579887 12.819259 2.727152e-12
-## 2  continent  Americas-Africa 15.793407 14.022263 17.564550 2.727152e-12
-## 3  continent    Europe-Africa 23.038356 21.369862 24.706850 2.727152e-12
-## 4  continent   Oceania-Africa 25.460878 20.216908 30.704848 2.727152e-12
-## 5  continent    Americas-Asia  4.593833  2.664235  6.523432 1.047859e-09
-## 6  continent      Europe-Asia 11.838783 10.002952 13.674614 2.727152e-12
-## 7  continent     Oceania-Asia 14.261305  8.961718 19.560892 5.862422e-12
-## 8  continent  Europe-Americas  7.244949  5.274203  9.215696 2.775336e-12
-## 9  continent Oceania-Americas  9.667472  4.319650 15.015293 8.648670e-06
-## 10 continent   Oceania-Europe  2.422522 -2.892185  7.737230 7.250559e-01
+## # A tibble: 10 x 6
+##    term      comparison       estimate conf.low conf.high adj.p.value
+##    <chr>     <chr>               <dbl>    <dbl>     <dbl>       <dbl>
+##  1 continent Asia-Africa         11.2      9.58     12.8     2.73e-12
+##  2 continent Americas-Africa     15.8     14.0      17.6     2.73e-12
+##  3 continent Europe-Africa       23.0     21.4      24.7     2.73e-12
+##  4 continent Oceania-Africa      25.5     20.2      30.7     2.73e-12
+##  5 continent Americas-Asia        4.59     2.66      6.52    1.05e- 9
+##  6 continent Europe-Asia         11.8     10.0      13.7     2.73e-12
+##  7 continent Oceania-Asia        14.3      8.96     19.6     5.86e-12
+##  8 continent Europe-Americas      7.24     5.27      9.22    2.78e-12
+##  9 continent Oceania-Americas     9.67     4.32     15.0     8.65e- 6
+## 10 continent Oceania-Europe       2.42    -2.89      7.74    7.25e- 1
 ```
 
 This will make your life a lot better when you're trying to export data.
@@ -415,7 +438,7 @@ gapminder %>%
 ## # A tibble: 1 x 1
 ##   data                
 ##   <list>              
-## 1 <tibble [1,704 x 6]>
+## 1 <tibble [1,704 × 6]>
 ```
 
 All of our data is now stored in a single cell, as a tibble!
@@ -432,11 +455,11 @@ gapminder %>%
 ## # A tibble: 5 x 2
 ##   continent data              
 ##   <fct>     <list>            
-## 1 Asia      <tibble [396 x 5]>
-## 2 Europe    <tibble [360 x 5]>
-## 3 Africa    <tibble [624 x 5]>
-## 4 Americas  <tibble [300 x 5]>
-## 5 Oceania   <tibble [24 x 5]>
+## 1 Asia      <tibble [396 × 5]>
+## 2 Europe    <tibble [360 × 5]>
+## 3 Africa    <tibble [624 × 5]>
+## 4 Americas  <tibble [300 × 5]>
+## 5 Oceania   <tibble [24 × 5]>
 ```
 
 And when we do this, we can subset the list in the exact same way we would a normal vector:
@@ -453,7 +476,7 @@ Nested[1, 2]
 ## # A tibble: 1 x 1
 ##   data              
 ##   <list>            
-## 1 <tibble [396 x 5]>
+## 1 <tibble [396 × 5]>
 ```
 
 If we then wanted to, we can ```unnest()``` the data:
@@ -481,7 +504,7 @@ Nested[1, 2] %>%
 ##  8 Afghanistan  1987    40.8 13867957      852.
 ##  9 Afghanistan  1992    41.7 16317921      649.
 ## 10 Afghanistan  1997    41.8 22227415      635.
-## # ... with 386 more rows
+## # … with 386 more rows
 ```
 
 But what's interesting is that we can also manipulate the data while it's nested. ```purrr``` provides a number of "map" functions, which will apply a function to each member of a list and return the outputs as a list. 
@@ -499,14 +522,14 @@ gapminder %>%
 ## # A tibble: 5 x 3
 ##   continent data               Cor        
 ##   <fct>     <list>             <list>     
-## 1 Asia      <tibble [396 x 5]> <S3: htest>
-## 2 Europe    <tibble [360 x 5]> <S3: htest>
-## 3 Africa    <tibble [624 x 5]> <S3: htest>
-## 4 Americas  <tibble [300 x 5]> <S3: htest>
-## 5 Oceania   <tibble [24 x 5]>  <S3: htest>
+## 1 Asia      <tibble [396 × 5]> <S3: htest>
+## 2 Europe    <tibble [360 × 5]> <S3: htest>
+## 3 Africa    <tibble [624 × 5]> <S3: htest>
+## 4 Americas  <tibble [300 × 5]> <S3: htest>
+## 5 Oceania   <tibble [24 × 5]>  <S3: htest>
 ```
 
-The ```~``` indicates that the next word is a _function_ that should be applied to each element of the list. ```.``` is what's referred to as a _pronoun_ - it's the short name for the data that's being applied to the function. We'll be using ```.``` repeatedly, so it's best to internalize that meaning now.
+The ```~``` indicates that the next word is a _function_ that should be applied to each element of the list. ```.``` is what's referred to as a _pronoun_ - it's the short name for the data that's being applied to the function. That's why we can subset it with ```$``` - while we're inside the map function, ```.``` _is_ your data. We'll be using ```.``` repeatedly for the rest of the course.
 
 Now, because ```cor.test()``` doesn't provide a tidy data output - it produces something human-readable, but not computer-usable - we have to tidy it up before we can extract our numbers. That's where ```tidy()``` comes in, which we use pretty similarly to ```cor.test()```:
 
@@ -520,13 +543,13 @@ gapminder %>%
 
 ```
 ## # A tibble: 5 x 4
-##   continent data               Cor         TidyCor             
-##   <fct>     <list>             <list>      <list>              
-## 1 Asia      <tibble [396 x 5]> <S3: htest> <data.frame [1 x 8]>
-## 2 Europe    <tibble [360 x 5]> <S3: htest> <data.frame [1 x 8]>
-## 3 Africa    <tibble [624 x 5]> <S3: htest> <data.frame [1 x 8]>
-## 4 Americas  <tibble [300 x 5]> <S3: htest> <data.frame [1 x 8]>
-## 5 Oceania   <tibble [24 x 5]>  <S3: htest> <data.frame [1 x 8]>
+##   continent data               Cor         TidyCor         
+##   <fct>     <list>             <list>      <list>          
+## 1 Asia      <tibble [396 × 5]> <S3: htest> <tibble [1 × 8]>
+## 2 Europe    <tibble [360 × 5]> <S3: htest> <tibble [1 × 8]>
+## 3 Africa    <tibble [624 × 5]> <S3: htest> <tibble [1 × 8]>
+## 4 Americas  <tibble [300 × 5]> <S3: htest> <tibble [1 × 8]>
+## 5 Oceania   <tibble [24 × 5]>  <S3: htest> <tibble [1 × 8]>
 ```
 
 That last column - made up of dataframes - is exactly what we want. We can extract it from this dataframe using ```unnest(.drop = TRUE)```, which will drop the other nested columns:
@@ -542,14 +565,14 @@ gapminder %>%
 
 ```
 ## # A tibble: 5 x 9
-##   continent estimate statistic  p.value parameter conf.low conf.high
-##   <fct>        <dbl>     <dbl>    <dbl>     <int>    <dbl>     <dbl>
-## 1 Asia         0.382      8.21 3.29e-15       394    0.295     0.463
-## 2 Europe       0.781     23.6  4.05e-75       358    0.737     0.818
-## 3 Africa       0.426     11.7  7.60e-29       622    0.359     0.488
-## 4 Americas     0.558     11.6  5.45e-26       298    0.475     0.632
-## 5 Oceania      0.956     15.4  2.99e-13        22    0.901     0.981
-## # ... with 2 more variables: method <fct>, alternative <fct>
+##   continent estimate statistic  p.value parameter conf.low conf.high method
+##   <fct>        <dbl>     <dbl>    <dbl>     <int>    <dbl>     <dbl> <chr> 
+## 1 Asia         0.382      8.21 3.29e-15       394    0.295     0.463 Pears…
+## 2 Europe       0.781     23.6  4.05e-75       358    0.737     0.818 Pears…
+## 3 Africa       0.426     11.7  7.60e-29       622    0.359     0.488 Pears…
+## 4 Americas     0.558     11.6  5.45e-26       298    0.475     0.632 Pears…
+## 5 Oceania      0.956     15.4  2.99e-13        22    0.901     0.981 Pears…
+## # … with 1 more variable: alternative <chr>
 ```
 
 And tada, we have the output from five correlation tests in one step, rather than the ten it would take to do the long way.
@@ -590,7 +613,7 @@ lm(lifeExp ~ gdpPercap + year, data = gapminder)
 ##  -4.184e+02    6.697e-04    2.390e-01
 ```
 
-These coefficients show how much we can expect life expectancy to increase if the GDP or year increases. The intercept is what life expectancy would be if both GDP and the year were 0 - obviously, this number doesn't make a ton of sense, since we don't have any data on life expectancy in either of those situations.
+These coefficients show how much we can expect life expectancy to increase if the GDP or year increases. The intercept is what life expectancy would be if both GDP and the year were 0 - obviously, this number doesn't make a ton of sense, since we don't have any data on life expectancy in either of those situations. There's ways to correct for this, and we aren't gonna do them - more information can be found [here](https://www.theanalysisfactor.com/center-on-the-mean/).
 
 If we want to see how well this model fits our data, we can graph it:
 
@@ -704,8 +727,8 @@ summary(Model)
 
 As you can see, these outputs are identical. Even so, I personally prefer using the second format, because it makes the interaction term a more explicit part of your model. While it doesn't matter in simple models like the one we've developed here, once you have a large number of terms, it's helpful to specify which interactions you're measuring.
 
-## Mixed Models
-That R^2^ pf 0.44 is an improvement, but still not great. We could try combining continuous and categorical variables in a single model, to try and better predict life expectancy.
+### Dummy Models
+That R^2^ of 0.44 is an improvement, but still not great. We could try combining continuous and categorical variables in a single model, to try and better predict life expectancy.
 
 Doing that in R is very simple - just add the categorical variable to your model like you would a continuous. Let's do that with continents:
 
@@ -778,7 +801,7 @@ summary(Model)
 ## F-statistic: 287.4 on 19 and 1684 DF,  p-value: < 2.2e-16
 ```
 
-Our R^2^ is now up to a respectable 0.76! It looks like these three variables explain a lot of the variance in our data. To get a cleaner table explaining the impacts each variable has on life expectancy, we can perform an analysis of covariance, or ANCOVA. To do this, we just change out our mixed model ```lm()``` function for an ```aov()```, and then pass that ```aov()``` object to ```summary()```:
+Our R^2^ is now up to a respectable 0.76! It looks like these three variables - and the interactions between them - explain a lot of the variance in our data. To get a cleaner table explaining the impacts each variable has on life expectancy, we can perform an analysis of covariance, or ANCOVA. To do this, we just change out our mixed model ```lm()``` function for an ```aov()```, and then pass that ```aov()``` object to ```summary()```:
 
 
 ```r
@@ -843,4 +866,20 @@ gapminder %>%
 Note that I deleted all the "continent" terms from the model, because we're now making a different model for each continent available. I've also used the ```.``` pronoun to represent our data here.
 
 In this case, ```estimate``` represents the coefficient (beta) for each variable, while the statistic is the F statistic.  
+
+## Conclusion
+The important takeaways from this unit are not necessarily the statistical tests used - since those will vary dependent upon your purpose - so much as the methods highlighted. Understanding how to generate hypotheses from a new dataset - and then how to drill down and analyze them each in turn - is a cross-disciplinary skill used in any new analysis project.
+
+Later in the course, you'll be given projects which will require you to understand brand new datasets, manipulate them, perform complex analyses on them, and visualise them. EDA will give you the familiarity with your data to find these patterns, isolate them appropriately, and perform the right analyses moving forward. The entire purpose of this unit is to give you the skillset to identify what those analyses might be, by understanding how to generate hypotheses from a combination of data visualization and manipulation.  
+
+What we haven't done is confirmatory analysis, where we start our work with a model in mind and then report how well it fit the data. Once data is used for exploratory analysis, it can't be used again for confirmatory work. There are methods to split data for confirmatory analysis, while still being able to use some data for exploration - for an overview, see [Hadley Wickham's overview here](https://r4ds.had.co.nz/model-intro.html). We'll be working with these methods in unit 10.
+
+## Exercises
+
+### Answer the following:
+1. The output of ```psych::describe(gapminder_unfiltered)``` put stars after ```country``` and ```continent```. Why?
+2. Make a histogram of a gapminder variable other than population. Describe the graph with regards to its skewdness and kurtosis. 
+3. Compute an ANOVA for the impacts of continent on population. Report the results as you would in a manuscript.
+4. Fit a regression model to the impacts of the current year and life expectancy on GDP. Why does this model not make sense conceptually?
+5. Fit a linear model explaining life expectancy as a function of the current year for each country in the dataset (use the formula lifeExp ~ year). Then tidy the model outputs and look at the p values for each coefficient. If you don't hate yourself, you'll try the functional computing approach.
 

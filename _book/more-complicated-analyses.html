@@ -5,27 +5,27 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Introduction to Data Exploration and Analysis with R</title>
-  <meta name="description" content="This is a course reader for a class that will never be taught. Hopefully it helps you nonetheless.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <title>7 More Complicated Analyses | Introduction to Data Exploration and Analysis with R</title>
+  <meta name="description" content="A detailed introduction to coding in R and the process of data analytics. Version 1.0.0">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Introduction to Data Exploration and Analysis with R" />
+  <meta property="og:title" content="7 More Complicated Analyses | Introduction to Data Exploration and Analysis with R" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a course reader for a class that will never be taught. Hopefully it helps you nonetheless." />
+  <meta property="og:description" content="A detailed introduction to coding in R and the process of data analytics. Version 1.0.0" />
   <meta name="github-repo" content="MikeMahoney218/Intro_to_R_Reader" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to Data Exploration and Analysis with R" />
+  <meta name="twitter:title" content="7 More Complicated Analyses | Introduction to Data Exploration and Analysis with R" />
   
-  <meta name="twitter:description" content="This is a course reader for a class that will never be taught. Hopefully it helps you nonetheless." />
+  <meta name="twitter:description" content="A detailed introduction to coding in R and the process of data analytics. Version 1.0.0" />
   
 
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2019-01-24">
+<meta name="date" content="2019-04-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="achieving-graphical-excellence.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -112,195 +113,193 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to IDEAR</a><ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#course-outline"><i class="fa fa-check"></i><b>0.1</b> Course Outline</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#other-sources"><i class="fa fa-check"></i><b>0.2</b> Other Sources</a></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#the-state-of-the-book"><i class="fa fa-check"></i><b>0.1</b> The State of the Book</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#book-outline"><i class="fa fa-check"></i><b>0.2</b> Book Outline</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#other-sources"><i class="fa fa-check"></i><b>0.3</b> Other Sources</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and Data Visualization</a><ul>
-<li class="chapter" data-level="1.1" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#why-does-this-book-exist"><i class="fa fa-check"></i><b>1.1</b> Why Does This Book Exist?</a></li>
-<li class="chapter" data-level="1.2" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#what-is-r"><i class="fa fa-check"></i><b>1.2</b> What is R?</a></li>
-<li class="chapter" data-level="1.3" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#what-is-coding"><i class="fa fa-check"></i><b>1.3</b> What is coding?</a></li>
-<li class="chapter" data-level="1.4" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#conventions-of-the-course-and-this-reader"><i class="fa fa-check"></i><b>1.4</b> Conventions of the course (and this reader)</a></li>
-<li class="chapter" data-level="1.5" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#things-youll-need"><i class="fa fa-check"></i><b>1.5</b> Things You’ll Need</a></li>
-<li class="chapter" data-level="1.6" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#introduction-to-rstudio"><i class="fa fa-check"></i><b>1.6</b> Introduction to RStudio</a></li>
-<li class="chapter" data-level="1.7" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#your-first-program"><i class="fa fa-check"></i><b>1.7</b> Your First Program</a></li>
-<li class="chapter" data-level="1.8" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#the-iris-dataset"><i class="fa fa-check"></i><b>1.8</b> The iris Dataset</a></li>
-<li class="chapter" data-level="1.9" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#graphing-with-r"><i class="fa fa-check"></i><b>1.9</b> Graphing with R</a></li>
-<li class="chapter" data-level="1.10" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#the-tidyverse-package"><i class="fa fa-check"></i><b>1.10</b> The Tidyverse Package</a></li>
-<li class="chapter" data-level="1.11" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>1.11</b> ggplot2</a><ul>
-<li class="chapter" data-level="1.11.1" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#facetting"><i class="fa fa-check"></i><b>1.11.1</b> Facetting</a></li>
-<li class="chapter" data-level="1.11.2" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#diamonds"><i class="fa fa-check"></i><b>1.11.2</b> diamonds</a></li>
-<li class="chapter" data-level="1.11.3" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#other-popular-geoms"><i class="fa fa-check"></i><b>1.11.3</b> Other Popular Geoms</a></li>
-<li class="chapter" data-level="1.11.4" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#designing-good-graphics"><i class="fa fa-check"></i><b>1.11.4</b> Designing Good Graphics</a></li>
-<li class="chapter" data-level="1.11.5" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#saving-your-graphics"><i class="fa fa-check"></i><b>1.11.5</b> Saving Your Graphics</a></li>
-</ul></li>
-<li class="chapter" data-level="1.12" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#more-resources"><i class="fa fa-check"></i><b>1.12</b> More Resources</a></li>
-<li class="chapter" data-level="1.13" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#exercises"><i class="fa fa-check"></i><b>1.13</b> Exercises</a><ul>
-<li class="chapter" data-level="1.13.1" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#calculate-the-following"><i class="fa fa-check"></i><b>1.13.1</b> Calculate the following:</a></li>
-<li class="chapter" data-level="1.13.2" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#graph-the-following"><i class="fa fa-check"></i><b>1.13.2</b> Graph the following:</a></li>
-<li class="chapter" data-level="1.13.3" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#use-a-new-dataset"><i class="fa fa-check"></i><b>1.13.3</b> Use a new dataset:</a></li>
-<li class="chapter" data-level="1.13.4" data-path="introduction-to-r-and-data-visualization.html"><a href="introduction-to-r-and-data-visualization.html#looking-ahead"><i class="fa fa-check"></i><b>1.13.4</b> Looking ahead:</a></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#why-does-this-book-exist"><i class="fa fa-check"></i><b>1.1</b> Why Does This Book Exist?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#what-is-r"><i class="fa fa-check"></i><b>1.2</b> What is R?</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#what-is-coding"><i class="fa fa-check"></i><b>1.3</b> What is coding?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#conventions-of-the-book"><i class="fa fa-check"></i><b>1.4</b> Conventions of the book</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#things-youll-need"><i class="fa fa-check"></i><b>1.5</b> Things You’ll Need</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#introduction-to-rstudio"><i class="fa fa-check"></i><b>1.6</b> Introduction to RStudio</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#your-first-program"><i class="fa fa-check"></i><b>1.7</b> Your First Program</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-iris-dataset"><i class="fa fa-check"></i><b>1.8</b> The iris Dataset</a></li>
+<li class="chapter" data-level="1.9" data-path="introduction-to-r.html"><a href="introduction-to-r.html#graphing-with-r"><i class="fa fa-check"></i><b>1.9</b> Graphing with R</a></li>
+<li class="chapter" data-level="1.10" data-path="introduction-to-r.html"><a href="introduction-to-r.html#exercises"><i class="fa fa-check"></i><b>1.10</b> Exercises</a><ul>
+<li class="chapter" data-level="1.10.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#calculate-the-following"><i class="fa fa-check"></i><b>1.10.1</b> Calculate the following:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html"><i class="fa fa-check"></i><b>2</b> R Functions and Workflow</a><ul>
-<li class="chapter" data-level="2.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#workflow"><i class="fa fa-check"></i><b>2.1</b> Workflow</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#scripts"><i class="fa fa-check"></i><b>2.1.1</b> Scripts</a></li>
-<li class="chapter" data-level="2.1.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#notebooks"><i class="fa fa-check"></i><b>2.1.2</b> Notebooks</a></li>
-<li class="chapter" data-level="2.1.3" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#memory-objects-and-names"><i class="fa fa-check"></i><b>2.1.3</b> Memory, Objects, and Names</a></li>
-<li class="chapter" data-level="2.1.4" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#dataframes-and-transformations"><i class="fa fa-check"></i><b>2.1.4</b> Dataframes and Transformations</a></li>
-<li class="chapter" data-level="2.1.5" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#the-pipe"><i class="fa fa-check"></i><b>2.1.5</b> The Pipe</a></li>
-<li class="chapter" data-level="2.1.6" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#data-transformations"><i class="fa fa-check"></i><b>2.1.6</b> Data Transformations</a></li>
-<li class="chapter" data-level="2.1.7" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#working-with-groups"><i class="fa fa-check"></i><b>2.1.7</b> Working with Groups</a></li>
-<li class="chapter" data-level="2.1.8" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#missing-values"><i class="fa fa-check"></i><b>2.1.8</b> Missing Values</a></li>
-<li class="chapter" data-level="2.1.9" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#count-data"><i class="fa fa-check"></i><b>2.1.9</b> Count Data</a></li>
-<li class="chapter" data-level="2.1.10" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#oddballs"><i class="fa fa-check"></i><b>2.1.10</b> Oddballs</a></li>
+<li class="chapter" data-level="2" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html"><i class="fa fa-check"></i><b>2</b> Visualizing Your Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#what-is-a-visualization"><i class="fa fa-check"></i><b>2.1</b> What is a Visualization?</a></li>
+<li class="chapter" data-level="2.2" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#the-tidyverse-package"><i class="fa fa-check"></i><b>2.2</b> The Tidyverse Package</a></li>
+<li class="chapter" data-level="2.3" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#ggplot2"><i class="fa fa-check"></i><b>2.3</b> ggplot2</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#functions-in-ggplot"><i class="fa fa-check"></i><b>2.3.1</b> Functions in ggplot</a></li>
+<li class="chapter" data-level="2.3.2" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#changing-aesthetics"><i class="fa fa-check"></i><b>2.3.2</b> Changing Aesthetics</a></li>
+<li class="chapter" data-level="2.3.3" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#facetting"><i class="fa fa-check"></i><b>2.3.3</b> Facetting</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#r-functions-and-workflow-exercises"><i class="fa fa-check"></i><b>2.2</b> R Functions and Workflow Exercises</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#do-the-following"><i class="fa fa-check"></i><b>2.2.1</b> Do the following:</a></li>
-<li class="chapter" data-level="2.2.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#work-with-other-datasets"><i class="fa fa-check"></i><b>2.2.2</b> Work with other datasets:</a></li>
+<li class="chapter" data-level="2.4" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#diamonds"><i class="fa fa-check"></i><b>2.4</b> Diamonds</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#visualizing-large-datasets"><i class="fa fa-check"></i><b>2.4.1</b> Visualizing Large Datasets</a></li>
+<li class="chapter" data-level="2.4.2" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#axis-transformations"><i class="fa fa-check"></i><b>2.4.2</b> Axis Transformations</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html"><i class="fa fa-check"></i><b>3</b> Basic Statistics (Using R)</a><ul>
-<li class="chapter" data-level="3.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#purpose-of-the-unit"><i class="fa fa-check"></i><b>3.1</b> Purpose of the Unit</a></li>
-<li class="chapter" data-level="3.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#definitions"><i class="fa fa-check"></i><b>3.2</b> Definitions</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#data-concepts"><i class="fa fa-check"></i><b>3.2.1</b> Data Concepts</a></li>
-<li class="chapter" data-level="3.2.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#statistical-terms"><i class="fa fa-check"></i><b>3.2.2</b> Statistical Terms</a></li>
-<li class="chapter" data-level="3.2.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#models-and-tests"><i class="fa fa-check"></i><b>3.2.3</b> Models and Tests</a></li>
-<li class="chapter" data-level="3.2.4" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#how-well-compare-models"><i class="fa fa-check"></i><b>3.2.4</b> How We’ll Compare Models</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#examples"><i class="fa fa-check"></i><b>3.3</b> Examples</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html"><i class="fa fa-check"></i><b>4</b> Introduction to Data Analysis</a><ul>
-<li class="chapter" data-level="4.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>4.1</b> Exploratory Data Analysis</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#gapminder"><i class="fa fa-check"></i><b>4.1.1</b> gapminder</a></li>
-<li class="chapter" data-level="4.1.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#describing-your-data"><i class="fa fa-check"></i><b>4.1.2</b> Describing Your Data</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#statistical-tests-and-regressions"><i class="fa fa-check"></i><b>4.2</b> Statistical Tests and Regressions</a></li>
-<li class="chapter" data-level="4.3" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#functional-programming"><i class="fa fa-check"></i><b>4.3</b> Functional Programming</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#column-names"><i class="fa fa-check"></i><b>4.3.1</b> Column Names</a></li>
-</ul></li>
-<li class="chapter" data-level="4.4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#modeling"><i class="fa fa-check"></i><b>4.4</b> Modeling</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#dummy-models"><i class="fa fa-check"></i><b>4.4.1</b> Dummy Models</a></li>
-</ul></li>
-<li class="chapter" data-level="4.5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#conclusion"><i class="fa fa-check"></i><b>4.5</b> Conclusion</a></li>
-<li class="chapter" data-level="4.6" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exercises-1"><i class="fa fa-check"></i><b>4.6</b> Exercises</a><ul>
-<li class="chapter" data-level="4.6.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#answer-the-following"><i class="fa fa-check"></i><b>4.6.1</b> Answer the following:</a></li>
+<li class="chapter" data-level="2.5" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#other-popular-geoms"><i class="fa fa-check"></i><b>2.5</b> Other Popular Geoms</a></li>
+<li class="chapter" data-level="2.6" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#histograms"><i class="fa fa-check"></i><b>2.6</b> Histograms</a></li>
+<li class="chapter" data-level="2.7" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#bar-charts"><i class="fa fa-check"></i><b>2.7</b> Bar Charts</a></li>
+<li class="chapter" data-level="2.8" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#jittered-points"><i class="fa fa-check"></i><b>2.8</b> Jittered Points</a></li>
+<li class="chapter" data-level="2.9" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#boxplot"><i class="fa fa-check"></i><b>2.9</b> Boxplot</a></li>
+<li class="chapter" data-level="2.10" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#designing-good-graphics"><i class="fa fa-check"></i><b>2.10</b> Designing Good Graphics</a></li>
+<li class="chapter" data-level="2.11" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#saving-your-graphics"><i class="fa fa-check"></i><b>2.11</b> Saving Your Graphics</a></li>
+<li class="chapter" data-level="2.12" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#more-resources"><i class="fa fa-check"></i><b>2.12</b> More Resources</a></li>
+<li class="chapter" data-level="2.13" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#exercises-1"><i class="fa fa-check"></i><b>2.13</b> Exercises</a><ul>
+<li class="chapter" data-level="2.13.1" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#graph-the-following"><i class="fa fa-check"></i><b>2.13.1</b> Graph the following:</a></li>
+<li class="chapter" data-level="2.13.2" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#use-a-new-dataset"><i class="fa fa-check"></i><b>2.13.2</b> Use a new dataset:</a></li>
+<li class="chapter" data-level="2.13.3" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#looking-ahead"><i class="fa fa-check"></i><b>2.13.3</b> Looking ahead:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html"><i class="fa fa-check"></i><b>5</b> Functions and Scripting</a><ul>
-<li class="chapter" data-level="5.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#writing-functions"><i class="fa fa-check"></i><b>5.1</b> Writing Functions</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#our-first-function"><i class="fa fa-check"></i><b>5.1.1</b> Our First Function</a></li>
-<li class="chapter" data-level="5.1.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#returns"><i class="fa fa-check"></i><b>5.1.2</b> Returns</a></li>
-<li class="chapter" data-level="5.1.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#more-complicated-functions"><i class="fa fa-check"></i><b>5.1.3</b> More Complicated Functions</a></li>
+<li class="chapter" data-level="3" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html"><i class="fa fa-check"></i><b>3</b> R Functions and Workflow</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#workflow"><i class="fa fa-check"></i><b>3.1</b> Workflow</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#scripts"><i class="fa fa-check"></i><b>3.1.1</b> Scripts</a></li>
+<li class="chapter" data-level="3.1.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#notebooks"><i class="fa fa-check"></i><b>3.1.2</b> Notebooks</a></li>
+<li class="chapter" data-level="3.1.3" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#memory-objects-and-names"><i class="fa fa-check"></i><b>3.1.3</b> Memory, Objects, and Names</a></li>
+<li class="chapter" data-level="3.1.4" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#dataframes-and-transformations"><i class="fa fa-check"></i><b>3.1.4</b> Dataframes and Transformations</a></li>
+<li class="chapter" data-level="3.1.5" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#the-pipe"><i class="fa fa-check"></i><b>3.1.5</b> The Pipe</a></li>
+<li class="chapter" data-level="3.1.6" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#data-transformations"><i class="fa fa-check"></i><b>3.1.6</b> Data Transformations</a></li>
+<li class="chapter" data-level="3.1.7" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#working-with-groups"><i class="fa fa-check"></i><b>3.1.7</b> Working with Groups</a></li>
+<li class="chapter" data-level="3.1.8" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#missing-values"><i class="fa fa-check"></i><b>3.1.8</b> Missing Values</a></li>
+<li class="chapter" data-level="3.1.9" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#count-data"><i class="fa fa-check"></i><b>3.1.9</b> Count Data</a></li>
+<li class="chapter" data-level="3.1.10" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#oddballs"><i class="fa fa-check"></i><b>3.1.10</b> Oddballs</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#about-names"><i class="fa fa-check"></i><b>5.2</b> About Names…</a></li>
-<li class="chapter" data-level="5.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#conditional-statements"><i class="fa fa-check"></i><b>5.3</b> Conditional Statements</a></li>
-<li class="chapter" data-level="5.4" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#stops"><i class="fa fa-check"></i><b>5.4</b> Stops</a></li>
-<li class="chapter" data-level="5.5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#function-dependencies"><i class="fa fa-check"></i><b>5.5</b> Function Dependencies</a></li>
-<li class="chapter" data-level="5.6" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#saving-and-loading-functions"><i class="fa fa-check"></i><b>5.6</b> Saving and Loading Functions</a></li>
-<li class="chapter" data-level="5.7" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#loops"><i class="fa fa-check"></i><b>5.7</b> Loops</a></li>
-<li class="chapter" data-level="5.8" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#mapping-functions"><i class="fa fa-check"></i><b>5.8</b> Mapping Functions</a></li>
-<li class="chapter" data-level="5.9" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#more-information"><i class="fa fa-check"></i><b>5.9</b> More Information</a></li>
-<li class="chapter" data-level="5.10" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#exercises-2"><i class="fa fa-check"></i><b>5.10</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html"><i class="fa fa-check"></i><b>6</b> More Complicated Analyses</a><ul>
-<li class="chapter" data-level="6.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#other-datasets"><i class="fa fa-check"></i><b>6.1</b> Other Datasets</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#importing-your-own-data"><i class="fa fa-check"></i><b>6.1.1</b> Importing Your Own Data</a></li>
-<li class="chapter" data-level="6.1.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#exporting-data"><i class="fa fa-check"></i><b>6.1.2</b> Exporting Data</a></li>
-<li class="chapter" data-level="6.1.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#data-exploration"><i class="fa fa-check"></i><b>6.1.3</b> Data Exploration</a></li>
-<li class="chapter" data-level="6.1.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#modeling-winners"><i class="fa fa-check"></i><b>6.1.4</b> Modeling Winners</a></li>
-</ul></li>
-<li class="chapter" data-level="6.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#logistic-models"><i class="fa fa-check"></i><b>6.2</b> Logistic Models</a></li>
-<li class="chapter" data-level="6.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#modelling-metrics"><i class="fa fa-check"></i><b>6.3</b> Modelling Metrics</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#pseudo-r2"><i class="fa fa-check"></i><b>6.3.1</b> Pseudo-R<sup>2</sup></a></li>
-<li class="chapter" data-level="6.3.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#area-under-the-roc-curve-auc"><i class="fa fa-check"></i><b>6.3.2</b> Area Under the ROC Curve (AUC)</a></li>
-<li class="chapter" data-level="6.3.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#model-comparisons"><i class="fa fa-check"></i><b>6.3.3</b> Model Comparisons</a></li>
-</ul></li>
-<li class="chapter" data-level="6.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#more-complicated-analyses-1"><i class="fa fa-check"></i><b>6.4</b> More Complicated Analyses</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#model-selection"><i class="fa fa-check"></i><b>6.4.1</b> Model Selection</a></li>
-</ul></li>
-<li class="chapter" data-level="6.5" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#relational-data"><i class="fa fa-check"></i><b>6.5</b> Relational Data</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#inner-join"><i class="fa fa-check"></i><b>6.5.1</b> Inner Join</a></li>
-<li class="chapter" data-level="6.5.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#left-join"><i class="fa fa-check"></i><b>6.5.2</b> Left Join</a></li>
-<li class="chapter" data-level="6.5.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#right-join"><i class="fa fa-check"></i><b>6.5.3</b> Right Join</a></li>
-<li class="chapter" data-level="6.5.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#full-join"><i class="fa fa-check"></i><b>6.5.4</b> Full Join</a></li>
-<li class="chapter" data-level="6.5.5" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#semi-join"><i class="fa fa-check"></i><b>6.5.5</b> Semi Join</a></li>
-<li class="chapter" data-level="6.5.6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#anti-join"><i class="fa fa-check"></i><b>6.5.6</b> Anti Join</a></li>
-<li class="chapter" data-level="6.5.7" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#specifying-key-columns"><i class="fa fa-check"></i><b>6.5.7</b> Specifying Key Columns</a></li>
-<li class="chapter" data-level="6.5.8" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#merging-multiple-dataframes"><i class="fa fa-check"></i><b>6.5.8</b> Merging Multiple Dataframes</a></li>
-<li class="chapter" data-level="6.5.9" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#binding-dataframes"><i class="fa fa-check"></i><b>6.5.9</b> Binding Dataframes</a></li>
-</ul></li>
-<li class="chapter" data-level="6.6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#exercises-3"><i class="fa fa-check"></i><b>6.6</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html"><i class="fa fa-check"></i><b>7</b> Achieving Graphical Excellence</a><ul>
-<li class="chapter" data-level="7.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
-<li class="chapter" data-level="7.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#getting-started"><i class="fa fa-check"></i><b>7.2</b> Getting Started</a></li>
-<li class="chapter" data-level="7.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#themes"><i class="fa fa-check"></i><b>7.3</b> Themes</a></li>
-<li class="chapter" data-level="7.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#colors"><i class="fa fa-check"></i><b>7.4</b> Colors</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#viridis"><i class="fa fa-check"></i><b>7.4.1</b> Viridis</a></li>
-<li class="chapter" data-level="7.4.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#color-brewer"><i class="fa fa-check"></i><b>7.4.2</b> Color Brewer</a></li>
-<li class="chapter" data-level="7.4.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#other-packages"><i class="fa fa-check"></i><b>7.4.3</b> Other Packages</a></li>
-<li class="chapter" data-level="7.4.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#making-your-own"><i class="fa fa-check"></i><b>7.4.4</b> Making Your Own</a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#labels"><i class="fa fa-check"></i><b>7.5</b> Labels</a></li>
-<li class="chapter" data-level="7.6" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#animation"><i class="fa fa-check"></i><b>7.6</b> Animation</a></li>
-<li class="chapter" data-level="7.7" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#specialized-visualizations"><i class="fa fa-check"></i><b>7.7</b> Specialized Visualizations</a><ul>
-<li class="chapter" data-level="7.7.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#stacked-area-plots"><i class="fa fa-check"></i><b>7.7.1</b> Stacked Area Plots</a></li>
-<li class="chapter" data-level="7.7.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#ggridges"><i class="fa fa-check"></i><b>7.7.2</b> ggridges</a></li>
-<li class="chapter" data-level="7.7.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#maps"><i class="fa fa-check"></i><b>7.7.3</b> Maps</a></li>
-<li class="chapter" data-level="7.7.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#circular-charts"><i class="fa fa-check"></i><b>7.7.4</b> Circular Charts</a></li>
-</ul></li>
-<li class="chapter" data-level="7.8" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#rearranging-groups"><i class="fa fa-check"></i><b>7.8</b> Rearranging Groups</a></li>
-<li class="chapter" data-level="7.9" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#further-reading"><i class="fa fa-check"></i><b>7.9</b> Further Reading</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html"><i class="fa fa-check"></i><b>8</b> Playing Nicely With Others</a><ul>
-<li class="chapter" data-level="8.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#r-markdown"><i class="fa fa-check"></i><b>8.1</b> R Markdown</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#kable"><i class="fa fa-check"></i><b>8.1.1</b> Kable</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#latex"><i class="fa fa-check"></i><b>8.2</b> LaTex</a></li>
-<li class="chapter" data-level="8.3" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#github"><i class="fa fa-check"></i><b>8.3</b> Git(Hub)</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#my-first-repository"><i class="fa fa-check"></i><b>8.3.1</b> My First Repository</a></li>
-</ul></li>
-<li class="chapter" data-level="8.4" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#commenting-code"><i class="fa fa-check"></i><b>8.4</b> Commenting Code</a></li>
-<li class="chapter" data-level="8.5" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#further-reading-1"><i class="fa fa-check"></i><b>8.5</b> Further Reading</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="working-with-text.html"><a href="working-with-text.html"><i class="fa fa-check"></i><b>9</b> Working with Text</a><ul>
-<li class="chapter" data-level="9.1" data-path="working-with-text.html"><a href="working-with-text.html#working-with-stringr"><i class="fa fa-check"></i><b>9.1</b> Working with Stringr</a></li>
-<li class="chapter" data-level="9.2" data-path="working-with-text.html"><a href="working-with-text.html#regular-expressions"><i class="fa fa-check"></i><b>9.2</b> Regular Expressions</a></li>
-<li class="chapter" data-level="9.3" data-path="working-with-text.html"><a href="working-with-text.html#case-study"><i class="fa fa-check"></i><b>9.3</b> Case Study</a></li>
-<li class="chapter" data-level="9.4" data-path="working-with-text.html"><a href="working-with-text.html#further-reading-2"><i class="fa fa-check"></i><b>9.4</b> Further Reading</a></li>
-<li class="chapter" data-level="9.5" data-path="working-with-text.html"><a href="working-with-text.html#exercises-4"><i class="fa fa-check"></i><b>9.5</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>10</b> Working with Dates and Times</a><ul>
-<li class="chapter" data-level="10.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#dates-in-r"><i class="fa fa-check"></i><b>10.1</b> Dates in R</a></li>
-<li class="chapter" data-level="10.2" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#converting-to-dates"><i class="fa fa-check"></i><b>10.2</b> Converting To Dates</a></li>
-<li class="chapter" data-level="10.3" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#extracting-from-dates"><i class="fa fa-check"></i><b>10.3</b> Extracting From Dates</a></li>
-<li class="chapter" data-level="10.4" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#math-with-dates"><i class="fa fa-check"></i><b>10.4</b> Math with Dates</a></li>
-<li class="chapter" data-level="10.5" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#time-zones"><i class="fa fa-check"></i><b>10.5</b> Time Zones</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="special-applications.html"><a href="special-applications.html"><i class="fa fa-check"></i><b>11</b> Special Applications</a><ul>
-<li class="chapter" data-level="11.1" data-path="special-applications.html"><a href="special-applications.html#sampling"><i class="fa fa-check"></i><b>11.1</b> Sampling</a><ul>
-<li class="chapter" data-level="11.1.1" data-path="special-applications.html"><a href="special-applications.html#sample-random-samples"><i class="fa fa-check"></i><b>11.1.1</b> Sample Random Samples</a></li>
-<li class="chapter" data-level="11.1.2" data-path="special-applications.html"><a href="special-applications.html#stratified-random-sampling"><i class="fa fa-check"></i><b>11.1.2</b> Stratified Random Sampling</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="special-applications.html"><a href="special-applications.html#bootstrapping"><i class="fa fa-check"></i><b>11.2</b> Bootstrapping</a></li>
-<li class="chapter" data-level="11.3" data-path="special-applications.html"><a href="special-applications.html#model-predictions"><i class="fa fa-check"></i><b>11.3</b> Model Predictions</a></li>
-<li class="chapter" data-level="11.4" data-path="special-applications.html"><a href="special-applications.html#even-more-special-applications"><i class="fa fa-check"></i><b>11.4</b> Even More Special Applications</a><ul>
-<li class="chapter" data-level="11.4.1" data-path="special-applications.html"><a href="special-applications.html#leaflet-maps"><i class="fa fa-check"></i><b>11.4.1</b> Leaflet Maps</a></li>
-<li class="chapter" data-level="11.4.2" data-path="special-applications.html"><a href="special-applications.html#flexdashboard"><i class="fa fa-check"></i><b>11.4.2</b> FlexDashboard</a></li>
-<li class="chapter" data-level="11.4.3" data-path="special-applications.html"><a href="special-applications.html#bookdown"><i class="fa fa-check"></i><b>11.4.3</b> Bookdown</a></li>
-<li class="chapter" data-level="11.4.4" data-path="special-applications.html"><a href="special-applications.html#blogdown"><i class="fa fa-check"></i><b>11.4.4</b> Blogdown</a></li>
-<li class="chapter" data-level="11.4.5" data-path="special-applications.html"><a href="special-applications.html#shiny"><i class="fa fa-check"></i><b>11.4.5</b> Shiny</a></li>
+<li class="chapter" data-level="3.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#r-functions-and-workflow-exercises"><i class="fa fa-check"></i><b>3.2</b> R Functions and Workflow Exercises</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#do-the-following"><i class="fa fa-check"></i><b>3.2.1</b> Do the following:</a></li>
+<li class="chapter" data-level="3.2.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#work-with-other-datasets"><i class="fa fa-check"></i><b>3.2.2</b> Work with other datasets:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>12</b> Machine Learning</a><ul>
-<li class="chapter" data-level="12.1" data-path="machine-learning.html"><a href="machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>12.1</b> What is Machine Learning?</a></li>
-<li class="chapter" data-level="12.2" data-path="machine-learning.html"><a href="machine-learning.html#some-definitions"><i class="fa fa-check"></i><b>12.2</b> Some Definitions</a></li>
-<li class="chapter" data-level="12.3" data-path="machine-learning.html"><a href="machine-learning.html#supervised-learning"><i class="fa fa-check"></i><b>12.3</b> Supervised Learning</a><ul>
-<li class="chapter" data-level="12.3.1" data-path="machine-learning.html"><a href="machine-learning.html#classification"><i class="fa fa-check"></i><b>12.3.1</b> Classification</a></li>
-<li class="chapter" data-level="12.3.2" data-path="machine-learning.html"><a href="machine-learning.html#support-vector-machines"><i class="fa fa-check"></i><b>12.3.2</b> Support Vector Machines</a></li>
-<li class="chapter" data-level="12.3.3" data-path="machine-learning.html"><a href="machine-learning.html#regression-models"><i class="fa fa-check"></i><b>12.3.3</b> Regression Models</a></li>
+<li class="chapter" data-level="4" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html"><i class="fa fa-check"></i><b>4</b> Basic Statistics (Using R)</a><ul>
+<li class="chapter" data-level="4.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#purpose-of-the-unit"><i class="fa fa-check"></i><b>4.1</b> Purpose of the Unit</a></li>
+<li class="chapter" data-level="4.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#definitions"><i class="fa fa-check"></i><b>4.2</b> Definitions</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#data-concepts"><i class="fa fa-check"></i><b>4.2.1</b> Data Concepts</a></li>
+<li class="chapter" data-level="4.2.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#statistical-terms"><i class="fa fa-check"></i><b>4.2.2</b> Statistical Terms</a></li>
+<li class="chapter" data-level="4.2.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#models-and-tests"><i class="fa fa-check"></i><b>4.2.3</b> Models and Tests</a></li>
+<li class="chapter" data-level="4.2.4" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#how-well-compare-models"><i class="fa fa-check"></i><b>4.2.4</b> How We’ll Compare Models</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="machine-learning.html"><a href="machine-learning.html#unsupervised-learning"><i class="fa fa-check"></i><b>12.4</b> Unsupervised Learning</a></li>
+<li class="chapter" data-level="4.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#examples"><i class="fa fa-check"></i><b>4.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html"><i class="fa fa-check"></i><b>5</b> Introduction to Data Analysis</a><ul>
+<li class="chapter" data-level="5.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>5.1</b> Exploratory Data Analysis</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#gapminder"><i class="fa fa-check"></i><b>5.1.1</b> gapminder</a></li>
+<li class="chapter" data-level="5.1.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#describing-your-data"><i class="fa fa-check"></i><b>5.1.2</b> Describing Your Data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#statistical-tests-and-regressions"><i class="fa fa-check"></i><b>5.2</b> Statistical Tests and Regressions</a></li>
+<li class="chapter" data-level="5.3" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#functional-programming"><i class="fa fa-check"></i><b>5.3</b> Functional Programming</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#column-names"><i class="fa fa-check"></i><b>5.3.1</b> Column Names</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#modeling"><i class="fa fa-check"></i><b>5.4</b> Modeling</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#dummy-models"><i class="fa fa-check"></i><b>5.4.1</b> Dummy Models</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#conclusion"><i class="fa fa-check"></i><b>5.5</b> Conclusion</a></li>
+<li class="chapter" data-level="5.6" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exercises-2"><i class="fa fa-check"></i><b>5.6</b> Exercises</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#answer-the-following"><i class="fa fa-check"></i><b>5.6.1</b> Answer the following:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html"><i class="fa fa-check"></i><b>6</b> Functions and Scripting</a><ul>
+<li class="chapter" data-level="6.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#writing-functions"><i class="fa fa-check"></i><b>6.1</b> Writing Functions</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#our-first-function"><i class="fa fa-check"></i><b>6.1.1</b> Our First Function</a></li>
+<li class="chapter" data-level="6.1.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#returns"><i class="fa fa-check"></i><b>6.1.2</b> Returns</a></li>
+<li class="chapter" data-level="6.1.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#more-complicated-functions"><i class="fa fa-check"></i><b>6.1.3</b> More Complicated Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#about-names"><i class="fa fa-check"></i><b>6.2</b> About Names…</a></li>
+<li class="chapter" data-level="6.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#conditional-statements"><i class="fa fa-check"></i><b>6.3</b> Conditional Statements</a></li>
+<li class="chapter" data-level="6.4" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#stops"><i class="fa fa-check"></i><b>6.4</b> Stops</a></li>
+<li class="chapter" data-level="6.5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#function-dependencies"><i class="fa fa-check"></i><b>6.5</b> Function Dependencies</a></li>
+<li class="chapter" data-level="6.6" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#saving-and-loading-functions"><i class="fa fa-check"></i><b>6.6</b> Saving and Loading Functions</a></li>
+<li class="chapter" data-level="6.7" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#loops"><i class="fa fa-check"></i><b>6.7</b> Loops</a></li>
+<li class="chapter" data-level="6.8" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#mapping-functions"><i class="fa fa-check"></i><b>6.8</b> Mapping Functions</a></li>
+<li class="chapter" data-level="6.9" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#more-information"><i class="fa fa-check"></i><b>6.9</b> More Information</a></li>
+<li class="chapter" data-level="6.10" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#exercises-3"><i class="fa fa-check"></i><b>6.10</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html"><i class="fa fa-check"></i><b>7</b> More Complicated Analyses</a><ul>
+<li class="chapter" data-level="7.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#other-datasets"><i class="fa fa-check"></i><b>7.1</b> Other Datasets</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#importing-your-own-data"><i class="fa fa-check"></i><b>7.1.1</b> Importing Your Own Data</a></li>
+<li class="chapter" data-level="7.1.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#exporting-data"><i class="fa fa-check"></i><b>7.1.2</b> Exporting Data</a></li>
+<li class="chapter" data-level="7.1.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#data-exploration"><i class="fa fa-check"></i><b>7.1.3</b> Data Exploration</a></li>
+<li class="chapter" data-level="7.1.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#modeling-winners"><i class="fa fa-check"></i><b>7.1.4</b> Modeling Winners</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#logistic-models"><i class="fa fa-check"></i><b>7.2</b> Logistic Models</a></li>
+<li class="chapter" data-level="7.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#modelling-metrics"><i class="fa fa-check"></i><b>7.3</b> Modelling Metrics</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#pseudo-r2"><i class="fa fa-check"></i><b>7.3.1</b> Pseudo-R<sup>2</sup></a></li>
+<li class="chapter" data-level="7.3.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#area-under-the-roc-curve-auc"><i class="fa fa-check"></i><b>7.3.2</b> Area Under the ROC Curve (AUC)</a></li>
+<li class="chapter" data-level="7.3.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#model-comparisons"><i class="fa fa-check"></i><b>7.3.3</b> Model Comparisons</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#more-complicated-analyses-1"><i class="fa fa-check"></i><b>7.4</b> More Complicated Analyses</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#model-selection"><i class="fa fa-check"></i><b>7.4.1</b> Model Selection</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#relational-data"><i class="fa fa-check"></i><b>7.5</b> Relational Data</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#inner-join"><i class="fa fa-check"></i><b>7.5.1</b> Inner Join</a></li>
+<li class="chapter" data-level="7.5.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#left-join"><i class="fa fa-check"></i><b>7.5.2</b> Left Join</a></li>
+<li class="chapter" data-level="7.5.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#right-join"><i class="fa fa-check"></i><b>7.5.3</b> Right Join</a></li>
+<li class="chapter" data-level="7.5.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#full-join"><i class="fa fa-check"></i><b>7.5.4</b> Full Join</a></li>
+<li class="chapter" data-level="7.5.5" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#semi-join"><i class="fa fa-check"></i><b>7.5.5</b> Semi Join</a></li>
+<li class="chapter" data-level="7.5.6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#anti-join"><i class="fa fa-check"></i><b>7.5.6</b> Anti Join</a></li>
+<li class="chapter" data-level="7.5.7" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#specifying-key-columns"><i class="fa fa-check"></i><b>7.5.7</b> Specifying Key Columns</a></li>
+<li class="chapter" data-level="7.5.8" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#merging-multiple-dataframes"><i class="fa fa-check"></i><b>7.5.8</b> Merging Multiple Dataframes</a></li>
+<li class="chapter" data-level="7.5.9" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#binding-dataframes"><i class="fa fa-check"></i><b>7.5.9</b> Binding Dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#exercises-4"><i class="fa fa-check"></i><b>7.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html"><i class="fa fa-check"></i><b>8</b> Achieving Graphical Excellence</a><ul>
+<li class="chapter" data-level="8.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#getting-started"><i class="fa fa-check"></i><b>8.2</b> Getting Started</a></li>
+<li class="chapter" data-level="8.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#themes"><i class="fa fa-check"></i><b>8.3</b> Themes</a></li>
+<li class="chapter" data-level="8.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#colors"><i class="fa fa-check"></i><b>8.4</b> Colors</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#viridis"><i class="fa fa-check"></i><b>8.4.1</b> Viridis</a></li>
+<li class="chapter" data-level="8.4.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#color-brewer"><i class="fa fa-check"></i><b>8.4.2</b> Color Brewer</a></li>
+<li class="chapter" data-level="8.4.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#other-packages"><i class="fa fa-check"></i><b>8.4.3</b> Other Packages</a></li>
+<li class="chapter" data-level="8.4.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#making-your-own"><i class="fa fa-check"></i><b>8.4.4</b> Making Your Own</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#labels"><i class="fa fa-check"></i><b>8.5</b> Labels</a></li>
+<li class="chapter" data-level="8.6" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#animation"><i class="fa fa-check"></i><b>8.6</b> Animation</a></li>
+<li class="chapter" data-level="8.7" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#specialized-visualizations"><i class="fa fa-check"></i><b>8.7</b> Specialized Visualizations</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#stacked-area-plots"><i class="fa fa-check"></i><b>8.7.1</b> Stacked Area Plots</a></li>
+<li class="chapter" data-level="8.7.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#ggridges"><i class="fa fa-check"></i><b>8.7.2</b> ggridges</a></li>
+<li class="chapter" data-level="8.7.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#maps"><i class="fa fa-check"></i><b>8.7.3</b> Maps</a></li>
+<li class="chapter" data-level="8.7.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#circular-charts"><i class="fa fa-check"></i><b>8.7.4</b> Circular Charts</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#rearranging-groups"><i class="fa fa-check"></i><b>8.8</b> Rearranging Groups</a></li>
+<li class="chapter" data-level="8.9" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#further-reading"><i class="fa fa-check"></i><b>8.9</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html"><i class="fa fa-check"></i><b>9</b> Playing Nicely With Others</a><ul>
+<li class="chapter" data-level="9.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#r-markdown"><i class="fa fa-check"></i><b>9.1</b> R Markdown</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#kable"><i class="fa fa-check"></i><b>9.1.1</b> Kable</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#latex"><i class="fa fa-check"></i><b>9.2</b> LaTex</a></li>
+<li class="chapter" data-level="9.3" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#github"><i class="fa fa-check"></i><b>9.3</b> Git(Hub)</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#my-first-repository"><i class="fa fa-check"></i><b>9.3.1</b> My First Repository</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#commenting-code"><i class="fa fa-check"></i><b>9.4</b> Commenting Code</a></li>
+<li class="chapter" data-level="9.5" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#further-reading-1"><i class="fa fa-check"></i><b>9.5</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="working-with-text.html"><a href="working-with-text.html"><i class="fa fa-check"></i><b>10</b> Working with Text</a><ul>
+<li class="chapter" data-level="10.1" data-path="working-with-text.html"><a href="working-with-text.html#working-with-stringr"><i class="fa fa-check"></i><b>10.1</b> Working with Stringr</a></li>
+<li class="chapter" data-level="10.2" data-path="working-with-text.html"><a href="working-with-text.html#regular-expressions"><i class="fa fa-check"></i><b>10.2</b> Regular Expressions</a></li>
+<li class="chapter" data-level="10.3" data-path="working-with-text.html"><a href="working-with-text.html#case-study"><i class="fa fa-check"></i><b>10.3</b> Case Study</a></li>
+<li class="chapter" data-level="10.4" data-path="working-with-text.html"><a href="working-with-text.html#further-reading-2"><i class="fa fa-check"></i><b>10.4</b> Further Reading</a></li>
+<li class="chapter" data-level="10.5" data-path="working-with-text.html"><a href="working-with-text.html#exercises-5"><i class="fa fa-check"></i><b>10.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>11</b> Working with Dates and Times</a><ul>
+<li class="chapter" data-level="11.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#dates-in-r"><i class="fa fa-check"></i><b>11.1</b> Dates in R</a></li>
+<li class="chapter" data-level="11.2" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#converting-to-dates"><i class="fa fa-check"></i><b>11.2</b> Converting To Dates</a></li>
+<li class="chapter" data-level="11.3" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#extracting-from-dates"><i class="fa fa-check"></i><b>11.3</b> Extracting From Dates</a></li>
+<li class="chapter" data-level="11.4" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#math-with-dates"><i class="fa fa-check"></i><b>11.4</b> Math with Dates</a></li>
+<li class="chapter" data-level="11.5" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#time-zones"><i class="fa fa-check"></i><b>11.5</b> Time Zones</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="what-next.html"><a href="what-next.html"><i class="fa fa-check"></i><b>12</b> What Next</a><ul>
+<li class="chapter" data-level="12.1" data-path="what-next.html"><a href="what-next.html#machine-learning-methods"><i class="fa fa-check"></i><b>12.1</b> Machine Learning Methods</a></li>
+<li class="chapter" data-level="12.2" data-path="what-next.html"><a href="what-next.html#leaflet-maps"><i class="fa fa-check"></i><b>12.2</b> Leaflet Maps</a></li>
+<li class="chapter" data-level="12.3" data-path="what-next.html"><a href="what-next.html#flexdashboard"><i class="fa fa-check"></i><b>12.3</b> FlexDashboard</a></li>
+<li class="chapter" data-level="12.4" data-path="what-next.html"><a href="what-next.html#bookdown"><i class="fa fa-check"></i><b>12.4</b> Bookdown</a></li>
+<li class="chapter" data-level="12.5" data-path="what-next.html"><a href="what-next.html#blogdown"><i class="fa fa-check"></i><b>12.5</b> Blogdown</a></li>
+<li class="chapter" data-level="12.6" data-path="what-next.html"><a href="what-next.html#shiny"><i class="fa fa-check"></i><b>12.6</b> Shiny</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="other-resources.html"><a href="other-resources.html"><i class="fa fa-check"></i><b>13</b> Other Resources</a><ul>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#infographics"><i class="fa fa-check"></i>Infographics</a></li>
@@ -314,6 +313,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-r"><i class="fa fa-check"></i><b>14.1</b> Why R?</a></li>
 <li class="chapter" data-level="14.2" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-my-code-broken"><i class="fa fa-check"></i><b>14.2</b> Why is my code broken?</a></li>
 <li class="chapter" data-level="14.3" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-x-package-named-that"><i class="fa fa-check"></i><b>14.3</b> Why is (<em>X</em> package) named that?</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="changelog.html"><a href="changelog.html"><i class="fa fa-check"></i><b>15</b> Changelog</a><ul>
+<li class="chapter" data-level="15.1" data-path="changelog.html"><a href="changelog.html#version-1.0.1"><i class="fa fa-check"></i><b>15.1</b> Version 1.0.1</a></li>
+<li class="chapter" data-level="15.2" data-path="changelog.html"><a href="changelog.html#version-1.0.0"><i class="fa fa-check"></i><b>15.2</b> Version 1.0.0</a></li>
 </ul></li>
 </ul>
 
@@ -333,7 +336,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="more-complicated-analyses" class="section level1">
-<h1><span class="header-section-number">6</span> More Complicated Analyses</h1>
+<h1><span class="header-section-number">7</span> More Complicated Analyses</h1>
 <blockquote>
 Computers are cheap, and thinking hurts.
 <div align="right">
@@ -341,21 +344,21 @@ Computers are cheap, and thinking hurts.
 </div>
 </blockquote>
 <div id="other-datasets" class="section level2">
-<h2><span class="header-section-number">6.1</span> Other Datasets</h2>
+<h2><span class="header-section-number">7.1</span> Other Datasets</h2>
 <div id="importing-your-own-data" class="section level3">
-<h3><span class="header-section-number">6.1.1</span> Importing Your Own Data</h3>
+<h3><span class="header-section-number">7.1.1</span> Importing Your Own Data</h3>
 <p>So far in this course, we’ve been working exclusively with the data pre-available in R and a few of the packages we’ve taken advantage of. While this is a good way to learn R, at some point you may want to use your own data for analysis.</p>
 <p>Luckily, R has a number of functions used to import data from external files. To demonstrate these, I’ll be using datasets located <a href="https://github.com/mikemahoney218/IntroToRData">on GitHub</a>, in the “Unit 6 Data” folder. You don’t necessarily need to download these files - but we’ll be using these for demonstration throughout this unit.</p>
 <p>These datasets are from the website <a href="https://www.kaggle.com/">Kaggle</a>, where a number of data professionals share methods and datasets. Specifically, we’ll be working with two datasets concerning <a href="https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results">all Olympic athletes from the first 120 years of the game</a>. Additionally, we’ll use data on <a href="https://www.kaggle.com/drgilermo/nba-players-stats-20142015">NBA athletes from the 2014-2015 season</a>. I’m not a huge sports guy myself, but there’s a huge amount of sports-related data available publicly online, so it’s a good tool for our analyses.</p>
 <p>We’re going to be assuming that your data are located in the same folder as your script - this is usually the easiest way to manage datasets. Otherwise, you’ll have to wrestle a little with using relative pathways and directory names - Hadley Wickham explains these in more detail here.</p>
 <p>In order to do this, we’ll be using the <code>readr</code> package, which is included in the base tidyverse:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
-## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
-## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
-## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.1.0     ✔ purrr   0.3.0
+## ✔ tibble  2.1.1     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.3.0</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <p>All the datasets included in our example use different <em>delimiters</em> - the character that tells R (or Excel, or whatever program you’re using) where one column stops and the next one begins. No matter what your delimiter is, we can parse the file using <code>read_delim()</code> - the first argument is the filename to read, while the second is the delimiter used. For instance, our text file is tab delimited - and since tabs are represented in R as <code>\t</code>, we’ll tell <code>read_delim()</code> to use that as a delimiter:</p>
@@ -380,20 +383,20 @@ Computers are cheap, and thinking hurts.
 ##  8 ANZ   Australia   Australasia         
 ##  9 ARG   Argentina   &lt;NA&gt;                
 ## 10 ARM   Armenia     &lt;NA&gt;                
-## # ... with 220 more rows</code></pre>
+## # … with 220 more rows</code></pre>
 <p>We can do the same thing with documents that have comma separated values (known as CSVs):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;athlete_events.csv&quot;</span>, <span class="st">&quot;,&quot;</span>)</code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   ID = col_integer(),
+##   ID = col_double(),
 ##   Name = col_character(),
 ##   Sex = col_character(),
-##   Age = col_integer(),
-##   Height = col_integer(),
+##   Age = col_double(),
+##   Height = col_double(),
 ##   Weight = col_double(),
 ##   NOC = col_character(),
 ##   Games = col_character(),
-##   Year = col_integer(),
+##   Year = col_double(),
 ##   Season = col_character(),
 ##   Sport = col_character(),
 ##   Event = col_character(),
@@ -402,7 +405,7 @@ Computers are cheap, and thinking hurts.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents</code></pre></div>
 <pre><code>## # A tibble: 271,116 x 13
 ##       ID Name  Sex     Age Height Weight NOC   Games  Year Season Sport
-##    &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt;  &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;
 ##  1     1 A Di… M        24    180     80 CHN   1992…  1992 Summer Bask…
 ##  2     2 A La… M        23    170     60 CHN   2012…  2012 Summer Judo 
 ##  3     3 Gunn… M        24     NA     NA DEN   1920…  1920 Summer Foot…
@@ -413,22 +416,21 @@ Computers are cheap, and thinking hurts.
 ##  8     5 Chri… F        25    185     82 NED   1992…  1992 Winter Spee…
 ##  9     5 Chri… F        27    185     82 NED   1994…  1994 Winter Spee…
 ## 10     5 Chri… F        27    185     82 NED   1994…  1994 Winter Spee…
-## # ... with 271,106 more rows, and 2 more variables: Event &lt;chr&gt;,
-## #   Medal &lt;chr&gt;</code></pre>
+## # … with 271,106 more rows, and 2 more variables: Event &lt;chr&gt;, Medal &lt;chr&gt;</code></pre>
 <p>(You may have noticed that took a second to load - at least, if your computer is middle-of-the-road. This dataset has 271,116 rows - even more than our <code>diamonds</code> dataset - so analyses might take slightly longer with it. Imagine how long “big data” problems would take on your computer, when datasets have several million rows of observations!)</p>
 <p>However, <code>readr</code> also includes a pretty good tool specifically for CSV files:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;athlete_events.csv&quot;</span>)</code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   ID = col_integer(),
+##   ID = col_double(),
 ##   Name = col_character(),
 ##   Sex = col_character(),
-##   Age = col_integer(),
-##   Height = col_integer(),
+##   Age = col_double(),
+##   Height = col_double(),
 ##   Weight = col_double(),
 ##   NOC = col_character(),
 ##   Games = col_character(),
-##   Year = col_integer(),
+##   Year = col_double(),
 ##   Season = col_character(),
 ##   Sport = col_character(),
 ##   Event = col_character(),
@@ -437,7 +439,7 @@ Computers are cheap, and thinking hurts.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents</code></pre></div>
 <pre><code>## # A tibble: 271,116 x 13
 ##       ID Name  Sex     Age Height Weight NOC   Games  Year Season Sport
-##    &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt;  &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;
 ##  1     1 A Di… M        24    180     80 CHN   1992…  1992 Summer Bask…
 ##  2     2 A La… M        23    170     60 CHN   2012…  2012 Summer Judo 
 ##  3     3 Gunn… M        24     NA     NA DEN   1920…  1920 Summer Foot…
@@ -448,8 +450,7 @@ Computers are cheap, and thinking hurts.
 ##  8     5 Chri… F        25    185     82 NED   1992…  1992 Winter Spee…
 ##  9     5 Chri… F        27    185     82 NED   1994…  1994 Winter Spee…
 ## 10     5 Chri… F        27    185     82 NED   1994…  1994 Winter Spee…
-## # ... with 271,106 more rows, and 2 more variables: Event &lt;chr&gt;,
-## #   Medal &lt;chr&gt;</code></pre>
+## # … with 271,106 more rows, and 2 more variables: Event &lt;chr&gt;, Medal &lt;chr&gt;</code></pre>
 <p>Now, <code>readr</code> doesn’t have native support for more complicated files, like Excel files. Philosphically, you shouldn’t store data in Excel format for long periods of time - we have no idea how long Microsoft will be around for, and the encoding used by Excel may someday disappear and take your data with it. CSVs are generally preferred for long-term data storage, as they’re easy to understand visually and are easily parsed by computers.</p>
 <p>However, data entry is much easier in Excel, and plenty of data professionals still use the format. Luckily, there’s a package - <code>readxl</code> - designed to parse these types of files:</p>
 <pre><code>install.packages(&quot;readxl&quot;)</code></pre>
@@ -469,7 +470,7 @@ NBAStats</code></pre></div>
 ##  8 Alec…             27   899   374   121   300  40.3    26    68  38.2
 ##  9 Alex…              5    14     4     1     4  25       0     0   0  
 ## 10 Alex…             69  1518   432   179   353  50.7     1     3  33.3
-## # ... with 480 more rows, and 24 more variables: FTM &lt;dbl&gt;, FTA &lt;dbl&gt;,
+## # … with 480 more rows, and 24 more variables: FTM &lt;dbl&gt;, FTA &lt;dbl&gt;,
 ## #   `FT%` &lt;dbl&gt;, OREB &lt;dbl&gt;, DREB &lt;dbl&gt;, REB &lt;dbl&gt;, AST &lt;dbl&gt;, STL &lt;dbl&gt;,
 ## #   BLK &lt;dbl&gt;, TOV &lt;dbl&gt;, PF &lt;dbl&gt;, EFF &lt;dbl&gt;, `AST/TOV` &lt;dbl&gt;,
 ## #   `STL/TOV` &lt;dbl&gt;, Age &lt;dbl&gt;, Birth_Place &lt;chr&gt;, Birthdate &lt;dttm&gt;,
@@ -478,13 +479,13 @@ NBAStats</code></pre></div>
 <p>You’ll also notice that RStudio has an “import dataset” button in the top right corner, which makes use of both the <code>readr</code> and <code>readxl</code> packages. This button lets you point and click your way through data import, and then copy the code into your script. It’s a great resource for beginners!</p>
 </div>
 <div id="exporting-data" class="section level3">
-<h3><span class="header-section-number">6.1.2</span> Exporting Data</h3>
+<h3><span class="header-section-number">7.1.2</span> Exporting Data</h3>
 <p>Writing data to a file is also pretty painless using <code>readr</code>. There are as many options for delimiters as before - you can use <code>write_delim()</code> to specify which you want to use with your data - but more commonly data is imported and exported as CSV files using <code>write_csv()</code></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_csv</span>(AthleteEvents, <span class="st">&quot;athlete_events.csv&quot;</span>)</code></pre></div>
 <p>Note that, like all other <code>tidyverse</code> functions, the dataset is the first thing you specify.</p>
 </div>
 <div id="data-exploration" class="section level3">
-<h3><span class="header-section-number">6.1.3</span> Data Exploration</h3>
+<h3><span class="header-section-number">7.1.3</span> Data Exploration</h3>
 <p>Let’s put <code>NBAStats</code> off to the side for a moment, and look at our other two datasets. <code>AthleteEvents</code> is a list of all olympic competitors from 1892 to 2016, including basic statistics about each and any medals they may have won. <code>NOCRegions</code>, meanwhile, maps codes used by the National Olympic Committee (NOC) to the countries they represent.</p>
 <p>We can get a sense of the variables this dataset measures using <code>psych::describe()</code></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">psych<span class="op">::</span><span class="kw">describe</span>(AthleteEvents)</code></pre></div>
@@ -600,7 +601,7 @@ NBAStats</code></pre></div>
 </ul>
 <p>If we want to get a sense of correlations in the data, we can try using <code>pairs()</code> again - but be warned, this one might take a while due to the size of the data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(<span class="kw">select_if</span>(AthleteEvents, is.numeric))</code></pre></div>
-<p><img src="06_More_Complicated_Analyses_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="07_More_Complicated_Analyses_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>(Pop quiz for the history nerds: what are those vertical bars in the <code>Year</code> column?)</p>
 <p>That’s a little chaotic, but we can still see trends nicely enough. It looks like height and weight have increased in variance over the years, probably due to the increased number of athletes overall. Height and weight look tightly correlated, as do age and the other statistics, interestingly enough. If we look at the actual correlation coefficients, we can see these trends numerically. We’re going to have to remove the NAs manually, first, using dplyr’s <code>drop_na</code></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents <span class="op">%&gt;%</span>
@@ -619,7 +620,7 @@ NBAStats</code></pre></div>
 <span class="st">  </span><span class="kw">count</span>(Year, Sex)</code></pre></div>
 <pre><code>## # A tibble: 69 x 3
 ##     Year Sex       n
-##    &lt;int&gt; &lt;chr&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;chr&gt; &lt;int&gt;
 ##  1  1896 M       380
 ##  2  1900 F        33
 ##  3  1900 M      1903
@@ -630,7 +631,7 @@ NBAStats</code></pre></div>
 ##  8  1908 F        47
 ##  9  1908 M      3054
 ## 10  1912 F        87
-## # ... with 59 more rows</code></pre>
+## # … with 59 more rows</code></pre>
 <p>The first women appear in 1900! That’s very cool.</p>
 <p>I do wonder if the male or female athletes have it harder - that is, are there more male or female medal recipients, as a proportion of the whole? For instance, if fewer countries send female participants, each participant might be more statistically more likely to win.</p>
 <p>We can eyeball this by calculating the percentage of each gender who hold each type of medal, out of the total number of athletes who have participated. To do so, we’ll count the number of recipients of each type of medal, rename the <code>NA</code> medal value “none”, group our data by sex, and then divide the number of people who have received each medal by the total number of contestants:</p>
@@ -654,7 +655,7 @@ NBAStats</code></pre></div>
 <p>So it looks like women have a tiny edge, but generally speaking, both men and women have a 15% chance of medalling at the Olympics.</p>
 </div>
 <div id="modeling-winners" class="section level3">
-<h3><span class="header-section-number">6.1.4</span> Modeling Winners</h3>
+<h3><span class="header-section-number">7.1.4</span> Modeling Winners</h3>
 <p>Personally, I’m interested in predicting if someone will win a medal at the Olympics. We could do this a number of inferential ways - for instance, dropping all the values where an athlete <em>didn’t</em> win, and looking at the summary statistics of the athletes who did:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(Medal)) <span class="op">%&gt;%</span>
@@ -735,13 +736,13 @@ AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span
 </div>
 </div>
 <div id="logistic-models" class="section level2">
-<h2><span class="header-section-number">6.2</span> Logistic Models</h2>
+<h2><span class="header-section-number">7.2</span> Logistic Models</h2>
 <p>Wow! Every single term in our model is significant, but the R<sup>2</sup> is horrible!</p>
 <p>As for why that might be, let’s visualize our response variable against one of its predictors - again, this might take a second to run:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(AthleteEvents, <span class="kw">aes</span>(Height, Winner)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
 <pre><code>## Warning: Removed 60171 rows containing missing values (geom_point).</code></pre>
-<p><img src="06_More_Complicated_Analyses_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="07_More_Complicated_Analyses_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>This here is the root of our problem - we’re trying to model a binary outcome (a yes or no, a medal or not) with a straight line, which is useless. This sort of problem comes up all the time in real world situations - in science, whether or not a trap will catch something, or in business, whether or not a customer will click.</p>
 <p>These problems are known as <em>classification</em> problems, where the outcome is a categorical variable, and linear models are really bad at them. Instead, we can choose to use a <em>logistic model</em>, one of the types of <em>generalized linear models</em> from chapter 3. These models serve to measure the probability of a binary event - while a linear model will tell you the value of your response variable, logistic models will tell you the probability your response variable is 1.</p>
 <p>R convieniently has a function <code>glm()</code> for doing exactly this:</p>
@@ -781,11 +782,11 @@ AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span
 <p>Note that <code>family = &quot;binomial&quot;</code> is necessary to make R compute a logistic model - you can find other possible generalized linear model formats by typing <code>?family</code>.</p>
 </div>
 <div id="modelling-metrics" class="section level2">
-<h2><span class="header-section-number">6.3</span> Modelling Metrics</h2>
+<h2><span class="header-section-number">7.3</span> Modelling Metrics</h2>
 <p>Well, our terms are all still significant, which is a good thing - but you’ll notice that we now have no R<sup>2</sup>! That’s because R<sup>2</sup> terms don’t really exist for logistic models, for reasons we won’t go too far into - you can read more on the topic <a href="https://stats.idre.ucla.edu/other/mult-pkg/faq/general/faq-what-are-pseudo-r-squareds/">here</a>. But what we will get into are other methods of evaluating logistic models.</p>
 <p>One of the more common methods of comparing logistic models is to use what’s known as a pseudo R<sup>2</sup> value. Unfortunately, there are plenty of different methods to compute these, and you can’t compare R<sup>2</sup> calculated with different formulas to one another.</p>
 <div id="pseudo-r2" class="section level3">
-<h3><span class="header-section-number">6.3.1</span> Pseudo-R<sup>2</sup></h3>
+<h3><span class="header-section-number">7.3.1</span> Pseudo-R<sup>2</sup></h3>
 <p>One package that gives pretty decent results is the <code>pscl</code> package by Simon Jackman. After we install it, we can use the <code>pR2()</code> function to give us some pseudo-R<sup>2</sup> values:</p>
 <pre><code>install.packages(&quot;pscl&quot;)</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pscl<span class="op">::</span><span class="kw">pR2</span>(AthleteLogisticModel)</code></pre></div>
@@ -796,7 +797,7 @@ AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span
 <p>The McFadden R<sup>2</sup> is given as the fourth output from this function, while the Cragg-Uhler R<sup>2</sup> is the last value in the list. Again, these numbers can only be compared against other pseudo-R<sup>2</sup> following the same formula, which limits their versatility.</p>
 </div>
 <div id="area-under-the-roc-curve-auc" class="section level3">
-<h3><span class="header-section-number">6.3.2</span> Area Under the ROC Curve (AUC)</h3>
+<h3><span class="header-section-number">7.3.2</span> Area Under the ROC Curve (AUC)</h3>
 <p>More common in data analytics is to find the area under the receiver operating curve - abbreviated as AUC. To understand how we get there, let’s first take a look at our model object:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteLogisticModel</code></pre></div>
 <pre><code>## 
@@ -873,8 +874,8 @@ AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span
 ##  $ boundary         : logi FALSE
 ##  $ model            :&#39;data.frame&#39;:   206165 obs. of  4 variables:
 ##   ..$ Winner: num [1:206165] 0 0 0 0 0 0 0 0 0 0 ...
-##   ..$ Age   : int [1:206165] 24 23 21 21 25 25 27 27 31 31 ...
-##   ..$ Height: int [1:206165] 180 170 185 185 185 185 185 185 188 188 ...
+##   ..$ Age   : num [1:206165] 24 23 21 21 25 25 27 27 31 31 ...
+##   ..$ Height: num [1:206165] 180 170 185 185 185 185 185 185 188 188 ...
 ##   ..$ Weight: num [1:206165] 80 60 82 82 82 82 82 82 75 75 ...
 ##   ..- attr(*, &quot;terms&quot;)=Classes &#39;terms&#39;, &#39;formula&#39;  language Winner ~ Age * Height * Weight
 ##   .. .. ..- attr(*, &quot;variables&quot;)= language list(Winner, Age, Height, Weight)
@@ -911,52 +912,37 @@ AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span
 ##   .. ..- attr(*, &quot;predvars&quot;)= language list(Winner, Age, Height, Weight)
 ##   .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:4] &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot;
 ##   .. .. ..- attr(*, &quot;names&quot;)= chr [1:4] &quot;Winner&quot; &quot;Age&quot; &quot;Height&quot; &quot;Weight&quot;
-##  $ data             :Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:   271116 obs. of  14 variables:
-##   ..$ ID    : int [1:271116] 1 2 3 4 5 5 5 5 5 5 ...
+##  $ data             :Classes &#39;spec_tbl_df&#39;, &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    271116 obs. of  14 variables:
+##   ..$ ID    : num [1:271116] 1 2 3 4 5 5 5 5 5 5 ...
 ##   ..$ Name  : chr [1:271116] &quot;A Dijiang&quot; &quot;A Lamusi&quot; &quot;Gunnar Nielsen Aaby&quot; &quot;Edgar Lindenau Aabye&quot; ...
 ##   ..$ Sex   : chr [1:271116] &quot;M&quot; &quot;M&quot; &quot;M&quot; &quot;M&quot; ...
-##   ..$ Age   : int [1:271116] 24 23 24 34 21 21 25 25 27 27 ...
-##   ..$ Height: int [1:271116] 180 170 NA NA 185 185 185 185 185 185 ...
+##   ..$ Age   : num [1:271116] 24 23 24 34 21 21 25 25 27 27 ...
+##   ..$ Height: num [1:271116] 180 170 NA NA 185 185 185 185 185 185 ...
 ##   ..$ Weight: num [1:271116] 80 60 NA NA 82 82 82 82 82 82 ...
 ##   ..$ NOC   : chr [1:271116] &quot;CHN&quot; &quot;CHN&quot; &quot;DEN&quot; &quot;DEN&quot; ...
 ##   ..$ Games : chr [1:271116] &quot;1992 Summer&quot; &quot;2012 Summer&quot; &quot;1920 Summer&quot; &quot;1900 Summer&quot; ...
-##   ..$ Year  : int [1:271116] 1992 2012 1920 1900 1988 1988 1992 1992 1994 1994 ...
+##   ..$ Year  : num [1:271116] 1992 2012 1920 1900 1988 ...
 ##   ..$ Season: chr [1:271116] &quot;Summer&quot; &quot;Summer&quot; &quot;Summer&quot; &quot;Summer&quot; ...
 ##   ..$ Sport : chr [1:271116] &quot;Basketball&quot; &quot;Judo&quot; &quot;Football&quot; &quot;Tug-Of-War&quot; ...
 ##   ..$ Event : chr [1:271116] &quot;Basketball Men&#39;s Basketball&quot; &quot;Judo Men&#39;s Extra-Lightweight&quot; &quot;Football Men&#39;s Football&quot; &quot;Tug-Of-War Men&#39;s Tug-Of-War&quot; ...
 ##   ..$ Medal : chr [1:271116] NA NA NA &quot;Gold&quot; ...
 ##   ..$ Winner: num [1:271116] 0 0 0 1 0 0 0 0 0 0 ...
-##   ..- attr(*, &quot;spec&quot;)=List of 2
-##   .. ..$ cols   :List of 13
-##   .. .. ..$ ID    : list()
-##   .. .. .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;collector_integer&quot; &quot;collector&quot;
-##   .. .. ..$ Name  : list()
-##   .. .. .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;collector_character&quot; &quot;collector&quot;
-##   .. .. ..$ Sex   : list()
-##   .. .. .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;collector_character&quot; &quot;collector&quot;
-##   .. .. ..$ Age   : list()
-##   .. .. .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;collector_integer&quot; &quot;collector&quot;
-##   .. .. ..$ Height: list()
-##   .. .. .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;collector_integer&quot; &quot;collector&quot;
-##   .. .. ..$ Weight: list()
-##   .. .. .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;collector_double&quot; &quot;collector&quot;
-##   .. .. ..$ NOC   : list()
-##   .. .. .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;collector_character&quot; &quot;collector&quot;
-##   .. .. ..$ Games : list()
-##   .. .. .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;collector_character&quot; &quot;collector&quot;
-##   .. .. ..$ Year  : list()
-##   .. .. .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;collector_integer&quot; &quot;collector&quot;
-##   .. .. ..$ Season: list()
-##   .. .. .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;collector_character&quot; &quot;collector&quot;
-##   .. .. ..$ Sport : list()
-##   .. .. .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;collector_character&quot; &quot;collector&quot;
-##   .. .. ..$ Event : list()
-##   .. .. .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;collector_character&quot; &quot;collector&quot;
-##   .. .. ..$ Medal : list()
-##   .. .. .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;collector_character&quot; &quot;collector&quot;
-##   .. ..$ default: list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;collector_guess&quot; &quot;collector&quot;
-##   .. ..- attr(*, &quot;class&quot;)= chr &quot;col_spec&quot;
+##   ..- attr(*, &quot;spec&quot;)=
+##   .. .. cols(
+##   .. ..   ID = col_double(),
+##   .. ..   Name = col_character(),
+##   .. ..   Sex = col_character(),
+##   .. ..   Age = col_double(),
+##   .. ..   Height = col_double(),
+##   .. ..   Weight = col_double(),
+##   .. ..   NOC = col_character(),
+##   .. ..   Games = col_character(),
+##   .. ..   Year = col_double(),
+##   .. ..   Season = col_character(),
+##   .. ..   Sport = col_character(),
+##   .. ..   Event = col_character(),
+##   .. ..   Medal = col_character()
+##   .. .. )
 ##  $ offset           : NULL
 ##  $ control          :List of 3
 ##   ..$ epsilon: num 1e-08
@@ -980,7 +966,7 @@ AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LogModelROC &lt;-<span class="st"> </span><span class="kw">roc</span>(AthleteLogisticModel<span class="op">$</span>y, AthleteLogisticModel<span class="op">$</span>fitted.values)</code></pre></div>
 <p>We can then plot our ROC object using <code>plot.roc()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot.roc</span>(LogModelROC)</code></pre></div>
-<p><img src="06_More_Complicated_Analyses_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="07_More_Complicated_Analyses_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <p>This is cool! What the hell is it?</p>
 <p>This is what we mean when we say receiver operating characteristic curve. That light grey line in the middle represents what would happen if we just randomly guessed whether or not each athlete got a medal, using a 50/50 chance. The black line represents how well our model did - everywhere that it’s higher than the grey line, we were more accurate than random chance. We don’t need to worry about exactly what the axes mean (basically, the x axis represents how confident our model is in guessing someone medaled, while the y is how surprised it is about the result), but you can read more for yourself <a href="https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5">here</a>.</p>
 <p>The curve is cool and all, but is hard to interpret. Luckily for us, there’s a single value - similar to R<sup>2</sup> for linear models - which we can use to identify how well our model did. That number is the area under the curve (AUC, sometimes called the c-statistic) that I mentioned earlier, which we can calculate with pROC by printing out our ROC object:</p>
@@ -995,9 +981,9 @@ AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span
 <p>That number - 0.57 - is our single statistic for how accurate our model is. Generally speaking, models with an AUC of 0.7 are thought of as good models, with 0.8 as great and 0.9 incredible. Ecology can have slightly fuzzier models - predicting the natural world is hard, yo - but even the “random chance” line has an AUC of 0.5 - if your model is close to or below that, it’s pretty much useless.</p>
 </div>
 <div id="model-comparisons" class="section level3">
-<h3><span class="header-section-number">6.3.3</span> Model Comparisons</h3>
+<h3><span class="header-section-number">7.3.3</span> Model Comparisons</h3>
 <div id="auc" class="section level4">
-<h4><span class="header-section-number">6.3.3.1</span> AUC</h4>
+<h4><span class="header-section-number">7.3.3.1</span> AUC</h4>
 <p>So while our model is doing better than chance, it’s still not doing great - 0.57 leaves a lot of room to improve. For instance, since we know the sex of each athlete in our dataset, what would happen if we added that variable to our formula?</p>
 <p>We can calculate the new formula following all the steps above. I’m also going to use <code>pscl</code> and <code>pROC</code> to find the pseduo-R<sup>2</sup> and AUC of our new model, as well:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteLogisticModel2 &lt;-<span class="st"> </span><span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight <span class="op">*</span><span class="st"> </span>Sex, <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>) 
@@ -1029,7 +1015,7 @@ LogModel2ROC</code></pre></div>
 <p>And so we’re able to conclude that yes, our second model is significantly better than the first - including sex in our model made it significantly more predictive.</p>
 </div>
 <div id="aic" class="section level4">
-<h4><span class="header-section-number">6.3.3.2</span> AIC</h4>
+<h4><span class="header-section-number">7.3.3.2</span> AIC</h4>
 <p>While comparing model AUCs is effective, it isn’t the most popular method to analyze model performance. That honor likely goes to the Akaike Information Criterion, more commonly known as the AIC.</p>
 <p>AIC can be used effectively in three ways:</p>
 <ul>
@@ -1058,13 +1044,13 @@ LogModel2ROC</code></pre></div>
 </div>
 </div>
 <div id="more-complicated-analyses-1" class="section level2">
-<h2><span class="header-section-number">6.4</span> More Complicated Analyses</h2>
+<h2><span class="header-section-number">7.4</span> More Complicated Analyses</h2>
 <p>So far, we haven’t really earned our chapter title - while what we’ve been doing so far has been more in depth, it hasn’t necessarily been more complicated.</p>
 <p>This is the section that’ll step things up a little. If you got a strong understanding of functional programming in unit 4, and then understood making your own functions in unit 5, this part shouldn’t be particularly hard. However, it is one of the more involved blocks of code we’ve worked through so far - so don’t feel bad if it takes a little time before things work right, or before you fully understand what we’re doing.</p>
 <p>So, as we mentioned above, using AIC to compare two random models isn’t exactly what the tool is designed for. While it isn’t technically <em>wrong</em>, so long as the models are both of the same type (i.e., logistic) and modeling the same dataset, it isn’t <em>useful</em> to science or to you. We don’t particularly care which models are slightly better than others - we want to know which ones are right!</p>
 <p>You can either do this by comparing a small set of models that you have strong reasons to believe are accurate - this is a form of hypothesis testing, but using model AICs rather than p values - or by comparing all possible models which use the same set of <em>scientifically sound predictor variables</em>. Note the “scientifically sound” - you can’t throw millions of predictors at the wall and hope that they stick; you have to be able to justify their inclusion.</p>
 <div id="model-selection" class="section level3">
-<h3><span class="header-section-number">6.4.1</span> Model Selection</h3>
+<h3><span class="header-section-number">7.4.1</span> Model Selection</h3>
 <blockquote>
 Model improvement doesn’t make it into papers for the same reason people don’t go around introducing you to their ex-wives.
 <div align="right">
@@ -1182,11 +1168,11 @@ NullMod &lt;-<span class="st"> </span><span class="cf">function</span>(df){
 
 LogModelGlances</code></pre></div>
 <pre><code>## # A tibble: 1 x 17
-##   data  FullMod One   Two   Three Four  Five  Six   Seven Eight Nine  Ten 
-##   &lt;lis&gt; &lt;list&gt;  &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;li&gt;
-## 1 &lt;tib… &lt;tibbl… &lt;tib… &lt;tib… &lt;tib… &lt;tib… &lt;tib… &lt;tib… &lt;tib… &lt;tib… &lt;tib… &lt;ti…
-## # ... with 5 more variables: Eleven &lt;list&gt;, Twelve &lt;list&gt;,
-## #   Thirteen &lt;list&gt;, Fourteen &lt;list&gt;, NullMod &lt;list&gt;</code></pre>
+##   data  FullMod One   Two   Three Four  Five  Six   Seven Eight Nine  Ten  
+##   &lt;lis&gt; &lt;list&gt;  &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt;
+## 1 &lt;tib… &lt;tibbl… &lt;tib… &lt;tib… &lt;tib… &lt;tib… &lt;tib… &lt;tib… &lt;tib… &lt;tib… &lt;tib… &lt;tib…
+## # … with 5 more variables: Eleven &lt;list&gt;, Twelve &lt;list&gt;, Thirteen &lt;list&gt;,
+## #   Fourteen &lt;list&gt;, NullMod &lt;list&gt;</code></pre>
 <p>(This is why you need to have smart hypotheses about which variables matter - imagine having to wait for thirty-two models to process, or even more!)</p>
 <p>We then want to get from this wide dataframe to a tidy dataframe, by <code>gather()</code>ing the model types into a column, paired with the dataframe their column contains:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LogModelGlances &lt;-<span class="st"> </span>LogModelGlances <span class="op">%&gt;%</span>
@@ -1198,24 +1184,24 @@ LogModelGlances</code></pre></div>
 <span class="st">  </span><span class="kw">unnest</span>(Value, <span class="dt">.drop =</span> T) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">arrange</span>(AIC)</code></pre></div>
 <pre><code>## # A tibble: 16 x 8
-##    Model  null.deviance df.null  logLik    AIC    BIC deviance df.residual
-##    &lt;chr&gt;          &lt;dbl&gt;   &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt;
-##  1 FullM…       171694.  206164 -8.41e4 1.68e5 1.68e5  168275.      206149
-##  2 Three        171965.  206852 -8.44e4 1.69e5 1.69e5  168719.      206845
-##  3 Seven        171694.  206164 -8.49e4 1.70e5 1.70e5  169703.      206157
-##  4 Ten          171965.  206852 -8.51e4 1.70e5 1.70e5  170100.      206849
-##  5 Two          172939.  207378 -8.51e4 1.70e5 1.70e5  170118.      207371
-##  6 Six          173321.  208240 -8.53e4 1.71e5 1.71e5  170622.      208237
-##  7 Nine         172939.  207378 -8.56e4 1.71e5 1.71e5  171265.      207375
-##  8 Fourt…       173321.  208240 -8.59e4 1.72e5 1.72e5  171755.      208239
-##  9 One          175987.  210067 -8.66e4 1.73e5 1.73e5  173239.      210060
-## 10 Four         176348.  210944 -8.69e4 1.74e5 1.74e5  173720.      210941
-## 11 Eight        175987.  210067 -8.72e4 1.74e5 1.74e5  174308.      210064
-## 12 Thirt…       176348.  210944 -8.74e4 1.75e5 1.75e5  174728.      210943
-## 13 Five         220518.  261641 -1.10e5 2.20e5 2.20e5  220249.      261638
-## 14 Twelve       220518.  261641 -1.10e5 2.20e5 2.20e5  220370.      261640
-## 15 Eleven       226115.  271115 -1.13e5 2.26e5 2.26e5  226101.      271114
-## 16 NullM…       226115.  271115 -1.13e5 2.26e5 2.26e5  226115.      271115</code></pre>
+##    Model  null.deviance df.null   logLik    AIC    BIC deviance df.residual
+##    &lt;chr&gt;          &lt;dbl&gt;   &lt;int&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt;
+##  1 FullM…       171694.  206164  -84137. 1.68e5 1.68e5  168275.      206149
+##  2 Three        171965.  206852  -84360. 1.69e5 1.69e5  168719.      206845
+##  3 Seven        171694.  206164  -84852. 1.70e5 1.70e5  169703.      206157
+##  4 Ten          171965.  206852  -85050. 1.70e5 1.70e5  170100.      206849
+##  5 Two          172939.  207378  -85059. 1.70e5 1.70e5  170118.      207371
+##  6 Six          173321.  208240  -85311. 1.71e5 1.71e5  170622.      208237
+##  7 Nine         172939.  207378  -85632. 1.71e5 1.71e5  171265.      207375
+##  8 Fourt…       173321.  208240  -85878. 1.72e5 1.72e5  171755.      208239
+##  9 One          175987.  210067  -86619. 1.73e5 1.73e5  173239.      210060
+## 10 Four         176348.  210944  -86860. 1.74e5 1.74e5  173720.      210941
+## 11 Eight        175987.  210067  -87154. 1.74e5 1.74e5  174308.      210064
+## 12 Thirt…       176348.  210944  -87364. 1.75e5 1.75e5  174728.      210943
+## 13 Five         220518.  261641 -110124. 2.20e5 2.20e5  220249.      261638
+## 14 Twelve       220518.  261641 -110185. 2.20e5 2.20e5  220370.      261640
+## 15 Eleven       226115.  271115 -113050. 2.26e5 2.26e5  226101.      271114
+## 16 NullM…       226115.  271115 -113058. 2.26e5 2.26e5  226115.      271115</code></pre>
 <p>Tada! Looks like all our models outperformed the null model by a good margin - and our full model is the best model of the set, with no other model getting particularly close to it. If we wanted, we could now measure just how accurate our best model is, using either AUC or a pseudo-R<sup>2</sup>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ROCMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span>Sex <span class="op">*</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight, <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)
 
@@ -1233,7 +1219,7 @@ pROC<span class="op">::</span><span class="kw">roc</span>(ROCMod<span class="op"
 ##  3.672928e-01</code></pre>
 <p>0.6 AUC and 0.255 McFadden’s pseudo-R<sup>2</sup>. Even after all that, it seems like our model could be improved quite a bit!</p>
 <div id="detour-another-way" class="section level4">
-<h4><span class="header-section-number">6.4.1.1</span> Detour: Another Way</h4>
+<h4><span class="header-section-number">7.4.1.1</span> Detour: Another Way</h4>
 <p>Now, obviously, this entire section breaks our rule that if you have to type it more than twice, there’s a better way. That’s true here, too - but the better way is significantly more complicated, so I introduced the longer form first. The better way is in the next section of this unit.</p>
 <p>Typing models out this way does become prohibitive as you add more variables - for every <em>k</em> variables you want to include, you wind up having to type out 2<sup>k</sup> formulas. Even greater than the time tax that puts on you is the amount of time it will take to compute those models and fit them to your data. Generally speaking, you shouldn’t have massive numbers of variables in your regression equations. Remember the old saying:</p>
 <blockquote>
@@ -1268,7 +1254,7 @@ StepWiseNullMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Winner
 <p>This method is becoming disfavored, as it doesn’t require you to think about <em>why</em> you want a given variable in the model. But I can’t stop you from doing whatever you’re gonna do.</p>
 </div>
 <div id="the-better-faster-way" class="section level4">
-<h4><span class="header-section-number">6.4.1.2</span> The Better (…Faster) Way</h4>
+<h4><span class="header-section-number">7.4.1.2</span> The Better (…Faster) Way</h4>
 <p>Before we launch into this, note that this section is a little more techy and a little more obscure. It shouldn’t be that hard to follow, if you fully understand how for loops and map functions work. But if this is a little above your level right now, that’s totally fine - think of this section as more of a template, showing how we can combine tools to make our code faster and more efficient.</p>
 <p>There <em>is</em> a way to programmatically generate all the models, using the <code>map()</code> family of functions. Before we get to that, though, let’s create a smaller dataframe - <code>Predictors</code> - that only contains our predictor variables. We’ll also get the <code>names()</code> of all our predictors, and store that in our column <code>Cols</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Predictors &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Sex =</span> AthleteEvents<span class="op">$</span>Sex,
@@ -1392,7 +1378,7 @@ Tidies<span class="op">$</span>FormNum &lt;-<span class="st"> </span><span class
 </div>
 </div>
 <div id="relational-data" class="section level2">
-<h2><span class="header-section-number">6.5</span> Relational Data</h2>
+<h2><span class="header-section-number">7.5</span> Relational Data</h2>
 <p>Okay, this next section should be easier and more relevant to your daily life. Before we get into it, I’m going to make two edits to the <code>Glances</code> table:</p>
 <ol style="list-style-type: decimal">
 <li>I’m going to convert the row names (those unlabeled numbers on the left) into a column called <code>FormNum</code></li>
@@ -1429,42 +1415,42 @@ Glances</code></pre></div>
 ## [15] &quot;14&quot; &quot;15&quot;</code></pre>
 <p>What we’ll be doing now is working on <em>joining</em> datasets, combining two dataframes into a single output. All of these functions take the form <code>f(x, y)</code>, where <code>f()</code> is the function name and <code>x, y</code> are the arguments. What this function does is find columns with the same name - known as <em>keys</em> - and combine your dataframes based on the values in those columns. For our examples, our key column will be the FormNum column.</p>
 <div id="inner-join" class="section level3">
-<h3><span class="header-section-number">6.5.1</span> Inner Join</h3>
+<h3><span class="header-section-number">7.5.1</span> Inner Join</h3>
 <p>An inner join will preserve only the rows in your data which have keys present in both datasets - so, in this case, the null model will be dropped:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">inner_join</span>(Glances, Tidies)</code></pre></div>
 </div>
 <div id="left-join" class="section level3">
-<h3><span class="header-section-number">6.5.2</span> Left Join</h3>
+<h3><span class="header-section-number">7.5.2</span> Left Join</h3>
 <p>A left join will preserve all the values in your <code>x</code> dataset - here, in Glances.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">left_join</span>(Glances, Tidies)</code></pre></div>
 </div>
 <div id="right-join" class="section level3">
-<h3><span class="header-section-number">6.5.3</span> Right Join</h3>
+<h3><span class="header-section-number">7.5.3</span> Right Join</h3>
 <p>A right join will preserve all the values in your <code>y</code> dataset - here in Tidies. As you can see, the AIC for the null model is left as NA, but the null model stays in the dataframe.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">right_join</span>(Glances, Tidies)</code></pre></div>
 </div>
 <div id="full-join" class="section level3">
-<h3><span class="header-section-number">6.5.4</span> Full Join</h3>
+<h3><span class="header-section-number">7.5.4</span> Full Join</h3>
 <p>A full join will save all values in both your <code>x</code> and <code>y</code> dataframes.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">full_join</span>(Glances, Tidies)</code></pre></div>
 </div>
 <div id="semi-join" class="section level3">
-<h3><span class="header-section-number">6.5.5</span> Semi Join</h3>
+<h3><span class="header-section-number">7.5.5</span> Semi Join</h3>
 <p>A semi join returns a row from <code>x</code> if that key value has a match in <code>y</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">semi_join</span>(Glances, Tidies)</code></pre></div>
 </div>
 <div id="anti-join" class="section level3">
-<h3><span class="header-section-number">6.5.6</span> Anti Join</h3>
+<h3><span class="header-section-number">7.5.6</span> Anti Join</h3>
 <p>An anti join returns a row from <code>x</code> if that key value <em>doesn’t</em> have a match in <code>y</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anti_join</span>(Glances, Tidies)</code></pre></div>
 </div>
 <div id="specifying-key-columns" class="section level3">
-<h3><span class="header-section-number">6.5.7</span> Specifying Key Columns</h3>
+<h3><span class="header-section-number">7.5.7</span> Specifying Key Columns</h3>
 <p>Sometimes it’s helpful to specify <em>which</em> columns you want to join your data by - particularly when you have columns with the same name but different values. In those situations, use <code>by =</code> to specify which columns you want to join by:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">full_join</span>(Glances, Tidies, <span class="dt">by =</span> <span class="st">&quot;FormNum&quot;</span>)</code></pre></div>
 </div>
 <div id="merging-multiple-dataframes" class="section level3">
-<h3><span class="header-section-number">6.5.8</span> Merging Multiple Dataframes</h3>
+<h3><span class="header-section-number">7.5.8</span> Merging Multiple Dataframes</h3>
 <p>In order to merge more than two dataframes at the same time, use <code>reduce()</code> with any of the above joins - all your dataframes have to be in a <code>list()</code> inside the <code>reduce()</code> call:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Creating example dataframes:
 x &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">key =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>),
@@ -1486,7 +1472,7 @@ z &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="
 )</code></pre></div>
 </div>
 <div id="binding-dataframes" class="section level3">
-<h3><span class="header-section-number">6.5.9</span> Binding Dataframes</h3>
+<h3><span class="header-section-number">7.5.9</span> Binding Dataframes</h3>
 <p>Sometimes, however, we don’t have a key column to work with. In these cases, we usually just want to combine all of our data. Consider the dataframes:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df1 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Name =</span> <span class="kw">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bob&quot;</span>),
               <span class="dt">EyeColor =</span> <span class="kw">c</span>(<span class="st">&quot;Blue&quot;</span>, <span class="st">&quot;Brown&quot;</span>))
@@ -1508,8 +1494,8 @@ df2 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt
 ## 3 Alice     Grey        Eve      Grey</code></pre>
 </div>
 </div>
-<div id="exercises-3" class="section level2">
-<h2><span class="header-section-number">6.6</span> Exercises</h2>
+<div id="exercises-4" class="section level2">
+<h2><span class="header-section-number">7.6</span> Exercises</h2>
 <ol style="list-style-type: decimal">
 <li>Try out the types of join on the Olympic datasets <code>AthleteEvents</code> and <code>NOCRegions</code>. What differences do you notice between the join types?</li>
 <li>Explore the <code>NBAStats</code> dataset. Can you predict the number of points (<code>PTS</code>) players will score based on information available to you?</li>
@@ -1544,7 +1530,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -1554,6 +1540,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -1571,7 +1561,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

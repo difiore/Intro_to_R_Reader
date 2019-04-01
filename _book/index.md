@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Data Exploration and Analysis with R"
 author: "Michael Mahoney"
-date: "2019-01-24"
+date: "2019-04-01"
 site: bookdown::bookdown_site
 bookdown::gitbook:
   config:
@@ -20,7 +20,7 @@ bookdown::gitbook:
 toc_float: true
 documentclass: book
 github-repo: MikeMahoney218/Intro_to_R_Reader
-description: "This is a course reader for a class that will never be taught. Hopefully it helps you nonetheless."
+description: "A detailed introduction to coding in R and the process of data analytics. Version 1.0.0"
 ---
 
 # Welcome to IDEAR {-}
@@ -28,12 +28,22 @@ description: "This is a course reader for a class that will never be taught. Hop
 > There are only two kinds of programming languages: those people always bitch about and those nobody uses.  
 ><div align = "right"> --- Bjarne Stroustrup  </div>
 
-This book is designed as a crash course in coding with R and data analysis, built to be usable for a course spanning either a semester or a year. The book assumes no prior experience with R or data analysis, and aims to be equally applicable to industry and scientific purposes.
+Welcome to Introduction to Data Exploration and Analysis in R (IDEAr)! This book is designed as a crash course in coding with R and data analysis, built for people trying to teach themselves the techniques needed for most analyst jobs today. The book assumes no prior experience with R or data analysis, and aims to be equally applicable to industry and scientific purposes.
 
 This reader is currently being continuously deployed to  [bookdown.org](https://bookdown.org/connect/#/apps/2008/access) and [GitHub](https://github.com/mikemahoney218/Intro_to_R_Reader), particularly as new sections are completed or old ones restructured. This is so that I can get feedback from the small group of people who are using this book to learn R themselves, so I can adjust and adapt the text as needed. If you'd like to help with this process, I'd love to hear from you, at <mike.mahoney.218@gmail.com>, or see a pull request made on GitHub. More information about me can be found at [my website](https://www.mikemahoney218.com), which just so happens to have been built in R.
 
-## Course Outline
-This course serves as an introduction to R for scientific and research applications, focusing specifically on exploratory data analysis, hypothesis generation and confirmation, data visualization, and communication of results. It is not an introduction to statistics course, though it will teach some statistics. It isn't even an introduction to computer programming or computer science course, though it will teach some of each of those.
+## The State of the Book
+
+When I began writing this book, I was designing it as course notes - a reader, of sorts - for an undergraduate course, which would be supported with lectures, homeworks, and other supporting materials. I was distributing it mostly to friends, who would text me directly with questions, and so was willing to let things be a little confusing or a little out of order. 
+
+What I've found is that the book is useful mostly for people self-studying to learn data analytics and R, even though that isn't what it was designed for. Meanwhile, it doesn't seem like I'll be teaching the theoretical course any time soon - so it would make sense that, if I'm going to leave this book up, I should redesign it to be a more useful document.
+
+And so that's what I'm doing now - redesigning this book in order to make it more useful to people self-studying, teaching themselves R via the examples and exercises contained in here. That means a lot of things are going to get shifted and edited - particularly towards the end of the book, where certain topics (machine learning, for instance) could be sacrificed, in order to give a more streamlined learning experience. That means that the book is about to shift a lot, which might be a pain for anyone currently using it - which I am sorry about! If you want, I can send anyone HTML or PDF files of old versions of the chapters, if that would be helpful. Just contact me via any method above.
+
+## Book Outline
+This book serves as an introduction to R for scientific and business applications, focusing specifically on exploratory data analysis, hypothesis generation and confirmation, data visualization, and communication of results. It requires no prior knowledge of computer programming, computer science, or statistics, though a solid base in any of those fields will likely make your learning process faster.
+
+The goal is to leave you with the basic essentials of working in R. You won't be an R maestro, and you won't have developed domain-specific knowledge - but you'll have the foundational knowledge that will allow you to learn those from other resources. To that end, we'll focus primarily on the basic language skills required to implement those more complicated methods, and will skip over things such as natural language processing and machine learning.
 
 The front half of the course includes an introduction to coding with R, a review of statistics, and two walk-through tutorials of data analyses to give you templates to build your own analyses from. In order, the units are:
 
@@ -44,22 +54,21 @@ The front half of the course includes an introduction to coding with R, a review
 5. Functions and Scripting
 6. More Complicated Analyses
 
-The middle section of the course then focuses on communicating your results and methodologies, and introduces Git and Latex (as well as R Markdown) in order to improve your collaboration skills. The units comprising this section include:
+The middle section of the course then focuses on communicating your results and methodologies, and introduces ways to communicate with code in order to improve your collaboration skills. The units comprising this section include:
 
 7. Achieving Graphical Excellence
 8. Playing Nicely with Others (Communicating With Code)
 
-The end of the course then covers topics which I have found to be more specialized, and - while important - not as common in day-to-day data analyses. We also finish with a brief introduction to machine learning techniques, to give you the basic knowledge to be familiar with the future of statistical analyses. This section includes the units:
+The end of the course then covers topics which I have found to be more specialized, and - while important - not as universally applicable to every project. This section includes the units:
 
 9. Working with Text
 10. Dates and Times
 11. Specialized Applications
-12. Machine Learning
 
 The backmatter of the reader then concerns how to get help outside of this book, containing both links to useful resources and some frequently asked questions. The two units in this section are:
 
-13. Useful Resources
-14. FAQ
+12. Useful Resources
+13. FAQ
 
 ## Other Sources
-If this introduction isn't quite your style, I'd highly recommend Garrett Grolemund and Hadley Wickham's [R for Data Science](http://r4ds.had.co.nz/index.html), as well as Wickham's [Advanced R](https://adv-r.hadley.nz/index.html). Many other useful resources can be found in Chapter 13, at the end of this book. 
+If this introduction isn't quite your style, I'd highly recommend Garrett Grolemund and Hadley Wickham's [R for Data Science](http://r4ds.had.co.nz/index.html), as well as Wickham's [Advanced R](https://adv-r.hadley.nz/index.html). Many other useful resources can be found in Chapter 12, at the end of this book. 
