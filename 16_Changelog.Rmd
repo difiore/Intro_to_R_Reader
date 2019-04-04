@@ -3,7 +3,9 @@
 ## Version 1.0.2
 Released
 
+* Edits to chapter 3, increasing coverage of `tidyr` functions
 * Edits to chapter 4, adding cross validation and confusion matrices
+* Slowly changing some just bizarre markdown syntax I was using (three graves for in-line code, for instance)
 
 ## Version 1.0.1
 Released 2019-04-01 (no joke!)

@@ -323,7 +323,7 @@ To learn more about transformations, you can read the documentation by typing `?
 
 ## Other Popular Geoms
 
-## Histograms
+### Histograms
 One of the most popular geoms is the histogram, which allows you to quickly visualize the distribution of a numeric value:
 ```{r}
 ggplot(diamonds, aes(price)) + 
@@ -339,7 +339,7 @@ Base R also has a histogram function in `hist()`, which I occasionally use while
 hist(diamonds$price)
 ```
 
-## Bar Charts
+### Bar Charts
 
 If we wanted to use a categorical value instead of a numeric one on the x-axis, we'd use a bar chart. It's easy enough to make this in ggplot, using `geom_bar()`:
 
@@ -388,7 +388,7 @@ ggplot(diamonds, aes(cut, fill = clarity)) +
 
 Dodged bar plots are better than stacked bars when comparing more than one value for each item on the x axis of a chart. However, with enough series, dodged bar charts can also be decently confusing - try comparing the I1 values between Premium and Fair on this chart, for instance. 
 
-## Jittered Points
+### Jittered Points
 If you have to have this much information in a single graphic, `geom_jitter` can help. It generates a scatterplot, much like `geom_point()`, but "jitters" the points by adding statistical noise - making it easy to compare counts between all combinations of the two variables.
 
 ```{r}
@@ -408,7 +408,7 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
 
 Note that this does actually move where your points are placed on the graph - if it's important that a reader can extract actual values from your graphic, don't jitter your points! That being said, in most cases where a reader needs specific numbers from your dataset, a table is usually better fit to your needs.
 
-## Boxplot
+### Boxplot
 The last main plot type we'll go over is the boxplot. This is mostly used to show the distribution of data - it draws a plot with a line at the data's median, box borders at the 25% and 75% values, and lines reaching to the 5% and 95% values.
 
 ```{r}
