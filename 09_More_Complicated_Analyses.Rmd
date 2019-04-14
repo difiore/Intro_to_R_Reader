@@ -185,7 +185,8 @@ As for why that might be, let's visualize our response variable against one of i
 
 ```{r}
 ggplot(AthleteEvents, aes(Height, Winner)) + 
-  geom_point()
+  geom_point() + 
+  geom_smooth(method = "lm")
 ```
 
 This here is the root of our problem - we're trying to model a binary outcome (a yes or no, a medal or not) with a straight line, which is useless. This sort of problem comes up all the time in real world situations - in science, whether or not a trap will catch something, or in business, whether or not a customer will click.
@@ -745,9 +746,9 @@ combineddf <- cbind(df1, df2)
 
 But say we forgot someone, whose records are stored in dataframe 3:
 ```{r}
-df3 <- tibble(Name = "Alice",
+df3 <- tibble(Name = "Eve",
               EyeColor = "Grey",
-              BestFriend = "Eve",
+              BestFriend = "Alice",
               HairColor = "Grey")
 ```
 

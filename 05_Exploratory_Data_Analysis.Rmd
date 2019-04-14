@@ -1,8 +1,5 @@
 # Introduction to Data Analysis
 
-> In God we trust. All others must bring data.
-> <div align = "right"> --- W. Edwards Deming</div>
-
 ## Exploratory Data Analysis 
 So far, we've learned about how to manipulate our data and how to graph our outputs. Both of these are critically important parts of what's known as exploratory data analysis - or EDA. When you're starting with a new dataset, you won't always immediately know what trends and patterns might be there to discover. The idea at this stage isn't to find out what's causing any trends in the data, to identify any significant results you might have, or to get publishable figures and tables - the point is to understand exactly what it is that you're dealing with.
 
@@ -33,22 +30,22 @@ Let's also load the tidyverse:
 library(tidyverse)
 ```
 
-The gapminder package includes four tables, of which we only care about one: ```gapminder```. We can preview the data, as usual, by typing the name of the table:
+The gapminder package includes four tables, of which we only care about one: `gapminder`. We can preview the data, as usual, by typing the name of the table:
 
 ```{r}
 gapminder
 ```
 
 ### Describing Your Data
-If we want to get a sense of each variable, we can use base R's ```summary()``` to find basic summary statistics for each column:
+If we want to get a sense of each variable, we can use base R's `summary()` to find basic summary statistics for each column:
 
 ```{r}
 summary(gapminder)
 ```
 
-For the categorical variables ```country``` and ```continent```, R just returns the number of observations each category has. For the numeric variables, meanwhile, the output is a little more involved. 
+For the categorical variables `country` and `continent`, R just returns the number of observations each category has. For the numeric variables, meanwhile, the output is a little more involved. 
 
-We can get an even fuller sense of the data using functions from other packages. My personal favorite is the ```describe()``` function included in ```psych```:
+We can get an even fuller sense of the data using functions from other packages. My personal favorite is the `describe()` function included in `psych`:
 
 ```
 install.packages("psych")
@@ -57,7 +54,7 @@ install.packages("psych")
 psych::describe(gapminder)
 ```
 
-(Note: ```psych::``` lets me call functions from the ```psych``` package without having to load it using ```library()```. This is useful when you aren't using the functions that often - and lets me explicitly identify which functions come from which packages, for the purposes of instruction - but becomes less useful when using the same function or package multiple times. Imagine having to type ```dplyr::``` everytime we wanted to use ```%>%```, for instance!)
+(Note: `psych::` lets me call functions from the `psych` package without having to load it using `library()`. This is useful when you aren't using the functions that often - and lets me explicitly identify which functions come from which packages, which is great for communicating your code - but becomes less useful when using the same function or package multiple times. Imagine having to type `dplyr::` everytime we wanted to use `%>%`, for instance!)
 
 This output replaces the IQR with the full range of the data, and adds a number of other important statistics to the output. For instance, we can now see the skew and kurtosis of our data, representing how close our data is to the normal distribution. Briefly, skew represents how close the median is to the mean (or how long the data's "tails" are - 0 means the median is the mean), while kurtosis represents how large the tails of the distribution are (with normally distributed data having a kurtosis of 0).
 
@@ -72,15 +69,15 @@ ggplot(gapminder, aes(pop)) +
 
 This makes some intuitive sense - most countries have decently small populations, while some countries - such as China and India - contain significant portions of the world's population.
 
-Now that we have a sense of what our data looks like, we can start attempting to identify trends in the data. You should never trust your data before visualizing it - summary statistics and other tests may not give you critical insights about trends [present in your data](https://www.autodeskresearch.com/publications/samestats).
+Now that we have a sense of what our data looks like, we can start attempting to identify trends in the data. You should never trust your data before visualizing it - summary statistics and other tests may not give you critical insights about [trends present in your data](https://www.autodeskresearch.com/publications/samestats).
 
-Base R's ```pairs()``` function is useful for this purpose - it makes a matrix of scatterplots for all your variables, letting you see any correlations that exist visually. Note that we have to subset our data to make sure that we're only graphing numeric columns:
+Base R's `pairs()` function is useful for this purpose - it makes a matrix of scatterplots for all your variables, letting you see any correlations that exist visually. Note that we have to subset our data to make sure that we're only graphing numeric columns:
 
 ```{r}
 pairs(gapminder[, 3:6])
 ```
 
-From this, we can immediately see some trends - it looks like all our variables are increasing over time (left column), and that life expectancy goes up as GDP increases (right column, second from the top). A way to see the same thing in table form is to use ```cor()```:
+From this, we can immediately see some trends - it looks like all our variables are increasing over time (left column), and that life expectancy goes up as GDP increases (right column, second from the top). A way to see the same thing in table form is to use `cor()`:
 
 ```{r}
 cor(gapminder[, 3:6])
@@ -88,7 +85,7 @@ cor(gapminder[, 3:6])
 
 The numbers refer to how correlated the variables are: 1 means perfectly positively correlated, while -1 is perfectly negatively correlated.
 
-If we wanted to get even fancier, we could coerce this result to a dataframe using the function ```tidy()``` from the package ```broom```. We can even visualize this data in ggplot, using ```geom_tile()```:
+If we wanted to get even fancier, we could coerce this result to a dataframe using the function `tidy()` from the package `broom`. We can even visualize this data in ggplot, using `geom_tile()`:
 
 ```
 install.packages("broom")
@@ -104,7 +101,7 @@ ggplot(CorMatrix, aes(Var1, Var2, fill = Cor)) +
   geom_tile()
 ```
 
-Note that what we did above - calling ```cor()``` inside of ```tidy()``` - applies the outside function to the output of the inside function. Functions are run from the inside out. You might remember similar formulas from algebra classes - ```f(g(x))``` is the same as ```(f * g)(x)```. 
+Note that what we did above - calling `cor()` inside of `tidy()` - applies the outside function to the output of the inside function. Functions are run from the inside out. You might remember similar formulas from algebra classes - `f(g(x))` is the same as `(f * g)(x)`. 
 
 Of course, there's no need to do all of these at once - you can do whichever method makes sense to you. Either way, we get similar results - the strongest correlation is between life expectancy and GDP. We can visualize this trend using our ggplot skills:
 
@@ -113,7 +110,7 @@ ggplot(gapminder, aes(gdpPercap, lifeExp)) +
   geom_jitter()
 ```
 
-(See that example of nesting functions? ```ggplot(aes())```!)
+(See that example of nesting functions? `ggplot(aes())`!)
 
 Hmm, weird! While we can see the correlation, it seems like there's another factor we aren't accounting for. What happens if we color the points by the year they represent?
 
@@ -133,13 +130,13 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, color = year)) +
 Hmm. We can see some obvious trends - it seems like Africa has a lower average life expectancy than the other continents, for instance - but they're hard to discern from the visuals alone. For that, we're going to have to get into some actual statistic computing.
 
 ## Statistical Tests and Regressions
-Now that we've identified some hypotheses about our data, we're able to use the full power of R to try and prove them. First off, we can identify if any of the correlations we saw are statistically significant. For the full dataset, this is pretty easy - we can just feed two vectors into ```cor.test()```:
+Now that we've identified some hypotheses about our data, we're able to use the full power of R to try and prove them. First off, we can identify if any of the correlations we saw are statistically significant. For the full dataset, this is pretty easy - we can just feed two vectors into `cor.test()`:
 
 ```{r}
 cor.test(gapminder$lifeExp, gapminder$gdpPercap)
 ```
 
-(Note that most likely we'd actually use a different correlation test, as the data on life expectancy are non-normal. You can control the test used by setting the ```method``` argument - information about the correlation tests available in this function can be found [here](http://www.statisticssolutions.com/correlation-pearson-kendall-spearman/).)
+(Note that most likely we'd actually use a different correlation test, as the data on life expectancy are non-normal. You can control the test used by setting the `method` argument - information about the correlation tests available in this function can be found [here](http://www.statisticssolutions.com/correlation-pearson-kendall-spearman/).)
 
 Looks like a yes!
 
@@ -147,30 +144,30 @@ Before we rush off to publish, though, it might worth seeing if the correlations
 
 Now, ANOVA is actually just another form of a linear regression, where you're predicting the impact an independent variable has on the response variable. The unique thing about ANOVA is that the independent variables have to be categorical - if they're all numeric, you want to stick with regression, and if there's a mix, you'll use ANCOVA. 
 
-The reason I bring this up is that running an ANOVA in R requires you to first build a linear model, using the ```aov()``` function. This function is pretty simple, taking three arguments - the response variable, all independent variables, and the data to be used. For our purposes, modeling life expectancy as a function of continent, the equation looks like this:
+The reason I bring this up is that running an ANOVA in R requires you to first build a linear model, using the `aov()` function. This function is pretty simple, taking three arguments - the response variable, all independent variables, and the data to be used. For our purposes, modeling life expectancy as a function of continent, the equation looks like this:
 
 ```{r}
 aov(lifeExp ~ continent, data = gapminder)
 ```
 
-Those coefficients do mean something, but we won't get into that right now. More interesting for our purposes is getting the outputs of our ANOVA, which we can do by feeding ```anova()``` our model:
+Those coefficients do mean something, but we won't get into that right now. More interesting for our purposes is getting the outputs of our ANOVA, which we can do by feeding `anova()` our model:
 
 ```{r}
 anova(aov(lifeExp ~ continent, data = gapminder))
 ```
 
-Note, by the way, that you'd usually do this by assigning the ```aov()``` to an object (as in ```a <- aov(...)```). I'm not doing this right now, as I think this section is easier to conceptually understand if I'm explicit about what we're running our ```anova()``` and other tests on.  
+Note, by the way, that you'd usually do this by assigning the `aov()` to an object (as in `a <- aov(...)`). I'm not doing this right now, as I think this section is easier to conceptually understand if I'm explicit about what we're running our `anova()` and other tests on.  
 
 Looks like continent does have a significant effect on life expectancy!
 
-By the way, there's two other, identical ways to run the same test, using ```lm()``` for ```aov()``` and ```summary()``` for ```anova()```. It really doesn't matter which you go with - they all return the same results.
+By the way, there's two other, identical ways to run the same test, using `lm()` for `aov()` and `summary()` for `anova()`. It really doesn't matter which you go with - they all return the same results.
 
 ```{r eval = FALSE}
 anova(lm(lifeExp ~ continent, data = gapminder))
 summary(aov(lifeExp ~ continent, data = gapminder))
 ```
 
-So now we know that there are significant differences between the continents. What we want now is to be able to tell what those differences are. Base R's ```TukeyHSD()``` function will help with that, telling us what the differences between each continent are. All we have to do is feed it our ```aov()``` object, and, optionally, tell it to sort the results by the difference with ```ordered = TRUE```
+So now we know that there are significant differences between the continents. What we want now is to be able to tell what those differences are. Base R's `TukeyHSD()` function will help with that, telling us what the differences between each continent are. All we have to do is feed it our `aov()` object, and, optionally, tell it to sort the results by the difference with `ordered = TRUE`
 
 ```{r}
 TukeyHSD(aov(lifeExp ~ continent, data = gapminder), ordered = TRUE)
@@ -178,7 +175,7 @@ TukeyHSD(aov(lifeExp ~ continent, data = gapminder), ordered = TRUE)
 
 So as we can see, Africa has a significantly lower life expectancy than every other continent, followed by Asia, and then the Americas. Oceania and Europe, meanwhile, have about equal life expectancies.
 
-If you remember the ```tidy()``` function from ```broom``` that we used earlier, you probably won't be surprised to learn it can make this sort of output tidier, too:
+If you remember the `tidy()` function from `broom` that we used earlier, you probably won't be surprised to learn it can make this sort of output tidier, too:
 
 ```{r}
 broom::tidy(TukeyHSD(aov(lifeExp ~ continent, data = gapminder), ordered = TRUE))
@@ -191,15 +188,15 @@ So, it's probably worth finding the correlation between life expectancy and GDP 
 
 Now, fair warning, what we're about to do is probably the hardest topic we've gone over yet. Understanding it will make a lot of common tasks much easier, but don't worry if you don't understand it on the first go-through.
 
-First off, let's load broom explicitly now - the only thing we'll be using it for is the ```tidy()``` function.
+First off, let's load broom explicitly now - the only thing we'll be using it for is the `tidy()` function.
 
 ```{r}
 library(broom)
 ```
 
-The tidyverse includes a package - ```purrr``` - useful for working with lists. As we saw last unit, a list is a type of object which can include multiple types of data. These include the numerics, characters, and logicals we're comfortable with - but can also include name-value pairs (like ```z = 0```, from the last unit) and, weirdly enough, entire dataframes.
+The tidyverse includes a package - `purrr` - useful for working with lists. As we saw last unit, a list is a type of object which can include multiple types of data. These include the numerics, characters, and logicals we're comfortable with - but can also include name-value pairs (like `z = 0`, from the last unit) and, weirdly enough, entire dataframes.
 
-For instance, let's see what happens when we use the ```nest()``` function that ```purrr``` provides:
+For instance, let's see what happens when we use the `nest()` function that `purrr` provides:
 
 ```{r}
 gapminder %>%
@@ -208,7 +205,7 @@ gapminder %>%
 
 All of our data is now stored in a single cell, as a tibble!
 
-We can exclude columns from being nested with ```-``` if we want, splitting the data into as many subsets as there are levels of that variable:
+We can exclude columns from being nested with `-` if we want, splitting the data into as many subsets as there are levels of that variable:
 
 ```{r}
 gapminder %>%
@@ -224,7 +221,7 @@ Nested <- gapminder %>%
 Nested[1, 2]
 ```
 
-If we then wanted to, we can ```unnest()``` the data:
+If we then wanted to, we can `unnest()` the data:
 
 ```{r}
 Nested <- gapminder %>%
@@ -234,9 +231,9 @@ Nested[1, 2] %>%
   unnest()
 ```
 
-But what's interesting is that we can also manipulate the data while it's nested. ```purrr``` provides a number of "map" functions, which will apply a function to each member of a list and return the outputs as a list. 
+But what's interesting is that we can also manipulate the data while it's nested. `purrr` provides a number of "map" functions, which will apply a function to each member of a list and return the outputs as a list. 
 
-What this allows us to do is create additional nested lists as new columns, letting us find correlations between groups much faster. For instance, if we want to create a column ```Cor``` with the output of the correlation tests, we could do the following:
+What this allows us to do is create additional nested lists as new columns, letting us find correlations between groups much faster. For instance, if we want to create a column `Cor` with the output of the correlation tests, we could do the following:
 
 ```{r}
 gapminder %>%
@@ -244,9 +241,9 @@ gapminder %>%
   mutate(Cor = map(data, ~ cor.test(.$lifeExp, .$gdpPercap)))
 ```
 
-The ```~``` indicates that the next word is a _function_ that should be applied to each element of the list. ```.``` is what's referred to as a _pronoun_ - it's the short name for the data that's being applied to the function. That's why we can subset it with ```$``` - while we're inside the map function, ```.``` _is_ your data. We'll be using ```.``` repeatedly for the rest of the course.
+The `~` indicates that the next word is a _function_ that should be applied to each element of the list. `.` is what's referred to as a _pronoun_ - it's the short name for the data that's being applied to the function. That's why we can subset it with `$` - while we're inside the map function, `.` _is_ your data. We'll be using `.` repeatedly for the rest of the course.
 
-Now, because ```cor.test()``` doesn't provide a tidy data output - it produces something human-readable, but not computer-usable - we have to tidy it up before we can extract our numbers. That's where ```tidy()``` comes in, which we use pretty similarly to ```cor.test()```:
+Now, because `cor.test()` doesn't provide a tidy data output - it produces something human-readable, but not computer-usable - we have to tidy it up before we can extract our numbers. That's where `tidy()` comes in, which we use pretty similarly to `cor.test()`:
 
 ```{r}
 gapminder %>%
@@ -255,7 +252,7 @@ gapminder %>%
          TidyCor = map(Cor, ~ tidy(.)))
 ```
 
-That last column - made up of dataframes - is exactly what we want. We can extract it from this dataframe using ```unnest(.drop = TRUE)```, which will drop the other nested columns:
+That last column - made up of dataframes - is exactly what we want. We can extract it from this dataframe using `unnest(.drop = TRUE)`, which will drop the other nested columns:
 
 ```{r}
 gapminder %>%
@@ -275,18 +272,18 @@ So even though it might take a bit to fully internalize, keep trying these effic
 ### Column Names
 In order to do that, of course, we have to understand what each of those column names represent. In order:
 
-* ```estimate``` is whatever parameter is being estimated - here, the correlation coefficient.
-* ```statistic``` is the test statistic used to calculate the p value - in this case, _t_.
-* ```p.value``` is, well, the p-value. It's calculated for 95%, unless you changed the confidence level by setting ```cor.test(conf.level = ##)```.
-* ```parameter``` is the degrees of freedom.
-* ```conf.low``` and ```conf.high``` are the bounds of the confidence interval of the _estimate_ - so here, of the correlation coefficient. It's calculated for whatever confidence level you set in ```cor.test(conf.level = ##)```.
-* ```method``` is the test used.
-* ```alternative``` is the alternative hypothesis tested - you can change it by setting ```cor.test(alternative = "")``` to "two.sided", "lesser", or "greater".
+* `estimate` is whatever parameter is being estimated - here, the correlation coefficient.
+* `statistic` is the test statistic used to calculate the p value - in this case, _t_.
+* `p.value` is, well, the p-value. It's calculated for 95%, unless you changed the confidence level by setting `cor.test(conf.level = ##)`.
+* `parameter` is the degrees of freedom.
+* `conf.low` and `conf.high` are the bounds of the confidence interval of the _estimate_ - so here, of the correlation coefficient. It's calculated for whatever confidence level you set in `cor.test(conf.level = ##)`.
+* `method` is the test used.
+* `alternative` is the alternative hypothesis tested - you can change it by setting `cor.test(alternative = "")` to "two.sided", "lesser", or "greater".
 
 ## Modeling
 Okay, time to get back to data analysis. 
 
-If we want to see the effect of two continuous variables (say, ```gdpPercapita``` and ```year```) on ```lifeExp```, we'd use what's known as _multiple regression_. There's a lot of different flavors of multiple regression, but the simplest is what's known as general linear regression - the y = mx + b formula that you went over in high school. R makes it easy to fit a general linear model to your data (via ordinary least squares) using the ```lm()``` function, using the same arguments as we used for ```aov()```:
+If we want to see the effect of two continuous variables (say, `gdpPercapita` and `year`) on `lifeExp`, we'd use what's known as _multiple regression_. There's a lot of different flavors of multiple regression, but the simplest is what's known as general linear regression - the y = mx + b formula that you went over in high school. R makes it easy to fit a general linear model to your data (via ordinary least squares) using the `lm()` function, using the same arguments as we used for `aov()`:
 
 ```{r}
 lm(lifeExp ~ gdpPercap + year, data = gapminder)
@@ -304,7 +301,7 @@ ggplot(gapminder, aes(gdpPercap, lifeExp)) +
 
 Hmm. Seems like a pretty bad fit.
 
-If we want statistical estimates of how well our model fits the data, we can feed it as an argument to ```summary()```:
+If we want statistical estimates of how well our model fits the data, we can feed it as an argument to `summary()`:
 
 ```{r}
 Model <- lm(lifeExp ~ gdpPercap + year, data = gapminder)
@@ -314,7 +311,7 @@ summary(Model)
 
 As we can see, both GDP and the year are significant predictors of life expectancy, but the linear model isn't a great fit for the data - our R^2^ is 0.44. 
 
-Perhaps we could improve the model by accounting for the interaction between GDP and the year. There are two ways to include interaction terms in models, each of which have their benefits. One is to replace the ```+``` in the model with ```*```, as follows:
+Perhaps we could improve the model by accounting for the interaction between GDP and the year. There are two ways to include interaction terms in models, each of which have their benefits. One is to replace the `+` in the model with `*`, as follows:
 
 ```{r}
 Model <- lm(lifeExp ~ gdpPercap * year, data = gapminder)
@@ -322,7 +319,7 @@ Model <- lm(lifeExp ~ gdpPercap * year, data = gapminder)
 summary(Model)
 ```
 
-The other is to specify _which_ terms you want to track the interaction of, using ```:``` as follows:
+The other is to specify _which_ terms you want to track the interaction of, using `:` as follows:
 
 ```{r}
 Model <- lm(lifeExp ~ gdpPercap + year + gdpPercap:year, data = gapminder)
@@ -343,7 +340,7 @@ Model <- lm(lifeExp ~ gdpPercap + year + continent + gdpPercap:year + gdpPercap:
 summary(Model)
 ```
 
-Our R^2^ is now up to a respectable 0.76! It looks like these three variables - and the interactions between them - explain a lot of the variance in our data. To get a cleaner table explaining the impacts each variable has on life expectancy, we can perform an analysis of covariance, or ANCOVA. To do this, we just change out our mixed model ```lm()``` function for an ```aov()```, and then pass that ```aov()``` object to ```summary()```:
+Our R^2^ is now up to a respectable 0.76! It looks like these three variables - and the interactions between them - explain a lot of the variance in our data. To get a cleaner table explaining the impacts each variable has on life expectancy, we can perform an analysis of covariance, or ANCOVA. To do this, we just change out our mixed model `lm()` function for an `aov()`, and then pass that `aov()` object to `summary()`:
 
 ```{r}
 Model <- aov(lifeExp ~ gdpPercap + year + continent + gdpPercap:year + gdpPercap:continent + year:continent + gdpPercap:year:continent, data = gapminder)
@@ -363,21 +360,20 @@ gapminder %>%
   unnest(TidyMods, .drop = TRUE)
 ```
 
-Note that I deleted all the "continent" terms from the model, because we're now making a different model for each continent available. I've also used the ```.``` pronoun to represent our data here.
+Note that I deleted all the "continent" terms from the model, because we're now making a different model for each continent available. I've also used the `.` pronoun to represent our data here.
 
-In this case, ```estimate``` represents the coefficient (beta) for each variable, while the statistic is the F statistic.  
+In this case, `estimate` represents the coefficient (beta) for each variable, while the statistic is the F statistic.  
 
 ## Conclusion
 The important takeaways from this unit are not necessarily the statistical tests used - since those will vary dependent upon your purpose - so much as the methods highlighted. Understanding how to generate hypotheses from a new dataset - and then how to drill down and analyze them each in turn - is a cross-disciplinary skill used in any new analysis project.
 
 Later in the course, you'll be given projects which will require you to understand brand new datasets, manipulate them, perform complex analyses on them, and visualise them. EDA will give you the familiarity with your data to find these patterns, isolate them appropriately, and perform the right analyses moving forward. The entire purpose of this unit is to give you the skillset to identify what those analyses might be, by understanding how to generate hypotheses from a combination of data visualization and manipulation.  
-
 What we haven't done is confirmatory analysis, where we start our work with a model in mind and then report how well it fit the data. Once data is used for exploratory analysis, it can't be used again for confirmatory work. There are methods to split data for confirmatory analysis, while still being able to use some data for exploration - for an overview, see [Hadley Wickham's overview here](https://r4ds.had.co.nz/model-intro.html). We'll be working with these methods in unit 10.
 
 ## Exercises
 
 ### Answer the following:
-1. The output of ```psych::describe(gapminder_unfiltered)``` put stars after ```country``` and ```continent```. Why?
+1. The output of `psych::describe(gapminder_unfiltered)` put stars after `country` and `continent`. Why?
 2. Make a histogram of a gapminder variable other than population. Describe the graph with regards to its skewdness and kurtosis. 
 3. Compute an ANOVA for the impacts of continent on population. Report the results as you would in a manuscript.
 4. Fit a regression model to the impacts of the current year and life expectancy on GDP. Why does this model not make sense conceptually?

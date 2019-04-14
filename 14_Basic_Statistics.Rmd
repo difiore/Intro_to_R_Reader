@@ -8,7 +8,7 @@ This isn't a statistics book. However, R is a statistical computing language, an
 
 ## Definitions
 ### Data Concepts
-We've already discussed some data concepts in this course, such as the ideas of rectangular and tidy data. However, those discussions are buried in the text of the last unit, so are hard to refer to - and I want to make sure these concepts are discussed explicitly, so I can refer to them in the future without explaining them.
+We've already discussed some data concepts in this course, such as the ideas of rectangular and tidy data. However, those discussions are buried in the text of the last chapter, so are hard to refer to - and I want to make sure these concepts are all contained in the same place, for a clean reference section.
 
 Vector
 : * Sequence of data elements of the same type
@@ -305,10 +305,12 @@ Cross Validation:
 : * A variation is k-fold cross validation, where the dataset is split into _k_ sections. Models are then trained using every combination of _k-1_ sections (so if k = 3, three separate models would be trained on the combined 1st and 2nd, 2nd and 3rd, and 1st and 3rd datasets) and tested on the one section not included.
 : * More information on cross validation and its implementation in R [here](http://www.sthda.com/english/articles/38-regression-model-validation/157-cross-validation-essentials-in-r/)
 
+
 Confusion Matrices:
 : * A table showing how often your model predicted an outcome correctly and how often it performed incorrectly
 : * This provides both a sense of overall accuracy and how exactly the model is inaccurate - for instance, which category it's most likely to misclassify
 : * Provides a way of quantitatively and qualitatively comparing different model formulas
+
 
 ## Exercises
 All examples here use the `Orange` dataset, which is automatically included in R. Note that the O is capitalized!
