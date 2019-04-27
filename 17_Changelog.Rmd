@@ -3,13 +3,16 @@
 ## Version 1.0.2
 Released
 
-* Edits to chapter 3 (Workflow), increasing coverage of `tidyr` functions
-* Edits to chapter 4 (EDA), adding cross validation and confusion matrices
 * Split chapter 3 into two (Workflow/Wrangling), because those are different topics and these aren't course notes anymore, so relatedness matters more than each unit being similar length. That said, I want the Workflow chapter to be longer or rolled into another unit, so we'll see how that lasts.
 * Restructured chapters on Wrangling, EDA, and "More Complex Analyses" to now more tighly match the data analysis pipeline model - now form the Wrangling-EDA-Model chapters.
 * Reordered chapters - stats to the end as a glossary, and others shifted to make room for the pipeline model in the middle.
+* Edits to chapter 3 (Workflow). This chapter is such a nub, I want to roll it into something else - but it shouldn't be earlier and doesn't make sense to be later, so.
+* Edits to chapter 4 (Wrangling), basically stealing all of chapter 3
+* Edits to chapter 5 (EDA), calming it down somewhat
+* Edits to chapter 6 (Modeling), which basically rewrote the thing
 * Slowly changing some just bizarre markdown syntax I was using (three graves for in-line code, for instance)
-* Added parts worth saving of cut chapters into chapter 5. I'm planning on retooling this entire chapter - making it an introduction to modeling concepts, with the gapminder exercise moved to the end as a lab - but that's beyond me right now.
+* Added parts worth saving of cut chapters into chapter 6. I'm planning on retooling this entire chapter - making it an introduction to modeling concepts.
+* Changed file names for pretty much every chapter; whoops.
 
 ## Version 1.0.1
 Released 2019-04-01 (no joke!)

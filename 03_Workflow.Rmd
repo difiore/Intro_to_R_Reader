@@ -170,6 +170,16 @@ That's because R has to estimate the true value of things like 1/49 - it only ca
 near(1/49 * 49, 1)
 ```
 
+## R Studio Tips and Tricks
+
+There are a number of other functions in R Studio that might make your life as an analyst easier. Here's a quick rundown of the most common ones:
+
+* Pressing Ctrl/Cmd + F lets you search through a script or notebook, just like in any word processor
+* Ctrl/Cmd + Enter will run whatever line of code your cursor is on in a chunk or script. Ctrl/Cmd + Shift + Enter will run the entire chunk or script. 
+* Ctrl/Cmd + Alt + P will run all the chunks in a notebook above your cursor. Ctrl/Cmd + Alt + R runs all the chunks in that notebook, period.
+* Ctrl/Cmd + S saves a file, just like you'd expect. Ctrl/Cmd + Shift + S saves every file you have open!
+* And if you're looking for more shortcuts, Alt + Shift + K will open a window with all the shortcuts available to you.
+
 ## R Functions and Workflow Exercises
 
 ### Do the following:
@@ -180,10 +190,3 @@ tibble(x = c(1, 2, 3),
        y = c("A", "B", "C"),
        z = c(TRUE, FALSE, TRUE))
 ```
-3. Inspect the ```smiths``` dataset (loaded with the tidyverse - you can access it like ```iris```). How can you fix those missing values?
-
-### Work with other datasets:
-1. ```spread()``` the ```iris``` dataset so that each species' petal width is in its own column. Then ```gather()``` the table back together. What's different about this dataframe?
-2. Select all the rows of ```iris``` where the species is setosa. Now select all the rows where the species _isn't_ setosa.
-3. What's the mean price for each cut of diamond in the ```diamonds``` dataset? 
- 

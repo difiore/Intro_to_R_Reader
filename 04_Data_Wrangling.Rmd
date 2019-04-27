@@ -573,24 +573,10 @@ LongTreeData %>%
   rename(Count = n)
 ```
 
-### Exploratory Data Analysis
-Following the data wrangling comes the first new skill we're going to work on - exploratory data analysis.
+These skills will be the building blocks for everything else you do in R! It's time for us to put them to good use - in the next chapter, we'll start in on exploratory data analysis with a brand new dataset.
 
-You might find something surprising!
-#### A Note on Surprises
-Speaking of surprises, I really enjoy [this quote](https://fivethirtyeight.com/features/election-update-why-our-model-thinks-beto-orourke-really-has-a-chance-in-texas/) from Nate Silver, founder and editor in chief of FiveThirtyEight:
-
-> You ideally want to find yourself surprised by the data some of the time — just not too often. If you never come up with a result that surprises you, it generally means that you didn’t spend a lot of time actually looking at the data; instead, you just imparted your assumptions onto your analysis and engaged in a fancy form of confirmation bias. If you’re constantly surprised, on the other hand, more often than not that means your [code] is buggy or you don’t know the field well enough; a lot of the “surprises” are really just mistakes.  
-> ---Nate Silver
-
-Surprises are awesome, and are how discoveries are made in science. But at the same time, a lot of papers are retracted because their big surprise was actually just a glitch in the code. Whenever you find something you didn't expect, make sure you go back through your code and assumptions - it never hurts to double check!
-
-For more on this topic, check out the awesome lecture notes for [Skepticism in Data Science](https://jhu-advdatasci.github.io/2018/lectures/12-being-skeptical.html) from John Hopkins University.
-summary statistics, correlations, anova, 
-### Model
-regression (linear + logistic)
-model visualizations
-cross-validation
-model evaluation
-### Communicate
-mostly punting
+### Work with other datasets:
+1. ```spread()``` the ```iris``` dataset so that each species' petal width is in its own column. Then ```gather()``` the table back together. What's different about this dataframe?
+2. Select all the rows of ```iris``` where the species is setosa. Now select all the rows where the species _isn't_ setosa.
+3. What's the mean price for each cut of diamond in the ```diamonds``` dataset? 
+4. Inspect the ```smiths``` dataset (loaded with the tidyverse - you can access it like ```iris```). How can you fix those missing values? 

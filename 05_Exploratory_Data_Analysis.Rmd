@@ -1,381 +1,227 @@
 # Introduction to Data Analysis
 
-## Exploratory Data Analysis 
-So far, we've learned about how to manipulate our data and how to graph our outputs. Both of these are critically important parts of what's known as exploratory data analysis - or EDA. When you're starting with a new dataset, you won't always immediately know what trends and patterns might be there to discover. The idea at this stage isn't to find out what's causing any trends in the data, to identify any significant results you might have, or to get publishable figures and tables - the point is to understand exactly what it is that you're dealing with.
+> Far better an approximate answer to the right question, which is often vague, than an exact answer to the wrong question, which can always be made precise
+> <div align="right">John W. Tukey, *The Future of Data Analysis* </div>
 
-This unit gives examples of what EDA might look like with a sample dataset. But there aren't prescribed sets of steps to go through while working on EDA - you should feel free to create as many hypotheses as possible, and spend time analyzing them individually. You might find something surprising!
+## Exploratory Data Analysis 
+So far, we've learned about how to manipulate our data and how to graph our outputs. Both of these are critically important parts of what's known as exploratory data analysis - or EDA. When you're starting with a new dataset, you won't always immediately know what trends and patterns might be there to discover. The idea at this stage isn't to find out what's causing any trends in the data, to identify any significant results you might have, or to get publishable or presentable figures and tables - the point is to understand exactly what it is that you're dealing with. For more on this topic, check out [this post](https://simplystatistics.org/2019/04/17/tukey-design-thinking-and-better-questions/).
+
+### Sidenote
+
+EDA differs from what most people expect data analytics to be. Most people expect analytics to follow a clearcut path, going in a linear direction from deciding on a question to answering said question completely and accurately. But that really isn't the point of data analytics, and especially not EDA, as Tukey (the father of data analytics and modern statistics) says at the top of this chapter. Most people think of analytics as something you do to improve the strength of your evidence, but that's not what the discipline excels at. 
+
+Rather, the discipline shines best when it's working on [improving the question you're asking](https://simplystatistics.org/2019/04/17/tukey-design-thinking-and-better-questions/), perhaps generating evidence for your case along the way. That's not to say you can't use analytics to try and answer a question - you can, and most people working in the field today use it in that manner. But you'll be a better analyst if you keep yourself open to new surprises, and chase them down, rather than attempting to make your analysis follow a linear path.
 
 Speaking of surprises, I really enjoy [this quote](https://fivethirtyeight.com/features/election-update-why-our-model-thinks-beto-orourke-really-has-a-chance-in-texas/) from Nate Silver, founder and editor in chief of FiveThirtyEight:
 
 > You ideally want to find yourself surprised by the data some of the time — just not too often. If you never come up with a result that surprises you, it generally means that you didn’t spend a lot of time actually looking at the data; instead, you just imparted your assumptions onto your analysis and engaged in a fancy form of confirmation bias. If you’re constantly surprised, on the other hand, more often than not that means your [code] is buggy or you don’t know the field well enough; a lot of the “surprises” are really just mistakes.  
 > ---Nate Silver
 
-Surprises are awesome, and are how discoveries are made in science. But at the same time, a lot of papers are retracted because their big surprise was actually just a glitch in the code. Whenever you find something you didn't expect, make sure you go back through your code and assumptions - it never hurts to double check!
+Surprises are awesome, and are how discoveries are made. But at the same time, a lot of papers are retracted because their big surprise was actually just a glitch in the code. Whenever you find something you didn't expect, make sure you go back through your code and assumptions - it never hurts to double check!
 
 For more on this topic, check out the awesome lecture notes for [Skepticism in Data Science](https://jhu-advdatasci.github.io/2018/lectures/12-being-skeptical.html) from John Hopkins University.
 
-### gapminder
-Anyway. We'll be working with data from the gapminder database, which contains statistics on global development metrics. We can get the data like we get most packages:
+### The EDA Framework
+
+I've found it useful, in composing my thoughts about exploratory data analysis, to fit the rough steps of EDA into a three-part framework. The first thing I do when presented with any new dataset is to **summarize** the data, to see what general shape it's in. This lets me catch outliers and typos, see if there's any values I have a question on, and start getting a sense of the scope of the dataset I'm working with. I'll then usually start to **visualize** the data, making exploratory graphs in order to get a more concrete sense of how each variable interacts with all the others, and to see if any patterns emerge from the dataset. I'll then usually start to **analyze** the patterns I'm finding, picking them apart to see if I can better understand how they work before I begin modeling them.
+
+However, I don't believe EDA is so simple that I can say these are ordered steps - that summarizing comes before visualization, which happens before you being analyzing patterns. I believe that EDA typically involves multiple rounds of each step, where visualizations give you new ideas for summaries you'd be interested in, which perhaps give rise to patterns you want to analyze, which in turn inspire more visualizations. The point is to use your skills to play with your datasets, until you're satisfied you have enough information to proceed onto your analysis. 
+
+## gapminder
+We're going to use the `gapminder` dataset for this unit, in order to see more a more realistic application of exploratory data analysis that you might perform when working with a new dataset for the first time. In order to do this, we're going to install the `gapminder` package, then load it as usual:
 
 ```
-install.packages("gapminder")
+install.package("gapminder")
 ```
-
 ```{r}
 library(gapminder)
 ```
 
-Let's also load the tidyverse:
-```{r}
-library(tidyverse)
-```
-
-The gapminder package includes four tables, of which we only care about one: `gapminder`. We can preview the data, as usual, by typing the name of the table:
+This package includes five data tables, all focusing on GDP and life expectancy values for a set of countries. The largest of these datasets is `gapminder_unfiltered`, which is what we'll be working with now. Let's take a look using `head()`:
 
 ```{r}
-gapminder
+head(gapminder_unfiltered)
 ```
 
-### Describing Your Data
-If we want to get a sense of each variable, we can use base R's `summary()` to find basic summary statistics for each column:
+So as we can see, there are six columns in this dataset, which are more or less descriptively named. If you've got questions about the dataset, or what data is stored in any of the columns, you can check this dataset out with `?gapminder_unfiltered`.
 
+## Summarizing Data
+It would now be helpful for us to get a bit broader sense of what each column contains. One of the easiest ways to do that is with `summary()`:
 ```{r}
-summary(gapminder)
+summary(gapminder_unfiltered)
 ```
 
-For the categorical variables `country` and `continent`, R just returns the number of observations each category has. For the numeric variables, meanwhile, the output is a little more involved. 
-
-We can get an even fuller sense of the data using functions from other packages. My personal favorite is the `describe()` function included in `psych`:
+You can see that `summary()` gives us some basic summary statistics of each column - and that these views are different for numeric and text columns. We can also start seeing how these values are distributed - it seems like the values cover six continents (though I'm a little iffy on what "FSU" means, and it looks like the Americas are merged), and 57 years (from 1950 to 2007). The numeric columns, meanwhile, have simple summary statistics listed. We can dig down a little deeper into these statistics using the `describe()` function, from the `psych` package:
 
 ```
 install.packages("psych")
 ```
 ```{r}
-psych::describe(gapminder)
+library(psych)
 ```
 
-(Note: `psych::` lets me call functions from the `psych` package without having to load it using `library()`. This is useful when you aren't using the functions that often - and lets me explicitly identify which functions come from which packages, which is great for communicating your code - but becomes less useful when using the same function or package multiple times. Imagine having to type `dplyr::` everytime we wanted to use `%>%`, for instance!)
+```{r}
+describe(gapminder_unfiltered)
+```
 
-This output replaces the IQR with the full range of the data, and adds a number of other important statistics to the output. For instance, we can now see the skew and kurtosis of our data, representing how close our data is to the normal distribution. Briefly, skew represents how close the median is to the mean (or how long the data's "tails" are - 0 means the median is the mean), while kurtosis represents how large the tails of the distribution are (with normally distributed data having a kurtosis of 0).
+Now in addition to the values from `summary()`, we get the number of observations, each column's standard deviation, trimmed mean, median absolute deviation, range, skew, kurtosis, and standard error. 
 
-You should always analyze these values for your data - both in order to give you a sense of what you're working with, and to tell you if there were any errors during data entry. If population had a negative minimum value, for instance, you'd know to be alarmed. 
-
-As we can see, some of our data is highly skewed, with extremely long tails. For instance, if we were to make a histogram of population:
+We can also, if we wanted, check to see how many unique countries are represented in the dataset, by checking the `length()` of a vector of all the `unique()` values of the country column:
 
 ```{r}
-ggplot(gapminder, aes(pop)) + 
+length(unique(gapminder_unfiltered$country))
+```
+
+If we wanted to make that a little simpler, by the way, we can use the `n_distinct()` function from `dplyr`. As a sidenote, we can use a function from a package without loading it (via `library`) by typing the package name followed by `::`, like so:
+
+```{r}
+dplyr::n_distinct(gapminder_unfiltered$country)
+```
+
+However, it makes sense for us to load the package explicitly, since we'll be using a lot of the functions from it for the rest of this chapter.
+
+```{r}
+library(dplyr)
+```
+
+So looking at those values, I'm noticing some extreme numbers in the life expectancy and GDP columns - specifically, the minimums seem much lower than I'd expect. We can pull those rows out of the dataset using `filter()`:
+
+```{r}
+gapminder_unfiltered %>%
+  filter(lifeExp == min(lifeExp))
+
+gapminder_unfiltered %>%
+  filter(gdpPercap == min(gdpPercap))
+```
+
+As history buffs might know, these values are both (sadly) explained by politics and history. The other oddball I want to check is what the "FSU" continent is meant to represent:
+
+```{r}
+gapminder_unfiltered %>%
+  filter(continent == "FSU")
+```
+
+Ahh! These countries are all **F**ormer **S**oviet **U**nion states, so are broken out from the other countries - and have a lot of incomplete data. 
+
+The other notable values I'd like to check out are the super high *skew* and *kurtosis* values that `describe()` gave us for the GDP column. These values demonstrate that our data really doesn't follow the normal distribution (which has a value of 0 for both metrics) - but I'd like to visualize how:
+
+```{r}
+library(ggplot2)
+ggplot(gapminder_unfiltered, aes(gdpPercap)) + 
   geom_histogram()
 ```
 
-This makes some intuitive sense - most countries have decently small populations, while some countries - such as China and India - contain significant portions of the world's population.
+So our data is less variable than we'd expect (that's the high kurtosis, implying that the mode is more common than it would be in the normal distribution), and right-skewed (meaning that our mean is higher than the median, since there are a number of high outlier values). That's not a *bad* thing, but it's worth knowing how our data is structured and wondering why, and how it might affect the other variables we can measure.
 
-Now that we have a sense of what our data looks like, we can start attempting to identify trends in the data. You should never trust your data before visualizing it - summary statistics and other tests may not give you critical insights about [trends present in your data](https://www.autodeskresearch.com/publications/samestats).
-
-Base R's `pairs()` function is useful for this purpose - it makes a matrix of scatterplots for all your variables, letting you see any correlations that exist visually. Note that we have to subset our data to make sure that we're only graphing numeric columns:
+This graph could probably be made more effective if we split it up by continent. Let's use `facet_wrap()` to create six panels of the graph, one for each continent:
 
 ```{r}
-pairs(gapminder[, 3:6])
-```
-
-From this, we can immediately see some trends - it looks like all our variables are increasing over time (left column), and that life expectancy goes up as GDP increases (right column, second from the top). A way to see the same thing in table form is to use `cor()`:
-
-```{r}
-cor(gapminder[, 3:6])
-```
-
-The numbers refer to how correlated the variables are: 1 means perfectly positively correlated, while -1 is perfectly negatively correlated.
-
-If we wanted to get even fancier, we could coerce this result to a dataframe using the function `tidy()` from the package `broom`. We can even visualize this data in ggplot, using `geom_tile()`:
-
-```
-install.packages("broom")
-```
-
-```{r}
-CorMatrix <- broom::tidy(cor(gapminder[, 3:6])) %>%
-  rename(Var1 = ".rownames") %>%
-  gather(Var2, Cor, -Var1)
-CorMatrix
-
-ggplot(CorMatrix, aes(Var1, Var2, fill = Cor)) +
-  geom_tile()
-```
-
-Note that what we did above - calling `cor()` inside of `tidy()` - applies the outside function to the output of the inside function. Functions are run from the inside out. You might remember similar formulas from algebra classes - `f(g(x))` is the same as `(f * g)(x)`. 
-
-Of course, there's no need to do all of these at once - you can do whichever method makes sense to you. Either way, we get similar results - the strongest correlation is between life expectancy and GDP. We can visualize this trend using our ggplot skills:
-
-```{r}
-ggplot(gapminder, aes(gdpPercap, lifeExp)) + 
-  geom_jitter()
-```
-
-(See that example of nesting functions? `ggplot(aes())`!)
-
-Hmm, weird! While we can see the correlation, it seems like there's another factor we aren't accounting for. What happens if we color the points by the year they represent?
-
-```{r}
-ggplot(gapminder, aes(gdpPercap, lifeExp, color = year)) + 
-  geom_jitter()
-```
-
-That looks like we're onto something. What if we facetted the data by continent?
-
-```{r}
-ggplot(gapminder, aes(gdpPercap, lifeExp, color = year)) + 
-  geom_jitter() + 
+ggplot(gapminder_unfiltered, aes(gdpPercap)) + 
+  geom_histogram() + 
   facet_wrap(~ continent)
 ```
 
-Hmm. We can see some obvious trends - it seems like Africa has a lower average life expectancy than the other continents, for instance - but they're hard to discern from the visuals alone. For that, we're going to have to get into some actual statistic computing.
-
-## Statistical Tests and Regressions
-Now that we've identified some hypotheses about our data, we're able to use the full power of R to try and prove them. First off, we can identify if any of the correlations we saw are statistically significant. For the full dataset, this is pretty easy - we can just feed two vectors into `cor.test()`:
+If we wanted to calculate our values as a relative measurement rather than an absolute count - so that we can better see the patterns in other areas, and lower the high outlier in Africa - we can provide `..density..` as the y argument in `aes`:
 
 ```{r}
-cor.test(gapminder$lifeExp, gapminder$gdpPercap)
+ggplot(gapminder_unfiltered, aes(gdpPercap, ..density..)) + 
+  geom_histogram() + 
+  facet_wrap(~ continent)
 ```
 
-(Note that most likely we'd actually use a different correlation test, as the data on life expectancy are non-normal. You can control the test used by setting the `method` argument - information about the correlation tests available in this function can be found [here](http://www.statisticssolutions.com/correlation-pearson-kendall-spearman/).)
+Now our Y axis represents the proportion of all values that particular GDP makes up, rather than the absolute count of values in that bin.
 
-Looks like a yes!
+This is already helping me understand what we're working with - most of our lowest GDP measurements come from Africa, while Europe is pretty uniformly higher, and Asia has a more skewed spread than any other region. 
 
-Before we rush off to publish, though, it might worth seeing if the correlations are different (or, hopefully, stronger) on each continent. Before we do that, let's see if the different continents really do have different life expectancies. In order to do this, we'll perform an ANOVA using our continents as different groups, then test for differences between the groups.
+### Sidenote
 
-Now, ANOVA is actually just another form of a linear regression, where you're predicting the impact an independent variable has on the response variable. The unique thing about ANOVA is that the independent variables have to be categorical - if they're all numeric, you want to stick with regression, and if there's a mix, you'll use ANCOVA. 
+Often, people dislike using histograms, and instead choose to use frequency polygons - implemented in ggplot using the `geom_freqpoly()` function:
+```{r}
+ggplot(gapminder_unfiltered, aes(gdpPercap, ..density..)) + 
+  geom_freqpoly() + 
+  facet_wrap(~ continent)
+```
 
-The reason I bring this up is that running an ANOVA in R requires you to first build a linear model, using the `aov()` function. This function is pretty simple, taking three arguments - the response variable, all independent variables, and the data to be used. For our purposes, modeling life expectancy as a function of continent, the equation looks like this:
+This sometimes then gives rise to a thought - since these lines take up so much less space, why not just combine them all into one panel, rather than six? And so they make graphs that look like this:
 
 ```{r}
-aov(lifeExp ~ continent, data = gapminder)
+ggplot(gapminder_unfiltered, aes(gdpPercap, ..density.., color = continent)) + 
+  geom_freqpoly() 
 ```
 
-Those coefficients do mean something, but we won't get into that right now. More interesting for our purposes is getting the outputs of our ANOVA, which we can do by feeding `anova()` our model:
+This is a Bad Graph, as I hope should be obvious. It's almost impossible to pick out any individual line, and the whole thing just looks like a jumbled mess - which has led the community to name this sort of visualization as a "spaghetti graph". In cases like this, where a graph contains more than one or two lines (with obvious separations), it makes much more sense to facet your graphs.
+
+## Visualizing Data
+Anyway. These are the first visualizations we've made to start seeing what our data looks like. It's worthwhile to make a lot of these fast graphics in order to get a handle on your datasets, so you can see what angles might be useful for your analysis. One of the most useful is `pairs`, which will show you scatterplots between each of your variables. Let's try running it on the gapminder data now:
 
 ```{r}
-anova(aov(lifeExp ~ continent, data = gapminder))
+pairs(gapminder_unfiltered)
 ```
 
-Note, by the way, that you'd usually do this by assigning the `aov()` to an object (as in `a <- aov(...)`). I'm not doing this right now, as I think this section is easier to conceptually understand if I'm explicit about what we're running our `anova()` and other tests on.  
+To interpret this graph, understand that each text box ("country", "continent" and so on) represents that variable - in any given column, that text box is on the X axis, while for any given row the text box represents the Y axis.  
 
-Looks like continent does have a significant effect on life expectancy!
-
-By the way, there's two other, identical ways to run the same test, using `lm()` for `aov()` and `summary()` for `anova()`. It really doesn't matter which you go with - they all return the same results.
-
-```{r eval = FALSE}
-anova(lm(lifeExp ~ continent, data = gapminder))
-summary(aov(lifeExp ~ continent, data = gapminder))
-```
-
-So now we know that there are significant differences between the continents. What we want now is to be able to tell what those differences are. Base R's `TukeyHSD()` function will help with that, telling us what the differences between each continent are. All we have to do is feed it our `aov()` object, and, optionally, tell it to sort the results by the difference with `ordered = TRUE`
+Even knowing that, the graph is still a little hard to understand - the boxes are small, and the "country" and "continent" graphs don't make a ton of sense. To get rid of those (and hopefully fix both problems at once), we could use `select()` from last chapter and make a new dataset:
 
 ```{r}
-TukeyHSD(aov(lifeExp ~ continent, data = gapminder), ordered = TRUE)
+gp <- select(gapminder_unfiltered, 3:6)
+pairs(gp)
 ```
 
-So as we can see, Africa has a significantly lower life expectancy than every other continent, followed by Asia, and then the Americas. Oceania and Europe, meanwhile, have about equal life expectancies.
-
-If you remember the `tidy()` function from `broom` that we used earlier, you probably won't be surprised to learn it can make this sort of output tidier, too:
+But an even cleaner method is to skip the new dataset altogether, and just use `select_if()`. This function lets us only select columns that return `TRUE` when passed to a function, and works like this:
 
 ```{r}
-broom::tidy(TukeyHSD(aov(lifeExp ~ continent, data = gapminder), ordered = TRUE))
+head(select_if(gapminder_unfiltered, is.numeric))
 ```
 
-This will make your life a lot better when you're trying to export data.
-
-## Functional Programming
-So, it's probably worth finding the correlation between life expectancy and GDP for each continent. We could filter our data five times - one for each continent - but that breaks our rule: if we have to do it more than twice, there's probably a better way.
-
-Now, fair warning, what we're about to do is probably the hardest topic we've gone over yet. Understanding it will make a lot of common tasks much easier, but don't worry if you don't understand it on the first go-through.
-
-First off, let's load broom explicitly now - the only thing we'll be using it for is the `tidy()` function.
+Note how instead of column names we provided the name of a function, `is.numeric()`. We also didn't put parentheses after the `is.numeric` function - we just pass it the name. That lets us easily and cleanly select all the numeric columns, making sure we didn't skip any. We can then make the graph in a single line of code like this:
 
 ```{r}
-library(broom)
+pairs(select_if(gapminder_unfiltered, is.numeric))
 ```
 
-The tidyverse includes a package - `purrr` - useful for working with lists. As we saw last unit, a list is a type of object which can include multiple types of data. These include the numerics, characters, and logicals we're comfortable with - but can also include name-value pairs (like `z = 0`, from the last unit) and, weirdly enough, entire dataframes.
-
-For instance, let's see what happens when we use the `nest()` function that `purrr` provides:
+This is a bit easier to read! It looks like life expectancy generally increases over time and with higher GDP, and that population and GDP both also increase over time. If we want a more numeric version of these graphs, we can calculate the actual correlation coefficients by swapping `cor()` in for `pairs()`:
 
 ```{r}
-gapminder %>%
-  nest()
+cor(select_if(gapminder_unfiltered, is.numeric))
 ```
 
-All of our data is now stored in a single cell, as a tibble!
+These numbers range from -1 to 1, with higher absolute values representing higher correlations. So we can see that our visual judgements are pretty well supported by the numbers - especially that there's a strong relationship between GDP and life expectancy!
 
-We can exclude columns from being nested with `-` if we want, splitting the data into as many subsets as there are levels of that variable:
+## Analyzing Patterns
+Now we're moving into the next piece of EDA - exploring the patterns that we pick up on. This isn't something you need to save until you're done summarizing and visualizing your data - rather, it's a process that you should follow every time you find something that seems interesting in the data. A lot of these paths may be dead ends, but the ones that are worth following will often wind up shaping your analysis, providing insights into your dataset that you hadn't been expecting when you started.
+
+I'd be interested in looking a little more into how GDP and life expectancy interact. Let's make a scatter plot for just those two variables:
 
 ```{r}
-gapminder %>%
-  nest(-continent)
+ggplot(gapminder_unfiltered, aes(gdpPercap, lifeExp)) + 
+  geom_point()
 ```
 
-And when we do this, we can subset the list in the exact same way we would a normal vector:
+This is already an interesting pattern, in and of itself - it seems like higher GDP results in higher life expectancy, but only to a point. This sort of shape - where there's an obvious and single curve to the data - always makes me think that log-transforming the data might make the relationship more linear:
 
 ```{r}
-Nested <- gapminder %>%
-  nest(-continent)
-
-Nested[1, 2]
+ggplot(gapminder_unfiltered, aes(gdpPercap, lifeExp)) + 
+  geom_point() + 
+  scale_x_log10()
 ```
 
-If we then wanted to, we can `unnest()` the data:
+And in this case it does, very dramatically. Now, I don't particularly like log-transformed graphs, as I discussed in chapter 2. However, it will be important for us to know that our data has this relationship when we go to perform our analyses. That, however, is a matter for the next chapter.
+
+I've started to wonder now how other variables play into this pattern. For instance, I know that people lived less long back in 1950 than they do today, and I know that life expectancy in some areas of the world is significantly lower than others. Luckily enough, we have the ability now to add both these factors to our visualization - here, I've split the graph into facets by continent, while recoloring the points by the year.
 
 ```{r}
-Nested <- gapminder %>%
-  nest(-continent)
-
-Nested[1, 2] %>%
-  unnest()
+ggplot(gapminder_unfiltered, aes(gdpPercap, lifeExp, color = year)) + 
+  geom_point() + 
+  facet_wrap(~ continent)
 ```
 
-But what's interesting is that we can also manipulate the data while it's nested. `purrr` provides a number of "map" functions, which will apply a function to each member of a list and return the outputs as a list. 
+Splitting the graph into panels by continent was very effective, I think - Africa has notably lower life expectancy and GDP than other countries do, while Europe seems to always be higher than average. I don't know that coloring the points by year has quite the same effect, probably due to there being too many points on this graph - my guess is that we'll see that impact more while we're modeling the data in our next chapter. 
 
-What this allows us to do is create additional nested lists as new columns, letting us find correlations between groups much faster. For instance, if we want to create a column `Cor` with the output of the correlation tests, we could do the following:
-
-```{r}
-gapminder %>%
-  nest(-continent) %>%
-  mutate(Cor = map(data, ~ cor.test(.$lifeExp, .$gdpPercap)))
-```
-
-The `~` indicates that the next word is a _function_ that should be applied to each element of the list. `.` is what's referred to as a _pronoun_ - it's the short name for the data that's being applied to the function. That's why we can subset it with `$` - while we're inside the map function, `.` _is_ your data. We'll be using `.` repeatedly for the rest of the course.
-
-Now, because `cor.test()` doesn't provide a tidy data output - it produces something human-readable, but not computer-usable - we have to tidy it up before we can extract our numbers. That's where `tidy()` comes in, which we use pretty similarly to `cor.test()`:
-
-```{r}
-gapminder %>%
-  nest(-continent) %>%
-  mutate(Cor = map(data, ~ cor.test(.$lifeExp, .$gdpPercap)),
-         TidyCor = map(Cor, ~ tidy(.)))
-```
-
-That last column - made up of dataframes - is exactly what we want. We can extract it from this dataframe using `unnest(.drop = TRUE)`, which will drop the other nested columns:
-
-```{r}
-gapminder %>%
-  nest(-continent) %>%
-  mutate(Cor = map(data, ~ cor.test(.$lifeExp, .$gdpPercap)),
-         TidyCor = map(Cor, ~ tidy(.))) %>%
-  unnest(TidyCor, .drop = TRUE)
-```
-
-And tada, we have the output from five correlation tests in one step, rather than the ten it would take to do the long way.
-
-When I was learning how to do this, I kept believing that it was a waste of my time, because learning took significantly more time than just doing it the long way. But in addition to the obvious benefits this method gives - we have less code replication, which means faster programs and less chance for typos; all of our data is in the same dataframe, rather than in five chunks; and we can compare our results immediately, rather than having to sift through paragraphs to find the same data points - this method is extremely applicable to many other areas of coding. If you ever have to build models or analyze grouped data, this is the way to make sure that your work is reproducible and your science is sound. 
-
-So even though it might take a bit to fully internalize, keep trying these efficient paths when we use them in this reader. We'll be returning to this format repeatedly, in order to build models, analyze results, and compare groups.
-
-
-### Column Names
-In order to do that, of course, we have to understand what each of those column names represent. In order:
-
-* `estimate` is whatever parameter is being estimated - here, the correlation coefficient.
-* `statistic` is the test statistic used to calculate the p value - in this case, _t_.
-* `p.value` is, well, the p-value. It's calculated for 95%, unless you changed the confidence level by setting `cor.test(conf.level = ##)`.
-* `parameter` is the degrees of freedom.
-* `conf.low` and `conf.high` are the bounds of the confidence interval of the _estimate_ - so here, of the correlation coefficient. It's calculated for whatever confidence level you set in `cor.test(conf.level = ##)`.
-* `method` is the test used.
-* `alternative` is the alternative hypothesis tested - you can change it by setting `cor.test(alternative = "")` to "two.sided", "lesser", or "greater".
-
-## Modeling
-Okay, time to get back to data analysis. 
-
-If we want to see the effect of two continuous variables (say, `gdpPercapita` and `year`) on `lifeExp`, we'd use what's known as _multiple regression_. There's a lot of different flavors of multiple regression, but the simplest is what's known as general linear regression - the y = mx + b formula that you went over in high school. R makes it easy to fit a general linear model to your data (via ordinary least squares) using the `lm()` function, using the same arguments as we used for `aov()`:
-
-```{r}
-lm(lifeExp ~ gdpPercap + year, data = gapminder)
-```
-
-These coefficients show how much we can expect life expectancy to increase if the GDP or year increases. The intercept is what life expectancy would be if both GDP and the year were 0 - obviously, this number doesn't make a ton of sense, since we don't have any data on life expectancy in either of those situations. There's ways to correct for this, and we aren't gonna do them - more information can be found [here](https://www.theanalysisfactor.com/center-on-the-mean/).
-
-If we want to see how well this model fits our data, we can graph it:
-
-```{r}
-ggplot(gapminder, aes(gdpPercap, lifeExp)) + 
-  geom_jitter() +
-  geom_smooth(method = "lm")
-```
-
-Hmm. Seems like a pretty bad fit.
-
-If we want statistical estimates of how well our model fits the data, we can feed it as an argument to `summary()`:
-
-```{r}
-Model <- lm(lifeExp ~ gdpPercap + year, data = gapminder)
-
-summary(Model)
-```
-
-As we can see, both GDP and the year are significant predictors of life expectancy, but the linear model isn't a great fit for the data - our R^2^ is 0.44. 
-
-Perhaps we could improve the model by accounting for the interaction between GDP and the year. There are two ways to include interaction terms in models, each of which have their benefits. One is to replace the `+` in the model with `*`, as follows:
-
-```{r}
-Model <- lm(lifeExp ~ gdpPercap * year, data = gapminder)
-
-summary(Model)
-```
-
-The other is to specify _which_ terms you want to track the interaction of, using `:` as follows:
-
-```{r}
-Model <- lm(lifeExp ~ gdpPercap + year + gdpPercap:year, data = gapminder)
-
-summary(Model)
-```
-
-As you can see, these outputs are identical. Even so, I personally prefer using the second format, because it makes the interaction term a more explicit part of your model. While it doesn't matter in simple models like the one we've developed here, once you have a large number of terms, it's helpful to specify which interactions you're measuring.
-
-### Dummy Models
-That R^2^ of 0.44 is an improvement, but still not great. We could try combining continuous and categorical variables in a single model, to try and better predict life expectancy.
-
-Doing that in R is very simple - just add the categorical variable to your model like you would a continuous. Let's do that with continents:
-
-```{r}
-Model <- lm(lifeExp ~ gdpPercap + year + continent + gdpPercap:year + gdpPercap:continent + year:continent + gdpPercap:year:continent, data = gapminder)
-
-summary(Model)
-```
-
-Our R^2^ is now up to a respectable 0.76! It looks like these three variables - and the interactions between them - explain a lot of the variance in our data. To get a cleaner table explaining the impacts each variable has on life expectancy, we can perform an analysis of covariance, or ANCOVA. To do this, we just change out our mixed model `lm()` function for an `aov()`, and then pass that `aov()` object to `summary()`:
-
-```{r}
-Model <- aov(lifeExp ~ gdpPercap + year + continent + gdpPercap:year + gdpPercap:continent + year:continent + gdpPercap:year:continent, data = gapminder)
-
-summary(Model)
-```
-
-This output means we can now say that GDP has a significant impact on life expectancy when controlling for year as a covariate - and that all the interaction terms are significant, except for GDP and year.
-
-One way to get around having to use an ANCOVA is to develop separate regression models for each continent. We can do that in much the same way we tested for correlation on each continent:
-
-```{r}
-gapminder %>%
-  nest(-continent) %>%
-  mutate(Models = map(data, ~ lm(lifeExp ~ gdpPercap + year + gdpPercap:year, data = .)),
-         TidyMods = map(Models, ~ tidy(.))) %>%
-  unnest(TidyMods, .drop = TRUE)
-```
-
-Note that I deleted all the "continent" terms from the model, because we're now making a different model for each continent available. I've also used the `.` pronoun to represent our data here.
-
-In this case, `estimate` represents the coefficient (beta) for each variable, while the statistic is the F statistic.  
-
-## Conclusion
-The important takeaways from this unit are not necessarily the statistical tests used - since those will vary dependent upon your purpose - so much as the methods highlighted. Understanding how to generate hypotheses from a new dataset - and then how to drill down and analyze them each in turn - is a cross-disciplinary skill used in any new analysis project.
-
-Later in the course, you'll be given projects which will require you to understand brand new datasets, manipulate them, perform complex analyses on them, and visualise them. EDA will give you the familiarity with your data to find these patterns, isolate them appropriately, and perform the right analyses moving forward. The entire purpose of this unit is to give you the skillset to identify what those analyses might be, by understanding how to generate hypotheses from a combination of data visualization and manipulation.  
-What we haven't done is confirmatory analysis, where we start our work with a model in mind and then report how well it fit the data. Once data is used for exploratory analysis, it can't be used again for confirmatory work. There are methods to split data for confirmatory analysis, while still being able to use some data for exploration - for an overview, see [Hadley Wickham's overview here](https://r4ds.had.co.nz/model-intro.html). We'll be working with these methods in unit 10.
+I'm feeling very comfortable with how we've progressed in this chapter - we've moved from downloading a brand new dataset to more thoroughly exploring it, and have picked up on a pattern that we're going to subject to a more thorough analysis. We could totally keep using our EDA skills in order to investigate patterns further - for instance, it might be interesting to examine what factors impact population over time, or see how rates of population change dependent upon life expectancy and GDP! However, the skeleton here demonstrating the steps of EDA should be enough to give you ideas of how to apply this framework to your own analyses moving forward. Instead, we're going to continue on with the `gapminder` package in our next unit, as we begin making models to actually analyze this pattern we've found.
 
 ## Exercises
 
-### Answer the following:
 1. The output of `psych::describe(gapminder_unfiltered)` put stars after `country` and `continent`. Why?
-2. Make a histogram of a gapminder variable other than population. Describe the graph with regards to its skewdness and kurtosis. 
-3. Compute an ANOVA for the impacts of continent on population. Report the results as you would in a manuscript.
-4. Fit a regression model to the impacts of the current year and life expectancy on GDP. Why does this model not make sense conceptually?
-5. Fit a linear model explaining life expectancy as a function of the current year for each country in the dataset (use the formula lifeExp ~ year). Then tidy the model outputs and look at the p values for each coefficient. If you don't hate yourself, you'll try the functional computing approach.
-
+2. Make a histogram of a gapminder variable other than GDP. Describe the graph with regards to its skewdness and kurtosis. 
+3. Answer the question: how does population seem to be impacted by the other variables in the dataset? Use the techniques we've demonstrated here to find out.
+4. Just like `select()` has a cousin in `select_if()`, all the other main `dplyr` functions (`mutate()`, `filter()`, `group_by()`, and `summarise()`, among others) also have an `_if()` variant. Use `mutate_if()` to multiply all the numeric columns by 2.

@@ -308,7 +308,7 @@ ggplot(diamonds, aes(carat, price)) +
 
 So we can see that, by log-transforming our variables, we get a linear-looking relationship in our data.
 
-Now, I'm personally not a fan of log graphs - [and you shouldn't be, either](https://www.researchgate.net/publication/326450797_Logarithmic_scales_in_ecological_data_presentation_may_cause_misinterpretation). But you'll sometimes have data that can't be properly explained without logarithims - or bosses who won't listen to reason. As such, it's worth knowing how to make R plot things exactly as you want it to.
+Now, I'm personally not a fan of log graphs - [and you shouldn't be, either](https://www.researchgate.net/publication/326450797_Logarithmic_scales_in_ecological_data_presentation_may_cause_misinterpretation). But you'll sometimes have data that can't be properly explained without logarithims - or bosses who won't listen to reason. As such, it's worth knowing how to make R plot things exactly as you want it to. Usually, however, it makes a lot more sense to plot your data without any transformations, and just use transformed values as needed in your analyses. We'll discuss that more in chapters 5 and 6, however.
 
 You can perform plenty of other axes transformations by specifying the `trans` argument inside of your scale function. For instance, if we wanted to use a natural log instead, we could type:
 
