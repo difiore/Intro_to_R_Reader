@@ -5,12 +5,12 @@
 
 
 ## Workflow
-Now that we're data visualization pros, it's time to start building our analytical skills. While the tools used in the actual analyses are discussed in the next several chapters, there are a few tools involved in basic R usage that we need to cover before we can start in on any of those topics. This chapter should show you how to save, load, and execute your code effectively, and get you ready for the more extended analyses we'll be doing next chapter
+Now that we're data visualization pros, it's time to start building our analytic skills. While the tools used in the actual analyses are discussed in the next several chapters, there are a few tools involved in basic R usage that we need to cover before we can start in on any of those topics. This chapter should show you how to save, load, and execute your code effectively, and get you ready for the more extended analyses we'll be doing next chapter
 
 ### Scripts
 So far, we've been using the command line interface in the console to type our programs. While this works, you might have noticed how annoying it can be to type longer programs in. Additionally, you're probably going to want to save your work at some point - and right now, you'd have to use Notepad or a similar program to save anything you've done.
 
-Luckily, there's a better way. In the top left corner of RStudio, there's a menu button called "File". Click this, then click "New Project". If you click "New Directory", and then "New Project", you'll be able to create a folder where you can automatically store all of your R code and files. This will also create an R Project file, which you can load to return to where you left off the last time you closed RStudio.
+Luckily, there's a better way. In the top left corner of R Studio, there's a menu button called "File". Click this, then click "New Project". If you click "New Directory", and then "New Project", you'll be able to create a folder where you can automatically store all of your R code and files. This will also create an R Project file, which you can load to return to where you left off the last time you closed R Studio.
 
 Let's load the tidyverse again, now that we're in a new directory:
 ```{r}
@@ -70,11 +70,11 @@ While scripts are great, they do have some drawbacks. For instance, if you have 
 
 For that reason, I tend to work in R Notebooks. Open your new notebook file, and you'll see a new welcome page! The welcome page has a lot of good information in it - you can delete everything after the second set of three dashes once you've read it.
 
-Inside a notebook, you can make chunks by pressing Cmd/Ctrl+Alt+I. These chunks run as individual scripts, which you can run the exact same way by using combinations of Cmd/Ctrl, Shift, and Enter. Note, though, that your code _must be inside_ these grey chunks to run - anything in the whitespace outside chunks will be interpreted as plain text by R! This is a feature, not a bug - it will let you explain _why_ you wrote each piece of code, and record your thoughts at the time you were working - but is a common area for beginners to mess up. 
+Inside a notebook, you can make chunks by pressing Cmd/Ctrl+Alt+I. These chunks run as individual scripts, which you can run the exact same way by using combinations of Cmd/Ctrl, Shift, and Enter. Note, though, that your code _must be inside_ these grey chunks to run - anything in the white space outside chunks will be interpreted as plain text by R! This is a feature, not a bug - it will let you explain _why_ you wrote each piece of code, and record your thoughts at the time you were working - but is a common area for beginners to mess up. 
 
 Using notebooks can be a little more efficient than scripts, because it offers you the ability to split your code steps into multiple pieces, which can let you iterate on an idea faster than using scripts alone.
 
-No matter which you prefer, you should aim to have one script or notebook per task you perform - don't just have one long, continous notebook for everything you're doing. Also, make sure you give everything a descriptive name - there's nothing worse than needing a file a month or so later and having to open every notebook you've ever made to find it!
+No matter which you prefer, you should aim to have one script or notebook per task you perform - don't just have one long, continuous notebook for everything you're doing. Also, make sure you give everything a descriptive name - there's nothing worse than needing a file a month or so later and having to open every notebook you've ever made to find it!
 
 It's also a good idea to make a new R Project, in a new folder, for each major project you start in on. These sorts of things might not matter too much to you while you're learning - but once you're doing more complicated things with R, having good habits like these are essential.
 
@@ -109,7 +109,7 @@ ggplot() +
 
 As you can see, every time we use `<-`, we completely overwrite what was there before. This is part of the power of R, as it lets us update data and functions as needed - but at the same time it can be dangerous, as it can let us overwrite things we actually need! For instance, R won't stop you from redefining functions (like `ggplot()`), operators (like `+`) or even numbers (like `1`) as you wish - which might really screw things up later!
 
-You'll notice that ```a``` is now listed in the upper-lefthand corner of RStudio, under the "Environment" tab. That's because a is now defined in memory - we can use it in any of our code, anywhere we want. In fact, you can even define ```a``` in one file and call it in another, so long as you've already run the code defining it in your current RStudio session. 
+You'll notice that ```a``` is now listed in the upper-left hand corner of R Studio, under the "Environment" tab. That's because a is now defined in memory - we can use it in any of our code, anywhere we want. In fact, you can even define ```a``` in one file and call it in another, so long as you've already run the code defining it in your current R Studio session. 
 
 This is really cool for a lot of reasons - it lets us do more complicated things with R - but can also cause some problems. If you keep defining objects with names like `a`, it's easy to forget which variable stands for what - and so you can wind up making mistakes when using those variables later on. For instance, we just overwrote `a` 3 times in that last example - imagine if we had important data stored in there!
 
@@ -140,7 +140,7 @@ class(SampleVector)
 
 Note that we don't put object names (such as the name of our vector) in quotes. The general distinction is that if something exists in the global environment, we don't put it in quotes. If it isn't, we do. You can see what's in the current environment by looking at the "Environment" tab that I mentioned earlier - that tab is a list of all the objects you've defined so far in this session. Remember that even though your installed packages aren't in that list, you still don't put them in quotes when you call `library()`.
 
-A martix made of vectors is known, in R, as a `dataframe`. We've already seen some simple dataframes in the past unit built using `data.frame`:
+A matrix made of vectors is known, in R, as a `dataframe`. We've already seen some simple dataframes in the past unit built using `data.frame`:
 
 ```{r}
 data.frame(x = c(1,2,3),
@@ -174,10 +174,11 @@ near(1/49 * 49, 1)
 
 There are a number of other functions in R Studio that might make your life as an analyst easier. Here's a quick rundown of the most common ones:
 
-* Pressing Ctrl/Cmd + F lets you search through a script or notebook, just like in any word processor
+* Pressing Ctrl/Cmd + F lets you search through a script or notebook, just like in any word processor.
 * Ctrl/Cmd + Enter will run whatever line of code your cursor is on in a chunk or script. Ctrl/Cmd + Shift + Enter will run the entire chunk or script. 
 * Ctrl/Cmd + Alt + P will run all the chunks in a notebook above your cursor. Ctrl/Cmd + Alt + R runs all the chunks in that notebook, period.
 * Ctrl/Cmd + S saves a file, just like you'd expect. Ctrl/Cmd + Shift + S saves every file you have open!
+* F7 runs a spell check for the plain text in your notebook - note that if you don't run this, your notebook won't get spell checked at all.
 * And if you're looking for more shortcuts, Alt + Shift + K will open a window with all the shortcuts available to you.
 
 ## R Functions and Workflow Exercises

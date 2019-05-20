@@ -198,7 +198,7 @@ unite(
   TotalSeconds, 
   sep = ":")
 ```
-That sort of code is what nightmares are born from!
+This is an example of what we call *nested functions*, where one function (in this case, `separate()`) is nested inside of another (`unite()`). These work like you might expect from your past algebra classes - `f(g(x))` is the same as `(f * g)(x)`. But even knowing that, this sort of code is what nightmares are born from!
 
 Luckily, the tidyverse also introduces a new operator ```%>%```, called the pipe, in the package `magrittr`. What the pipe does is pretty intuitive - it takes the output of whatever's on the _left_ side of the pipe, and uses it as the first input to whatever's on the _right_ side. For instance:
 

@@ -29,3 +29,4 @@ That being said, Python is undoubtedly the better tool for deploying your statis
 * `tibble` refers to an old command for making tables, written _tbl()_ and pronounced, well...
 * `rpart` stands for **R** **Part**itioning, as decision trees are made by partitioning the data
 * `caret` stands for **C**lassification **A**nd **RE**gression **T**raining (oof)
+* IDEAr (the acronym for this book) is named because it's how my father pronounces **idea**, and I saw the opportunity for an homage while naming

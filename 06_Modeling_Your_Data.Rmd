@@ -1,1 +1,206 @@
 # Modeling Data
+
+> "For such a model there is no need to ask the question “Is the model true?”. If “truth” is to be the “whole truth” the answer must be “No”. The only question of interest is “Is the model illuminating and useful?"
+> <div align = "right" --- George Box </div>
+
+## Why Model?
+We've now learned how to wrangle our data and begin exploring it in R, which are both crucial steps of the process. However, when people think about data analytics, they're usually picturing a tool that will help them answer questions they have, providing information they can use to make decisions.
+
+And so comes the penultimate step in our data analysis framework, making a model. Models are summaries of relationships within our data, letting us see more clearly how changes in certain variables impact the others. We can then use that information to predict future outcomes, or to help us understand our dataset. 
+
+Now, we'll be using our gapminder dataset throughout this chapter, which means there is one thing we can't do with models - we can't use them to confirm a hypothesis. Hypothesis testing is much more prevalent in scientific fields than in business applications, and requires you to have started your analysis with a stated hypothesis and a plan of how you'll test it. We didn't do that - instead, we looked for how our variables interacted, and took the main pattern that we'll be analyzing - how life expectancy interacts with GDP - straight from our exploratory analysis. As such, we can't claim that our data *proves* anything, just that it shows our values are correlated.
+
+Instead, our analysis is entirely *exploratory* - which isn't a bad thing! Often times, exploratory analysis is necessary to justify further confirmatory studies. I've always liked a quote from Brian McGill on the matter:
+
+> If exploratory statistics weren’t treated like the crazy uncle nobody wants to talk about and everybody is embarrassed to admit being related to, science would be much better off. 
+> <div align = "right"> --- [Brian McGill](https://dynamicecology.wordpress.com/2013/10/16/in-praise-of-exploratory-statistics/) </div>
+
+But we're getting off topic now. Suffice it to say that we'll be building models that demonstrate how our variables are related, and using those models to generate predictions. The goal isn't to teach you much about how these models work - for that, I'd suggest looking at other resources, perhaps starting with [this paper](https://pdfs.semanticscholar.org/7a07/5776db74495a03ca38750513f331b80f687e.pdf). Instead, we'll go over how to build and use these models in R, with more of an emphasis on "how" than "why".
+
+## Linear Models
+
+Our first and simplest model is the linear model. Thinking back to last chapter, we made a graph that showed the relationship between GDP and life expectancy:
+```{r}
+library(gapminder)
+library(tidyverse)
+ggplot(gapminder_unfiltered, aes(gdpPercap, lifeExp)) +
+  geom_point()
+```
+
+A linear model tries to summarize this relationship in a single straight line, which in this case would look something like the following:
+
+```{r}
+ggplot(gapminder_unfiltered, aes(gdpPercap, lifeExp)) +
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+(You might remember `geom_smooth()` from chapter 2 - it adds a trendline to our graph. By specifying `method = "lm"`, we told it to graph the line we'd get from a *linear model*.)
+
+This model lets us make predictions and see how our variables interact with one another - in this simple case, we can see how GDP is connected to life expectancy (they're generally positively correlated), and we could predict a country's life expectancy based on GDP by finding a point on the line. Of course, it would be much easier for us to just calculate the number from a formula, rather than finding the point on the graph!
+
+To see the actual model formula, we can use the `lm()` function. This function creates a linear model and requires two main arguments:
+* A formula, of the format Y ~ X (Where Y is your response variable, X your predictor variables, and you read the "~" as "as a function of")
+* A dataset
+
+The usage looks like this:
+```{r}
+lm(lifeExp ~ gdpPercap, data = gapminder_unfiltered)
+```
+
+So what we can tell here is that for every 1 increase in GDP, we can expect to see a 0.0006562 year increase in life expectancy. That's not particularly large - but then, a single dollar increase of GDP isn't very much, either! To understand our model better, we can call the `summary()` function on the model:
+
+```{r}
+summary(lm(lifeExp ~ gdpPercap, data = gapminder_unfiltered))
+```
+
+Here we get a little more information on how well our model fits the data. We can see p-values for our overall model and for each variable (check out Chapter 14 for more information on these), as well as our model R^2^. The R^2^ value represents how much of the variance in your dataset can be explained by your model - basically, how good a fit your model is to the data. Generally, we use the adjusted R^2^, which compensates for how many variables you're using in your model - otherwise, adding another variable *always* increases your multiple R^2^. 
+
+But you might recall that we saw a much more normal linear relationship between our variables when we log-transformed GDP:
+```{r}
+ggplot(gapminder_unfiltered, aes(log(gdpPercap), lifeExp)) +
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+So that would make me guess that our model would also be improved by log-transforming the GDP term in our model - just look at how much better that line fits on the second graph. Let's try it now:
+
+```{r}
+summary(lm(lifeExp ~ log(gdpPercap), data = gapminder_unfiltered))
+```
+
+Note that I didn't print out the model statement this time - `summary()` provides us all the information `lm()` does, so we can just call it instead.
+
+We can see that our R^2^ value shot up - we're now at 0.716, instead of 0.402! So log-transforming our data seems to help our model fit the data better. 
+
+We also, last chapter, realized that the continent a country was on and the year of an observation were probably relevant to the analysis. We can add those to our model using `+`:
+
+```{r}
+summary(lm(lifeExp ~ log(gdpPercap) + continent + year, data = gapminder_unfiltered))
+```
+
+This also got our R^2^ up, all the way to 0.818! However, you might notice that our summary output is getting much longer - we now have a row for each of the continents in our dataset (minus Africa, for reasons that are outside of this text - the short explanation is that Africa is what all other continents are being compared to; so being in Europe gives you, on average, 12.27 more years of life than being in Africa, for instance). If we wanted a bit more legible output, we could instead use an ANOVA test - which deals with categorical variables (like continent) as a single unit, rather than as each of the possible levels:  
+
+```{r}
+anova(aov(lifeExp ~ log(gdpPercap) + continent + year, data = gapminder_unfiltered))
+```
+
+However, ANOVA isn't particularly useful for most purposes, as it just reports *if* a variable has an impact on your response, rather than *how* it does so (more on that [here](https://dynamicecology.wordpress.com/2012/11/27/ecologists-need-to-do-a-better-job-of-prediction-part-i-the-insidious-evils-of-anova/) or [here](https://dynamicecology.wordpress.com/2014/10/02/interpreting-anova-interactions-and-model-selection/)), so we won't go into depth with it. Suffice it to say that ANOVA is a special type of linear regression, sometimes used in science, that isn't particularly useful for most other applications.
+
+Anyway. The last thing I want to mention is that the model assumes each predictor variable is independent from each other, and they don't vary with one another. However, we can be pretty sure that isn't true for GDP and continent - we can generally assume that most countries in Oceania have a higher GDP per capita than most countries in Africa, for instance. As such, we should include an *interaction* term between those two variables - which we can do by replacing the `+` between those terms in our model statement with `*`.
+
+```{r}
+summary(lm(lifeExp ~ log(gdpPercap) * continent + year, data = gapminder_unfiltered))
+```
+
+And as we can see, our adjusted R^2^ has gone up even further, to 0.826! 
+
+Note, by the way, that you can also add interaction terms very explicitly to your model by adding the interaction term (written as `Term1:Term2`) to the formula with `+`. In our case, that would look like this:
+
+```{r eval=F}
+summary(lm(lifeExp ~ log(gdpPercap) + continent + year + (log(gdpPercap)):continent, data = gapminder_unfiltered))
+```
+
+That line of code would give us the same output as using `*` above.
+
+## Model Predictions
+We can now use our model to generate predictions! To do so, we first want to assign our model to an object, to make our code a little easier to understand:
+```{r}
+gapMod <- lm(lifeExp ~ log(gdpPercap) + continent + year + (log(gdpPercap)):continent, data = gapminder_unfiltered)
+```
+
+We'll now clone our dataset into a new dataframe, which is also where we're going to store predictions. We could skip this step and just add the columns to the gapminder dataset, but I don't like changing our base dataframe, just in case something goes wrong - I usually prefer to edit copied dataframes. 
+```{r}
+gapPred <- gapminder_unfiltered
+```
+
+We're now ready to make our predictions, which we'll store in a column called "predict". We can use the `predict()` function to do this, which (with linear models) requires two arguements: first, what model you're using to make your predictions, and second, what data you're using to make these predictions. The code to do this looks something like this:
+```{r}
+gapPred <- gapPred %>%
+  mutate(predict = predict(gapMod, newdata = gapPred))
+```
+
+We can preview our predictions by peaking at the dataframe - remember, we're comparing the `lifeExp` and `predict` columns:
+```{r}
+head(gapPred)
+```
+
+That doesn't give me a ton of confidence - but remember, we're only looking at 6 out of more than 3,300 predictions! We could attempt plotting the predictions over the real values:
+```{r}
+ggplot(gapPred, aes(gdpPercap)) + 
+  geom_point(aes(y = lifeExp)) + 
+  geom_point(aes(y = predict), color = "blue", alpha = 0.25)
+```
+(Remember, `alpha = 0.25` made the blue points 75% transparent - or, well, 25% opaque.)
+
+But while I can tell that our predictions seem to generally fit the right pattern, I have no way of telling how well any individual prediction performed - it's possible all our highest points represent the lowest values, for instance. A better way is to calculate the *residuals* for your model by subtracting the real values (our life expectancy) from the predictions. This number shows how good any given prediction is, and is actually what R^2^ is based on - a higher R^2^ means a model has generally lower residuals. We'll then plot those residuals against our predictions, to see how well we did:
+
+```{r}
+gapPred %>%
+  mutate(resid = predict-lifeExp) %>%
+  ggplot(aes(predict, resid)) + 
+  geom_point() + 
+  annotate("segment", x = -Inf, xend = Inf, y = 0, yend = 0, color = "red")
+```
+(See what I did there, by using `ggplot()` with the pipe? Note that you still have to use `+` to add things to your plots.)
+
+So it looks like our model does an *okay* job predicting life expectancy - most of the predictions are within five years, though some are pretty dramatically off. The plot also exhibits heteroscedasticity and nonlinearity, neither of which I'm going to get into here - check out [this post](http://docs.statwing.com/interpreting-residual-plots-to-improve-your-regression/) for more information. The short version is that we could certainly improve our model, by getting into a little more advanced statistics - but the model we've built does an okay job, and could probably be used to generate predictions. 
+
+(By the way, you can get a very quick version of this plot - alongside a few other useful model plots - using `plot(YourModel)` - so in this case, `plot(gapMod)`).
+
+## Logistic Models
+
+These linear models we've been building have been good for predicting numeric values - the number of lives a person might live, or (in other situations) how many customers will click a link or how many frogs will be in a pond. That's because we've been building *regression* models, which are useful for these sorts of tasks. However, we often want to predict events or categories, not just a numeric value - we want to know what species a flower might be, or if someone will click a link we email them, or if a tree will die this year. 
+
+For these tasks, we need to use a *classification* model. One of the most common of these is the *logistic model*, which is capable of predicting which of two categories each data point belongs to. To explain why we need to use these, let's start using a new dataset included in base R - `mtcars`:
+
+```{r}
+head(mtcars)
+```
+
+To understand what each of these column abbreviations mean, try typing `?mtcars` into the console. What we want to do is predict if cars have either automatic or manual transmissions, which is coded in the `am` column - 0 means a car is an automatic, while 1 represents a manual - based on the MPG and horsepower of the car. If we went through the same steps as we did for the linear model, we'd then go ahead and make a quick graph to see how well a linear model fits our data:
+
+```{r}
+ggplot(mtcars, aes(mpg, am)) + 
+  geom_point() + 
+  geom_smooth(method = "lm", se = F)
+```
+
+Much like with the gapminder data, the simplest linear model doesn't really fit our data! However, unlike the gapminder data, I don't see any real way to transform our data that this model would ever be useful. After all, a linear model will only predict a 0 or 1 y-axis value at a single specific point on the x-axis. Instead, we want to use a logistic model, which will give us a line that looks more like this:
+
+```{r echo=FALSE}
+exGLM <- glm(am ~ mpg, data = mtcars, family = binomial)
+mpgVec <- tibble(mpg = seq(10, 35, 1),
+                 pred = predict(exGLM, newdata = mpgVec, type = "response"))
+
+ggplot() +
+  geom_point(data = filter(mtcars, (mpg < 22 & am == 0) | (mpg > 21 & am == 1)), aes(mpg, am), color = "darkgreen",
+             size = 3) + 
+  geom_point(data = filter(mtcars, !((mpg < 22 & am == 0) | (mpg > 21 & am == 1))), aes(mpg, am), color = "darkred", 
+             shape = "triangle",
+             size = 3) + 
+  geom_smooth(data = mpgVec, aes(mpg, pred))
+```
+
+This curvy line serves a different purpose than a linear model does. Rather than predict a value, a logistic model tells us the probability a data point belongs to the 1 group. You can then decide how certain you want to be before assigning the data point to that 1 group - usually, if the model gives a 50% or more probability to being a 1, we assign it to that group. I showed what the results of this process would look like for our dataset with a very simple model only using MPG - the red triangles are misclassified, while the green circles were accurately guessed by the model.
+
+Making these models is a pretty similar process to making linear models. We'll use the `glm()` function, rather than `lm()`, as the logistic model is one of the family of algorithms known as a *generalized linear model*. We'll still need to supply the formula and data arguments, just like with `lm()`. The main difference with `glm()` is that we also need to specify the argument `family`. In this case, we want to specify that `family = binomial`, which will calculate the logistic model for us.
+
+With all that in mind, we can build our model with the following line of code:
+```{r}
+glm(am ~ mpg, data = mtcars, family = binomial)
+```
+
+And we can see the model summary just like we did with `lm()`:
+```{r}
+summary(glm(am ~ mpg, data = mtcars, family = binomial))
+```
+
+
+```{r}
+summary(glm(am ~ hp, data = mtcars, family = binomial))
+summary(glm(am ~ mpg + hp, data = mtcars, family = binomial))
+```
+
+## Evaluating and Comparing Models
+### Cross Validation

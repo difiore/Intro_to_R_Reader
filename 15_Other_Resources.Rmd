@@ -30,6 +30,7 @@ These links go to other courses on R and related topics. Note that most of the p
 * [10 things any new grad student should do](https://uc3.cdlib.org/2014/10/14/the-10-things-every-new-grad-student-should-do/)
 * [GitHub: a primer for researchers](https://uc3.cdlib.org/2014/05/05/github-a-primer-for-researchers/) (in my opinion, should be named "why use GitHub?" - it isn't a tutorial)
 * [An Intro to Git and Github for Beginners](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners)
+* [Interpreting residual plots to improve your regression](http://docs.statwing.com/interpreting-residual-plots-to-improve-your-regression/)
 * [The Leek Group Guide to Developing R Packages](https://github.com/jtleek/rpackages)
 * I'm a really big fan of the [Leek Group](http://jtleek.com/) tutorials on scientific skills. Here are the non-programming related resources they've produced:
   * [Data Sharing](https://github.com/jtleek/datasharing)

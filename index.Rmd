@@ -56,7 +56,7 @@ To begin, we'll introduce you to programming and the quirks of R, and how you ca
 We'll then get into the data analysis workflow, stepping through each component of this process in turn. These chapters are:
 
 4. Data Wrangling - Stable
-5. Exploratory Data Analysis - Unstable
+5. Exploratory Data Analysis - Stable
 6. Modeling - Unstable
 7. Achieving Graphical Excellence - Stable
 

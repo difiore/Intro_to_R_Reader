@@ -1,7 +1,7 @@
 # Introduction to Data Analysis
 
 > Far better an approximate answer to the right question, which is often vague, than an exact answer to the wrong question, which can always be made precise
-> <div align="right">John W. Tukey, *The Future of Data Analysis* </div>
+> <div align="right">John W. Tukey, [*The Future of Data Analysis*](https://projecteuclid.org/download/pdf_1/euclid.aoms/1177704711) </div>
 
 ## Exploratory Data Analysis 
 So far, we've learned about how to manipulate our data and how to graph our outputs. Both of these are critically important parts of what's known as exploratory data analysis - or EDA. When you're starting with a new dataset, you won't always immediately know what trends and patterns might be there to discover. The idea at this stage isn't to find out what's causing any trends in the data, to identify any significant results you might have, or to get publishable or presentable figures and tables - the point is to understand exactly what it is that you're dealing with. For more on this topic, check out [this post](https://simplystatistics.org/2019/04/17/tukey-design-thinking-and-better-questions/).
