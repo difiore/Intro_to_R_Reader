@@ -1,5 +1,10 @@
 # More Complicated Analyses
 
+```{r echo = F}
+## INCLUDE CROSS VALIDATION
+```
+
+
 > Computers are cheap, and thinking hurts.
 ><div align = "right">---Uwe Ligges</div>
 
@@ -46,6 +51,7 @@ AthleteEvents
 Now, ```readr``` doesn't have native support for more complicated files, like Excel files. Philosphically, you shouldn't store data in Excel format for long periods of time - we have no idea how long Microsoft will be around for, and the encoding used by Excel may someday disappear and take your data with it. CSVs are generally preferred for long-term data storage, as they're easy to understand visually and are easily parsed by computers.
 
 However, data entry is much easier in Excel, and plenty of data professionals still use the format. Luckily, there's a package - ```readxl``` - designed to parse these types of files:
+
 ```
 install.packages("readxl")
 ```
@@ -87,7 +93,7 @@ R didn't know how to calculate most of the fields in ```describe()``` for charac
 psych::describe(select_if(AthleteEvents, is.numeric))
 ```
 
-When I see this output, TK things catch my eye:
+When I see this output, three things catch my eye:
 
 * We knew we were missing observations, but wow, we're missing observations. Over 60,000 athletes have no weight listed, while over 50,000 don't have a height.
 * Mean height is 175.34 while mean weight is 70.7, suggesting that we're using metric units here
@@ -300,13 +306,10 @@ And so we're able to conclude that yes, our second model is significantly better
 
 #### AIC 
 
+
 While comparing model AUCs is effective, it isn't the most popular method to analyze model performance. That honor likely goes to the Akaike Information Criterion, more commonly known as the AIC.
 
-AIC can be used effectively in three ways:
-
-* **Model selection**, where you compare _every combination of scientifically justifiable variables possible_ OR
-* **Variable analysis** where you either compare your response variable against each predictor variable _independently_ OR
-* **Variable analysis** where you standardize your predictor variables, put them into a model, and compare their coefficients
+We discussed AIC back in chapter 6, 
 
 AIC can't be used to rank random models against one another without actual experimental design. More rants about this may be found [here](https://dynamicecology.wordpress.com/2015/05/21/why-aic-appeals-to-ecologists-lowest-instincts/). 
 

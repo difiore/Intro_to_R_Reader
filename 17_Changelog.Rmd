@@ -1,7 +1,7 @@
 # Changelog
 
-## Version 1.0.2
-Released
+## Version 1.1.0
+Released 2019-06-20
 
 * Split chapter 3 into two (Workflow/Wrangling), because those are different topics and these aren't course notes anymore, so relatedness matters more than each unit being similar length. That said, I want the Workflow chapter to be longer or rolled into another unit, so we'll see how that lasts.
 * Restructured chapters on Wrangling, EDA, and "More Complex Analyses" to now more tighly match the data analysis pipeline model - now form the Wrangling-EDA-Model chapters.
@@ -13,6 +13,16 @@ Released
 * Slowly changing some just bizarre markdown syntax I was using (three graves for in-line code, for instance)
 * Added parts worth saving of cut chapters into chapter 6. I'm planning on retooling this entire chapter - making it an introduction to modeling concepts.
 * Changed file names for pretty much every chapter; whoops.
+* Introduced massive redundancy to 9; working on reducing for next build
+* Moved myself to Boston and relocated most of my hours to my new company; book building is going slower
+
+Goals for next incremental release:
+- Fix typos and general bad flow through chapters 3, 4, 5, 6 - and establish how much stats I expect people to come to the table with; it needs to go to either "basic stats" or "none"
+- Cleaning edits
+
+Goals for next minor release:
+- The above, AND
+- Rewrite 9
 
 ## Version 1.0.1
 Released 2019-04-01 (no joke!)

@@ -41,18 +41,32 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──
+## Registered S3 methods overwritten by 'ggplot2':
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang
 ```
 
 ```
-## ✔ ggplot2 3.1.0     ✔ purrr   0.3.0
-## ✔ tibble  2.1.1     ✔ dplyr   0.7.8
-## ✔ tidyr   0.8.2     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.3.0
+## Registered S3 method overwritten by 'rvest':
+##   method            from
+##   read_xml.response xml2
 ```
 
 ```
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+```
+
+```
+## ✔ ggplot2 3.1.1       ✔ purrr   0.3.2  
+## ✔ tibble  2.1.1       ✔ dplyr   0.8.0.1
+## ✔ tidyr   0.8.3       ✔ stringr 1.4.0  
+## ✔ readr   1.3.1       ✔ forcats 0.4.0
+```
+
+```
+## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ```
@@ -416,7 +430,7 @@ ggplot(diamonds, aes(carat, price)) +
 
 So we can see that, by log-transforming our variables, we get a linear-looking relationship in our data.
 
-Now, I'm personally not a fan of log graphs - [and you shouldn't be, either](https://www.researchgate.net/publication/326450797_Logarithmic_scales_in_ecological_data_presentation_may_cause_misinterpretation). But you'll sometimes have data that can't be properly explained without logarithims - or bosses who won't listen to reason. As such, it's worth knowing how to make R plot things exactly as you want it to.
+Now, I'm personally not a fan of log graphs - [and you shouldn't be, either](https://www.researchgate.net/publication/326450797_Logarithmic_scales_in_ecological_data_presentation_may_cause_misinterpretation). But you'll sometimes have data that can't be properly explained without logarithims - or bosses who won't listen to reason. As such, it's worth knowing how to make R plot things exactly as you want it to. Usually, however, it makes a lot more sense to plot your data without any transformations, and just use transformed values as needed in your analyses. We'll discuss that more in chapters 5 and 6, however.
 
 You can perform plenty of other axes transformations by specifying the `trans` argument inside of your scale function. For instance, if we wanted to use a natural log instead, we could type:
 
@@ -434,7 +448,7 @@ To learn more about transformations, you can read the documentation by typing `?
 
 ## Other Popular Geoms
 
-## Histograms
+### Histograms
 One of the most popular geoms is the histogram, which allows you to quickly visualize the distribution of a numeric value:
 
 ```r
@@ -460,7 +474,7 @@ hist(diamonds$price)
 
 <img src="02_Visualizing_Your_Data_files/figure-html/unnamed-chunk-27-1.png" width="672" />
 
-## Bar Charts
+### Bar Charts
 
 If we wanted to use a categorical value instead of a numeric one on the x-axis, we'd use a bar chart. It's easy enough to make this in ggplot, using `geom_bar()`:
 
@@ -537,7 +551,7 @@ ggplot(diamonds, aes(cut, fill = clarity)) +
 
 Dodged bar plots are better than stacked bars when comparing more than one value for each item on the x axis of a chart. However, with enough series, dodged bar charts can also be decently confusing - try comparing the I1 values between Premium and Fair on this chart, for instance. 
 
-## Jittered Points
+### Jittered Points
 If you have to have this much information in a single graphic, `geom_jitter` can help. It generates a scatterplot, much like `geom_point()`, but "jitters" the points by adding statistical noise - making it easy to compare counts between all combinations of the two variables.
 
 
@@ -563,7 +577,7 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
 
 Note that this does actually move where your points are placed on the graph - if it's important that a reader can extract actual values from your graphic, don't jitter your points! That being said, in most cases where a reader needs specific numbers from your dataset, a table is usually better fit to your needs.
 
-## Boxplot
+### Boxplot
 The last main plot type we'll go over is the boxplot. This is mostly used to show the distribution of data - it draws a plot with a line at the data's median, box borders at the 25% and 75% values, and lines reaching to the 5% and 95% values.
 
 

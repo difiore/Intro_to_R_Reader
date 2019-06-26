@@ -4,18 +4,18 @@
 > <div align = "right" --- George Box </div>
 
 ## Why Model?
-We've now learned how to wrangle our data and begin exploring it in R, which are both crucial steps of the process. However, when people think about data analytics, they're usually picturing a tool that will help them answer questions they have, providing information they can use to make decisions.
+We've now learned how to wrangle our data and begin exploring it in R, which are both crucial steps of the process. However, when people think about data analytics, they're usually picturing a tool that will help them answer questions they have, providing information they can use to make decisions. The skills we've built so far will help you find questions in your data and begin exploring patterns, but this chapter will help you find answers.
 
 And so comes the penultimate step in our data analysis framework, making a model. Models are summaries of relationships within our data, letting us see more clearly how changes in certain variables impact the others. We can then use that information to predict future outcomes, or to help us understand our dataset. 
 
-Now, we'll be using our gapminder dataset throughout this chapter, which means there is one thing we can't do with models - we can't use them to confirm a hypothesis. Hypothesis testing is much more prevalent in scientific fields than in business applications, and requires you to have started your analysis with a stated hypothesis and a plan of how you'll test it. We didn't do that - instead, we looked for how our variables interacted, and took the main pattern that we'll be analyzing - how life expectancy interacts with GDP - straight from our exploratory analysis. As such, we can't claim that our data *proves* anything, just that it shows our values are correlated.
+Now, we'll be using our gapminder dataset throughout this chapter, which means there is one thing we can't do with our models - we can't use them to confirm a hypothesis. Hypothesis testing is much more prevalent in scientific fields than in business applications, and requires you to have started your analysis with a stated hypothesis and a plan of how you'll test it. We didn't do that - instead, we looked for how our variables interacted, and took the main pattern that we'll be analyzing - how life expectancy interacts with GDP - straight from our exploratory analysis. As such, we can't claim that our data *proves* anything, just that it shows our values are correlated.
 
 Instead, our analysis is entirely *exploratory* - which isn't a bad thing! Often times, exploratory analysis is necessary to justify further confirmatory studies. I've always liked a quote from Brian McGill on the matter:
 
 > If exploratory statistics weren’t treated like the crazy uncle nobody wants to talk about and everybody is embarrassed to admit being related to, science would be much better off. 
 > <div align = "right"> --- [Brian McGill](https://dynamicecology.wordpress.com/2013/10/16/in-praise-of-exploratory-statistics/) </div>
 
-But we're getting off topic now. Suffice it to say that we'll be building models that demonstrate how our variables are related, and using those models to generate predictions. The goal isn't to teach you much about how these models work - for that, I'd suggest looking at other resources, perhaps starting with [this paper](https://pdfs.semanticscholar.org/7a07/5776db74495a03ca38750513f331b80f687e.pdf). Instead, we'll go over how to build and use these models in R, with more of an emphasis on "how" than "why".
+But we're getting off topic now. Suffice it to say that we'll be building models that demonstrate how our variables are related, and using those models to generate predictions. The goal isn't to teach you much about how these models work "under the hood" - for that, I'd suggest looking at other resources, perhaps starting with [this paper](https://pdfs.semanticscholar.org/7a07/5776db74495a03ca38750513f331b80f687e.pdf). Instead, we'll go over how to build and use these models in R, with more of an emphasis on "how" than "why".
 
 ## Linear Models
 
@@ -27,7 +27,7 @@ ggplot(gapminder_unfiltered, aes(gdpPercap, lifeExp)) +
   geom_point()
 ```
 
-A linear model tries to summarize this relationship in a single straight line, which in this case would look something like the following:
+A linear model tries to summarize this relationship in a single straight line (sometimes known as a *line of best fit*), which in this case would look something like the following:
 
 ```{r}
 ggplot(gapminder_unfiltered, aes(gdpPercap, lifeExp)) +
@@ -37,9 +37,16 @@ ggplot(gapminder_unfiltered, aes(gdpPercap, lifeExp)) +
 
 (You might remember `geom_smooth()` from chapter 2 - it adds a trendline to our graph. By specifying `method = "lm"`, we told it to graph the line we'd get from a *linear model*.)
 
-This model lets us make predictions and see how our variables interact with one another - in this simple case, we can see how GDP is connected to life expectancy (they're generally positively correlated), and we could predict a country's life expectancy based on GDP by finding a point on the line. Of course, it would be much easier for us to just calculate the number from a formula, rather than finding the point on the graph!
+This model claims that for every possible GDP level present in our dataset, there's a set life expectancy. Those values are the ones traced by the line - so countries with a GDP of 0 should expect life expectancies around 60, for instance.
 
-To see the actual model formula, we can use the `lm()` function. This function creates a linear model and requires two main arguments:
+This is a good moment to revisit the quote that opened this chapter, from legendary statistician George Box. His full quote has gotten a bit mangled over the years, to the point that most people know it more simply as:
+
+> All models are wrong; some models are useful.
+
+For instance, it's obvious that our linear model here is wrong for the great majority of countries - the richest countries in our dataset ought to be living well into their 130s, according to the line. However, it is useful to an extent - it shows us that our variables are positively correlated, and gives us an idea of how to move forward. It is not so useful, however, that we should spend too much time picking values out from along the line.
+
+Of course, it would be much easier for us to just calculate the number from a formula, rather than finding the point on the graph! To see the actual model formula, we can use the `lm()` function. This function creates a linear model and requires two main arguments:
+
 * A formula, of the format Y ~ X (Where Y is your response variable, X your predictor variables, and you read the "~" as "as a function of")
 * A dataset
 
@@ -119,6 +126,7 @@ We're now ready to make our predictions, which we'll store in a column called "p
 gapPred <- gapPred %>%
   mutate(predict = predict(gapMod, newdata = gapPred))
 ```
+(This, by the way, is also how you'd use your models to generate forecasts, when you don't actually know the true value you're predicting. We're working with complete datasets in this unit to demonstrate how to assess the results of your predictions, but there's no real difference between this application and the forecasting techniques professionals use these sorts of models for.)
 
 We can preview our predictions by peaking at the dataframe - remember, we're comparing the `lifeExp` and `predict` columns:
 ```{r}
@@ -148,11 +156,11 @@ So it looks like our model does an *okay* job predicting life expectancy - most 
 
 (By the way, you can get a very quick version of this plot - alongside a few other useful model plots - using `plot(YourModel)` - so in this case, `plot(gapMod)`).
 
-## Logistic Models
+## Classification
 
-These linear models we've been building have been good for predicting numeric values - the number of lives a person might live, or (in other situations) how many customers will click a link or how many frogs will be in a pond. That's because we've been building *regression* models, which are useful for these sorts of tasks. However, we often want to predict events or categories, not just a numeric value - we want to know what species a flower might be, or if someone will click a link we email them, or if a tree will die this year. 
+These linear models we've been building have been good for predicting numeric values - the number of years a person might live, or (in other situations) how many customers will click a link or how many frogs will be in a pond. That's because we've been building *regression* models, which are useful for these sorts of tasks. However, we often want to predict events or categories, not just a numeric value - we want to know what species a flower might be, whether or not someone will click a link we email them, or if a tree will die this year. 
 
-For these tasks, we need to use a *classification* model. One of the most common of these is the *logistic model*, which is capable of predicting which of two categories each data point belongs to. To explain why we need to use these, let's start using a new dataset included in base R - `mtcars`:
+For these tasks, we need to use a *classification* model. To walk through how these work, let's start using a new dataset included in base R - `mtcars`:
 
 ```{r}
 head(mtcars)
@@ -166,12 +174,33 @@ ggplot(mtcars, aes(mpg, am)) +
   geom_smooth(method = "lm", se = F)
 ```
 
-Much like with the gapminder data, the simplest linear model doesn't really fit our data! However, unlike the gapminder data, I don't see any real way to transform our data that this model would ever be useful. After all, a linear model will only predict a 0 or 1 y-axis value at a single specific point on the x-axis. Instead, we want to use a logistic model, which will give us a line that looks more like this:
+Judging based on our past models, this doesn't look great! Our model isn't particularly close to any points.
+
+That's a natural occurance when trying to classify data, however. Our model isn't actually showing us what value a point has - instead, it's showing us the *probability* that a data point belongs to the 1 group (in this example, if a car has a manual transmission). You can then decide how certain you want to be before assigning the data point to that 1 group - usually, if the model gives a 50% or more probability to being a 1, we assign it to that group. We can visualize what the results of this process would look like for our dataset with our very simple model only using MPG - the red triangles are misclassified, while the green circles were accurately guessed by the model:
+```{r echo = F}
+mtcarspred <- mtcars
+mtcarspred$predict <- round(predict(lm(am ~ mpg, data = mtcarspred), newdata = mtcarspred), 0)
+mtcarspred$correct <- ifelse(mtcarspred$predict == mtcarspred$am, 1, 0)
+
+ggplot(mtcarspred, aes(mpg, am)) + 
+  geom_point(aes(color = factor(correct), shape = factor(correct)), size = 3) + 
+  geom_smooth(data = mtcars, method = "lm", se = F) + 
+  scale_shape_manual(values = c("triangle", "circle")) +
+  scale_color_manual(values = c("darkred", "darkgreen")) +
+  theme(legend.position = "none")
+```
+
+So our model got it about 78% right - not bad, for a single variable model! This is a fully acceptable use of a linear model for classification - it's simple and mostly does the job. If you've ever worked with economics research, you've probably seen linear models used this way before.
+
+## Logistic Models
+However, there are a few statistics-based reasons that we don't want to use that simple straight line for classification problems. If your data has heavy tails - that is, if there are points that are going to have something like 5% or 95% chances of belonging in the 1 group, the linear formula begins to break down somewhat. It also performs badly when your predictors are, well, non-linear - that is, when both high and low values of a predictor make being a 0 more likely, with middle values tending to be 1s. 
+
+Instead, we want to use a logistic model, which will give us a line that looks more like this:
 
 ```{r echo=FALSE}
 exGLM <- glm(am ~ mpg, data = mtcars, family = binomial)
-mpgVec <- tibble(mpg = seq(10, 35, 1),
-                 pred = predict(exGLM, newdata = mpgVec, type = "response"))
+mpgVec <- tibble(mpg = seq(10, 35, 1))
+mpgVec$pred  <- predict(exGLM, newdata = mpgVec, type = "response")
 
 ggplot() +
   geom_point(data = filter(mtcars, (mpg < 22 & am == 0) | (mpg > 21 & am == 1)), aes(mpg, am), color = "darkgreen",
@@ -182,7 +211,9 @@ ggplot() +
   geom_smooth(data = mpgVec, aes(mpg, pred))
 ```
 
-This curvy line serves a different purpose than a linear model does. Rather than predict a value, a logistic model tells us the probability a data point belongs to the 1 group. You can then decide how certain you want to be before assigning the data point to that 1 group - usually, if the model gives a 50% or more probability to being a 1, we assign it to that group. I showed what the results of this process would look like for our dataset with a very simple model only using MPG - the red triangles are misclassified, while the green circles were accurately guessed by the model.
+That curvy line works exactly the same way our linear model did - points with higher than 50% probability of being "1"s are assigned a 1, and so on. And you can see that it classified our data slightly better, hitting 81% accuracy with exactly the same model formula as the linear had. 
+
+Not everyone is in agreement here - for instance, [here](https://statisticalhorizons.com/linear-vs-logistic) is a professor arguing that the simplicity of linear models make them the best choice for the majority of data sets. However, I think the two models are in practice as easy to implement and understand, and the logistic model is usually a better classifier. As such, I usually rely on logistic models to classify my datasets.
 
 Making these models is a pretty similar process to making linear models. We'll use the `glm()` function, rather than `lm()`, as the logistic model is one of the family of algorithms known as a *generalized linear model*. We'll still need to supply the formula and data arguments, just like with `lm()`. The main difference with `glm()` is that we also need to specify the argument `family`. In this case, we want to specify that `family = binomial`, which will calculate the logistic model for us.
 
@@ -193,14 +224,128 @@ glm(am ~ mpg, data = mtcars, family = binomial)
 
 And we can see the model summary just like we did with `lm()`:
 ```{r}
-summary(glm(am ~ mpg, data = mtcars, family = binomial))
+logmod <- glm(am ~ mpg, data = mtcars, family = binomial)
+summary(logmod)
 ```
 
+(Go ahead and save the model in `logmod`, like I just did - we'll use that in a second).
 
+We could go ahead and drill down our model even further, adding other variables and changing the formula just like we did with linear models earlier:
 ```{r}
-summary(glm(am ~ hp, data = mtcars, family = binomial))
-summary(glm(am ~ mpg + hp, data = mtcars, family = binomial))
+summary(glm(am ~ hp + wt, data = mtcars, family="binomial"))
 ```
+
+In fact, logistic models made with the `glm()` function work pretty much the same as linear models made with `lm()`. There are only two big differences that I want to highlight, as far as use cases are concerned.
+
+The first of these is when using the model to make predictions. For instance, let's take that model I just made above and assign it to `mtmod`:
+```{r}
+mtmod <- glm(am ~ hp + wt, data = mtcars, family="binomial")
+```
+
+Remember earlier, how we could generate predictions from our models using `predict(model, data)`? Let's look at what happens if we did something similar here:
+```{r}
+head(predict(mtmod, mtcars))
+```
+
+That doesn't look right at all! By this interpretation, the Valiant has a -530% chance of having a manual transmission - a number which shouldn't be possible, as probabilities don't go below 0.
+
+The explanation for why this happens, but it boils down to R trying to use our model to make predictions like it's a linear model, not a logistic one. To fix this, we just have to specify `type = "response"` in our `predict()` call:
+```{r}
+head(predict(mtmod, mtcars, type = "response"))
+```
+
+And voila, we generate probabilities. 
 
 ## Evaluating and Comparing Models
-### Cross Validation
+The second thing you might have noticed in our logistic models section is that I didn't mention R^2^ even once. That's because R^2^ doesn't really work for logistic models - we don't really have a good equivalent of a "residual" to use to calculate it from. 
+
+If we're deadset on comparing our models using R^2^, we can choose from one of several pseudo-R^2^ provided by the `pR2` function from the `pscl` package:
+
+```
+install.packages("pscl")
+```
+```{r}
+pscl::pR2(mtmod)
+```
+
+If you're going to do this, I reccomend using the McFadden R^2^, or the r^2^CU (which stands for Cragg and Uhler, by the way). However, whichever pseudo-R^2^ you use, make sure you stay consistent - the different pseudo-R^2^ cannot be compared to one another. None of these can be compared to the R^2^ you'll get off a linear model, either - they're a completely different metric.
+
+These pseudo-R^2^ aren't quite the most common method used to compare models, however. Much more commonly used is the Akaike Information Criterion, also called AIC. You may have noticed that AIC prints at the bottom of the `summary()` printouts for logistic models:
+
+```{r}
+summary(logmod)
+```
+
+And if we want, we can get just the AIC by selecting it with `$`:
+```{r}
+summary(mtmod)$aic
+```
+
+It's important to understand what exactly AIC can be used for, as it's frequently misapplied in both academia and industry. AIC can be used effectively in three ways:
+
+* **Model selection**, where you compare _every combination of scientifically justifiable variables possible_ OR
+* **Variable analysis** where you either compare your response variable against each predictor variable _independently_ OR
+* **Variable analysis** where you standardize your predictor variables, put them into a model, and compare their coefficients
+
+For all of these, AIC can only be used to compare models of the same type (so logistic to logistic is fine, logistic to linear isn't), created on the same datasets, created using the same function. Otherwise, your comparisons will be meaningless and misleading - not adjectives you want associated with your work!
+
+When comparing models, keep in mind that AIC is an (almost) arbitrary number that gets larger as your dataset gets larger - what's important is not how large an AIC is overall, but how much larger (or smaller) it is than the AIC of your other models. That difference in AIC values is also known as $\Delta$AIC. Your best model is going to be the one with the lowest AIC value - to compare models, subtract the smaller AIC value from the larger and then reference the chart below:
+
+```{r}
+library(knitr)
+library(kableExtra)
+tibble("If the difference in AIC is:" = c("0-2", "2-4", "4+"),
+       "The model with lowest AIC is:" = c("Identical to the other one", "Maybe better", "Definitely better")) %>%
+  kable() %>%
+  kable_styling("striped")
+```
+
+For our example here, we can just quickly subtract the AIC values for both of our models:
+```{r}
+summary(logmod)$aic - summary(mtmod)$aic
+```
+
+As the $\Delta$AIC between these models is 17.6, we can very confidently say that our `mtmod` object is the better of these two models.
+
+### Confusion Matrices
+
+However, as I mentioned earlier, AIC can't really be used to compare models created by different functions. That can be a challenge when we want to compare, for instance, a linear and logistic classifier. Luckily enough, there are other ways we can go about solving this issue.
+
+Let's go ahead and create a linear version of our `mtmod` function, to start off with:
+```{r}
+linmod <- lm(am ~ hp + wt, data = mtcars)
+```
+
+We'll now make a clone of `mtcars` called `mtcarspred`, and create two columns for our predictions - `lin` for the linear model, and `log` for the logistic. Note that for both of these I'm wrapping the `predict()` function in `round(, 0)` - this will automatically change the probabilities we're getting from `predict()` into our 0/1 classification system.
+```{r}
+mtcarspred <- mtcars
+mtcarspred$lin <- round(predict(linmod, mtcarspred), 0)
+mtcarspred$log <- round(predict(mtmod, mtcarspred, type = "response"), 0)
+```
+
+We're now going to make what's known as a *confusion matrix* for each of these predictions. This matrix will show us exactly how our model predictions differ from one another, and let us get a good sense of how accurate each model is. To make it, first we have to install the `caret` package:
+
+```
+install.packages("caret")
+```
+
+And now we can use the `confusionMatrix()` function to create our matrices. To do this, we pass the function factored versions of our prediction and true value columns - in that order, or else we'll mess up a few of the calculations.
+```{r}
+caret::confusionMatrix(factor(mtcarspred$lin), factor(mtcarspred$am))
+```
+
+```{r}
+caret::confusionMatrix(factor(mtcarspred$log), factor(mtcarspred$am))
+```
+
+As we can see, that function gives us a lot to work with. One of the most interesting to us is the matrix up top, which compares your predicted values to the actual ones. This, in combination with the Accuracy metric right below it, give us a sense for how our model performs, and exactly what it messes up on. There may be cases where you choose your model based more on this matrix than the actual accuracy - for instance, if a healthcare diagnostic model is slightly less accurate but generates fewer false negatives, erring on the side of caution might actually help save people's lives. 
+
+For our example, however, it's enough to just look at the accuracy metric. And once again, our logistic model outperforms the linear formula - a result that becomes even more common once you're working with larger and larger datasets. 
+
+## Conclusion
+We've now covered the two most common forms of models, and seen applications of modeling for both regression and classification. We've gone over how to select your best model, and how to use that best model to predict both values already in your dataset and values you don't know yet. But even still, we've barely even scratched the surface of modeling - this is the sort of thing people get very expensive degrees in. Hopefully this chapter has helped you learn a bit more about models, and how to make them in R. Our next chapter returns to working with ggplot2 and similar packages, in order to help you share all your hard work - after all, what's the point of an analysis no one else sees?
+
+## Exercises
+
+1. What is the difference between regression and classification? What model types are better suited for each?
+2. Find the best model formula for predicting `am` in the `mtcars` dataset. Use AIC to compare models, and feel free to transform the data.

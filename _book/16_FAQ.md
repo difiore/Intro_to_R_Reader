@@ -1,0 +1,32 @@
+# Frequently Asked Questions
+
+Here are the answers to some assorted questions I've been asked, which are either not common, important, or interesting enough to put in the main text of the reader.
+
+## Why R?
+This has to be one of the most common questions people new to data ask - and for good reason! No one wants to waste their time learning how to use the wrong tool, after all.
+
+As a result, this is also one of the most answered questions online. Most articles draw comparisons between R and its closest competitor, Python. And in fact, when the question is phrased as "should I learn R or Python", the correct answer is probably "both"!
+
+However, you'll make exponentially faster progress if you focus on learning just one tool at a time, and I've come to believe R to be the right tool to get started with for data analysis, for a few reasons:
+
+* R has a lot more built-in functionality, and an abundance of specializied packages, meaning you'll spend less time reinventing the wheel than when you're starting with Python
+* R is much, much, much easier to learn than Python. This hasn't always been the case - most sources pre-2016 will identify R as being the harder language to learn - but a number of recent packages (particularly the tidyverse) have smoothed over a lot of R's worst quirks
+* R makes it much easier to generate reports and similar communication tools than Python. Considering that this is the bulk of many entry-level data jobs (and most scientific uses), R is typically better suited to the needs of the new analyst.
+* It is (in my opinion) easier to switch to Python from R than the reverse. 
+
+That being said, Python is undoubtedly the better tool for deploying your statistical models, or scraping data, or building software, and many other tasks besides. Data _science_ - separate from data _analysis_ - depends upon Python to do many things faster and more cleanly than R. But those are tasks to learn once you've mastered the tasks in this book. Almost all data professionals wind up using both languages eventually - but you have to learn one first, and I think R is the best decision.
+
+## Why is my code broken?
+* Are all your parentheses in the right places?
+* Do you have commas where you should?
+* How's your capitalization?
+* Did you load the package you're trying to use?
+* If none of these fix your problem, try googling the error message R gives you. There's usually a good StackOverflow question on whatever you're trying to accomplish.
+
+## Why is (_X_ package) named that?
+
+* `ggplot` refers to the _**G**rammar of **G**raphics_, used to **_plot_** things in a consistent manner
+* `tibble` refers to an old command for making tables, written _tbl()_ and pronounced, well...
+* `rpart` stands for **R** **Part**itioning, as decision trees are made by partitioning the data
+* `caret` stands for **C**lassification **A**nd **RE**gression **T**raining (oof)
+* IDEAr (the acronym for this book) is named because it's how my father pronounces **idea**, and I saw the opportunity for an homage while naming

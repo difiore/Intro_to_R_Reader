@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>8 Achieving Graphical Excellence | Introduction to Data Exploration and Analysis with R</title>
+  <title>7 Achieving Graphical Excellence | Introduction to Data Exploration and Analysis with R</title>
   <meta name="description" content="A detailed introduction to coding in R and the process of data analytics. Version 1.0.0">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="8 Achieving Graphical Excellence | Introduction to Data Exploration and Analysis with R" />
+  <meta property="og:title" content="7 Achieving Graphical Excellence | Introduction to Data Exploration and Analysis with R" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="MikeMahoney218/Intro_to_R_Reader" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Achieving Graphical Excellence | Introduction to Data Exploration and Analysis with R" />
+  <meta name="twitter:title" content="7 Achieving Graphical Excellence | Introduction to Data Exploration and Analysis with R" />
   
   <meta name="twitter:description" content="A detailed introduction to coding in R and the process of data analytics. Version 1.0.0" />
   
@@ -25,15 +25,15 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2019-04-01">
+<meta name="date" content="2019-06-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="more-complicated-analyses.html">
-<link rel="next" href="playing-nicely-with-others.html">
+<link rel="prev" href="modeling-data.html">
+<link rel="next" href="functions-and-scripting.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -143,165 +143,193 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.4.1" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#visualizing-large-datasets"><i class="fa fa-check"></i><b>2.4.1</b> Visualizing Large Datasets</a></li>
 <li class="chapter" data-level="2.4.2" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#axis-transformations"><i class="fa fa-check"></i><b>2.4.2</b> Axis Transformations</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#other-popular-geoms"><i class="fa fa-check"></i><b>2.5</b> Other Popular Geoms</a></li>
-<li class="chapter" data-level="2.6" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#histograms"><i class="fa fa-check"></i><b>2.6</b> Histograms</a></li>
-<li class="chapter" data-level="2.7" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#bar-charts"><i class="fa fa-check"></i><b>2.7</b> Bar Charts</a></li>
-<li class="chapter" data-level="2.8" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#jittered-points"><i class="fa fa-check"></i><b>2.8</b> Jittered Points</a></li>
-<li class="chapter" data-level="2.9" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#boxplot"><i class="fa fa-check"></i><b>2.9</b> Boxplot</a></li>
-<li class="chapter" data-level="2.10" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#designing-good-graphics"><i class="fa fa-check"></i><b>2.10</b> Designing Good Graphics</a></li>
-<li class="chapter" data-level="2.11" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#saving-your-graphics"><i class="fa fa-check"></i><b>2.11</b> Saving Your Graphics</a></li>
-<li class="chapter" data-level="2.12" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#more-resources"><i class="fa fa-check"></i><b>2.12</b> More Resources</a></li>
-<li class="chapter" data-level="2.13" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#exercises-1"><i class="fa fa-check"></i><b>2.13</b> Exercises</a><ul>
-<li class="chapter" data-level="2.13.1" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#graph-the-following"><i class="fa fa-check"></i><b>2.13.1</b> Graph the following:</a></li>
-<li class="chapter" data-level="2.13.2" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#use-a-new-dataset"><i class="fa fa-check"></i><b>2.13.2</b> Use a new dataset:</a></li>
-<li class="chapter" data-level="2.13.3" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#looking-ahead"><i class="fa fa-check"></i><b>2.13.3</b> Looking ahead:</a></li>
+<li class="chapter" data-level="2.5" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#other-popular-geoms"><i class="fa fa-check"></i><b>2.5</b> Other Popular Geoms</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#histograms"><i class="fa fa-check"></i><b>2.5.1</b> Histograms</a></li>
+<li class="chapter" data-level="2.5.2" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#bar-charts"><i class="fa fa-check"></i><b>2.5.2</b> Bar Charts</a></li>
+<li class="chapter" data-level="2.5.3" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#jittered-points"><i class="fa fa-check"></i><b>2.5.3</b> Jittered Points</a></li>
+<li class="chapter" data-level="2.5.4" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#boxplot"><i class="fa fa-check"></i><b>2.5.4</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#designing-good-graphics"><i class="fa fa-check"></i><b>2.6</b> Designing Good Graphics</a></li>
+<li class="chapter" data-level="2.7" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#saving-your-graphics"><i class="fa fa-check"></i><b>2.7</b> Saving Your Graphics</a></li>
+<li class="chapter" data-level="2.8" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#more-resources"><i class="fa fa-check"></i><b>2.8</b> More Resources</a></li>
+<li class="chapter" data-level="2.9" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#exercises-1"><i class="fa fa-check"></i><b>2.9</b> Exercises</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#graph-the-following"><i class="fa fa-check"></i><b>2.9.1</b> Graph the following:</a></li>
+<li class="chapter" data-level="2.9.2" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#use-a-new-dataset"><i class="fa fa-check"></i><b>2.9.2</b> Use a new dataset:</a></li>
+<li class="chapter" data-level="2.9.3" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#looking-ahead"><i class="fa fa-check"></i><b>2.9.3</b> Looking ahead:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html"><i class="fa fa-check"></i><b>3</b> R Functions and Workflow</a><ul>
 <li class="chapter" data-level="3.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#workflow"><i class="fa fa-check"></i><b>3.1</b> Workflow</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#scripts"><i class="fa fa-check"></i><b>3.1.1</b> Scripts</a></li>
 <li class="chapter" data-level="3.1.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#notebooks"><i class="fa fa-check"></i><b>3.1.2</b> Notebooks</a></li>
-<li class="chapter" data-level="3.1.3" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#memory-objects-and-names"><i class="fa fa-check"></i><b>3.1.3</b> Memory, Objects, and Names</a></li>
-<li class="chapter" data-level="3.1.4" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#dataframes-and-transformations"><i class="fa fa-check"></i><b>3.1.4</b> Dataframes and Transformations</a></li>
-<li class="chapter" data-level="3.1.5" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#the-pipe"><i class="fa fa-check"></i><b>3.1.5</b> The Pipe</a></li>
-<li class="chapter" data-level="3.1.6" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#data-transformations"><i class="fa fa-check"></i><b>3.1.6</b> Data Transformations</a></li>
-<li class="chapter" data-level="3.1.7" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#working-with-groups"><i class="fa fa-check"></i><b>3.1.7</b> Working with Groups</a></li>
-<li class="chapter" data-level="3.1.8" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#missing-values"><i class="fa fa-check"></i><b>3.1.8</b> Missing Values</a></li>
-<li class="chapter" data-level="3.1.9" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#count-data"><i class="fa fa-check"></i><b>3.1.9</b> Count Data</a></li>
-<li class="chapter" data-level="3.1.10" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#oddballs"><i class="fa fa-check"></i><b>3.1.10</b> Oddballs</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#r-functions-and-workflow-exercises"><i class="fa fa-check"></i><b>3.2</b> R Functions and Workflow Exercises</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#do-the-following"><i class="fa fa-check"></i><b>3.2.1</b> Do the following:</a></li>
-<li class="chapter" data-level="3.2.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#work-with-other-datasets"><i class="fa fa-check"></i><b>3.2.2</b> Work with other datasets:</a></li>
+<li class="chapter" data-level="3.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#memory-objects-and-names"><i class="fa fa-check"></i><b>3.2</b> Memory, Objects, and Names</a></li>
+<li class="chapter" data-level="3.3" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#dataframes"><i class="fa fa-check"></i><b>3.3</b> Dataframes</a></li>
+<li class="chapter" data-level="3.4" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#oddballs"><i class="fa fa-check"></i><b>3.4</b> Oddballs</a></li>
+<li class="chapter" data-level="3.5" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#r-studio-tips-and-tricks"><i class="fa fa-check"></i><b>3.5</b> R Studio Tips and Tricks</a></li>
+<li class="chapter" data-level="3.6" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#r-functions-and-workflow-exercises"><i class="fa fa-check"></i><b>3.6</b> R Functions and Workflow Exercises</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#do-the-following"><i class="fa fa-check"></i><b>3.6.1</b> Do the following:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html"><i class="fa fa-check"></i><b>4</b> Basic Statistics (Using R)</a><ul>
-<li class="chapter" data-level="4.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#purpose-of-the-unit"><i class="fa fa-check"></i><b>4.1</b> Purpose of the Unit</a></li>
-<li class="chapter" data-level="4.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#definitions"><i class="fa fa-check"></i><b>4.2</b> Definitions</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#data-concepts"><i class="fa fa-check"></i><b>4.2.1</b> Data Concepts</a></li>
-<li class="chapter" data-level="4.2.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#statistical-terms"><i class="fa fa-check"></i><b>4.2.2</b> Statistical Terms</a></li>
-<li class="chapter" data-level="4.2.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#models-and-tests"><i class="fa fa-check"></i><b>4.2.3</b> Models and Tests</a></li>
-<li class="chapter" data-level="4.2.4" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#how-well-compare-models"><i class="fa fa-check"></i><b>4.2.4</b> How We’ll Compare Models</a></li>
+<li class="chapter" data-level="4" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-wrangling.html"><a href="data-wrangling.html#thinking-with-data"><i class="fa fa-check"></i><b>4.1</b> Thinking with Data</a></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling.html"><a href="data-wrangling.html#the-data-analytics-model"><i class="fa fa-check"></i><b>4.2</b> The Data Analytics Model</a></li>
+<li class="chapter" data-level="4.3" data-path="data-wrangling.html"><a href="data-wrangling.html#wrangle"><i class="fa fa-check"></i><b>4.3</b> Wrangle</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#tidy-data"><i class="fa fa-check"></i><b>4.3.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-wrangling.html"><a href="data-wrangling.html#tidying-data"><i class="fa fa-check"></i><b>4.3.2</b> Tidying Data</a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-wrangling.html"><a href="data-wrangling.html#separating-values"><i class="fa fa-check"></i><b>4.3.3</b> Separating Values</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#examples"><i class="fa fa-check"></i><b>4.3</b> Examples</a></li>
+<li class="chapter" data-level="4.4" data-path="data-wrangling.html"><a href="data-wrangling.html#the-pipe"><i class="fa fa-check"></i><b>4.4</b> The Pipe</a></li>
+<li class="chapter" data-level="4.5" data-path="data-wrangling.html"><a href="data-wrangling.html#data-transformations"><i class="fa fa-check"></i><b>4.5</b> Data Transformations</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#mutate"><i class="fa fa-check"></i><b>4.5.1</b> Mutate</a></li>
+<li class="chapter" data-level="4.5.2" data-path="data-wrangling.html"><a href="data-wrangling.html#tibbles"><i class="fa fa-check"></i><b>4.5.2</b> Tibbles</a></li>
+<li class="chapter" data-level="4.5.3" data-path="data-wrangling.html"><a href="data-wrangling.html#subsetting-data"><i class="fa fa-check"></i><b>4.5.3</b> Subsetting Data</a></li>
+<li class="chapter" data-level="4.5.4" data-path="data-wrangling.html"><a href="data-wrangling.html#filtering-with-the-tidyverse"><i class="fa fa-check"></i><b>4.5.4</b> Filtering with the Tidyverse</a></li>
+<li class="chapter" data-level="4.5.5" data-path="data-wrangling.html"><a href="data-wrangling.html#working-with-groups"><i class="fa fa-check"></i><b>4.5.5</b> Working with Groups</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="data-wrangling.html"><a href="data-wrangling.html#missing-values"><i class="fa fa-check"></i><b>4.6</b> Missing Values</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="data-wrangling.html"><a href="data-wrangling.html#explicit-missing-values"><i class="fa fa-check"></i><b>4.6.1</b> Explicit Missing Values</a></li>
+<li class="chapter" data-level="4.6.2" data-path="data-wrangling.html"><a href="data-wrangling.html#implicit-missing-values"><i class="fa fa-check"></i><b>4.6.2</b> Implicit Missing Values</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="data-wrangling.html"><a href="data-wrangling.html#count-data"><i class="fa fa-check"></i><b>4.7</b> Count Data</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="data-wrangling.html"><a href="data-wrangling.html#work-with-other-datasets"><i class="fa fa-check"></i><b>4.7.1</b> Work with other datasets:</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html"><i class="fa fa-check"></i><b>5</b> Introduction to Data Analysis</a><ul>
 <li class="chapter" data-level="5.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>5.1</b> Exploratory Data Analysis</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#gapminder"><i class="fa fa-check"></i><b>5.1.1</b> gapminder</a></li>
-<li class="chapter" data-level="5.1.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#describing-your-data"><i class="fa fa-check"></i><b>5.1.2</b> Describing Your Data</a></li>
+<li class="chapter" data-level="5.1.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#sidenote"><i class="fa fa-check"></i><b>5.1.1</b> Sidenote</a></li>
+<li class="chapter" data-level="5.1.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#the-eda-framework"><i class="fa fa-check"></i><b>5.1.2</b> The EDA Framework</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#statistical-tests-and-regressions"><i class="fa fa-check"></i><b>5.2</b> Statistical Tests and Regressions</a></li>
-<li class="chapter" data-level="5.3" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#functional-programming"><i class="fa fa-check"></i><b>5.3</b> Functional Programming</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#column-names"><i class="fa fa-check"></i><b>5.3.1</b> Column Names</a></li>
+<li class="chapter" data-level="5.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#gapminder"><i class="fa fa-check"></i><b>5.2</b> gapminder</a></li>
+<li class="chapter" data-level="5.3" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#summarizing-data"><i class="fa fa-check"></i><b>5.3</b> Summarizing Data</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#sidenote-1"><i class="fa fa-check"></i><b>5.3.1</b> Sidenote</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#modeling"><i class="fa fa-check"></i><b>5.4</b> Modeling</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#dummy-models"><i class="fa fa-check"></i><b>5.4.1</b> Dummy Models</a></li>
+<li class="chapter" data-level="5.4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#visualizing-data"><i class="fa fa-check"></i><b>5.4</b> Visualizing Data</a></li>
+<li class="chapter" data-level="5.5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#analyzing-patterns"><i class="fa fa-check"></i><b>5.5</b> Analyzing Patterns</a></li>
+<li class="chapter" data-level="5.6" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exercises-2"><i class="fa fa-check"></i><b>5.6</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#conclusion"><i class="fa fa-check"></i><b>5.5</b> Conclusion</a></li>
-<li class="chapter" data-level="5.6" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exercises-2"><i class="fa fa-check"></i><b>5.6</b> Exercises</a><ul>
-<li class="chapter" data-level="5.6.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#answer-the-following"><i class="fa fa-check"></i><b>5.6.1</b> Answer the following:</a></li>
+<li class="chapter" data-level="6" data-path="modeling-data.html"><a href="modeling-data.html"><i class="fa fa-check"></i><b>6</b> Modeling Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="modeling-data.html"><a href="modeling-data.html#why-model"><i class="fa fa-check"></i><b>6.1</b> Why Model?</a></li>
+<li class="chapter" data-level="6.2" data-path="modeling-data.html"><a href="modeling-data.html#linear-models"><i class="fa fa-check"></i><b>6.2</b> Linear Models</a></li>
+<li class="chapter" data-level="6.3" data-path="modeling-data.html"><a href="modeling-data.html#model-predictions"><i class="fa fa-check"></i><b>6.3</b> Model Predictions</a></li>
+<li class="chapter" data-level="6.4" data-path="modeling-data.html"><a href="modeling-data.html#classification"><i class="fa fa-check"></i><b>6.4</b> Classification</a></li>
+<li class="chapter" data-level="6.5" data-path="modeling-data.html"><a href="modeling-data.html#logistic-models"><i class="fa fa-check"></i><b>6.5</b> Logistic Models</a></li>
+<li class="chapter" data-level="6.6" data-path="modeling-data.html"><a href="modeling-data.html#evaluating-and-comparing-models"><i class="fa fa-check"></i><b>6.6</b> Evaluating and Comparing Models</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="modeling-data.html"><a href="modeling-data.html#confusion-matrices"><i class="fa fa-check"></i><b>6.6.1</b> Confusion Matrices</a></li>
 </ul></li>
+<li class="chapter" data-level="6.7" data-path="modeling-data.html"><a href="modeling-data.html#conclusion"><i class="fa fa-check"></i><b>6.7</b> Conclusion</a></li>
+<li class="chapter" data-level="6.8" data-path="modeling-data.html"><a href="modeling-data.html#exercises-3"><i class="fa fa-check"></i><b>6.8</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html"><i class="fa fa-check"></i><b>6</b> Functions and Scripting</a><ul>
-<li class="chapter" data-level="6.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#writing-functions"><i class="fa fa-check"></i><b>6.1</b> Writing Functions</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#our-first-function"><i class="fa fa-check"></i><b>6.1.1</b> Our First Function</a></li>
-<li class="chapter" data-level="6.1.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#returns"><i class="fa fa-check"></i><b>6.1.2</b> Returns</a></li>
-<li class="chapter" data-level="6.1.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#more-complicated-functions"><i class="fa fa-check"></i><b>6.1.3</b> More Complicated Functions</a></li>
+<li class="chapter" data-level="7" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html"><i class="fa fa-check"></i><b>7</b> Achieving Graphical Excellence</a><ul>
+<li class="chapter" data-level="7.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#getting-started"><i class="fa fa-check"></i><b>7.2</b> Getting Started</a></li>
+<li class="chapter" data-level="7.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#themes"><i class="fa fa-check"></i><b>7.3</b> Themes</a></li>
+<li class="chapter" data-level="7.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#colors"><i class="fa fa-check"></i><b>7.4</b> Colors</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#viridis"><i class="fa fa-check"></i><b>7.4.1</b> Viridis</a></li>
+<li class="chapter" data-level="7.4.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#color-brewer"><i class="fa fa-check"></i><b>7.4.2</b> Color Brewer</a></li>
+<li class="chapter" data-level="7.4.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#other-packages"><i class="fa fa-check"></i><b>7.4.3</b> Other Packages</a></li>
+<li class="chapter" data-level="7.4.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#making-your-own"><i class="fa fa-check"></i><b>7.4.4</b> Making Your Own</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#about-names"><i class="fa fa-check"></i><b>6.2</b> About Names…</a></li>
-<li class="chapter" data-level="6.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#conditional-statements"><i class="fa fa-check"></i><b>6.3</b> Conditional Statements</a></li>
-<li class="chapter" data-level="6.4" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#stops"><i class="fa fa-check"></i><b>6.4</b> Stops</a></li>
-<li class="chapter" data-level="6.5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#function-dependencies"><i class="fa fa-check"></i><b>6.5</b> Function Dependencies</a></li>
-<li class="chapter" data-level="6.6" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#saving-and-loading-functions"><i class="fa fa-check"></i><b>6.6</b> Saving and Loading Functions</a></li>
-<li class="chapter" data-level="6.7" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#loops"><i class="fa fa-check"></i><b>6.7</b> Loops</a></li>
-<li class="chapter" data-level="6.8" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#mapping-functions"><i class="fa fa-check"></i><b>6.8</b> Mapping Functions</a></li>
-<li class="chapter" data-level="6.9" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#more-information"><i class="fa fa-check"></i><b>6.9</b> More Information</a></li>
-<li class="chapter" data-level="6.10" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#exercises-3"><i class="fa fa-check"></i><b>6.10</b> Exercises</a></li>
+<li class="chapter" data-level="7.5" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#labels"><i class="fa fa-check"></i><b>7.5</b> Labels</a></li>
+<li class="chapter" data-level="7.6" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#animation"><i class="fa fa-check"></i><b>7.6</b> Animation</a></li>
+<li class="chapter" data-level="7.7" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#specialized-visualizations"><i class="fa fa-check"></i><b>7.7</b> Specialized Visualizations</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#stacked-area-plots"><i class="fa fa-check"></i><b>7.7.1</b> Stacked Area Plots</a></li>
+<li class="chapter" data-level="7.7.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#ggridges"><i class="fa fa-check"></i><b>7.7.2</b> ggridges</a></li>
+<li class="chapter" data-level="7.7.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#maps"><i class="fa fa-check"></i><b>7.7.3</b> Maps</a></li>
+<li class="chapter" data-level="7.7.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#circular-charts"><i class="fa fa-check"></i><b>7.7.4</b> Circular Charts</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html"><i class="fa fa-check"></i><b>7</b> More Complicated Analyses</a><ul>
-<li class="chapter" data-level="7.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#other-datasets"><i class="fa fa-check"></i><b>7.1</b> Other Datasets</a><ul>
-<li class="chapter" data-level="7.1.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#importing-your-own-data"><i class="fa fa-check"></i><b>7.1.1</b> Importing Your Own Data</a></li>
-<li class="chapter" data-level="7.1.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#exporting-data"><i class="fa fa-check"></i><b>7.1.2</b> Exporting Data</a></li>
-<li class="chapter" data-level="7.1.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#data-exploration"><i class="fa fa-check"></i><b>7.1.3</b> Data Exploration</a></li>
-<li class="chapter" data-level="7.1.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#modeling-winners"><i class="fa fa-check"></i><b>7.1.4</b> Modeling Winners</a></li>
+<li class="chapter" data-level="7.8" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#rearranging-groups"><i class="fa fa-check"></i><b>7.8</b> Rearranging Groups</a></li>
+<li class="chapter" data-level="7.9" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#further-reading"><i class="fa fa-check"></i><b>7.9</b> Further Reading</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#logistic-models"><i class="fa fa-check"></i><b>7.2</b> Logistic Models</a></li>
-<li class="chapter" data-level="7.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#modelling-metrics"><i class="fa fa-check"></i><b>7.3</b> Modelling Metrics</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#pseudo-r2"><i class="fa fa-check"></i><b>7.3.1</b> Pseudo-R<sup>2</sup></a></li>
-<li class="chapter" data-level="7.3.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#area-under-the-roc-curve-auc"><i class="fa fa-check"></i><b>7.3.2</b> Area Under the ROC Curve (AUC)</a></li>
-<li class="chapter" data-level="7.3.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#model-comparisons"><i class="fa fa-check"></i><b>7.3.3</b> Model Comparisons</a></li>
+<li class="chapter" data-level="8" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html"><i class="fa fa-check"></i><b>8</b> Functions and Scripting</a><ul>
+<li class="chapter" data-level="8.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#writing-functions"><i class="fa fa-check"></i><b>8.1</b> Writing Functions</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#our-first-function"><i class="fa fa-check"></i><b>8.1.1</b> Our First Function</a></li>
+<li class="chapter" data-level="8.1.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#returns"><i class="fa fa-check"></i><b>8.1.2</b> Returns</a></li>
+<li class="chapter" data-level="8.1.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#more-complicated-functions"><i class="fa fa-check"></i><b>8.1.3</b> More Complicated Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#more-complicated-analyses-1"><i class="fa fa-check"></i><b>7.4</b> More Complicated Analyses</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#model-selection"><i class="fa fa-check"></i><b>7.4.1</b> Model Selection</a></li>
+<li class="chapter" data-level="8.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#about-names"><i class="fa fa-check"></i><b>8.2</b> About Names…</a></li>
+<li class="chapter" data-level="8.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#conditional-statements"><i class="fa fa-check"></i><b>8.3</b> Conditional Statements</a></li>
+<li class="chapter" data-level="8.4" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#stops"><i class="fa fa-check"></i><b>8.4</b> Stops</a></li>
+<li class="chapter" data-level="8.5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#function-dependencies"><i class="fa fa-check"></i><b>8.5</b> Function Dependencies</a></li>
+<li class="chapter" data-level="8.6" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#saving-and-loading-functions"><i class="fa fa-check"></i><b>8.6</b> Saving and Loading Functions</a></li>
+<li class="chapter" data-level="8.7" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#loops"><i class="fa fa-check"></i><b>8.7</b> Loops</a></li>
+<li class="chapter" data-level="8.8" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#mapping-functions"><i class="fa fa-check"></i><b>8.8</b> Mapping Functions</a></li>
+<li class="chapter" data-level="8.9" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#more-information"><i class="fa fa-check"></i><b>8.9</b> More Information</a></li>
+<li class="chapter" data-level="8.10" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#exercises-4"><i class="fa fa-check"></i><b>8.10</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#relational-data"><i class="fa fa-check"></i><b>7.5</b> Relational Data</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#inner-join"><i class="fa fa-check"></i><b>7.5.1</b> Inner Join</a></li>
-<li class="chapter" data-level="7.5.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#left-join"><i class="fa fa-check"></i><b>7.5.2</b> Left Join</a></li>
-<li class="chapter" data-level="7.5.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#right-join"><i class="fa fa-check"></i><b>7.5.3</b> Right Join</a></li>
-<li class="chapter" data-level="7.5.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#full-join"><i class="fa fa-check"></i><b>7.5.4</b> Full Join</a></li>
-<li class="chapter" data-level="7.5.5" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#semi-join"><i class="fa fa-check"></i><b>7.5.5</b> Semi Join</a></li>
-<li class="chapter" data-level="7.5.6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#anti-join"><i class="fa fa-check"></i><b>7.5.6</b> Anti Join</a></li>
-<li class="chapter" data-level="7.5.7" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#specifying-key-columns"><i class="fa fa-check"></i><b>7.5.7</b> Specifying Key Columns</a></li>
-<li class="chapter" data-level="7.5.8" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#merging-multiple-dataframes"><i class="fa fa-check"></i><b>7.5.8</b> Merging Multiple Dataframes</a></li>
-<li class="chapter" data-level="7.5.9" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#binding-dataframes"><i class="fa fa-check"></i><b>7.5.9</b> Binding Dataframes</a></li>
+<li class="chapter" data-level="9" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html"><i class="fa fa-check"></i><b>9</b> More Complicated Analyses</a><ul>
+<li class="chapter" data-level="9.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#other-datasets"><i class="fa fa-check"></i><b>9.1</b> Other Datasets</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#importing-your-own-data"><i class="fa fa-check"></i><b>9.1.1</b> Importing Your Own Data</a></li>
+<li class="chapter" data-level="9.1.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#exporting-data"><i class="fa fa-check"></i><b>9.1.2</b> Exporting Data</a></li>
+<li class="chapter" data-level="9.1.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#data-exploration"><i class="fa fa-check"></i><b>9.1.3</b> Data Exploration</a></li>
+<li class="chapter" data-level="9.1.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#modeling-winners"><i class="fa fa-check"></i><b>9.1.4</b> Modeling Winners</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#exercises-4"><i class="fa fa-check"></i><b>7.6</b> Exercises</a></li>
+<li class="chapter" data-level="9.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#logistic-models-1"><i class="fa fa-check"></i><b>9.2</b> Logistic Models</a></li>
+<li class="chapter" data-level="9.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#modelling-metrics"><i class="fa fa-check"></i><b>9.3</b> Modelling Metrics</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#pseudo-r2"><i class="fa fa-check"></i><b>9.3.1</b> Pseudo-R<sup>2</sup></a></li>
+<li class="chapter" data-level="9.3.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#area-under-the-roc-curve-auc"><i class="fa fa-check"></i><b>9.3.2</b> Area Under the ROC Curve (AUC)</a></li>
+<li class="chapter" data-level="9.3.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#model-comparisons"><i class="fa fa-check"></i><b>9.3.3</b> Model Comparisons</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html"><i class="fa fa-check"></i><b>8</b> Achieving Graphical Excellence</a><ul>
-<li class="chapter" data-level="8.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
-<li class="chapter" data-level="8.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#getting-started"><i class="fa fa-check"></i><b>8.2</b> Getting Started</a></li>
-<li class="chapter" data-level="8.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#themes"><i class="fa fa-check"></i><b>8.3</b> Themes</a></li>
-<li class="chapter" data-level="8.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#colors"><i class="fa fa-check"></i><b>8.4</b> Colors</a><ul>
-<li class="chapter" data-level="8.4.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#viridis"><i class="fa fa-check"></i><b>8.4.1</b> Viridis</a></li>
-<li class="chapter" data-level="8.4.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#color-brewer"><i class="fa fa-check"></i><b>8.4.2</b> Color Brewer</a></li>
-<li class="chapter" data-level="8.4.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#other-packages"><i class="fa fa-check"></i><b>8.4.3</b> Other Packages</a></li>
-<li class="chapter" data-level="8.4.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#making-your-own"><i class="fa fa-check"></i><b>8.4.4</b> Making Your Own</a></li>
+<li class="chapter" data-level="9.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#more-complicated-analyses-1"><i class="fa fa-check"></i><b>9.4</b> More Complicated Analyses</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#model-selection"><i class="fa fa-check"></i><b>9.4.1</b> Model Selection</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#labels"><i class="fa fa-check"></i><b>8.5</b> Labels</a></li>
-<li class="chapter" data-level="8.6" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#animation"><i class="fa fa-check"></i><b>8.6</b> Animation</a></li>
-<li class="chapter" data-level="8.7" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#specialized-visualizations"><i class="fa fa-check"></i><b>8.7</b> Specialized Visualizations</a><ul>
-<li class="chapter" data-level="8.7.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#stacked-area-plots"><i class="fa fa-check"></i><b>8.7.1</b> Stacked Area Plots</a></li>
-<li class="chapter" data-level="8.7.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#ggridges"><i class="fa fa-check"></i><b>8.7.2</b> ggridges</a></li>
-<li class="chapter" data-level="8.7.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#maps"><i class="fa fa-check"></i><b>8.7.3</b> Maps</a></li>
-<li class="chapter" data-level="8.7.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#circular-charts"><i class="fa fa-check"></i><b>8.7.4</b> Circular Charts</a></li>
+<li class="chapter" data-level="9.5" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#relational-data"><i class="fa fa-check"></i><b>9.5</b> Relational Data</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#inner-join"><i class="fa fa-check"></i><b>9.5.1</b> Inner Join</a></li>
+<li class="chapter" data-level="9.5.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#left-join"><i class="fa fa-check"></i><b>9.5.2</b> Left Join</a></li>
+<li class="chapter" data-level="9.5.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#right-join"><i class="fa fa-check"></i><b>9.5.3</b> Right Join</a></li>
+<li class="chapter" data-level="9.5.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#full-join"><i class="fa fa-check"></i><b>9.5.4</b> Full Join</a></li>
+<li class="chapter" data-level="9.5.5" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#semi-join"><i class="fa fa-check"></i><b>9.5.5</b> Semi Join</a></li>
+<li class="chapter" data-level="9.5.6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#anti-join"><i class="fa fa-check"></i><b>9.5.6</b> Anti Join</a></li>
+<li class="chapter" data-level="9.5.7" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#specifying-key-columns"><i class="fa fa-check"></i><b>9.5.7</b> Specifying Key Columns</a></li>
+<li class="chapter" data-level="9.5.8" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#merging-multiple-dataframes"><i class="fa fa-check"></i><b>9.5.8</b> Merging Multiple Dataframes</a></li>
+<li class="chapter" data-level="9.5.9" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#binding-dataframes"><i class="fa fa-check"></i><b>9.5.9</b> Binding Dataframes</a></li>
 </ul></li>
-<li class="chapter" data-level="8.8" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#rearranging-groups"><i class="fa fa-check"></i><b>8.8</b> Rearranging Groups</a></li>
-<li class="chapter" data-level="8.9" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#further-reading"><i class="fa fa-check"></i><b>8.9</b> Further Reading</a></li>
+<li class="chapter" data-level="9.6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#exercises-5"><i class="fa fa-check"></i><b>9.6</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html"><i class="fa fa-check"></i><b>9</b> Playing Nicely With Others</a><ul>
-<li class="chapter" data-level="9.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#r-markdown"><i class="fa fa-check"></i><b>9.1</b> R Markdown</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#kable"><i class="fa fa-check"></i><b>9.1.1</b> Kable</a></li>
+<li class="chapter" data-level="10" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html"><i class="fa fa-check"></i><b>10</b> Playing Nicely With Others</a><ul>
+<li class="chapter" data-level="10.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#r-markdown"><i class="fa fa-check"></i><b>10.1</b> R Markdown</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#kable"><i class="fa fa-check"></i><b>10.1.1</b> Kable</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#latex"><i class="fa fa-check"></i><b>9.2</b> LaTex</a></li>
-<li class="chapter" data-level="9.3" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#github"><i class="fa fa-check"></i><b>9.3</b> Git(Hub)</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#my-first-repository"><i class="fa fa-check"></i><b>9.3.1</b> My First Repository</a></li>
+<li class="chapter" data-level="10.2" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#latex"><i class="fa fa-check"></i><b>10.2</b> LaTex</a></li>
+<li class="chapter" data-level="10.3" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#github"><i class="fa fa-check"></i><b>10.3</b> Git(Hub)</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#my-first-repository"><i class="fa fa-check"></i><b>10.3.1</b> My First Repository</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#commenting-code"><i class="fa fa-check"></i><b>9.4</b> Commenting Code</a></li>
-<li class="chapter" data-level="9.5" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#further-reading-1"><i class="fa fa-check"></i><b>9.5</b> Further Reading</a></li>
+<li class="chapter" data-level="10.4" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#commenting-code"><i class="fa fa-check"></i><b>10.4</b> Commenting Code</a></li>
+<li class="chapter" data-level="10.5" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#further-reading-1"><i class="fa fa-check"></i><b>10.5</b> Further Reading</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="working-with-text.html"><a href="working-with-text.html"><i class="fa fa-check"></i><b>10</b> Working with Text</a><ul>
-<li class="chapter" data-level="10.1" data-path="working-with-text.html"><a href="working-with-text.html#working-with-stringr"><i class="fa fa-check"></i><b>10.1</b> Working with Stringr</a></li>
-<li class="chapter" data-level="10.2" data-path="working-with-text.html"><a href="working-with-text.html#regular-expressions"><i class="fa fa-check"></i><b>10.2</b> Regular Expressions</a></li>
-<li class="chapter" data-level="10.3" data-path="working-with-text.html"><a href="working-with-text.html#case-study"><i class="fa fa-check"></i><b>10.3</b> Case Study</a></li>
-<li class="chapter" data-level="10.4" data-path="working-with-text.html"><a href="working-with-text.html#further-reading-2"><i class="fa fa-check"></i><b>10.4</b> Further Reading</a></li>
-<li class="chapter" data-level="10.5" data-path="working-with-text.html"><a href="working-with-text.html#exercises-5"><i class="fa fa-check"></i><b>10.5</b> Exercises</a></li>
+<li class="chapter" data-level="11" data-path="working-with-text.html"><a href="working-with-text.html"><i class="fa fa-check"></i><b>11</b> Working with Text</a><ul>
+<li class="chapter" data-level="11.1" data-path="working-with-text.html"><a href="working-with-text.html#working-with-stringr"><i class="fa fa-check"></i><b>11.1</b> Working with Stringr</a></li>
+<li class="chapter" data-level="11.2" data-path="working-with-text.html"><a href="working-with-text.html#regular-expressions"><i class="fa fa-check"></i><b>11.2</b> Regular Expressions</a></li>
+<li class="chapter" data-level="11.3" data-path="working-with-text.html"><a href="working-with-text.html#case-study"><i class="fa fa-check"></i><b>11.3</b> Case Study</a></li>
+<li class="chapter" data-level="11.4" data-path="working-with-text.html"><a href="working-with-text.html#further-reading-2"><i class="fa fa-check"></i><b>11.4</b> Further Reading</a></li>
+<li class="chapter" data-level="11.5" data-path="working-with-text.html"><a href="working-with-text.html#exercises-6"><i class="fa fa-check"></i><b>11.5</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>11</b> Working with Dates and Times</a><ul>
-<li class="chapter" data-level="11.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#dates-in-r"><i class="fa fa-check"></i><b>11.1</b> Dates in R</a></li>
-<li class="chapter" data-level="11.2" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#converting-to-dates"><i class="fa fa-check"></i><b>11.2</b> Converting To Dates</a></li>
-<li class="chapter" data-level="11.3" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#extracting-from-dates"><i class="fa fa-check"></i><b>11.3</b> Extracting From Dates</a></li>
-<li class="chapter" data-level="11.4" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#math-with-dates"><i class="fa fa-check"></i><b>11.4</b> Math with Dates</a></li>
-<li class="chapter" data-level="11.5" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#time-zones"><i class="fa fa-check"></i><b>11.5</b> Time Zones</a></li>
+<li class="chapter" data-level="12" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>12</b> Working with Dates and Times</a><ul>
+<li class="chapter" data-level="12.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#dates-in-r"><i class="fa fa-check"></i><b>12.1</b> Dates in R</a></li>
+<li class="chapter" data-level="12.2" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#converting-to-dates"><i class="fa fa-check"></i><b>12.2</b> Converting To Dates</a></li>
+<li class="chapter" data-level="12.3" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#extracting-from-dates"><i class="fa fa-check"></i><b>12.3</b> Extracting From Dates</a></li>
+<li class="chapter" data-level="12.4" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#math-with-dates"><i class="fa fa-check"></i><b>12.4</b> Math with Dates</a></li>
+<li class="chapter" data-level="12.5" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#time-zones"><i class="fa fa-check"></i><b>12.5</b> Time Zones</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="what-next.html"><a href="what-next.html"><i class="fa fa-check"></i><b>12</b> What Next</a><ul>
-<li class="chapter" data-level="12.1" data-path="what-next.html"><a href="what-next.html#machine-learning-methods"><i class="fa fa-check"></i><b>12.1</b> Machine Learning Methods</a></li>
-<li class="chapter" data-level="12.2" data-path="what-next.html"><a href="what-next.html#leaflet-maps"><i class="fa fa-check"></i><b>12.2</b> Leaflet Maps</a></li>
-<li class="chapter" data-level="12.3" data-path="what-next.html"><a href="what-next.html#flexdashboard"><i class="fa fa-check"></i><b>12.3</b> FlexDashboard</a></li>
-<li class="chapter" data-level="12.4" data-path="what-next.html"><a href="what-next.html#bookdown"><i class="fa fa-check"></i><b>12.4</b> Bookdown</a></li>
-<li class="chapter" data-level="12.5" data-path="what-next.html"><a href="what-next.html#blogdown"><i class="fa fa-check"></i><b>12.5</b> Blogdown</a></li>
-<li class="chapter" data-level="12.6" data-path="what-next.html"><a href="what-next.html#shiny"><i class="fa fa-check"></i><b>12.6</b> Shiny</a></li>
+<li class="chapter" data-level="13" data-path="what-next.html"><a href="what-next.html"><i class="fa fa-check"></i><b>13</b> What Next</a><ul>
+<li class="chapter" data-level="13.1" data-path="what-next.html"><a href="what-next.html#machine-learning-methods"><i class="fa fa-check"></i><b>13.1</b> Machine Learning Methods</a></li>
+<li class="chapter" data-level="13.2" data-path="what-next.html"><a href="what-next.html#leaflet-maps"><i class="fa fa-check"></i><b>13.2</b> Leaflet Maps</a></li>
+<li class="chapter" data-level="13.3" data-path="what-next.html"><a href="what-next.html#flexdashboard"><i class="fa fa-check"></i><b>13.3</b> FlexDashboard</a></li>
+<li class="chapter" data-level="13.4" data-path="what-next.html"><a href="what-next.html#bookdown"><i class="fa fa-check"></i><b>13.4</b> Bookdown</a></li>
+<li class="chapter" data-level="13.5" data-path="what-next.html"><a href="what-next.html#blogdown"><i class="fa fa-check"></i><b>13.5</b> Blogdown</a></li>
+<li class="chapter" data-level="13.6" data-path="what-next.html"><a href="what-next.html#shiny"><i class="fa fa-check"></i><b>13.6</b> Shiny</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="other-resources.html"><a href="other-resources.html"><i class="fa fa-check"></i><b>13</b> Other Resources</a><ul>
+<li class="chapter" data-level="14" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html"><i class="fa fa-check"></i><b>14</b> Basic Statistics (Using R)</a><ul>
+<li class="chapter" data-level="14.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#purpose-of-the-unit"><i class="fa fa-check"></i><b>14.1</b> Purpose of the Unit</a></li>
+<li class="chapter" data-level="14.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#definitions"><i class="fa fa-check"></i><b>14.2</b> Definitions</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#data-concepts"><i class="fa fa-check"></i><b>14.2.1</b> Data Concepts</a></li>
+<li class="chapter" data-level="14.2.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#statistical-terms"><i class="fa fa-check"></i><b>14.2.2</b> Statistical Terms</a></li>
+<li class="chapter" data-level="14.2.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#models-and-tests"><i class="fa fa-check"></i><b>14.2.3</b> Models and Tests</a></li>
+<li class="chapter" data-level="14.2.4" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#how-well-compare-models"><i class="fa fa-check"></i><b>14.2.4</b> How We’ll Compare Models</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#exercises-7"><i class="fa fa-check"></i><b>14.3</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="other-resources.html"><a href="other-resources.html"><i class="fa fa-check"></i><b>15</b> Other Resources</a><ul>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#infographics"><i class="fa fa-check"></i>Infographics</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#courses"><i class="fa fa-check"></i>Courses</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#textbooks"><i class="fa fa-check"></i>Textbooks</a></li>
@@ -309,14 +337,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#data-sources"><i class="fa fa-check"></i>Data Sources</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#graphing-aids"><i class="fa fa-check"></i>Graphing Aids</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html"><i class="fa fa-check"></i><b>14</b> Frequently Asked Questions</a><ul>
-<li class="chapter" data-level="14.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-r"><i class="fa fa-check"></i><b>14.1</b> Why R?</a></li>
-<li class="chapter" data-level="14.2" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-my-code-broken"><i class="fa fa-check"></i><b>14.2</b> Why is my code broken?</a></li>
-<li class="chapter" data-level="14.3" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-x-package-named-that"><i class="fa fa-check"></i><b>14.3</b> Why is (<em>X</em> package) named that?</a></li>
+<li class="chapter" data-level="16" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html"><i class="fa fa-check"></i><b>16</b> Frequently Asked Questions</a><ul>
+<li class="chapter" data-level="16.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-r"><i class="fa fa-check"></i><b>16.1</b> Why R?</a></li>
+<li class="chapter" data-level="16.2" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-my-code-broken"><i class="fa fa-check"></i><b>16.2</b> Why is my code broken?</a></li>
+<li class="chapter" data-level="16.3" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-x-package-named-that"><i class="fa fa-check"></i><b>16.3</b> Why is (<em>X</em> package) named that?</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="changelog.html"><a href="changelog.html"><i class="fa fa-check"></i><b>15</b> Changelog</a><ul>
-<li class="chapter" data-level="15.1" data-path="changelog.html"><a href="changelog.html#version-1.0.1"><i class="fa fa-check"></i><b>15.1</b> Version 1.0.1</a></li>
-<li class="chapter" data-level="15.2" data-path="changelog.html"><a href="changelog.html#version-1.0.0"><i class="fa fa-check"></i><b>15.2</b> Version 1.0.0</a></li>
+<li class="chapter" data-level="17" data-path="changelog.html"><a href="changelog.html"><i class="fa fa-check"></i><b>17</b> Changelog</a><ul>
+<li class="chapter" data-level="17.1" data-path="changelog.html"><a href="changelog.html#version-1.1.0"><i class="fa fa-check"></i><b>17.1</b> Version 1.1.0</a></li>
+<li class="chapter" data-level="17.2" data-path="changelog.html"><a href="changelog.html#version-1.0.1"><i class="fa fa-check"></i><b>17.2</b> Version 1.0.1</a></li>
+<li class="chapter" data-level="17.3" data-path="changelog.html"><a href="changelog.html#version-1.0.0"><i class="fa fa-check"></i><b>17.3</b> Version 1.0.0</a></li>
 </ul></li>
 </ul>
 
@@ -336,7 +365,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="achieving-graphical-excellence" class="section level1">
-<h1><span class="header-section-number">8</span> Achieving Graphical Excellence</h1>
+<h1><span class="header-section-number">7</span> Achieving Graphical Excellence</h1>
 <blockquote>
 Figures often beguile me, particularly when I have the arranging of them myself; in which case the remark attributed to Disraeli would often apply with justice and force: ’There are three kinds of lies: lies, damned lies, and statistics.<br />
 
@@ -345,49 +374,57 @@ Figures often beguile me, particularly when I have the arranging of them myself;
 </div>
 </blockquote>
 <div id="introduction" class="section level2">
-<h2><span class="header-section-number">8.1</span> Introduction</h2>
-<p>This unit is primarily designed to get you thinking about what exactly is possible with graphs made in R. We aren’t going to cover every possible tweak you can make to a graphic, since that’s almost impossible. We won’t showcase every extension and theme you could make use of, because that’s probably truly impossible. But by expanding our understanding about what exactly is possible with these graphics, we can begin to understand how to make the best visualizations with our own data possible. This unit is a bit easier and a bit less involved than the past few - don’t worry, we’ll be back to the hard stuff come unit 9.</p>
+<h2><span class="header-section-number">7.1</span> Introduction</h2>
+<p>This chapter is primarily designed to get you thinking about what exactly is possible with graphs made in R. We aren’t going to cover every possible tweak you can make to a graphic, since that’s almost impossible. We won’t showcase every extension and theme you could make use of, because that’s probably truly impossible. But by expanding our understanding about what exactly is possible with these graphics, we can begin to understand how to make the best visualizations with our own data possible. This unit is a bit easier and a bit less involved than the past few - don’t worry, we’ll be back to the hard stuff come unit 9.</p>
 <p>So far, we’ve used graphs repeatedly to help communicate and understand our data. While the fast graphics we’ve been using are more than sufficient for our own analyses, making graphics for publication or presentation requires a little more finesse. That’s where this unit comes in - we’ll be briefly touching on many of the options you have control over to make your graphics look exactly as you want them to. Before we get started, let’s load the tidyverse:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 3.1.0     ✔ purrr   0.3.0
-## ✔ tibble  2.1.1     ✔ dplyr   0.7.8
-## ✔ tidyr   0.8.2     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## Registered S3 methods overwritten by &#39;ggplot2&#39;:
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang</code></pre>
+<pre><code>## Registered S3 method overwritten by &#39;rvest&#39;:
+##   method            from
+##   read_xml.response xml2</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.1.1       ✔ purrr   0.3.2  
+## ✔ tibble  2.1.1       ✔ dplyr   0.8.0.1
+## ✔ tidyr   0.8.3       ✔ stringr 1.4.0  
+## ✔ readr   1.3.1       ✔ forcats 0.4.0</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 </div>
 <div id="getting-started" class="section level2">
-<h2><span class="header-section-number">8.2</span> Getting Started</h2>
-<p>Look at this scatterplot: <img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<h2><span class="header-section-number">7.2</span> Getting Started</h2>
+<p>Look at this scatterplot: <img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Hopefully we can already tell that this isn’t a great graph. The complete lack of text means we have no idea what data are being visualized, or what the takeaway message is supposed to be. Remember, graphs are for storytelling and demonstrating your point, not necessarily for giving exact values - you should include tables in your document if the exact values are important.</p>
 <p>Even so, we can tell just from this scatterplot which points have larger values than others - they’re the ones further up and to the right. That’s because we’ve been trained to see <em>position</em> as an ordered aesthetic in graphs.</p>
 <p>Position isn’t the only way to communicate which values are larger than others. For instance, if we want to show the level of a third variable, we can use color:</p>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Which of these have a larger value of that third variable?</p>
 <p>Most people would assume the darker colors have the larger values, due to their higher contrast with the background. If we make the contrast less obvious, it becomes much harder to tell what the color is supposed to convey:</p>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>But at the same time, even contrast isn’t quite enough for us to automatically interpret a color in a graph. For instance, the rainbow colors have different amounts of contrast against a white background, but when plotted:</p>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Which values are higher now?</p>
 <p>The colors that we use in a particular graph - or, at least, the <em>hue</em> of the colors - don’t really matter. What matters are the <em>shade</em> and <em>intensity</em> of these colors - these are the attributes that humans will use to draw conclusions based on these colors. Usually, darker shades and more intense colors imply a “larger” (or, at any rate, more extreme) value, while the lighter and fainter colors represent less extreme values.</p>
 <p>Moving away from color, we can also use other aesthetics to communicate a third variable. For instance:</p>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Which values are larger?</p>
 <p>We have one last aesthetic that we can use to show our third variable - the shape of the points:</p>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Which values are larger?</p>
 <p>As we can see, some aesthetics communicate quantitative data very well, while others should only be used for qualitative purposes. We already knew this - we touched on it in our first unit. But getting a sense of what representations are appropriate for our data - and what sorts of things we’re able to do with it - is the first step towards creating worthwhile graphics for whatever business or research purpose you have.</p>
 <p>For the rest of this unit, we’ll be working through all the various controls that ggplot (and other R packages) give us over our data visualizations. While you’ll still likely have to google some solutions for your own particular problems, this unit should give you a good idea of what’s possible with R graphics.</p>
 <p>Many of these solutions will make use of ggplot extensions, documented <a href="http://www.ggplot2-exts.org/">at this website</a>.</p>
 </div>
 <div id="themes" class="section level2">
-<h2><span class="header-section-number">8.3</span> Themes</h2>
+<h2><span class="header-section-number">7.3</span> Themes</h2>
 <p>Take, for example, the basic graph:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> class))</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>This graph works fine - it’s not particularly attractive, but we can understand what’s going on decently well.</p>
 <p>However, if we wanted to further control each element of our graph, we’re more than able to do so using <code>theme()</code>, alongside a few other functions. Below is a demonstration of some of the most commonly used theme elements - but there’s a whole world of possibilities beyond what we’ll get into here. This is a situation where Google is your best friend - googling “how do I ____ ggplot” almost always gets the right answer to your question.</p>
 <p>Generally speaking, arguments inside of <code>theme()</code> all follow a general pattern. First, you specify what plot element exactly you want to tweak - usually named <code>plot.XX.XX</code> or so on. Then, you specify what type of object it is - <code>element_rect()</code> for rectangular elements, <code>element_line()</code> for lines on the plot, <code>element_text()</code> for, well, text, and <code>element_blank()</code> for anything you want to not be included at all.</p>
@@ -452,7 +489,7 @@ Figures often beguile me, particularly when I have the arranging of them myself;
     <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>),
     <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">41</span>),
     <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>))</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>You can also save your basic preferences into a function of their own, and then add that to your graphs. This makes preparing multiple graphs for publications or presentations much easier - you save a ton of code replication this way.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">theme_publishable &lt;-<span class="st">  </span><span class="kw">theme</span>(
         <span class="dt">plot.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>),
@@ -485,7 +522,7 @@ Figures often beguile me, particularly when I have the arranging of them myself;
     <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">41</span>),
     <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>)) <span class="op">+</span>
 <span class="st">  </span>theme_publishable</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>(As a sidenote, I usually have pretty similar themes for printed and presented graphics. The biggest difference comes in text sizes - for presentations, the text argument becomes size 24, while the axis text becomes size 20.)</p>
 <p>If this is all a little intimidating, don’t worry - a lot of people have developed packages with handcrafted themes in them for you to use. For instance, in addition to the <code>cowplot</code> package we’ve been using, there’s <code>ggthemes</code>, which includes a number of palettes and themes - I’m only demonstrating one below:</p>
 <pre><code>install.packages(&quot;ggthemes&quot;)</code></pre>
@@ -499,72 +536,72 @@ Figures often beguile me, particularly when I have the arranging of them myself;
     <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">41</span>),
     <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>)) <span class="op">+</span>
 <span class="st">  </span>ggthemes<span class="op">::</span><span class="kw">theme_pander</span>() </code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 </div>
 <div id="colors" class="section level2">
-<h2><span class="header-section-number">8.4</span> Colors</h2>
+<h2><span class="header-section-number">7.4</span> Colors</h2>
 <p>As we showed above, the colors you use in a graph can really help - or hinder! - communicating your data. Luckily, there’s plenty of aids in R to help you use color effectively. Just remember that more color isn’t always better - for instance, look at this graph:</p>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>It’s colorful, sure, but the colors don’t add any information to the graph - if anything, they confuse the message. You should be sparing in your use of color - as the old saying goes:</p>
 <blockquote>
 <p>Everything should be made as simple as possible - but no simpler.</p>
 </blockquote>
 <div id="viridis" class="section level3">
-<h3><span class="header-section-number">8.4.1</span> Viridis</h3>
+<h3><span class="header-section-number">7.4.1</span> Viridis</h3>
 <p>One of the most popular color scale packages is the <code>viridis</code> color scale, designed to provide colorblind-friendly color scales for your graphics. More information on the available palettes may be found <a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html">here.</a></p>
 <p>To use the palettes, just load <code>viridis</code> and add <code>scale_color_viridis</code> to your graph, specifying which palette you want with <code>option =</code>.</p>
 <pre><code>install.packages(&quot;viridis&quot;)</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> displ)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span>viridis<span class="op">::</span><span class="kw">scale_color_viridis</span>(<span class="dt">option =</span> <span class="st">&quot;C&quot;</span>)</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>In order to apply the viridis palette to a discrete scale, just specify <code>discrete = TRUE</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> class)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span>viridis<span class="op">::</span><span class="kw">scale_color_viridis</span>(<span class="dt">discrete =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 </div>
 <div id="color-brewer" class="section level3">
-<h3><span class="header-section-number">8.4.2</span> Color Brewer</h3>
+<h3><span class="header-section-number">7.4.2</span> Color Brewer</h3>
 <p>If you want a few more options for color scales, the RColorBrewer package offers plenty of choices. Originally designed to help make attractive maps, the Color Brewer paettes offer palettes designed to be printer and colorblind friendly. You can see the full list of palettes at <a href="http://colorbrewer2.org/">the interactive Color Brewer website.</a></p>
 <p>To use the package with discrete values, just type in <code>scale_color_brewer()</code> or <code>scale_fill_brewer()</code> and specify your <code>palette</code>:</p>
 <pre><code>install.packages(&quot;RColorBrewer&quot;)</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> class)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Dark2&quot;</span>)</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p>If you want to use the Brewer scales with continuous values, just use <code>scale_color_distiller()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> displ)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_color_distiller</span>(<span class="dt">palette =</span> <span class="st">&quot;PuRd&quot;</span>)</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 </div>
 <div id="other-packages" class="section level3">
-<h3><span class="header-section-number">8.4.3</span> Other Packages</h3>
+<h3><span class="header-section-number">7.4.3</span> Other Packages</h3>
 <p>Plenty of other packages include color scales for you to use. For instance, the <code>ggthemes</code> package we used earlier has a number of color scales to choose from:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> class)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span>ggthemes<span class="op">::</span><span class="kw">scale_color_pander</span>()</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>Similarly, <code>ggsci</code> has a lot of journal-specific and academic color scales for use:</p>
 <pre><code>install.packages(&quot;ggsci&quot;)</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> class)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span>ggsci<span class="op">::</span><span class="kw">scale_color_lancet</span>()</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 </div>
 <div id="making-your-own" class="section level3">
-<h3><span class="header-section-number">8.4.4</span> Making Your Own</h3>
+<h3><span class="header-section-number">7.4.4</span> Making Your Own</h3>
 <p>Of course, you aren’t restricted to the scales put together by others! If you want, you can use any of the many options in ggplot to put together scales of your own. In particular, <code>scale_color_manual()</code> lets you specify colors for each level you want colored, while <code>scale_color_gradient()</code> lets you create a gradient by specifying the low and high value colors. Both of these functions have fill versions, as well.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> displ)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_color_gradient</span>(<span class="dt">low =</span> <span class="st">&quot;orange&quot;</span>, <span class="dt">high =</span> <span class="st">&quot;purple&quot;</span>)</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>If you’re looking to specify your own colors by hand, I find sites like <a href="http://colorsupplyyy.com/">ColorSupply</a> to be extremely helpful.</p>
 </div>
 </div>
 <div id="labels" class="section level2">
-<h2><span class="header-section-number">8.5</span> Labels</h2>
+<h2><span class="header-section-number">7.5</span> Labels</h2>
 <p>It can be very useful to label your data, in order to make it obvious exactly what each point represents. ggplot includes two geoms specifically designed for this purpose - <code>geom_text()</code>, which will be on the left below, and <code>geom_label()</code>, on the right. Each needs the aesthetic <code>label =</code> in order to work properly:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> model))
@@ -573,7 +610,7 @@ b &lt;-<span class="st"> </span><span class="kw">ggplot</span>(mpg, <span class=
 <span class="st">  </span><span class="kw">geom_label</span>(<span class="kw">aes</span>(<span class="dt">label =</span> model))
 
 cowplot<span class="op">::</span><span class="kw">plot_grid</span>(a, b, <span class="dt">nrow =</span> <span class="dv">1</span>)</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <p>As we can see, that’s a bit of a mess! Trying to label all of our points just winds up with the labels all overlapping. One method to fix this is to only label the particularly impressive points, like so:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
@@ -584,7 +621,7 @@ b &lt;-<span class="st"> </span><span class="kw">ggplot</span>(mpg, <span class=
 <span class="st">  </span><span class="kw">geom_label</span>(<span class="dt">data =</span> <span class="kw">filter</span>(mpg, hwy <span class="op">&gt;</span><span class="st"> </span><span class="dv">40</span>), <span class="kw">aes</span>(<span class="dt">label =</span> model))
 
 cowplot<span class="op">::</span><span class="kw">plot_grid</span>(a, b, <span class="dt">nrow =</span> <span class="dv">1</span>)</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p>If we want our labels to be even cleaner, we can make use of the <code>ggrepel</code> package:</p>
 <pre><code>install.packages(&quot;ggrepel&quot;)</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy)) <span class="op">+</span>
@@ -596,10 +633,10 @@ b &lt;-<span class="st"> </span><span class="kw">ggplot</span>(mpg, <span class=
 <span class="st">  </span>ggrepel<span class="op">::</span><span class="kw">geom_label_repel</span>(<span class="dt">data =</span> <span class="kw">filter</span>(mpg, hwy <span class="op">&gt;</span><span class="st"> </span><span class="dv">40</span>), <span class="kw">aes</span>(<span class="dt">label =</span> model))
 
 cowplot<span class="op">::</span><span class="kw">plot_grid</span>(a, b, <span class="dt">nrow =</span> <span class="dv">1</span>)</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 </div>
 <div id="animation" class="section level2">
-<h2><span class="header-section-number">8.6</span> Animation</h2>
+<h2><span class="header-section-number">7.6</span> Animation</h2>
 <p>Animated plots are both very cool and also very often ineffective - for instance, here’s a really interesting <a href="http://visionlab.harvard.edu/silencing/">paper on silencing</a>, or how motion distracts us from what we should actually be paying attention to.</p>
 <p>That said, the <code>gganimate</code> package still makes it pretty easy to create animated visuals. We won’t go too far into the specifics - you can feel free to explore animated graphs at your own leisure - but here’s an example <a href="https://github.com/thomasp85/gganimate">straight from the <code>gganimate</code> documentation</a>, using our old friend the <code>gapminder</code> data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gapminder)
@@ -615,13 +652,13 @@ cowplot<span class="op">::</span><span class="kw">plot_grid</span>(a, b, <span c
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&#39;Year: {frame_time}&#39;</span>, <span class="dt">x =</span> <span class="st">&#39;GDP per capita&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;life expectancy&#39;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">transition_time</span>(year) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ease_aes</span>(<span class="st">&#39;linear&#39;</span>)</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-23-1.gif" /><!-- --></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-23-1.gif" /><!-- --></p>
 </div>
 <div id="specialized-visualizations" class="section level2">
-<h2><span class="header-section-number">8.7</span> Specialized Visualizations</h2>
+<h2><span class="header-section-number">7.7</span> Specialized Visualizations</h2>
 <p>We’re going to spend some time now working our way through a number of less-commonly used visualizations, using a variety of other packages.</p>
 <div id="stacked-area-plots" class="section level3">
-<h3><span class="header-section-number">8.7.1</span> Stacked Area Plots</h3>
+<h3><span class="header-section-number">7.7.1</span> Stacked Area Plots</h3>
 <p>If you want to show how the distribution of several groups change over time, one method is to use what’s known as a stacked area chart. While very visually appealing, this chart design has a lot of the drawbacks of stacked bar plots - it can be hard to see how exactly values change (for instance, compare A and C in the plot below). However, if you’re working with timeseries data, the changes in your values are relatively obvious, or you care more about aesthetics than usefulness, this plot can be a good choice. Just specify a <code>fill</code> aesthetic for a <code>geom_area()</code> plot:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>,
                    <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>,
@@ -637,20 +674,20 @@ df <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(x, y, <span class="dt">fill =</span> z)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_area</span>(<span class="dt">alpha =</span> <span class="fl">0.9</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Dark2&quot;</span>)</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 </div>
 <div id="ggridges" class="section level3">
-<h3><span class="header-section-number">8.7.2</span> ggridges</h3>
+<h3><span class="header-section-number">7.7.2</span> ggridges</h3>
 <p>A similar aesthetic to the stacked area chart can be found in a ridge plot - particularly, a density ridge plot, as provided by the <code>ggridges</code> package:</p>
 <pre><code>install.packages(&quot;ggridges&quot;)</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Species)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Species))</code></pre></div>
 <pre><code>## Picking joint bandwidth of 0.181</code></pre>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <p>You can get plenty of cool effects using this package - check out the vignette <a href="https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html">here</a> for more information.</p>
 </div>
 <div id="maps" class="section level3">
-<h3><span class="header-section-number">8.7.3</span> Maps</h3>
+<h3><span class="header-section-number">7.7.3</span> Maps</h3>
 <p>It’s relatively easy to make attractive maps using R and ggplot. We’re going to be working with the simplest versions of maps possible - while R can do a lot of the same things as GIS softwares, that’s a little more complicated than we want to get today.</p>
 <p>As such, we’ll be working with data included in two R packages, <code>maps</code> and <code>mapdata</code>. You can find out more about the data in the maps package <a href="https://cran.r-project.org/web/packages/maps/maps.pdf">here</a>, and the mapdata package <a href="https://cran.r-project.org/web/packages/mapdata/mapdata.pdf">here</a>.</p>
 <pre><code>install.packages(&quot;maps&quot;)
@@ -675,7 +712,7 @@ install.packages(&quot;mapdata&quot;)</code></pre>
 <p>Now we can plot the data like any other graph - our x axis is the longitude, while the y axis is latitude. We’ll use <code>geom_polygon()</code> for this purpose:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(usa, <span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_polygon</span>()</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 <p>Gah!</p>
 <p>There’s three specific things we’re going to have to do to fix this map:</p>
 <ol style="list-style-type: decimal">
@@ -688,11 +725,11 @@ install.packages(&quot;mapdata&quot;)</code></pre>
 <span class="st">  </span><span class="kw">geom_polygon</span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">theme_void</span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">coord_fixed</span>(<span class="fl">1.3</span>)</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 <p>Much better!</p>
 <p>This is just the surface of what you can do with maps in R. For a more in-depth overview, check out <a href="http://eriqande.github.io/rep-res-web/lectures/making-maps-with-R.html">this tutorial</a>.</p>
 <div id="philosophical-tangent" class="section level4">
-<h4><span class="header-section-number">8.7.3.1</span> Philosophical Tangent</h4>
+<h4><span class="header-section-number">7.7.3.1</span> Philosophical Tangent</h4>
 <p>If you already know how to use a GIS program, you might be wondering what the point of mapping with R is. There’s a few benefits to this system, but here’s what I think are the top four:</p>
 <ul>
 <li>R is free and works; most GIS systems are only one of those (if even)</li>
@@ -703,34 +740,34 @@ install.packages(&quot;mapdata&quot;)</code></pre>
 </div>
 </div>
 <div id="circular-charts" class="section level3">
-<h3><span class="header-section-number">8.7.4</span> Circular Charts</h3>
+<h3><span class="header-section-number">7.7.4</span> Circular Charts</h3>
 <p>Pie charts are much maligned, but do have some benefits over bar plots - for instance, if you’re trying to represent proportional data, <a href="http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf">pie charts perform better than stacked or dodged column charts.</a> While ggplot doesn’t include a native method for making pie charts, you could use base R’s <code>pie()</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">33</span>, <span class="dv">33</span>, <span class="dv">33</span>),
              <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>))
 
 <span class="kw">pie</span>(df<span class="op">$</span>x, df<span class="op">$</span>y)</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <p>If you want to get even more involved with circular plots, check out the <code>circlize</code> package, documented <a href="https://jokergoo.github.io/circlize_book/book/">here.</a></p>
 </div>
 </div>
 <div id="rearranging-groups" class="section level2">
-<h2><span class="header-section-number">8.8</span> Rearranging Groups</h2>
+<h2><span class="header-section-number">7.8</span> Rearranging Groups</h2>
 <p>Say you have a boxplot:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Species, Sepal.Length)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <p>And you want to rearrange the order the boxes go in.</p>
 <p>The easiest way to do this is to <code>factor()</code> whatever discrete variable you’re grouping your data by, which will create a ranked order for your variable. You can then specify which <code>levels</code> you want each factor to go in:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris<span class="op">$</span>Species &lt;-<span class="st"> </span><span class="kw">factor</span>(iris<span class="op">$</span>Species, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;setosa&quot;</span>, <span class="st">&quot;virginica&quot;</span>, <span class="st">&quot;versicolor&quot;</span>))
 
 <span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Species, Sepal.Length)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre></div>
-<p><img src="08_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p><img src="07_Achieving_Graphical_Excellence_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 <p>Note that factors sometimes don’t play nicely with data analysis tools - to unfactor a variable, run it through <code>as.character()</code> or <code>as.numeric()</code>, depending on which you need:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris<span class="op">$</span>Species &lt;-<span class="st"> </span><span class="kw">as.character</span>(iris<span class="op">$</span>Species)</code></pre></div>
 </div>
 <div id="further-reading" class="section level2">
-<h2><span class="header-section-number">8.9</span> Further Reading</h2>
+<h2><span class="header-section-number">7.9</span> Further Reading</h2>
 <p>For further reading on graphical excellence, consider the following sources:</p>
 <ul>
 <li>A study on <a href="https://www.jstor.org/stable/2288400?seq=1#metadata_info_tab_contents">which graphs are most easily understood</a>, alongside a more recent <a href="http://vis.stanford.edu/files/2010-MTurk-CHI.pdf">update to the study</a></li>
@@ -746,8 +783,8 @@ install.packages(&quot;mapdata&quot;)</code></pre>
           </div>
         </div>
       </div>
-<a href="more-complicated-analyses.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="playing-nicely-with-others.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="modeling-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="functions-and-scripting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

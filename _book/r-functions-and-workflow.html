@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2019-04-01">
+<meta name="date" content="2019-06-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="visualizing-your-data.html">
-<link rel="next" href="basic-statistics-using-r.html">
+<link rel="next" href="data-wrangling.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -143,165 +143,193 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.4.1" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#visualizing-large-datasets"><i class="fa fa-check"></i><b>2.4.1</b> Visualizing Large Datasets</a></li>
 <li class="chapter" data-level="2.4.2" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#axis-transformations"><i class="fa fa-check"></i><b>2.4.2</b> Axis Transformations</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#other-popular-geoms"><i class="fa fa-check"></i><b>2.5</b> Other Popular Geoms</a></li>
-<li class="chapter" data-level="2.6" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#histograms"><i class="fa fa-check"></i><b>2.6</b> Histograms</a></li>
-<li class="chapter" data-level="2.7" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#bar-charts"><i class="fa fa-check"></i><b>2.7</b> Bar Charts</a></li>
-<li class="chapter" data-level="2.8" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#jittered-points"><i class="fa fa-check"></i><b>2.8</b> Jittered Points</a></li>
-<li class="chapter" data-level="2.9" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#boxplot"><i class="fa fa-check"></i><b>2.9</b> Boxplot</a></li>
-<li class="chapter" data-level="2.10" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#designing-good-graphics"><i class="fa fa-check"></i><b>2.10</b> Designing Good Graphics</a></li>
-<li class="chapter" data-level="2.11" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#saving-your-graphics"><i class="fa fa-check"></i><b>2.11</b> Saving Your Graphics</a></li>
-<li class="chapter" data-level="2.12" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#more-resources"><i class="fa fa-check"></i><b>2.12</b> More Resources</a></li>
-<li class="chapter" data-level="2.13" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#exercises-1"><i class="fa fa-check"></i><b>2.13</b> Exercises</a><ul>
-<li class="chapter" data-level="2.13.1" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#graph-the-following"><i class="fa fa-check"></i><b>2.13.1</b> Graph the following:</a></li>
-<li class="chapter" data-level="2.13.2" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#use-a-new-dataset"><i class="fa fa-check"></i><b>2.13.2</b> Use a new dataset:</a></li>
-<li class="chapter" data-level="2.13.3" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#looking-ahead"><i class="fa fa-check"></i><b>2.13.3</b> Looking ahead:</a></li>
+<li class="chapter" data-level="2.5" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#other-popular-geoms"><i class="fa fa-check"></i><b>2.5</b> Other Popular Geoms</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#histograms"><i class="fa fa-check"></i><b>2.5.1</b> Histograms</a></li>
+<li class="chapter" data-level="2.5.2" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#bar-charts"><i class="fa fa-check"></i><b>2.5.2</b> Bar Charts</a></li>
+<li class="chapter" data-level="2.5.3" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#jittered-points"><i class="fa fa-check"></i><b>2.5.3</b> Jittered Points</a></li>
+<li class="chapter" data-level="2.5.4" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#boxplot"><i class="fa fa-check"></i><b>2.5.4</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#designing-good-graphics"><i class="fa fa-check"></i><b>2.6</b> Designing Good Graphics</a></li>
+<li class="chapter" data-level="2.7" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#saving-your-graphics"><i class="fa fa-check"></i><b>2.7</b> Saving Your Graphics</a></li>
+<li class="chapter" data-level="2.8" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#more-resources"><i class="fa fa-check"></i><b>2.8</b> More Resources</a></li>
+<li class="chapter" data-level="2.9" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#exercises-1"><i class="fa fa-check"></i><b>2.9</b> Exercises</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#graph-the-following"><i class="fa fa-check"></i><b>2.9.1</b> Graph the following:</a></li>
+<li class="chapter" data-level="2.9.2" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#use-a-new-dataset"><i class="fa fa-check"></i><b>2.9.2</b> Use a new dataset:</a></li>
+<li class="chapter" data-level="2.9.3" data-path="visualizing-your-data.html"><a href="visualizing-your-data.html#looking-ahead"><i class="fa fa-check"></i><b>2.9.3</b> Looking ahead:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html"><i class="fa fa-check"></i><b>3</b> R Functions and Workflow</a><ul>
 <li class="chapter" data-level="3.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#workflow"><i class="fa fa-check"></i><b>3.1</b> Workflow</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#scripts"><i class="fa fa-check"></i><b>3.1.1</b> Scripts</a></li>
 <li class="chapter" data-level="3.1.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#notebooks"><i class="fa fa-check"></i><b>3.1.2</b> Notebooks</a></li>
-<li class="chapter" data-level="3.1.3" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#memory-objects-and-names"><i class="fa fa-check"></i><b>3.1.3</b> Memory, Objects, and Names</a></li>
-<li class="chapter" data-level="3.1.4" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#dataframes-and-transformations"><i class="fa fa-check"></i><b>3.1.4</b> Dataframes and Transformations</a></li>
-<li class="chapter" data-level="3.1.5" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#the-pipe"><i class="fa fa-check"></i><b>3.1.5</b> The Pipe</a></li>
-<li class="chapter" data-level="3.1.6" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#data-transformations"><i class="fa fa-check"></i><b>3.1.6</b> Data Transformations</a></li>
-<li class="chapter" data-level="3.1.7" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#working-with-groups"><i class="fa fa-check"></i><b>3.1.7</b> Working with Groups</a></li>
-<li class="chapter" data-level="3.1.8" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#missing-values"><i class="fa fa-check"></i><b>3.1.8</b> Missing Values</a></li>
-<li class="chapter" data-level="3.1.9" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#count-data"><i class="fa fa-check"></i><b>3.1.9</b> Count Data</a></li>
-<li class="chapter" data-level="3.1.10" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#oddballs"><i class="fa fa-check"></i><b>3.1.10</b> Oddballs</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#r-functions-and-workflow-exercises"><i class="fa fa-check"></i><b>3.2</b> R Functions and Workflow Exercises</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#do-the-following"><i class="fa fa-check"></i><b>3.2.1</b> Do the following:</a></li>
-<li class="chapter" data-level="3.2.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#work-with-other-datasets"><i class="fa fa-check"></i><b>3.2.2</b> Work with other datasets:</a></li>
+<li class="chapter" data-level="3.2" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#memory-objects-and-names"><i class="fa fa-check"></i><b>3.2</b> Memory, Objects, and Names</a></li>
+<li class="chapter" data-level="3.3" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#dataframes"><i class="fa fa-check"></i><b>3.3</b> Dataframes</a></li>
+<li class="chapter" data-level="3.4" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#oddballs"><i class="fa fa-check"></i><b>3.4</b> Oddballs</a></li>
+<li class="chapter" data-level="3.5" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#r-studio-tips-and-tricks"><i class="fa fa-check"></i><b>3.5</b> R Studio Tips and Tricks</a></li>
+<li class="chapter" data-level="3.6" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#r-functions-and-workflow-exercises"><i class="fa fa-check"></i><b>3.6</b> R Functions and Workflow Exercises</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="r-functions-and-workflow.html"><a href="r-functions-and-workflow.html#do-the-following"><i class="fa fa-check"></i><b>3.6.1</b> Do the following:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html"><i class="fa fa-check"></i><b>4</b> Basic Statistics (Using R)</a><ul>
-<li class="chapter" data-level="4.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#purpose-of-the-unit"><i class="fa fa-check"></i><b>4.1</b> Purpose of the Unit</a></li>
-<li class="chapter" data-level="4.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#definitions"><i class="fa fa-check"></i><b>4.2</b> Definitions</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#data-concepts"><i class="fa fa-check"></i><b>4.2.1</b> Data Concepts</a></li>
-<li class="chapter" data-level="4.2.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#statistical-terms"><i class="fa fa-check"></i><b>4.2.2</b> Statistical Terms</a></li>
-<li class="chapter" data-level="4.2.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#models-and-tests"><i class="fa fa-check"></i><b>4.2.3</b> Models and Tests</a></li>
-<li class="chapter" data-level="4.2.4" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#how-well-compare-models"><i class="fa fa-check"></i><b>4.2.4</b> How We’ll Compare Models</a></li>
+<li class="chapter" data-level="4" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-wrangling.html"><a href="data-wrangling.html#thinking-with-data"><i class="fa fa-check"></i><b>4.1</b> Thinking with Data</a></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling.html"><a href="data-wrangling.html#the-data-analytics-model"><i class="fa fa-check"></i><b>4.2</b> The Data Analytics Model</a></li>
+<li class="chapter" data-level="4.3" data-path="data-wrangling.html"><a href="data-wrangling.html#wrangle"><i class="fa fa-check"></i><b>4.3</b> Wrangle</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#tidy-data"><i class="fa fa-check"></i><b>4.3.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-wrangling.html"><a href="data-wrangling.html#tidying-data"><i class="fa fa-check"></i><b>4.3.2</b> Tidying Data</a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-wrangling.html"><a href="data-wrangling.html#separating-values"><i class="fa fa-check"></i><b>4.3.3</b> Separating Values</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#examples"><i class="fa fa-check"></i><b>4.3</b> Examples</a></li>
+<li class="chapter" data-level="4.4" data-path="data-wrangling.html"><a href="data-wrangling.html#the-pipe"><i class="fa fa-check"></i><b>4.4</b> The Pipe</a></li>
+<li class="chapter" data-level="4.5" data-path="data-wrangling.html"><a href="data-wrangling.html#data-transformations"><i class="fa fa-check"></i><b>4.5</b> Data Transformations</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#mutate"><i class="fa fa-check"></i><b>4.5.1</b> Mutate</a></li>
+<li class="chapter" data-level="4.5.2" data-path="data-wrangling.html"><a href="data-wrangling.html#tibbles"><i class="fa fa-check"></i><b>4.5.2</b> Tibbles</a></li>
+<li class="chapter" data-level="4.5.3" data-path="data-wrangling.html"><a href="data-wrangling.html#subsetting-data"><i class="fa fa-check"></i><b>4.5.3</b> Subsetting Data</a></li>
+<li class="chapter" data-level="4.5.4" data-path="data-wrangling.html"><a href="data-wrangling.html#filtering-with-the-tidyverse"><i class="fa fa-check"></i><b>4.5.4</b> Filtering with the Tidyverse</a></li>
+<li class="chapter" data-level="4.5.5" data-path="data-wrangling.html"><a href="data-wrangling.html#working-with-groups"><i class="fa fa-check"></i><b>4.5.5</b> Working with Groups</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="data-wrangling.html"><a href="data-wrangling.html#missing-values"><i class="fa fa-check"></i><b>4.6</b> Missing Values</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="data-wrangling.html"><a href="data-wrangling.html#explicit-missing-values"><i class="fa fa-check"></i><b>4.6.1</b> Explicit Missing Values</a></li>
+<li class="chapter" data-level="4.6.2" data-path="data-wrangling.html"><a href="data-wrangling.html#implicit-missing-values"><i class="fa fa-check"></i><b>4.6.2</b> Implicit Missing Values</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="data-wrangling.html"><a href="data-wrangling.html#count-data"><i class="fa fa-check"></i><b>4.7</b> Count Data</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="data-wrangling.html"><a href="data-wrangling.html#work-with-other-datasets"><i class="fa fa-check"></i><b>4.7.1</b> Work with other datasets:</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html"><i class="fa fa-check"></i><b>5</b> Introduction to Data Analysis</a><ul>
 <li class="chapter" data-level="5.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>5.1</b> Exploratory Data Analysis</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#gapminder"><i class="fa fa-check"></i><b>5.1.1</b> gapminder</a></li>
-<li class="chapter" data-level="5.1.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#describing-your-data"><i class="fa fa-check"></i><b>5.1.2</b> Describing Your Data</a></li>
+<li class="chapter" data-level="5.1.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#sidenote"><i class="fa fa-check"></i><b>5.1.1</b> Sidenote</a></li>
+<li class="chapter" data-level="5.1.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#the-eda-framework"><i class="fa fa-check"></i><b>5.1.2</b> The EDA Framework</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#statistical-tests-and-regressions"><i class="fa fa-check"></i><b>5.2</b> Statistical Tests and Regressions</a></li>
-<li class="chapter" data-level="5.3" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#functional-programming"><i class="fa fa-check"></i><b>5.3</b> Functional Programming</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#column-names"><i class="fa fa-check"></i><b>5.3.1</b> Column Names</a></li>
+<li class="chapter" data-level="5.2" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#gapminder"><i class="fa fa-check"></i><b>5.2</b> gapminder</a></li>
+<li class="chapter" data-level="5.3" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#summarizing-data"><i class="fa fa-check"></i><b>5.3</b> Summarizing Data</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#sidenote-1"><i class="fa fa-check"></i><b>5.3.1</b> Sidenote</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#modeling"><i class="fa fa-check"></i><b>5.4</b> Modeling</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#dummy-models"><i class="fa fa-check"></i><b>5.4.1</b> Dummy Models</a></li>
+<li class="chapter" data-level="5.4" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#visualizing-data"><i class="fa fa-check"></i><b>5.4</b> Visualizing Data</a></li>
+<li class="chapter" data-level="5.5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#analyzing-patterns"><i class="fa fa-check"></i><b>5.5</b> Analyzing Patterns</a></li>
+<li class="chapter" data-level="5.6" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exercises-2"><i class="fa fa-check"></i><b>5.6</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#conclusion"><i class="fa fa-check"></i><b>5.5</b> Conclusion</a></li>
-<li class="chapter" data-level="5.6" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#exercises-2"><i class="fa fa-check"></i><b>5.6</b> Exercises</a><ul>
-<li class="chapter" data-level="5.6.1" data-path="introduction-to-data-analysis.html"><a href="introduction-to-data-analysis.html#answer-the-following"><i class="fa fa-check"></i><b>5.6.1</b> Answer the following:</a></li>
+<li class="chapter" data-level="6" data-path="modeling-data.html"><a href="modeling-data.html"><i class="fa fa-check"></i><b>6</b> Modeling Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="modeling-data.html"><a href="modeling-data.html#why-model"><i class="fa fa-check"></i><b>6.1</b> Why Model?</a></li>
+<li class="chapter" data-level="6.2" data-path="modeling-data.html"><a href="modeling-data.html#linear-models"><i class="fa fa-check"></i><b>6.2</b> Linear Models</a></li>
+<li class="chapter" data-level="6.3" data-path="modeling-data.html"><a href="modeling-data.html#model-predictions"><i class="fa fa-check"></i><b>6.3</b> Model Predictions</a></li>
+<li class="chapter" data-level="6.4" data-path="modeling-data.html"><a href="modeling-data.html#classification"><i class="fa fa-check"></i><b>6.4</b> Classification</a></li>
+<li class="chapter" data-level="6.5" data-path="modeling-data.html"><a href="modeling-data.html#logistic-models"><i class="fa fa-check"></i><b>6.5</b> Logistic Models</a></li>
+<li class="chapter" data-level="6.6" data-path="modeling-data.html"><a href="modeling-data.html#evaluating-and-comparing-models"><i class="fa fa-check"></i><b>6.6</b> Evaluating and Comparing Models</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="modeling-data.html"><a href="modeling-data.html#confusion-matrices"><i class="fa fa-check"></i><b>6.6.1</b> Confusion Matrices</a></li>
 </ul></li>
+<li class="chapter" data-level="6.7" data-path="modeling-data.html"><a href="modeling-data.html#conclusion"><i class="fa fa-check"></i><b>6.7</b> Conclusion</a></li>
+<li class="chapter" data-level="6.8" data-path="modeling-data.html"><a href="modeling-data.html#exercises-3"><i class="fa fa-check"></i><b>6.8</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html"><i class="fa fa-check"></i><b>6</b> Functions and Scripting</a><ul>
-<li class="chapter" data-level="6.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#writing-functions"><i class="fa fa-check"></i><b>6.1</b> Writing Functions</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#our-first-function"><i class="fa fa-check"></i><b>6.1.1</b> Our First Function</a></li>
-<li class="chapter" data-level="6.1.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#returns"><i class="fa fa-check"></i><b>6.1.2</b> Returns</a></li>
-<li class="chapter" data-level="6.1.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#more-complicated-functions"><i class="fa fa-check"></i><b>6.1.3</b> More Complicated Functions</a></li>
+<li class="chapter" data-level="7" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html"><i class="fa fa-check"></i><b>7</b> Achieving Graphical Excellence</a><ul>
+<li class="chapter" data-level="7.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#getting-started"><i class="fa fa-check"></i><b>7.2</b> Getting Started</a></li>
+<li class="chapter" data-level="7.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#themes"><i class="fa fa-check"></i><b>7.3</b> Themes</a></li>
+<li class="chapter" data-level="7.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#colors"><i class="fa fa-check"></i><b>7.4</b> Colors</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#viridis"><i class="fa fa-check"></i><b>7.4.1</b> Viridis</a></li>
+<li class="chapter" data-level="7.4.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#color-brewer"><i class="fa fa-check"></i><b>7.4.2</b> Color Brewer</a></li>
+<li class="chapter" data-level="7.4.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#other-packages"><i class="fa fa-check"></i><b>7.4.3</b> Other Packages</a></li>
+<li class="chapter" data-level="7.4.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#making-your-own"><i class="fa fa-check"></i><b>7.4.4</b> Making Your Own</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#about-names"><i class="fa fa-check"></i><b>6.2</b> About Names…</a></li>
-<li class="chapter" data-level="6.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#conditional-statements"><i class="fa fa-check"></i><b>6.3</b> Conditional Statements</a></li>
-<li class="chapter" data-level="6.4" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#stops"><i class="fa fa-check"></i><b>6.4</b> Stops</a></li>
-<li class="chapter" data-level="6.5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#function-dependencies"><i class="fa fa-check"></i><b>6.5</b> Function Dependencies</a></li>
-<li class="chapter" data-level="6.6" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#saving-and-loading-functions"><i class="fa fa-check"></i><b>6.6</b> Saving and Loading Functions</a></li>
-<li class="chapter" data-level="6.7" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#loops"><i class="fa fa-check"></i><b>6.7</b> Loops</a></li>
-<li class="chapter" data-level="6.8" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#mapping-functions"><i class="fa fa-check"></i><b>6.8</b> Mapping Functions</a></li>
-<li class="chapter" data-level="6.9" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#more-information"><i class="fa fa-check"></i><b>6.9</b> More Information</a></li>
-<li class="chapter" data-level="6.10" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#exercises-3"><i class="fa fa-check"></i><b>6.10</b> Exercises</a></li>
+<li class="chapter" data-level="7.5" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#labels"><i class="fa fa-check"></i><b>7.5</b> Labels</a></li>
+<li class="chapter" data-level="7.6" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#animation"><i class="fa fa-check"></i><b>7.6</b> Animation</a></li>
+<li class="chapter" data-level="7.7" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#specialized-visualizations"><i class="fa fa-check"></i><b>7.7</b> Specialized Visualizations</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#stacked-area-plots"><i class="fa fa-check"></i><b>7.7.1</b> Stacked Area Plots</a></li>
+<li class="chapter" data-level="7.7.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#ggridges"><i class="fa fa-check"></i><b>7.7.2</b> ggridges</a></li>
+<li class="chapter" data-level="7.7.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#maps"><i class="fa fa-check"></i><b>7.7.3</b> Maps</a></li>
+<li class="chapter" data-level="7.7.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#circular-charts"><i class="fa fa-check"></i><b>7.7.4</b> Circular Charts</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html"><i class="fa fa-check"></i><b>7</b> More Complicated Analyses</a><ul>
-<li class="chapter" data-level="7.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#other-datasets"><i class="fa fa-check"></i><b>7.1</b> Other Datasets</a><ul>
-<li class="chapter" data-level="7.1.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#importing-your-own-data"><i class="fa fa-check"></i><b>7.1.1</b> Importing Your Own Data</a></li>
-<li class="chapter" data-level="7.1.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#exporting-data"><i class="fa fa-check"></i><b>7.1.2</b> Exporting Data</a></li>
-<li class="chapter" data-level="7.1.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#data-exploration"><i class="fa fa-check"></i><b>7.1.3</b> Data Exploration</a></li>
-<li class="chapter" data-level="7.1.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#modeling-winners"><i class="fa fa-check"></i><b>7.1.4</b> Modeling Winners</a></li>
+<li class="chapter" data-level="7.8" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#rearranging-groups"><i class="fa fa-check"></i><b>7.8</b> Rearranging Groups</a></li>
+<li class="chapter" data-level="7.9" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#further-reading"><i class="fa fa-check"></i><b>7.9</b> Further Reading</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#logistic-models"><i class="fa fa-check"></i><b>7.2</b> Logistic Models</a></li>
-<li class="chapter" data-level="7.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#modelling-metrics"><i class="fa fa-check"></i><b>7.3</b> Modelling Metrics</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#pseudo-r2"><i class="fa fa-check"></i><b>7.3.1</b> Pseudo-R<sup>2</sup></a></li>
-<li class="chapter" data-level="7.3.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#area-under-the-roc-curve-auc"><i class="fa fa-check"></i><b>7.3.2</b> Area Under the ROC Curve (AUC)</a></li>
-<li class="chapter" data-level="7.3.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#model-comparisons"><i class="fa fa-check"></i><b>7.3.3</b> Model Comparisons</a></li>
+<li class="chapter" data-level="8" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html"><i class="fa fa-check"></i><b>8</b> Functions and Scripting</a><ul>
+<li class="chapter" data-level="8.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#writing-functions"><i class="fa fa-check"></i><b>8.1</b> Writing Functions</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#our-first-function"><i class="fa fa-check"></i><b>8.1.1</b> Our First Function</a></li>
+<li class="chapter" data-level="8.1.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#returns"><i class="fa fa-check"></i><b>8.1.2</b> Returns</a></li>
+<li class="chapter" data-level="8.1.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#more-complicated-functions"><i class="fa fa-check"></i><b>8.1.3</b> More Complicated Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#more-complicated-analyses-1"><i class="fa fa-check"></i><b>7.4</b> More Complicated Analyses</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#model-selection"><i class="fa fa-check"></i><b>7.4.1</b> Model Selection</a></li>
+<li class="chapter" data-level="8.2" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#about-names"><i class="fa fa-check"></i><b>8.2</b> About Names…</a></li>
+<li class="chapter" data-level="8.3" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#conditional-statements"><i class="fa fa-check"></i><b>8.3</b> Conditional Statements</a></li>
+<li class="chapter" data-level="8.4" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#stops"><i class="fa fa-check"></i><b>8.4</b> Stops</a></li>
+<li class="chapter" data-level="8.5" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#function-dependencies"><i class="fa fa-check"></i><b>8.5</b> Function Dependencies</a></li>
+<li class="chapter" data-level="8.6" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#saving-and-loading-functions"><i class="fa fa-check"></i><b>8.6</b> Saving and Loading Functions</a></li>
+<li class="chapter" data-level="8.7" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#loops"><i class="fa fa-check"></i><b>8.7</b> Loops</a></li>
+<li class="chapter" data-level="8.8" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#mapping-functions"><i class="fa fa-check"></i><b>8.8</b> Mapping Functions</a></li>
+<li class="chapter" data-level="8.9" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#more-information"><i class="fa fa-check"></i><b>8.9</b> More Information</a></li>
+<li class="chapter" data-level="8.10" data-path="functions-and-scripting.html"><a href="functions-and-scripting.html#exercises-4"><i class="fa fa-check"></i><b>8.10</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#relational-data"><i class="fa fa-check"></i><b>7.5</b> Relational Data</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#inner-join"><i class="fa fa-check"></i><b>7.5.1</b> Inner Join</a></li>
-<li class="chapter" data-level="7.5.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#left-join"><i class="fa fa-check"></i><b>7.5.2</b> Left Join</a></li>
-<li class="chapter" data-level="7.5.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#right-join"><i class="fa fa-check"></i><b>7.5.3</b> Right Join</a></li>
-<li class="chapter" data-level="7.5.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#full-join"><i class="fa fa-check"></i><b>7.5.4</b> Full Join</a></li>
-<li class="chapter" data-level="7.5.5" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#semi-join"><i class="fa fa-check"></i><b>7.5.5</b> Semi Join</a></li>
-<li class="chapter" data-level="7.5.6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#anti-join"><i class="fa fa-check"></i><b>7.5.6</b> Anti Join</a></li>
-<li class="chapter" data-level="7.5.7" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#specifying-key-columns"><i class="fa fa-check"></i><b>7.5.7</b> Specifying Key Columns</a></li>
-<li class="chapter" data-level="7.5.8" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#merging-multiple-dataframes"><i class="fa fa-check"></i><b>7.5.8</b> Merging Multiple Dataframes</a></li>
-<li class="chapter" data-level="7.5.9" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#binding-dataframes"><i class="fa fa-check"></i><b>7.5.9</b> Binding Dataframes</a></li>
+<li class="chapter" data-level="9" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html"><i class="fa fa-check"></i><b>9</b> More Complicated Analyses</a><ul>
+<li class="chapter" data-level="9.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#other-datasets"><i class="fa fa-check"></i><b>9.1</b> Other Datasets</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#importing-your-own-data"><i class="fa fa-check"></i><b>9.1.1</b> Importing Your Own Data</a></li>
+<li class="chapter" data-level="9.1.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#exporting-data"><i class="fa fa-check"></i><b>9.1.2</b> Exporting Data</a></li>
+<li class="chapter" data-level="9.1.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#data-exploration"><i class="fa fa-check"></i><b>9.1.3</b> Data Exploration</a></li>
+<li class="chapter" data-level="9.1.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#modeling-winners"><i class="fa fa-check"></i><b>9.1.4</b> Modeling Winners</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#exercises-4"><i class="fa fa-check"></i><b>7.6</b> Exercises</a></li>
+<li class="chapter" data-level="9.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#logistic-models-1"><i class="fa fa-check"></i><b>9.2</b> Logistic Models</a></li>
+<li class="chapter" data-level="9.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#modelling-metrics"><i class="fa fa-check"></i><b>9.3</b> Modelling Metrics</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#pseudo-r2"><i class="fa fa-check"></i><b>9.3.1</b> Pseudo-R<sup>2</sup></a></li>
+<li class="chapter" data-level="9.3.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#area-under-the-roc-curve-auc"><i class="fa fa-check"></i><b>9.3.2</b> Area Under the ROC Curve (AUC)</a></li>
+<li class="chapter" data-level="9.3.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#model-comparisons"><i class="fa fa-check"></i><b>9.3.3</b> Model Comparisons</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html"><i class="fa fa-check"></i><b>8</b> Achieving Graphical Excellence</a><ul>
-<li class="chapter" data-level="8.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
-<li class="chapter" data-level="8.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#getting-started"><i class="fa fa-check"></i><b>8.2</b> Getting Started</a></li>
-<li class="chapter" data-level="8.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#themes"><i class="fa fa-check"></i><b>8.3</b> Themes</a></li>
-<li class="chapter" data-level="8.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#colors"><i class="fa fa-check"></i><b>8.4</b> Colors</a><ul>
-<li class="chapter" data-level="8.4.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#viridis"><i class="fa fa-check"></i><b>8.4.1</b> Viridis</a></li>
-<li class="chapter" data-level="8.4.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#color-brewer"><i class="fa fa-check"></i><b>8.4.2</b> Color Brewer</a></li>
-<li class="chapter" data-level="8.4.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#other-packages"><i class="fa fa-check"></i><b>8.4.3</b> Other Packages</a></li>
-<li class="chapter" data-level="8.4.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#making-your-own"><i class="fa fa-check"></i><b>8.4.4</b> Making Your Own</a></li>
+<li class="chapter" data-level="9.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#more-complicated-analyses-1"><i class="fa fa-check"></i><b>9.4</b> More Complicated Analyses</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#model-selection"><i class="fa fa-check"></i><b>9.4.1</b> Model Selection</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#labels"><i class="fa fa-check"></i><b>8.5</b> Labels</a></li>
-<li class="chapter" data-level="8.6" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#animation"><i class="fa fa-check"></i><b>8.6</b> Animation</a></li>
-<li class="chapter" data-level="8.7" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#specialized-visualizations"><i class="fa fa-check"></i><b>8.7</b> Specialized Visualizations</a><ul>
-<li class="chapter" data-level="8.7.1" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#stacked-area-plots"><i class="fa fa-check"></i><b>8.7.1</b> Stacked Area Plots</a></li>
-<li class="chapter" data-level="8.7.2" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#ggridges"><i class="fa fa-check"></i><b>8.7.2</b> ggridges</a></li>
-<li class="chapter" data-level="8.7.3" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#maps"><i class="fa fa-check"></i><b>8.7.3</b> Maps</a></li>
-<li class="chapter" data-level="8.7.4" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#circular-charts"><i class="fa fa-check"></i><b>8.7.4</b> Circular Charts</a></li>
+<li class="chapter" data-level="9.5" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#relational-data"><i class="fa fa-check"></i><b>9.5</b> Relational Data</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#inner-join"><i class="fa fa-check"></i><b>9.5.1</b> Inner Join</a></li>
+<li class="chapter" data-level="9.5.2" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#left-join"><i class="fa fa-check"></i><b>9.5.2</b> Left Join</a></li>
+<li class="chapter" data-level="9.5.3" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#right-join"><i class="fa fa-check"></i><b>9.5.3</b> Right Join</a></li>
+<li class="chapter" data-level="9.5.4" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#full-join"><i class="fa fa-check"></i><b>9.5.4</b> Full Join</a></li>
+<li class="chapter" data-level="9.5.5" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#semi-join"><i class="fa fa-check"></i><b>9.5.5</b> Semi Join</a></li>
+<li class="chapter" data-level="9.5.6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#anti-join"><i class="fa fa-check"></i><b>9.5.6</b> Anti Join</a></li>
+<li class="chapter" data-level="9.5.7" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#specifying-key-columns"><i class="fa fa-check"></i><b>9.5.7</b> Specifying Key Columns</a></li>
+<li class="chapter" data-level="9.5.8" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#merging-multiple-dataframes"><i class="fa fa-check"></i><b>9.5.8</b> Merging Multiple Dataframes</a></li>
+<li class="chapter" data-level="9.5.9" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#binding-dataframes"><i class="fa fa-check"></i><b>9.5.9</b> Binding Dataframes</a></li>
 </ul></li>
-<li class="chapter" data-level="8.8" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#rearranging-groups"><i class="fa fa-check"></i><b>8.8</b> Rearranging Groups</a></li>
-<li class="chapter" data-level="8.9" data-path="achieving-graphical-excellence.html"><a href="achieving-graphical-excellence.html#further-reading"><i class="fa fa-check"></i><b>8.9</b> Further Reading</a></li>
+<li class="chapter" data-level="9.6" data-path="more-complicated-analyses.html"><a href="more-complicated-analyses.html#exercises-5"><i class="fa fa-check"></i><b>9.6</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html"><i class="fa fa-check"></i><b>9</b> Playing Nicely With Others</a><ul>
-<li class="chapter" data-level="9.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#r-markdown"><i class="fa fa-check"></i><b>9.1</b> R Markdown</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#kable"><i class="fa fa-check"></i><b>9.1.1</b> Kable</a></li>
+<li class="chapter" data-level="10" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html"><i class="fa fa-check"></i><b>10</b> Playing Nicely With Others</a><ul>
+<li class="chapter" data-level="10.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#r-markdown"><i class="fa fa-check"></i><b>10.1</b> R Markdown</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#kable"><i class="fa fa-check"></i><b>10.1.1</b> Kable</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#latex"><i class="fa fa-check"></i><b>9.2</b> LaTex</a></li>
-<li class="chapter" data-level="9.3" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#github"><i class="fa fa-check"></i><b>9.3</b> Git(Hub)</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#my-first-repository"><i class="fa fa-check"></i><b>9.3.1</b> My First Repository</a></li>
+<li class="chapter" data-level="10.2" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#latex"><i class="fa fa-check"></i><b>10.2</b> LaTex</a></li>
+<li class="chapter" data-level="10.3" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#github"><i class="fa fa-check"></i><b>10.3</b> Git(Hub)</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#my-first-repository"><i class="fa fa-check"></i><b>10.3.1</b> My First Repository</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#commenting-code"><i class="fa fa-check"></i><b>9.4</b> Commenting Code</a></li>
-<li class="chapter" data-level="9.5" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#further-reading-1"><i class="fa fa-check"></i><b>9.5</b> Further Reading</a></li>
+<li class="chapter" data-level="10.4" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#commenting-code"><i class="fa fa-check"></i><b>10.4</b> Commenting Code</a></li>
+<li class="chapter" data-level="10.5" data-path="playing-nicely-with-others.html"><a href="playing-nicely-with-others.html#further-reading-1"><i class="fa fa-check"></i><b>10.5</b> Further Reading</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="working-with-text.html"><a href="working-with-text.html"><i class="fa fa-check"></i><b>10</b> Working with Text</a><ul>
-<li class="chapter" data-level="10.1" data-path="working-with-text.html"><a href="working-with-text.html#working-with-stringr"><i class="fa fa-check"></i><b>10.1</b> Working with Stringr</a></li>
-<li class="chapter" data-level="10.2" data-path="working-with-text.html"><a href="working-with-text.html#regular-expressions"><i class="fa fa-check"></i><b>10.2</b> Regular Expressions</a></li>
-<li class="chapter" data-level="10.3" data-path="working-with-text.html"><a href="working-with-text.html#case-study"><i class="fa fa-check"></i><b>10.3</b> Case Study</a></li>
-<li class="chapter" data-level="10.4" data-path="working-with-text.html"><a href="working-with-text.html#further-reading-2"><i class="fa fa-check"></i><b>10.4</b> Further Reading</a></li>
-<li class="chapter" data-level="10.5" data-path="working-with-text.html"><a href="working-with-text.html#exercises-5"><i class="fa fa-check"></i><b>10.5</b> Exercises</a></li>
+<li class="chapter" data-level="11" data-path="working-with-text.html"><a href="working-with-text.html"><i class="fa fa-check"></i><b>11</b> Working with Text</a><ul>
+<li class="chapter" data-level="11.1" data-path="working-with-text.html"><a href="working-with-text.html#working-with-stringr"><i class="fa fa-check"></i><b>11.1</b> Working with Stringr</a></li>
+<li class="chapter" data-level="11.2" data-path="working-with-text.html"><a href="working-with-text.html#regular-expressions"><i class="fa fa-check"></i><b>11.2</b> Regular Expressions</a></li>
+<li class="chapter" data-level="11.3" data-path="working-with-text.html"><a href="working-with-text.html#case-study"><i class="fa fa-check"></i><b>11.3</b> Case Study</a></li>
+<li class="chapter" data-level="11.4" data-path="working-with-text.html"><a href="working-with-text.html#further-reading-2"><i class="fa fa-check"></i><b>11.4</b> Further Reading</a></li>
+<li class="chapter" data-level="11.5" data-path="working-with-text.html"><a href="working-with-text.html#exercises-6"><i class="fa fa-check"></i><b>11.5</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>11</b> Working with Dates and Times</a><ul>
-<li class="chapter" data-level="11.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#dates-in-r"><i class="fa fa-check"></i><b>11.1</b> Dates in R</a></li>
-<li class="chapter" data-level="11.2" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#converting-to-dates"><i class="fa fa-check"></i><b>11.2</b> Converting To Dates</a></li>
-<li class="chapter" data-level="11.3" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#extracting-from-dates"><i class="fa fa-check"></i><b>11.3</b> Extracting From Dates</a></li>
-<li class="chapter" data-level="11.4" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#math-with-dates"><i class="fa fa-check"></i><b>11.4</b> Math with Dates</a></li>
-<li class="chapter" data-level="11.5" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#time-zones"><i class="fa fa-check"></i><b>11.5</b> Time Zones</a></li>
+<li class="chapter" data-level="12" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html"><i class="fa fa-check"></i><b>12</b> Working with Dates and Times</a><ul>
+<li class="chapter" data-level="12.1" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#dates-in-r"><i class="fa fa-check"></i><b>12.1</b> Dates in R</a></li>
+<li class="chapter" data-level="12.2" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#converting-to-dates"><i class="fa fa-check"></i><b>12.2</b> Converting To Dates</a></li>
+<li class="chapter" data-level="12.3" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#extracting-from-dates"><i class="fa fa-check"></i><b>12.3</b> Extracting From Dates</a></li>
+<li class="chapter" data-level="12.4" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#math-with-dates"><i class="fa fa-check"></i><b>12.4</b> Math with Dates</a></li>
+<li class="chapter" data-level="12.5" data-path="working-with-dates-and-times.html"><a href="working-with-dates-and-times.html#time-zones"><i class="fa fa-check"></i><b>12.5</b> Time Zones</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="what-next.html"><a href="what-next.html"><i class="fa fa-check"></i><b>12</b> What Next</a><ul>
-<li class="chapter" data-level="12.1" data-path="what-next.html"><a href="what-next.html#machine-learning-methods"><i class="fa fa-check"></i><b>12.1</b> Machine Learning Methods</a></li>
-<li class="chapter" data-level="12.2" data-path="what-next.html"><a href="what-next.html#leaflet-maps"><i class="fa fa-check"></i><b>12.2</b> Leaflet Maps</a></li>
-<li class="chapter" data-level="12.3" data-path="what-next.html"><a href="what-next.html#flexdashboard"><i class="fa fa-check"></i><b>12.3</b> FlexDashboard</a></li>
-<li class="chapter" data-level="12.4" data-path="what-next.html"><a href="what-next.html#bookdown"><i class="fa fa-check"></i><b>12.4</b> Bookdown</a></li>
-<li class="chapter" data-level="12.5" data-path="what-next.html"><a href="what-next.html#blogdown"><i class="fa fa-check"></i><b>12.5</b> Blogdown</a></li>
-<li class="chapter" data-level="12.6" data-path="what-next.html"><a href="what-next.html#shiny"><i class="fa fa-check"></i><b>12.6</b> Shiny</a></li>
+<li class="chapter" data-level="13" data-path="what-next.html"><a href="what-next.html"><i class="fa fa-check"></i><b>13</b> What Next</a><ul>
+<li class="chapter" data-level="13.1" data-path="what-next.html"><a href="what-next.html#machine-learning-methods"><i class="fa fa-check"></i><b>13.1</b> Machine Learning Methods</a></li>
+<li class="chapter" data-level="13.2" data-path="what-next.html"><a href="what-next.html#leaflet-maps"><i class="fa fa-check"></i><b>13.2</b> Leaflet Maps</a></li>
+<li class="chapter" data-level="13.3" data-path="what-next.html"><a href="what-next.html#flexdashboard"><i class="fa fa-check"></i><b>13.3</b> FlexDashboard</a></li>
+<li class="chapter" data-level="13.4" data-path="what-next.html"><a href="what-next.html#bookdown"><i class="fa fa-check"></i><b>13.4</b> Bookdown</a></li>
+<li class="chapter" data-level="13.5" data-path="what-next.html"><a href="what-next.html#blogdown"><i class="fa fa-check"></i><b>13.5</b> Blogdown</a></li>
+<li class="chapter" data-level="13.6" data-path="what-next.html"><a href="what-next.html#shiny"><i class="fa fa-check"></i><b>13.6</b> Shiny</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="other-resources.html"><a href="other-resources.html"><i class="fa fa-check"></i><b>13</b> Other Resources</a><ul>
+<li class="chapter" data-level="14" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html"><i class="fa fa-check"></i><b>14</b> Basic Statistics (Using R)</a><ul>
+<li class="chapter" data-level="14.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#purpose-of-the-unit"><i class="fa fa-check"></i><b>14.1</b> Purpose of the Unit</a></li>
+<li class="chapter" data-level="14.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#definitions"><i class="fa fa-check"></i><b>14.2</b> Definitions</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#data-concepts"><i class="fa fa-check"></i><b>14.2.1</b> Data Concepts</a></li>
+<li class="chapter" data-level="14.2.2" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#statistical-terms"><i class="fa fa-check"></i><b>14.2.2</b> Statistical Terms</a></li>
+<li class="chapter" data-level="14.2.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#models-and-tests"><i class="fa fa-check"></i><b>14.2.3</b> Models and Tests</a></li>
+<li class="chapter" data-level="14.2.4" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#how-well-compare-models"><i class="fa fa-check"></i><b>14.2.4</b> How We’ll Compare Models</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="basic-statistics-using-r.html"><a href="basic-statistics-using-r.html#exercises-7"><i class="fa fa-check"></i><b>14.3</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="other-resources.html"><a href="other-resources.html"><i class="fa fa-check"></i><b>15</b> Other Resources</a><ul>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#infographics"><i class="fa fa-check"></i>Infographics</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#courses"><i class="fa fa-check"></i>Courses</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#textbooks"><i class="fa fa-check"></i>Textbooks</a></li>
@@ -309,14 +337,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#data-sources"><i class="fa fa-check"></i>Data Sources</a></li>
 <li class="chapter" data-level="" data-path="other-resources.html"><a href="other-resources.html#graphing-aids"><i class="fa fa-check"></i>Graphing Aids</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html"><i class="fa fa-check"></i><b>14</b> Frequently Asked Questions</a><ul>
-<li class="chapter" data-level="14.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-r"><i class="fa fa-check"></i><b>14.1</b> Why R?</a></li>
-<li class="chapter" data-level="14.2" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-my-code-broken"><i class="fa fa-check"></i><b>14.2</b> Why is my code broken?</a></li>
-<li class="chapter" data-level="14.3" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-x-package-named-that"><i class="fa fa-check"></i><b>14.3</b> Why is (<em>X</em> package) named that?</a></li>
+<li class="chapter" data-level="16" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html"><i class="fa fa-check"></i><b>16</b> Frequently Asked Questions</a><ul>
+<li class="chapter" data-level="16.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-r"><i class="fa fa-check"></i><b>16.1</b> Why R?</a></li>
+<li class="chapter" data-level="16.2" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-my-code-broken"><i class="fa fa-check"></i><b>16.2</b> Why is my code broken?</a></li>
+<li class="chapter" data-level="16.3" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#why-is-x-package-named-that"><i class="fa fa-check"></i><b>16.3</b> Why is (<em>X</em> package) named that?</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="changelog.html"><a href="changelog.html"><i class="fa fa-check"></i><b>15</b> Changelog</a><ul>
-<li class="chapter" data-level="15.1" data-path="changelog.html"><a href="changelog.html#version-1.0.1"><i class="fa fa-check"></i><b>15.1</b> Version 1.0.1</a></li>
-<li class="chapter" data-level="15.2" data-path="changelog.html"><a href="changelog.html#version-1.0.0"><i class="fa fa-check"></i><b>15.2</b> Version 1.0.0</a></li>
+<li class="chapter" data-level="17" data-path="changelog.html"><a href="changelog.html"><i class="fa fa-check"></i><b>17</b> Changelog</a><ul>
+<li class="chapter" data-level="17.1" data-path="changelog.html"><a href="changelog.html#version-1.1.0"><i class="fa fa-check"></i><b>17.1</b> Version 1.1.0</a></li>
+<li class="chapter" data-level="17.2" data-path="changelog.html"><a href="changelog.html#version-1.0.1"><i class="fa fa-check"></i><b>17.2</b> Version 1.0.1</a></li>
+<li class="chapter" data-level="17.3" data-path="changelog.html"><a href="changelog.html#version-1.0.0"><i class="fa fa-check"></i><b>17.3</b> Version 1.0.0</a></li>
 </ul></li>
 </ul>
 
@@ -345,18 +374,27 @@ Don’t worry if it doesn’t work right. If everything did, you’d be out of a
 </blockquote>
 <div id="workflow" class="section level2">
 <h2><span class="header-section-number">3.1</span> Workflow</h2>
+<p>Now that we’re data visualization pros, it’s time to start building our analytic skills. While the tools used in the actual analyses are discussed in the next several chapters, there are a few tools involved in basic R usage that we need to cover before we can start in on any of those topics. This chapter should show you how to save, load, and execute your code effectively, and get you ready for the more extended analyses we’ll be doing next chapter</p>
 <div id="scripts" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Scripts</h3>
 <p>So far, we’ve been using the command line interface in the console to type our programs. While this works, you might have noticed how annoying it can be to type longer programs in. Additionally, you’re probably going to want to save your work at some point - and right now, you’d have to use Notepad or a similar program to save anything you’ve done.</p>
-<p>Luckily, there’s a better way. In the top left corner of RStudio, there’s a menu button called “File”. Click this, then click “New Project”. If you click “New Directory”, and then “New Project”, you’ll be able to create a folder where you can automatically store all of your R code and files. This will also create an R Project file, which you can load to return to where you left off the last time you closed RStudio.</p>
+<p>Luckily, there’s a better way. In the top left corner of R Studio, there’s a menu button called “File”. Click this, then click “New Project”. If you click “New Directory”, and then “New Project”, you’ll be able to create a folder where you can automatically store all of your R code and files. This will also create an R Project file, which you can load to return to where you left off the last time you closed R Studio.</p>
 <p>Let’s load the tidyverse again, now that we’re in a new directory:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 3.1.0     ✔ purrr   0.3.0
-## ✔ tibble  2.1.1     ✔ dplyr   0.7.8
-## ✔ tidyr   0.8.2     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## Registered S3 methods overwritten by &#39;ggplot2&#39;:
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang</code></pre>
+<pre><code>## Registered S3 method overwritten by &#39;rvest&#39;:
+##   method            from
+##   read_xml.response xml2</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.1.1       ✔ purrr   0.3.2  
+## ✔ tibble  2.1.1       ✔ dplyr   0.8.0.1
+## ✔ tidyr   0.8.3       ✔ stringr 1.4.0  
+## ✔ readr   1.3.1       ✔ forcats 0.4.0</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <p>Now that you’re working in a new directory, go back into “File” and hover over “New File”. There’s a lot of options, but right now we care about two of them: <strong>R Scripts</strong> and <strong>R Notebooks</strong>. Open one of each.</p>
@@ -370,13 +408,14 @@ Don’t worry if it doesn’t work right. If everything did, you’d be out of a
 <p>Now change your code so it looks like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Petal.Length, Petal.Width)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>Species))</code></pre></div>
-<p>What we’re doing here is <em>assigning</em> the plot to <code>a</code>. Now, anytime you call <code>a</code>, the plot will appear - try it!</p>
+<p>What we’re doing here is <em>assigning</em> the plot to <code>a</code>. Now, anytime you call <code>a</code>, the plot will appear - run your script, then call “a” from the console!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a</code></pre></div>
 <p><img src="03_Workflow_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Now add the following line under the first two:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>)</code></pre></div>
 <p><img src="03_Workflow_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>This will move the legend to the top of our graph, much as if we had included the <code>theme()</code> function in our original plot. Your program now has - for the first time in this course - two steps to it: the assignment step (where we make <code>a</code> a plot), and the print step (where we add our <code>theme()</code> and print the plot). While in an R script, there are three ways you can run the whole program:</p>
+<p>This will move the legend to the top of our graph, much as if we had included the <code>theme()</code> function in our original plot. Run your script to see the difference!</p>
+<p>Your program now has - for the first time in this book - two steps to it: the assignment step (where we make <code>a</code> a plot), and the print step (where we add our <code>theme()</code> and print the plot). While in an R script, there are three ways you can run the whole program:</p>
 <ul>
 <li>Click the very top of the document and press Cmd/Ctrl+Enter once for each step</li>
 <li>Highlight the entire code and press Cmd/Ctrl+Enter to run it all at once</li>
@@ -388,13 +427,15 @@ Don’t worry if it doesn’t work right. If everything did, you’d be out of a
 <h3><span class="header-section-number">3.1.2</span> Notebooks</h3>
 <p>While scripts are great, they do have some drawbacks. For instance, if you have to do more major and slower tasks - like loading datasets and libraries, or complicated math - you’ll have to redo that step every time you want to run the whole program, which is a pain. Also, running a script pulls up the console window, which is a little bit of a headache.</p>
 <p>For that reason, I tend to work in R Notebooks. Open your new notebook file, and you’ll see a new welcome page! The welcome page has a lot of good information in it - you can delete everything after the second set of three dashes once you’ve read it.</p>
-<p>Inside a notebook, you can make chunks by pressing Cmd/Ctrl+Alt+I. These chunks run as individual scripts, which you can run the exact same way by using combinations of Cmd/Ctrl, Shift, and Enter. Note, though, that your code <em>must be inside</em> these grey chunks to run - anything in the whitespace outside chunks will be interpreted as plain text by R! This becomes super useful - it lets you label your chunks easily and understandably - but is a common area for beginners to mess up.</p>
+<p>Inside a notebook, you can make chunks by pressing Cmd/Ctrl+Alt+I. These chunks run as individual scripts, which you can run the exact same way by using combinations of Cmd/Ctrl, Shift, and Enter. Note, though, that your code <em>must be inside</em> these grey chunks to run - anything in the white space outside chunks will be interpreted as plain text by R! This is a feature, not a bug - it will let you explain <em>why</em> you wrote each piece of code, and record your thoughts at the time you were working - but is a common area for beginners to mess up.</p>
 <p>Using notebooks can be a little more efficient than scripts, because it offers you the ability to split your code steps into multiple pieces, which can let you iterate on an idea faster than using scripts alone.</p>
-<p>No matter which you prefer, you should aim to have one script or notebook per task you perform - don’t just have one long, continous notebook for everything you’re doing. Also, make sure you give everything a descriptive name - there’s nothing worse than needing a file a month or so later and having to open every notebook you’ve ever made to find it!</p>
+<p>No matter which you prefer, you should aim to have one script or notebook per task you perform - don’t just have one long, continuous notebook for everything you’re doing. Also, make sure you give everything a descriptive name - there’s nothing worse than needing a file a month or so later and having to open every notebook you’ve ever made to find it!</p>
 <p>It’s also a good idea to make a new R Project, in a new folder, for each major project you start in on. These sorts of things might not matter too much to you while you’re learning - but once you’re doing more complicated things with R, having good habits like these are essential.</p>
+<p>The rest of this book will assume you’re working using notebooks. While all of these tasks may be done in scripts (or, if you really hate yourself, the console), I think that using notebooks makes much more sense if you’re interested in using R like a professional.</p>
 </div>
-<div id="memory-objects-and-names" class="section level3">
-<h3><span class="header-section-number">3.1.3</span> Memory, Objects, and Names</h3>
+</div>
+<div id="memory-objects-and-names" class="section level2">
+<h2><span class="header-section-number">3.2</span> Memory, Objects, and Names</h2>
 <p>Let’s go back to when we assigned a plot to <code>a</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Petal.Length, Petal.Width)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Species))</code></pre></div>
@@ -414,7 +455,8 @@ a</code></pre></div>
 <span class="kw">ggplot</span>() <span class="op">+</span>
 <span class="st">  </span>a</code></pre></div>
 <p><img src="03_Workflow_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<p>You’ll notice that <code>a</code> is now listed in the upper-lefthand corner of RStudio, under the “Environment” tab. That’s because a is now defined in memory - we can use it in any of our code, anywhere we want. In fact, you can even define <code>a</code> in one file and call it in another, so long as you’ve already run the code defining it in your current RStudio session.</p>
+<p>As you can see, every time we use <code>&lt;-</code>, we completely overwrite what was there before. This is part of the power of R, as it lets us update data and functions as needed - but at the same time it can be dangerous, as it can let us overwrite things we actually need! For instance, R won’t stop you from redefining functions (like <code>ggplot()</code>), operators (like <code>+</code>) or even numbers (like <code>1</code>) as you wish - which might really screw things up later!</p>
+<p>You’ll notice that <code>a</code> is now listed in the upper-left hand corner of R Studio, under the “Environment” tab. That’s because a is now defined in memory - we can use it in any of our code, anywhere we want. In fact, you can even define <code>a</code> in one file and call it in another, so long as you’ve already run the code defining it in your current R Studio session.</p>
 <p>This is really cool for a lot of reasons - it lets us do more complicated things with R - but can also cause some problems. If you keep defining objects with names like <code>a</code>, it’s easy to forget which variable stands for what - and so you can wind up making mistakes when using those variables later on. For instance, we just overwrote <code>a</code> 3 times in that last example - imagine if we had important data stored in there!</p>
 <p>In order to avoid that sort of confusion, you should use descriptive names when creating objects. You should also decide on a standard way you’re going to format those object names - some people prefer <code>snake_case_names</code>, others <code>use.periods</code>, and I personally prefer what’s known as <code>CamelCase</code>. Different organizations and groups have different preferred styles (here’s <a href="https://google.github.io/styleguide/Rguide.xml">Google’s</a>), but what’s important right now is that you pick a style that makes sense to you. Be consistent using this style whenever you code - R won’t understand you if you mess up your capitalization!</p>
 <p>By the way - you might remember that I mentioned last unit that <code>=</code> could also be used as an assignment operator. That’s true, but you should try to never do it - it makes your code much harder to understand - for instance, compare these two formats:</p>
@@ -426,16 +468,16 @@ b =<span class="st"> </span>b<span class="op">+</span><span class="dv">1</span>
 
 a <span class="op">==</span><span class="st"> </span>b</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<p>R’s telling us that these two formats do exactly the same thing - define a variable as 10, and then overwrite the variable as the original value, plus one. But the top block of code makes a bit more sense than the lower one, which looks like we’re trying to test if <code>b</code> is equal to <code>b + 1</code>, which is nonsense. This is just one of the reasons it’s usually better to use <code>&lt;-</code> for assignments.</p>
+<p>R’s telling us that these two formats do exactly the same thing - define a variable as 10, and then overwrite the variable as the original value, plus one. But the top block of code makes a bit more sense than the lower one, which at a glance looks like we’re trying to test if <code>b</code> is equal to <code>b + 1</code>, which is nonsense. This is just one of the reasons it’s usually better to use <code>&lt;-</code> for assignments.</p>
 </div>
-<div id="dataframes-and-transformations" class="section level3">
-<h3><span class="header-section-number">3.1.4</span> Dataframes and Transformations</h3>
+<div id="dataframes" class="section level2">
+<h2><span class="header-section-number">3.3</span> Dataframes</h2>
 <p>Earlier in this course, we went over the different classes of vectors - character, numeric, and logical. If you’re ever trying to find out what class a vector belongs to, you can call the <code>class()</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SampleVector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
 <span class="kw">class</span>(SampleVector)</code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <p>Note that we don’t put object names (such as the name of our vector) in quotes. The general distinction is that if something exists in the global environment, we don’t put it in quotes. If it isn’t, we do. You can see what’s in the current environment by looking at the “Environment” tab that I mentioned earlier - that tab is a list of all the objects you’ve defined so far in this session. Remember that even though your installed packages aren’t in that list, you still don’t put them in quotes when you call <code>library()</code>.</p>
-<p>A martix made of vectors is known, in R, as a <code>dataframe</code>. We’ve already seen some simple dataframes in the past unit built using <code>data.frame</code>:</p>
+<p>A matrix made of vectors is known, in R, as a <code>dataframe</code>. We’ve already seen some simple dataframes in the past unit built using <code>data.frame</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
            <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>),
            <span class="dt">z =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>))</code></pre></div>
@@ -443,651 +485,10 @@ a <span class="op">==</span><span class="st"> </span>b</code></pre></div>
 ## 1 1 a  TRUE
 ## 2 2 b  TRUE
 ## 3 3 c FALSE</code></pre>
-<p>This is an example of something known as <em>rectangular data</em> - the sort you’re likely to find in spreadsheets and many, if not most, scientific applications. We’ll be dealing with rectangular data almost exclusively in this course - while non-rectangular data is useful in many applications, it’s much harder to get started with.</p>
-<p>In fact, we’ll almost always be working with a very specific type of rectangular data known as <em>tidy data</em>. Tidy dataframes always take the same shape:</p>
-<pre><code>##               . Variable_1 Variable_2 Variable... Variable_n
-## 1 Observation 1      Value      Value       Value      Value
-## 2 Observation 2      Value      Value       Value      Value
-## 3           ...        ...        ...         ...        ...
-## 4 Observation n      Value      Value       Value      Value</code></pre>
-<p>Tidy data is organized as follows:</p>
-<ul>
-<li>Each column is a single <strong>variable</strong></li>
-<li>Each row is a single <strong>observation</strong></li>
-<li>Each cell is a single <strong>value</strong></li>
-</ul>
-<p>As you might guess from the name, the <code>tidyverse</code> is specifically designed to work with tidy datasets. By storing all data in this format, we’re able to quickly apply the same sets of tools to multiple different types of data. For instance, imagine a dataframe of seasonal temperatures, built as such:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SeasonalTemps &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Year =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2016</span>, <span class="dv">2017</span>, <span class="dv">2018</span>),
-           <span class="dt">Winter =</span> <span class="kw">c</span>(<span class="dv">40</span>, <span class="dv">38</span>, <span class="dv">42</span>, <span class="dv">44</span>),
-           <span class="dt">Spring =</span> <span class="kw">c</span>(<span class="dv">46</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">48</span>),
-           <span class="dt">Summer =</span> <span class="kw">c</span>(<span class="dv">70</span>, <span class="dv">62</span>, <span class="dv">81</span>, <span class="dv">76</span>),
-           <span class="dt">Fall =</span> <span class="kw">c</span>(<span class="dv">52</span>, <span class="dv">46</span>, <span class="dv">54</span>, <span class="dv">56</span>))
-SeasonalTemps</code></pre></div>
-<pre><code>##   Year Winter Spring Summer Fall
-## 1 2015     40     46     70   52
-## 2 2016     38     40     62   46
-## 3 2017     42     50     81   54
-## 4 2018     44     48     76   56</code></pre>
-<p>This dataframe makes some sense - it’s pretty easy to understand as a human reader, and would probably be a good layout for a printed table. But the problems with this format become obvious when we, for instance, try to graph the data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(SeasonalTemps, <span class="kw">aes</span>(<span class="dt">x =</span> Year)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Winter), <span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Spring), <span class="dt">color =</span> <span class="st">&quot;green&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Summer), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Fall), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
-<p><img src="03_Workflow_files/figure-html/unnamed-chunk-14-1.png" width="672" /> What a mess! That took far too long to type - a good general rule of thumb is that if you have to repeat yourself more than twice to do something, there’s a better way to do it. And, even after all our effort, our graph doesn’t have a legend, and the Y axis is labeled wrong.</p>
-<p>Luckily enough, the <code>tidyverse</code> contains a package designed for making our data tidier - called, helpfully enough, <code>tidyr</code>. We already loaded this package when we called the tidyverse earlier.</p>
-<p>tidyr provides two essential functions for “reshaping” the data - changing back and forth between the <em>wide</em> format we used above and a <em>long</em> format, easier used by our functions. To change our <code>SeasonalTemps</code> data to a long format, we can use the <code>gather()</code> function. This function <em>gathers</em> values stores in multiple columns into a single variable, and makes another variable - the <em>key</em> variable - representing what column the data was originally in.</p>
-<p><code>gather()</code> takes three important arguments:</p>
-<ul>
-<li><code>data</code>, the dataframe to gather<br />
-</li>
-<li><code>key</code>, what to name the key column<br />
-</li>
-<li><code>value</code>, what to name the column data was merged into</li>
-</ul>
-<p>Additionally, we can specify columns that we want to preserve in the new, long dataframe by putting <code>-ColumnName</code> at the end of the function.</p>
-<p>What this looks like for our seasonal data is something like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps &lt;-<span class="st"> </span><span class="kw">gather</span>(<span class="dt">data =</span> SeasonalTemps, <span class="dt">key =</span> Season, <span class="dt">value =</span> AvgTemp, <span class="op">-</span>Year)
-LongTemps</code></pre></div>
-<pre><code>##    Year Season AvgTemp
-## 1  2015 Winter      40
-## 2  2016 Winter      38
-## 3  2017 Winter      42
-## 4  2018 Winter      44
-## 5  2015 Spring      46
-## 6  2016 Spring      40
-## 7  2017 Spring      50
-## 8  2018 Spring      48
-## 9  2015 Summer      70
-## 10 2016 Summer      62
-## 11 2017 Summer      81
-## 12 2018 Summer      76
-## 13 2015   Fall      52
-## 14 2016   Fall      46
-## 15 2017   Fall      54
-## 16 2018   Fall      56</code></pre>
-<p>Note that you don’t have to type <code>data =</code>, <code>key =</code>, and <code>value =</code> - if you don’t, R assumes that you’ve listed the arguments in this order.</p>
-<p>This format makes graphing significantly easier:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(LongTemps, <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> AvgTemp, <span class="dt">color =</span> Season)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
-<p><img src="03_Workflow_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
-<p>If, after all our hard work, we want to get back to our original wide format, we can undo our <code>gather()</code> using <code>spread()</code>. Again, I’m giving spread a data, key, and value argument - but this time, the function is making a new column for each value of our key:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">WideTemps &lt;-<span class="st"> </span><span class="kw">spread</span>(LongTemps, Season, AvgTemp)
-WideTemps</code></pre></div>
-<pre><code>##   Year Fall Spring Summer Winter
-## 1 2015   52     46     70     40
-## 2 2016   46     40     62     38
-## 3 2017   54     50     81     42
-## 4 2018   56     48     76     44</code></pre>
-<p>This new dataframe isn’t quite the same as our original - the columns are now in alphabetical order! If we wanted to rearrage them, I find the easiest way is using the <code>select()</code> function from <code>dplyr()</code>, another package in the tidyverse. By giving <code>select()</code> an argument for data and a vector of column names, we can rearrange the order the columns appear:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">OrderWideTemps &lt;-<span class="st"> </span><span class="kw">select</span>(WideTemps, <span class="kw">c</span>(Year, Winter, Spring, Summer, Fall))
-OrderWideTemps</code></pre></div>
-<pre><code>##   Year Winter Spring Summer Fall
-## 1 2015     40     46     70   52
-## 2 2016     38     40     62   46
-## 3 2017     42     50     81   54
-## 4 2018     44     48     76   56</code></pre>
-<p>When doing this, though, we have to be careful we don’t accidentally forget a column:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">select</span>(WideTemps, <span class="kw">c</span>(Year, Winter, Spring, Fall))</code></pre></div>
-<pre><code>##   Year Winter Spring Fall
-## 1 2015     40     46   52
-## 2 2016     38     40   46
-## 3 2017     42     50   54
-## 4 2018     44     48   56</code></pre>
-<p>Although, if we wanted to drop a column, we can do so by using a <code>-</code> sign:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">select</span>(WideTemps, <span class="op">-</span>Summer)</code></pre></div>
-<pre><code>##   Year Fall Spring Winter
-## 1 2015   52     46     40
-## 2 2016   46     40     38
-## 3 2017   54     50     42
-## 4 2018   56     48     44</code></pre>
+<p>This is an example of something known as <em>rectangular data</em> - the sort you’re likely to find in spreadsheets and many, if not most, business and scientific applications. We’ll be dealing with rectangular data almost exclusively in this course - while non-rectangular data is useful in many applications, it’s much harder to get started with.</p>
 </div>
-<div id="the-pipe" class="section level3">
-<h3><span class="header-section-number">3.1.5</span> The Pipe</h3>
-<p>At this point, we’ve created four dataframes - <code>SeasonalTemps</code>, <code>LongTemps</code>, <code>WideTemps</code>, and <code>OrderedWideTemps</code> - which all contain the same data. When repeatedly making similar but different dataframes, it can be hard to keep track of which object has which data - and it can be hard to keep coming up with simple, descriptive names, too. One solution could be to keep overwriting the same object with the new data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="dv">10</span>
-a &lt;-<span class="st"> </span>a<span class="op">*</span><span class="dv">2</span>
-a &lt;-<span class="st"> </span><span class="kw">sqrt</span>(a)</code></pre></div>
-<p>But this breaks our rule - that if you have to repeat yourself more than twice, there’s a better way to do it. Plus, if you make a mistake while writing over a value that had your original data in it, you have to start all over again - assuming that your data was saved anywhere else!</p>
-<p>Luckily, the tidyverse also introduces a new operator <code>%&gt;%</code>, called the pipe. What the pipe does is pretty intuitive - it takes the output of whatever’s on the <em>left</em> side of the pipe, and uses it as the first input to whatever’s on the <em>right</em> side. For instance:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">20</span>,<span class="dv">25</span>)
-
-Numbers <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mean</span>()</code></pre></div>
-<pre><code>## [1] 15</code></pre>
-<p>Since all of the tidyverse functions take <code>data</code> as their first argument, this lets us <em>chain</em> together multiple functions and skip those assignment steps:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">spread</span>(Season, AvgTemp) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Summer)</code></pre></div>
-<pre><code>##   Year Fall Spring Winter
-## 1 2015   52     46     40
-## 2 2016   46     40     38
-## 3 2017   54     50     42
-## 4 2018   56     48     44</code></pre>
-<p>This makes our code much more easy to understand than constantly using the <code>&lt;-</code> operator, plus it’s an improved way to perform multiple steps in a way that’s harder to make serious mistakes doing.</p>
-<p>Even when a function doesn’t have data as its first input, you can still use a pipe by typing <code>data = .</code> into the function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">spread</span>(<span class="dt">data =</span> ., Season, AvgTemp) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Summer)</code></pre></div>
-<pre><code>##   Year Fall Spring Winter
-## 1 2015   52     46     40
-## 2 2016   46     40     38
-## 3 2017   54     50     42
-## 4 2018   56     48     44</code></pre>
-<p>And pipes work well with ggplot2, too:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> AvgTemp, <span class="dt">color =</span> Season)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
-<p><img src="03_Workflow_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
-</div>
-<div id="data-transformations" class="section level3">
-<h3><span class="header-section-number">3.1.6</span> Data Transformations</h3>
-<div id="mutate" class="section level4">
-<h4><span class="header-section-number">3.1.6.1</span> Mutate</h4>
-<p>This becomes useful when we want to transform our data itself for a graph, rather than transform the axes. For example, remember how we made our log-log graph last unit?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> AvgTemp, <span class="dt">color =</span> Season)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_y_log10</span>()</code></pre></div>
-<p><img src="03_Workflow_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
-<p>This is useful, but ggplot only has a certain number of transformations built in (type <code>?scale_y_continuous()</code> for more info). Additionally, sometimes we’ll want to transform our data for analyses - not just graphing. For this purpose, we can use <code>dplyr</code>’s <code>mutate()</code> function. Mutate takes three arguments: the dataframe (which it can get from <code>%&gt;%</code>), the name of your new column, and what value the new column should have. Say, for example, we wanted to multiply our average temperatures by two:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TwiceTemp =</span> AvgTemp <span class="op">*</span><span class="st"> </span><span class="dv">2</span>)</code></pre></div>
-<pre><code>##    Year Season AvgTemp TwiceTemp
-## 1  2015 Winter      40        80
-## 2  2016 Winter      38        76
-## 3  2017 Winter      42        84
-## 4  2018 Winter      44        88
-## 5  2015 Spring      46        92
-## 6  2016 Spring      40        80
-## 7  2017 Spring      50       100
-## 8  2018 Spring      48        96
-## 9  2015 Summer      70       140
-## 10 2016 Summer      62       124
-## 11 2017 Summer      81       162
-## 12 2018 Summer      76       152
-## 13 2015   Fall      52       104
-## 14 2016   Fall      46        92
-## 15 2017   Fall      54       108
-## 16 2018   Fall      56       112</code></pre>
-<p>You can make multiple columns in the same <code>mutate()</code> call:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TwiceTemp =</span> AvgTemp <span class="op">*</span><span class="st"> </span><span class="dv">2</span>,
-         <span class="dt">TwiceSquaredTemp =</span> TwiceTemp<span class="op">^</span><span class="dv">2</span>,
-         <span class="dt">YearSeason =</span> <span class="kw">paste</span>(Year, Season))</code></pre></div>
-<pre><code>##    Year Season AvgTemp TwiceTemp TwiceSquaredTemp  YearSeason
-## 1  2015 Winter      40        80             6400 2015 Winter
-## 2  2016 Winter      38        76             5776 2016 Winter
-## 3  2017 Winter      42        84             7056 2017 Winter
-## 4  2018 Winter      44        88             7744 2018 Winter
-## 5  2015 Spring      46        92             8464 2015 Spring
-## 6  2016 Spring      40        80             6400 2016 Spring
-## 7  2017 Spring      50       100            10000 2017 Spring
-## 8  2018 Spring      48        96             9216 2018 Spring
-## 9  2015 Summer      70       140            19600 2015 Summer
-## 10 2016 Summer      62       124            15376 2016 Summer
-## 11 2017 Summer      81       162            26244 2017 Summer
-## 12 2018 Summer      76       152            23104 2018 Summer
-## 13 2015   Fall      52       104            10816   2015 Fall
-## 14 2016   Fall      46        92             8464   2016 Fall
-## 15 2017   Fall      54       108            11664   2017 Fall
-## 16 2018   Fall      56       112            12544   2018 Fall</code></pre>
-<p>Notice I used a new function, <code>paste()</code>, for that last column. This function pastes together values into a single cell - it can use other values in a dataframe, vectors, or strings. For instance:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">YearSeason =</span> <span class="kw">paste</span>(<span class="st">&quot;The&quot;</span>, Season, <span class="st">&quot;of&quot;</span>, Year))</code></pre></div>
-<pre><code>##    Year Season AvgTemp         YearSeason
-## 1  2015 Winter      40 The Winter of 2015
-## 2  2016 Winter      38 The Winter of 2016
-## 3  2017 Winter      42 The Winter of 2017
-## 4  2018 Winter      44 The Winter of 2018
-## 5  2015 Spring      46 The Spring of 2015
-## 6  2016 Spring      40 The Spring of 2016
-## 7  2017 Spring      50 The Spring of 2017
-## 8  2018 Spring      48 The Spring of 2018
-## 9  2015 Summer      70 The Summer of 2015
-## 10 2016 Summer      62 The Summer of 2016
-## 11 2017 Summer      81 The Summer of 2017
-## 12 2018 Summer      76 The Summer of 2018
-## 13 2015   Fall      52   The Fall of 2015
-## 14 2016   Fall      46   The Fall of 2016
-## 15 2017   Fall      54   The Fall of 2017
-## 16 2018   Fall      56   The Fall of 2018</code></pre>
-<p>Anyway.</p>
-<p>If you’re transforming your data and don’t want to save the old column, use <code>transmute()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TwiceTemp =</span> AvgTemp <span class="op">*</span><span class="st"> </span><span class="dv">2</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">transmute</span>(<span class="dt">TwiceSquaredTemp =</span> TwiceTemp<span class="op">^</span><span class="dv">2</span>,
-         <span class="dt">YearSeason =</span> <span class="kw">paste</span>(Year, Season))</code></pre></div>
-<pre><code>##    TwiceSquaredTemp  YearSeason
-## 1              6400 2015 Winter
-## 2              5776 2016 Winter
-## 3              7056 2017 Winter
-## 4              7744 2018 Winter
-## 5              8464 2015 Spring
-## 6              6400 2016 Spring
-## 7             10000 2017 Spring
-## 8              9216 2018 Spring
-## 9             19600 2015 Summer
-## 10            15376 2016 Summer
-## 11            26244 2017 Summer
-## 12            23104 2018 Summer
-## 13            10816   2015 Fall
-## 14             8464   2016 Fall
-## 15            11664   2017 Fall
-## 16            12544   2018 Fall</code></pre>
-</div>
-<div id="tibbles" class="section level4">
-<h4><span class="header-section-number">3.1.6.2</span> Tibbles</h4>
-<p>As I mentioned earlier, data in R is stored in <em>dataframes</em>. However, you may have noticed that the dataframe outputs from tidyverse functions look pretty different in your R session (I’d even say nicer) than our raw datasets! That’s because of another useful tidyverse package, <code>tibble</code>.</p>
-<p>Of course, the outputs in this book are pretty much the same - the technology I’m using to publish this isn’t quite that advanced, yet.</p>
-<p>We don’t need to get too far into the mechanics of this package - if you load the tidyverse, any new dataframes you make will be converted into tibbles by default. If you want to force a dataframe into this format, use <code>as.tibble()</code>; if you need the basic dataframe, use <code>as.data.frame()</code>.</p>
-</div>
-<div id="subsetting-data" class="section level4">
-<h4><span class="header-section-number">3.1.6.3</span> Subsetting Data</h4>
-<p>Let’s go back to our <code>iris</code> dataset. I’m going to turn it into a tibble and then view it:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris &lt;-<span class="st"> </span><span class="kw">as.tibble</span>(iris)</code></pre></div>
-<pre><code>## Warning: `as.tibble()` is deprecated, use `as_tibble()` (but mind the new semantics).
-## This warning is displayed once per session.</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris</code></pre></div>
-<pre><code>## # A tibble: 150 x 5
-##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
-##  1          5.1         3.5          1.4         0.2 setosa 
-##  2          4.9         3            1.4         0.2 setosa 
-##  3          4.7         3.2          1.3         0.2 setosa 
-##  4          4.6         3.1          1.5         0.2 setosa 
-##  5          5           3.6          1.4         0.2 setosa 
-##  6          5.4         3.9          1.7         0.4 setosa 
-##  7          4.6         3.4          1.4         0.3 setosa 
-##  8          5           3.4          1.5         0.2 setosa 
-##  9          4.4         2.9          1.4         0.2 setosa 
-## 10          4.9         3.1          1.5         0.1 setosa 
-## # … with 140 more rows</code></pre>
-<p>If we only wanted to work with part of this dataset, R gives us a lot of options to <em>subset</em> the data. For instance, if we only wanted the first column containing sepal length, we could type this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[, <span class="dv">1</span>]</code></pre></div>
-<pre><code>## # A tibble: 150 x 1
-##    Sepal.Length
-##           &lt;dbl&gt;
-##  1          5.1
-##  2          4.9
-##  3          4.7
-##  4          4.6
-##  5          5  
-##  6          5.4
-##  7          4.6
-##  8          5  
-##  9          4.4
-## 10          4.9
-## # … with 140 more rows</code></pre>
-<p>If we wanted the first row, meanwhile, we’d type this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[<span class="dv">1</span>, ]</code></pre></div>
-<pre><code>## # A tibble: 1 x 5
-##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
-## 1          5.1         3.5          1.4         0.2 setosa</code></pre>
-<p>If we wanted several rows, we can specify them with <code>c()</code> or, if they’re consecutive, <code>:</code>. For instance:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), ]</code></pre></div>
-<pre><code>## # A tibble: 4 x 5
-##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
-## 1          5.1         3.5          1.4         0.2 setosa 
-## 2          4.9         3            1.4         0.2 setosa 
-## 3          4.7         3.2          1.3         0.2 setosa 
-## 4          4.6         3.1          1.5         0.2 setosa</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, ]</code></pre></div>
-<pre><code>## # A tibble: 4 x 5
-##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
-## 1          5.1         3.5          1.4         0.2 setosa 
-## 2          4.9         3            1.4         0.2 setosa 
-## 3          4.7         3.2          1.3         0.2 setosa 
-## 4          4.6         3.1          1.5         0.2 setosa</code></pre>
-<p>And if we wanted the value in the first row of the first column, we’d type this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[<span class="dv">1</span>,<span class="dv">1</span>]</code></pre></div>
-<pre><code>## # A tibble: 1 x 1
-##   Sepal.Length
-##          &lt;dbl&gt;
-## 1          5.1</code></pre>
-<p>The pattern should be clear now - inside of the braces, you type the row number, a comma, and then the column number. Notice that <code>[]</code> always gives us a tibble (or dataframe) back. If we wanted a vector, we could use <code>[[]]</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[[<span class="dv">1</span>, <span class="dv">1</span>]]</code></pre></div>
-<pre><code>## [1] 5.1</code></pre>
-<p>If we want to use column names instead of numbers, we could use <code>$</code> in the place of <code>[[]]</code> - note that this always returns a vector, not a dataframe:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris<span class="op">$</span>Sepal.Length</code></pre></div>
-<pre><code>##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4
-##  [18] 5.1 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5
-##  [35] 4.9 5.0 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0
-##  [52] 6.4 6.9 5.5 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8
-##  [69] 6.2 5.6 5.9 6.1 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4
-##  [86] 6.0 6.7 6.3 5.6 5.5 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8
-## [103] 7.1 6.3 6.5 7.6 4.9 7.3 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7
-## [120] 6.0 6.9 5.6 7.7 6.3 6.7 7.2 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7
-## [137] 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9</code></pre>
-<p>The <code>$</code> is really helpful in using other base R functions:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
-<pre><code>## [1] 5.843333</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
-<pre><code>## [1] 0.8280661</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Sepal.Width)</code></pre></div>
-<pre><code>## 
-##  Pearson&#39;s product-moment correlation
-## 
-## data:  iris$Sepal.Length and iris$Sepal.Width
-## t = -1.4403, df = 148, p-value = 0.1519
-## alternative hypothesis: true correlation is not equal to 0
-## 95 percent confidence interval:
-##  -0.27269325  0.04351158
-## sample estimates:
-##        cor 
-## -0.1175698</code></pre>
-<p>(Note that “cor.test()” runs Pearson’s correlation test for whatever vectors you feed it - more on that test later, or <a href="https://bookdown.org/ndphillips/YaRrr/correlation-cor-test.html">here</a>).</p>
-<p>And <code>$</code> also lets us filter our data with conditionals - getting values that are equal to something, larger or smaller than it, and so on. For instance, if we want a dataframe (so <code>[]</code>) where the rows (<code>[, ]</code>) all have a Species value of (<code>==</code>) “setosa”:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[iris<span class="op">$</span>Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>, ]</code></pre></div>
-<pre><code>## # A tibble: 50 x 5
-##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
-##  1          5.1         3.5          1.4         0.2 setosa 
-##  2          4.9         3            1.4         0.2 setosa 
-##  3          4.7         3.2          1.3         0.2 setosa 
-##  4          4.6         3.1          1.5         0.2 setosa 
-##  5          5           3.6          1.4         0.2 setosa 
-##  6          5.4         3.9          1.7         0.4 setosa 
-##  7          4.6         3.4          1.4         0.3 setosa 
-##  8          5           3.4          1.5         0.2 setosa 
-##  9          4.4         2.9          1.4         0.2 setosa 
-## 10          4.9         3.1          1.5         0.1 setosa 
-## # … with 40 more rows</code></pre>
-<p>Note that the species name is in quotes, because it’s a character string. We don’t have to do that for numeric values:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[iris<span class="op">$</span>Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="fl">7.5</span>, ]</code></pre></div>
-<pre><code>## # A tibble: 6 x 5
-##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species  
-##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;    
-## 1          7.6         3            6.6         2.1 virginica
-## 2          7.7         3.8          6.7         2.2 virginica
-## 3          7.7         2.6          6.9         2.3 virginica
-## 4          7.7         2.8          6.7         2   virginica
-## 5          7.9         3.8          6.4         2   virginica
-## 6          7.7         3            6.1         2.3 virginica</code></pre>
-<p>You can use <code>==</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>, and <code>!=</code> (not equal) to subset your data.</p>
-</div>
-<div id="filtering-with-the-tidyverse" class="section level4">
-<h4><span class="header-section-number">3.1.6.4</span> Filtering with the Tidyverse</h4>
-<p>This code is hard to read as a human, and doesn’t work well with other functions. For instance, imagine trying to make a scatterplot of just the setosa data - your code will become almost unparseable.</p>
-<p>Instead, for more involved subsets, dplyr has a useful <code>filter()</code> function. It takes two arguments - your dataframe and the condition it should filter based on:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>)</code></pre></div>
-<pre><code>## # A tibble: 50 x 5
-##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
-##  1          5.1         3.5          1.4         0.2 setosa 
-##  2          4.9         3            1.4         0.2 setosa 
-##  3          4.7         3.2          1.3         0.2 setosa 
-##  4          4.6         3.1          1.5         0.2 setosa 
-##  5          5           3.6          1.4         0.2 setosa 
-##  6          5.4         3.9          1.7         0.4 setosa 
-##  7          4.6         3.4          1.4         0.3 setosa 
-##  8          5           3.4          1.5         0.2 setosa 
-##  9          4.4         2.9          1.4         0.2 setosa 
-## 10          4.9         3.1          1.5         0.1 setosa 
-## # … with 40 more rows</code></pre>
-<p><code>filter()</code> can use all the same operators as the <code>[]</code> methods of subsetting. Additionally, you can use <code>&amp;</code> (“and”) and <code>|</code> (“or”) to chain filters together:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span> <span class="op">&amp;</span><span class="st"> </span>Sepal.Length <span class="op">==</span><span class="st"> </span><span class="fl">5.1</span> <span class="op">&amp;</span><span class="st"> </span>Sepal.Width <span class="op">==</span><span class="st"> </span><span class="fl">3.3</span>)</code></pre></div>
-<pre><code>## # A tibble: 1 x 5
-##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
-## 1          5.1         3.3          1.7         0.5 setosa</code></pre>
-<p>It’s important to remember that <code>&amp;</code> means things which satisfy EACH condition. A common mistake is to type:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span> <span class="op">&amp;</span><span class="st"> </span>Species <span class="op">==</span><span class="st"> &quot;versicolor&quot;</span>)</code></pre></div>
-<pre><code>## # A tibble: 0 x 5
-## # … with 5 variables: Sepal.Length &lt;dbl&gt;, Sepal.Width &lt;dbl&gt;,
-## #   Petal.Length &lt;dbl&gt;, Petal.Width &lt;dbl&gt;, Species &lt;fct&gt;</code></pre>
-<p>Which, because no flower is both species, returns nothing.</p>
-<p>In this case, you can either use an <code>|</code> (“or”) operator, or - particularly if you have several cases you want to accept - <code>%in%</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(Species <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;setosa&quot;</span>,
-                        <span class="st">&quot;versicolor&quot;</span>))</code></pre></div>
-<pre><code>## # A tibble: 100 x 5
-##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
-##  1          5.1         3.5          1.4         0.2 setosa 
-##  2          4.9         3            1.4         0.2 setosa 
-##  3          4.7         3.2          1.3         0.2 setosa 
-##  4          4.6         3.1          1.5         0.2 setosa 
-##  5          5           3.6          1.4         0.2 setosa 
-##  6          5.4         3.9          1.7         0.4 setosa 
-##  7          4.6         3.4          1.4         0.3 setosa 
-##  8          5           3.4          1.5         0.2 setosa 
-##  9          4.4         2.9          1.4         0.2 setosa 
-## 10          4.9         3.1          1.5         0.1 setosa 
-## # … with 90 more rows</code></pre>
-<p>So long as your species is <code>%in%</code> the vector <code>c()</code> you provide, it will show up in the output.</p>
-</div>
-</div>
-<div id="working-with-groups" class="section level3">
-<h3><span class="header-section-number">3.1.7</span> Working with Groups</h3>
-<p>Say we wanted to find the mean sepal length in our dataset. That’s pretty easy:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
-<pre><code>## [1] 5.843333</code></pre>
-<p>But we already know from our graphs that sepal length differs dramatically between species. If we wanted to find the mean for each species, we could calculate it individually for each group:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">setosa &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>)
-virginica &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>)
-versicolor &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;versicolor&quot;</span>)
-
-
-<span class="kw">mean</span>(setosa<span class="op">$</span>Sepal.Length)
-## [1] 5.006
-<span class="kw">mean</span>(virginica<span class="op">$</span>Sepal.Length)
-## [1] 6.588
-<span class="kw">mean</span>(versicolor<span class="op">$</span>Sepal.Length)
-## [1] 5.936</code></pre></div>
-<p>But that code is messy, the output is without any context, and it goes against our rule - that if you have to repeat yourself more than twice, there’s a better way to do it.</p>
-<p>The better way in the tidyverse is to use <em>grouping</em> and <em>summary</em> functions. In the following example, we’ll use <code>group_by()</code> to group our dataframes by the species types, and <code>summarise()</code> to calculate the mean for each of them (in a column called “MeanSepalLength”):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">MeanSepalLength =</span> <span class="kw">mean</span>(Sepal.Length))</code></pre></div>
-<pre><code>## # A tibble: 3 x 2
-##   Species    MeanSepalLength
-##   &lt;fct&gt;                &lt;dbl&gt;
-## 1 setosa                5.01
-## 2 versicolor            5.94
-## 3 virginica             6.59</code></pre>
-<p>This is a faster and easier to understand way to perform functions on groups of data. Note that <code>summarise()</code> uses the British spelling - almost all functions in R have British and American spellings built in (you can use <code>color</code> or <code>colour</code> aesthetics in ggplot, for instance), but this is an important exception. While there is a function called <code>summarize()</code>, it’s highly glitchy and its use is highly discouraged.</p>
-<p>You can use <code>group_by()</code> to calculate all sorts of things - for instance, we can calculate the distance of each plant’s sepal length from the group mean, as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">SLDistanceFromMean =</span> Sepal.Length <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(Sepal.Length))</code></pre></div>
-<pre><code>## # A tibble: 150 x 6
-## # Groups:   Species [3]
-##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
-##  1          5.1         3.5          1.4         0.2 setosa 
-##  2          4.9         3            1.4         0.2 setosa 
-##  3          4.7         3.2          1.3         0.2 setosa 
-##  4          4.6         3.1          1.5         0.2 setosa 
-##  5          5           3.6          1.4         0.2 setosa 
-##  6          5.4         3.9          1.7         0.4 setosa 
-##  7          4.6         3.4          1.4         0.3 setosa 
-##  8          5           3.4          1.5         0.2 setosa 
-##  9          4.4         2.9          1.4         0.2 setosa 
-## 10          4.9         3.1          1.5         0.1 setosa 
-## # … with 140 more rows, and 1 more variable: SLDistanceFromMean &lt;dbl&gt;</code></pre>
-<p>If you want to calculate variables for the whole dataset again, you’ll have to ungroup your data - dataframes will stay grouped until you actively ungroup them with <code>ungroup()</code>. For instance, to calculate the distance of each plant’s sepal length from the overall mean:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(<span class="kw">c</span>(Sepal.Length, Species)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">SLDistanceFromGroupMean =</span> Sepal.Length <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(Sepal.Length)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">SLDistanceFromTotalMean =</span> Sepal.Length <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(Sepal.Length))</code></pre></div>
-<pre><code>## # A tibble: 150 x 4
-##    Sepal.Length Species SLDistanceFromGroupMean SLDistanceFromTotalMean
-##           &lt;dbl&gt; &lt;fct&gt;                     &lt;dbl&gt;                   &lt;dbl&gt;
-##  1          5.1 setosa                   0.0940                  -0.743
-##  2          4.9 setosa                  -0.106                   -0.943
-##  3          4.7 setosa                  -0.306                   -1.14 
-##  4          4.6 setosa                  -0.406                   -1.24 
-##  5          5   setosa                  -0.006                   -0.843
-##  6          5.4 setosa                   0.394                   -0.443
-##  7          4.6 setosa                  -0.406                   -1.24 
-##  8          5   setosa                  -0.006                   -0.843
-##  9          4.4 setosa                  -0.606                   -1.44 
-## 10          4.9 setosa                  -0.106                   -0.943
-## # … with 140 more rows</code></pre>
-<p>(Note that I got rid of some columns with <code>select()</code> to make all the columns in the tibble fit on one page.)</p>
-</div>
-<div id="missing-values" class="section level3">
-<h3><span class="header-section-number">3.1.8</span> Missing Values</h3>
-<div id="explicit-missing-values" class="section level4">
-<h4><span class="header-section-number">3.1.8.1</span> Explicit Missing Values</h4>
-<p>Working with data, there are often two types of missing values we have to worry about. The obvious one are <em>explicit</em> missing values, represented in R as <code>NA</code> (or, sometimes, <code>NaN</code>). Let’s make a dataframe:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MissingExample &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">w =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),
-                         <span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>),
-                         <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&quot;do&quot;</span>, <span class="st">&quot;re&quot;</span>, <span class="ot">NA</span>),
-                         <span class="dt">z =</span> <span class="kw">c</span>(<span class="dv">807</span>, <span class="ot">NA</span>, <span class="dv">780</span>))
-MissingExample</code></pre></div>
-<pre><code>## # A tibble: 3 x 4
-##       w x     y         z
-##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
-## 1     1 A     do      807
-## 2     2 B     re       NA
-## 3     3 C     &lt;NA&gt;    780</code></pre>
-<p>(I’m using <code>tibble()</code> in place of <code>dataframe()</code> here, but the outcome is almost identical.)</p>
-<p><code>NA</code> values are a little tricky to work with - look what happens when we try to find the mean of <code>z</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(MissingExample<span class="op">$</span>z)</code></pre></div>
-<pre><code>## [1] NA</code></pre>
-<p>The reason this happens is because we <em>don’t know</em> what the mean is - that NA value could be anything, so it’s impossible to know what the mean is. To get around this, we can set the <code>na.rm</code> argument to <code>TRUE</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(MissingExample<span class="op">$</span>z, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## [1] 793.5</code></pre>
-<p>We can also solve the problem with filtering out the <code>NA</code> values. We can use <code>is.na()</code> to find out where certain values are, and then ask <code>filter()</code> to remove those rows from our dataset as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MissingExample <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(z)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean =</span> <span class="kw">mean</span>(z))</code></pre></div>
-<pre><code>## # A tibble: 1 x 1
-##    Mean
-##   &lt;dbl&gt;
-## 1  794.</code></pre>
-<p><code>!</code> means “negation” in R, or “opposite” - so we’re asking <code>filter()</code> to return the <em>opposite</em> of any row where <code>z</code> is <code>NA</code>, or, alternatively, all the rows where it has a value.</p>
-<p>If we wanted to drop <em>every</em> row that has a <code>NA</code>, we could use the following <code>tidyr</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MissingExample <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">drop_na</span>()</code></pre></div>
-<pre><code>## # A tibble: 1 x 4
-##       w x     y         z
-##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
-## 1     1 A     do      807</code></pre>
-<p>Or, if we knew the values we wanted those <code>NA</code> to represent, we could use <code>replace_na()</code>, also from <code>tidyr</code>. We just have to specify a list of what we want those values to be:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MissingExample <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">y =</span> <span class="st">&quot;mi&quot;</span>, <span class="dt">z =</span> <span class="st">&quot;078&quot;</span>))</code></pre></div>
-<pre><code>## # A tibble: 3 x 4
-##       w x     y     z    
-##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
-## 1     1 A     do    807  
-## 2     2 B     re    078  
-## 3     3 C     mi    780</code></pre>
-<p>Notice a difference in the <code>z</code> column with this example? Because I put “078” in quotes, it changed the entire column to a character vector - because quotes mean characters, and a vector can only hold one class of data.</p>
-<p>We’ll talk more about that <code>list()</code> function later on - that’s a little too complicated for this unit.</p>
-</div>
-<div id="implicit-missing-values" class="section level4">
-<h4><span class="header-section-number">3.1.8.2</span> Implicit Missing Values</h4>
-<p>The other, harder to identify type of missing value is the <em>implicit</em> missing value. Say we have a dataframe <code>TreeData</code>, which lists the species that are present at two different sites:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TreeData &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Site =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>),
-                   <span class="dt">Species =</span> <span class="kw">c</span>(<span class="st">&quot;Red Maple&quot;</span>, <span class="st">&quot;Sugar Maple&quot;</span>, <span class="st">&quot;Black Cherry&quot;</span>, <span class="st">&quot;Red Maple&quot;</span>, <span class="st">&quot;Sugar Maple&quot;</span>),
-                   <span class="dt">Count =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">5</span>,<span class="dv">15</span>,<span class="dv">8</span>,<span class="dv">19</span>))
-TreeData</code></pre></div>
-<pre><code>## # A tibble: 5 x 3
-##   Site  Species      Count
-##   &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt;
-## 1 A     Red Maple       10
-## 2 A     Sugar Maple      5
-## 3 A     Black Cherry    15
-## 4 B     Red Maple        8
-## 5 B     Sugar Maple     19</code></pre>
-<p>A lot of field data is collected like this, where each row represents something that was present at the field site. The problem with this comes when we try to calculate summary statistics for each species:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TreeData <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean =</span> <span class="kw">mean</span>(Count), <span class="dt">StandardDev =</span> <span class="kw">sd</span>(Count))</code></pre></div>
-<pre><code>## # A tibble: 3 x 3
-##   Species       Mean StandardDev
-##   &lt;chr&gt;        &lt;dbl&gt;       &lt;dbl&gt;
-## 1 Black Cherry    15       NA   
-## 2 Red Maple        9        1.41
-## 3 Sugar Maple     12        9.90</code></pre>
-<p>Black cherry has a missing (<code>NaN</code>) standard deviation, because as far as R knows, it only has one observation to make estimates with. In reality, the fact that black cherry was missing from site B is a data point in and of itself - it’s an <em>implicit</em> value of 0.</p>
-<p>To fix that, we can use the <code>complete()</code> command from <code>tidyr</code>. This function takes column names as arguments, and returns a dataframe with every combination of the values in those columns. We can also specify what to replace <code>NA</code> values with, much like we did in <code>replace_na()</code>, with <code>fill</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TreeData <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">complete</span>(Site, Species, <span class="dt">fill =</span> <span class="kw">list</span>(<span class="dt">Count =</span> <span class="dv">0</span>))</code></pre></div>
-<pre><code>## # A tibble: 6 x 3
-##   Site  Species      Count
-##   &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt;
-## 1 A     Black Cherry    15
-## 2 A     Red Maple       10
-## 3 A     Sugar Maple      5
-## 4 B     Black Cherry     0
-## 5 B     Red Maple        8
-## 6 B     Sugar Maple     19</code></pre>
-<p>This way, when we go to calculate our summary statistics, we get better answers:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TreeData <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">complete</span>(Site, Species, <span class="dt">fill =</span> <span class="kw">list</span>(<span class="dt">Count =</span> <span class="dv">0</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean =</span> <span class="kw">mean</span>(Count), <span class="dt">StandardDev =</span> <span class="kw">sd</span>(Count))</code></pre></div>
-<pre><code>## # A tibble: 3 x 3
-##   Species       Mean StandardDev
-##   &lt;chr&gt;        &lt;dbl&gt;       &lt;dbl&gt;
-## 1 Black Cherry   7.5       10.6 
-## 2 Red Maple      9          1.41
-## 3 Sugar Maple   12          9.90</code></pre>
-</div>
-</div>
-<div id="count-data" class="section level3">
-<h3><span class="header-section-number">3.1.9</span> Count Data</h3>
-<p>One other common issue with field data is that it’s in a summary form - for instance, our tree data summarizes the number of trees at each site into one column. This is often easier to record in the field and easier to read as a human - but it makes some analyses much harder!</p>
-<p>The function <code>uncount()</code> makes this pretty easy for us:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTreeData &lt;-<span class="st"> </span>TreeData <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">uncount</span>(Count)
-
-LongTreeData</code></pre></div>
-<pre><code>## # A tibble: 57 x 2
-##    Site  Species  
-##    &lt;chr&gt; &lt;chr&gt;    
-##  1 A     Red Maple
-##  2 A     Red Maple
-##  3 A     Red Maple
-##  4 A     Red Maple
-##  5 A     Red Maple
-##  6 A     Red Maple
-##  7 A     Red Maple
-##  8 A     Red Maple
-##  9 A     Red Maple
-## 10 A     Red Maple
-## # … with 47 more rows</code></pre>
-<p>And if we wanted to get back to the summary table, we can use <code>count()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTreeData <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">count</span>(Site, Species)</code></pre></div>
-<pre><code>## # A tibble: 5 x 3
-##   Site  Species          n
-##   &lt;chr&gt; &lt;chr&gt;        &lt;int&gt;
-## 1 A     Black Cherry    15
-## 2 A     Red Maple       10
-## 3 A     Sugar Maple      5
-## 4 B     Red Maple        8
-## 5 B     Sugar Maple     19</code></pre>
-<p>If we want to change that column <code>n</code>’s name to something more descriptive, we can use <code>rename()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTreeData <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">count</span>(Site, Species) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">Count =</span> n)</code></pre></div>
-<pre><code>## # A tibble: 5 x 3
-##   Site  Species      Count
-##   &lt;chr&gt; &lt;chr&gt;        &lt;int&gt;
-## 1 A     Black Cherry    15
-## 2 A     Red Maple       10
-## 3 A     Sugar Maple      5
-## 4 B     Red Maple        8
-## 5 B     Sugar Maple     19</code></pre>
-</div>
-<div id="oddballs" class="section level3">
-<h3><span class="header-section-number">3.1.10</span> Oddballs</h3>
+<div id="oddballs" class="section level2">
+<h2><span class="header-section-number">3.4</span> Oddballs</h2>
 <p>Predict what will happen when you run the following code - then run it!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">2</span>
 
@@ -1099,11 +500,22 @@ LongTreeData</code></pre></div>
 <span class="kw">near</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">49</span> <span class="op">*</span><span class="st"> </span><span class="dv">49</span>, <span class="dv">1</span>)
 ## [1] TRUE</code></pre></div>
 </div>
+<div id="r-studio-tips-and-tricks" class="section level2">
+<h2><span class="header-section-number">3.5</span> R Studio Tips and Tricks</h2>
+<p>There are a number of other functions in R Studio that might make your life as an analyst easier. Here’s a quick rundown of the most common ones:</p>
+<ul>
+<li>Pressing Ctrl/Cmd + F lets you search through a script or notebook, just like in any word processor.</li>
+<li>Ctrl/Cmd + Enter will run whatever line of code your cursor is on in a chunk or script. Ctrl/Cmd + Shift + Enter will run the entire chunk or script.</li>
+<li>Ctrl/Cmd + Alt + P will run all the chunks in a notebook above your cursor. Ctrl/Cmd + Alt + R runs all the chunks in that notebook, period.</li>
+<li>Ctrl/Cmd + S saves a file, just like you’d expect. Ctrl/Cmd + Shift + S saves every file you have open!</li>
+<li>F7 runs a spell check for the plain text in your notebook - note that if you don’t run this, your notebook won’t get spell checked at all.</li>
+<li>And if you’re looking for more shortcuts, Alt + Shift + K will open a window with all the shortcuts available to you.</li>
+</ul>
 </div>
 <div id="r-functions-and-workflow-exercises" class="section level2">
-<h2><span class="header-section-number">3.2</span> R Functions and Workflow Exercises</h2>
+<h2><span class="header-section-number">3.6</span> R Functions and Workflow Exercises</h2>
 <div id="do-the-following" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Do the following:</h3>
+<h3><span class="header-section-number">3.6.1</span> Do the following:</h3>
 <ol style="list-style-type: decimal">
 <li>What class is the vector <code>c(1, TRUE, 3)</code>? Why is it not a character vector?</li>
 <li>Make and print this tibble. What do the abbreviations under each column name mean?</li>
@@ -1111,17 +523,6 @@ LongTreeData</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),
        <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>),
        <span class="dt">z =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>))</code></pre></div>
-<ol start="3" style="list-style-type: decimal">
-<li>Inspect the <code>smiths</code> dataset (loaded with the tidyverse - you can access it like <code>iris</code>). How can you fix those missing values?</li>
-</ol>
-</div>
-<div id="work-with-other-datasets" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Work with other datasets:</h3>
-<ol style="list-style-type: decimal">
-<li><code>spread()</code> the <code>iris</code> dataset so that each species’ petal width is in its own column. Then <code>gather()</code> the table back together. What’s different about this dataframe?</li>
-<li>Select all the rows of <code>iris</code> where the species is setosa. Now select all the rows where the species <em>isn’t</em> setosa.</li>
-<li>What’s the mean price for each cut of diamond in the <code>diamonds</code> dataset?</li>
-</ol>
 
 </div>
 </div>
@@ -1132,7 +533,7 @@ LongTreeData</code></pre></div>
         </div>
       </div>
 <a href="visualizing-your-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="basic-statistics-using-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-wrangling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
