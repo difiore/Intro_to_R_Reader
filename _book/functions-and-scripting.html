@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2019-06-19">
+<meta name="date" content="2019-06-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -63,41 +63,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -379,10 +405,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="our-first-function" class="section level3">
 <h3><span class="header-section-number">8.1.1</span> Our First Function</h3>
 <p>Some functions might seem impossibly complex - coding something like ggplot’s geoms, for instance, is probably a bit beyond us right now. But others really aren’t that hard - for instance, if we wanted to code another function to calculate the mean, our code would look like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean2 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+<pre class="sourceCode r"><code class="sourceCode r">mean2 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
   MEAN &lt;-<span class="st"> </span><span class="kw">sum</span>(x)<span class="op">/</span><span class="kw">length</span>(x)
   <span class="kw">return</span>(MEAN)
-}</code></pre></div>
+}</code></pre>
 <p>Note if we want to run an entire chunk of code while using curly braces (<code>{}</code>), we have to run our code from the very first line - trying to run the code from the middle will only evaluate the section inside of those particular braces.</p>
 <p>As you can see, there are three steps to this process:</p>
 <ul>
@@ -392,31 +418,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <p>This is how most functions work! While the internal code can be a lot more complicated than this, at their essence, functions are just objects that manipulate their inputs before returning an output.</p>
 <p>We can compare the results of our function against base R’s <code>mean()</code>, to make sure we did alright:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(iris<span class="op">$</span>Sepal.Length)</code></pre>
 <pre><code>## [1] 5.843333</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean2</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean2</span>(iris<span class="op">$</span>Sepal.Length)</code></pre>
 <pre><code>## [1] 5.843333</code></pre>
 <p>Not bad!</p>
 </div>
 <div id="returns" class="section level3">
 <h3><span class="header-section-number">8.1.2</span> Returns</h3>
 <p>As a quick sidenote, not all the code you’ll see in the wild will be quite as explicit about what it <code>return()</code>s. For instance, the same code will run exactly like <code>mean2()</code> did, and is a bit shorter:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean3 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+<pre class="sourceCode r"><code class="sourceCode r">mean3 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
   <span class="kw">sum</span>(x)<span class="op">/</span><span class="kw">length</span>(x)
-}</code></pre></div>
+}</code></pre>
 <p>In general, functions will return the last thing they evaluate. <code>return()</code> is typically used to stop a function early - if it fails a conditional (as we’ll discuss below) or other similar cases. I personally like being explicit about what a function returns, but most developers will let their function return values implicitly instead.</p>
 </div>
 <div id="more-complicated-functions" class="section level3">
 <h3><span class="header-section-number">8.1.3</span> More Complicated Functions</h3>
 <p>Where other functions get more complicated is in the number of arguments they take. In <code>mean2()</code>, we defined <code>x</code> as our only argument. This is the <em>data</em> argument - it tells us what dataset we should use in our function. However, plenty of functions have <em>detail</em> arguments as well - for instance, the <code>na.rm</code> argument in <code>mean()</code>, or the <code>method</code> argument in <code>cor.test()</code>. These allow us to specify exactly how our function is implemented. For instance, if we wanted to code a new function, <code>multistat()</code>, which let us run any function on a dataset <code>x</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">multistat &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">func =</span> mean){
+<pre class="sourceCode r"><code class="sourceCode r">multistat &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">func =</span> mean){
   <span class="kw">func</span>(x)
-}</code></pre></div>
+}</code></pre>
 <p>We could now use that function to calculate standard deviation, for instance:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">multistat</span>(iris<span class="op">$</span>Sepal.Length, sd)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">multistat</span>(iris<span class="op">$</span>Sepal.Length, sd)</code></pre>
 <pre><code>## [1] 0.8280661</code></pre>
 <p>But if we left the <code>func</code> argument blank, it would default to what it was defined as - in this case, <code>mean</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">multistat</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">multistat</span>(iris<span class="op">$</span>Sepal.Length)</code></pre>
 <pre><code>## [1] 5.843333</code></pre>
 <p>This is a pretty stupid reason to make a function - it doesn’t do anything that the base functions don’t, and makes your code harder to understand - but it’s good for demonstration purposes.</p>
 <p>You don’t have to give your detail arguments a default value - and it’s often helpful if you don’t, as it makes you be explicit about what you want as an output. However, if you’re expecting that you - or anyone else using your function - will usually want a particular output, you can specify the default using <code>=</code> like we did above.</p>
@@ -435,63 +461,63 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Let’s go back to our <code>mean()</code> copycat functions. Now, to be fully honest, the code for <code>mean()</code> is a little more complicated - the function checks to make sure your vector isn’t a character vector, removes NA values if specified, trims your data, and then calculates the mean. But we’ve come close with our basic functions!</p>
 <p>In order to come a bit closer, we’d have to make use of something known as a <em>conditional statement</em>. In their simplest form, these statements evaluate whether or not something is true, then return the appropriate output.</p>
 <p>The most basic version of a conditional is the <code>if()</code> statement. <code>if()</code> evaluates the statement inside of its parentheses, and then returns the result of whatever code is in the <code>{}</code> below it:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="ot">TRUE</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>){
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="ot">TRUE</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>){
   <span class="st">&quot;Yes&quot;</span>
-}</code></pre></div>
+}</code></pre>
 <pre><code>## [1] &quot;Yes&quot;</code></pre>
 <p>Typically, you’ll see <code>if()</code> statements paired with <code>else</code> statements, which will run the code below them if the conditional statement is false. <code>else</code> statements should be surrounded by <code>{}</code> brackets for clarity. For instance:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="ot">TRUE</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>){
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="ot">TRUE</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>){
   <span class="st">&quot;Yes&quot;</span>
 } <span class="cf">else</span> {
   <span class="st">&quot;No&quot;</span>
-}</code></pre></div>
+}</code></pre>
 <pre><code>## [1] &quot;No&quot;</code></pre>
 <p>You can even combine the two:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="ot">TRUE</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>){
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="ot">TRUE</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>){
   <span class="st">&quot;Yes&quot;</span>
 } <span class="cf">else</span> <span class="cf">if</span>(<span class="ot">FALSE</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>){
   <span class="st">&quot;Maybe&quot;</span>
 } <span class="cf">else</span> {
   <span class="st">&quot;No&quot;</span>
-}</code></pre></div>
+}</code></pre>
 <pre><code>## [1] &quot;No&quot;</code></pre>
 <p>A shorter version of this format is the <code>ifelse()</code> statement, which works much like if statements in Excel - it evaluates the conditional statement, then returns the first value if the statement is true, or the second if it’s false:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ifelse</span>(<span class="ot">TRUE</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">0</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ifelse</span>(<span class="ot">TRUE</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">0</span>)</code></pre>
 <pre><code>## [1] 4</code></pre>
 <p>If we wanted to get closer to the <code>mean()</code> function, then, we could do something like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean4 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+<pre class="sourceCode r"><code class="sourceCode r">mean4 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
   <span class="cf">if</span>(<span class="op">!</span><span class="kw">is.numeric</span>(x)) {
     <span class="kw">return</span>(<span class="st">&quot;That&#39;s not a number!&quot;</span>)
   } <span class="cf">else</span>{
     MEAN &lt;-<span class="st"> </span><span class="kw">sum</span>(x)<span class="op">/</span><span class="kw">length</span>(x)
     <span class="kw">return</span>(MEAN) 
   }
-}</code></pre></div>
+}</code></pre>
 <p>This function does exactly as well handling numeric values as our other functions:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean4</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean4</span>(iris<span class="op">$</span>Sepal.Length)</code></pre>
 <pre><code>## [1] 5.843333</code></pre>
 <p>But makes a bit more sense when handed other types of values:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean2</span>(<span class="st">&quot;h&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean2</span>(<span class="st">&quot;h&quot;</span>)</code></pre>
 <pre><code>## Error in sum(x) : invalid &#39;type&#39; (character) of argument</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean4</span>(<span class="st">&quot;h&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean4</span>(<span class="st">&quot;h&quot;</span>)</code></pre>
 <pre><code>## [1] &quot;That&#39;s not a number!&quot;</code></pre>
 </div>
 <div id="stops" class="section level2">
 <h2><span class="header-section-number">8.4</span> Stops</h2>
 <p>The proper way to handle that sort of error-catching is to use <code>stop()</code> statements. While our <code>mean4()</code> function will ID when it’s given a non-numeric dataset, it will still return a value - in this case, the string “That’s not a number!” The problem with this is that it won’t make it obvious that something’s gone wrong - it lets the mess-up be implicit, instead of explicit.</p>
 <p>We can fix that by giving the error message to <code>stop()</code> instead of <code>return</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean5 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+<pre class="sourceCode r"><code class="sourceCode r">mean5 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
   <span class="cf">if</span>(<span class="op">!</span><span class="kw">is.numeric</span>(x)) {
     <span class="kw">stop</span>(<span class="st">&quot;That&#39;s not a number!&quot;</span>)
   } <span class="cf">else</span>{
     MEAN &lt;-<span class="st"> </span><span class="kw">sum</span>(x)<span class="op">/</span><span class="kw">length</span>(x)
     <span class="kw">return</span>(MEAN) 
   }
-}</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean5</span>(<span class="st">&quot;h&quot;</span>)</code></pre></div>
+}</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean5</span>(<span class="st">&quot;h&quot;</span>)</code></pre>
 <pre><code>## Error in mean5(&quot;h&quot;) : That&#39;s not a number!</code></pre>
 <p>If we think that this sort of error is worth alerting the user about, but not stopping the entire function, we can use <code>warning()</code> to generate warning messages:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean6 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+<pre class="sourceCode r"><code class="sourceCode r">mean6 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
   <span class="cf">if</span>(<span class="op">!</span><span class="kw">is.numeric</span>(x)) {
     <span class="kw">warning</span>(<span class="st">&quot;That&#39;s not a number! Returning NA.&quot;</span>)
     <span class="kw">return</span>(<span class="ot">NA_real_</span>)
@@ -500,7 +526,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="kw">return</span>(MEAN) 
   }
 }
-<span class="kw">mean6</span>(<span class="st">&quot;h&quot;</span>)</code></pre></div>
+<span class="kw">mean6</span>(<span class="st">&quot;h&quot;</span>)</code></pre>
 <pre><code>## Warning in mean6(&quot;h&quot;): That&#39;s not a number! Returning NA.</code></pre>
 <pre><code>## [1] NA</code></pre>
 <p>You might have noticed, by the way, that I haven’t been using descriptive object names for our <code>mean()</code> functions. That’s because it’s hard to come up with short, descriptive names for such similar objects - this is the problem that we solve with <code>%&gt;%</code> for our datasets! But still, I tripped up once or twice while writing this chapter, and accidentally called the wrong function - you should make sure you’re naming your functions much more descriptively than I am!</p>
@@ -508,10 +534,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="function-dependencies" class="section level2">
 <h2><span class="header-section-number">8.5</span> Function Dependencies</h2>
 <p>As you’ve seen, we can include functions inside of our functions - and, in fact, most of the most useful functions do exactly this. In that last example, we used <code>mean()</code> and <code>sd()</code> inside of our <code>multistat()</code> function - both of which are included in base R. However, we can even use functions from other libraries if we want. For instance, we can use the <code>describe()</code> function from psych below - but note that we’re preceeding it with <code>psych::</code>, so that it’ll run even if the user doesn’t have the psych library loaded:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">summary_describe &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+<pre class="sourceCode r"><code class="sourceCode r">summary_describe &lt;-<span class="st"> </span><span class="cf">function</span>(x){
   <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">Summary =</span> <span class="kw">summary</span>(x), <span class="dt">Describe =</span> psych<span class="op">::</span><span class="kw">describe</span>(x)))
 }
-<span class="kw">summary_describe</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
+<span class="kw">summary_describe</span>(iris<span class="op">$</span>Sepal.Length)</code></pre>
 <pre><code>## $Summary
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   4.300   5.100   5.800   5.843   6.400   7.900 
@@ -520,7 +546,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##    vars   n mean   sd median trimmed  mad min max range skew kurtosis   se
 ## X1    1 150 5.84 0.83    5.8    5.81 1.04 4.3 7.9   3.6 0.31    -0.61 0.07</code></pre>
 <p>The problem with doing this is that if your end user doesn’t have the package installed, your function will fail out. If you want to force your users to download that package, we’d code something like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">summary_describe &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+<pre class="sourceCode r"><code class="sourceCode r">summary_describe &lt;-<span class="st"> </span><span class="cf">function</span>(x){
   <span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(psych)){
     <span class="kw">install.packages</span>(<span class="st">&quot;psych&quot;</span>)
     <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">Summary =</span> <span class="kw">summary</span>(x), <span class="dt">Describe =</span> psych<span class="op">::</span><span class="kw">describe</span>(x)))
@@ -528,7 +554,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">Summary =</span> <span class="kw">summary</span>(x), <span class="dt">Describe =</span> psych<span class="op">::</span><span class="kw">describe</span>(x)))
   }
 }  
-<span class="kw">summary_describe</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
+<span class="kw">summary_describe</span>(iris<span class="op">$</span>Sepal.Length)</code></pre>
 <pre><code>## Loading required package: psych</code></pre>
 <pre><code>## $Summary
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -539,7 +565,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## X1    1 150 5.84 0.83    5.8    5.81 1.04 4.3 7.9   3.6 0.31    -0.61 0.07</code></pre>
 <p>(We use <code>require()</code> in the place of <code>library()</code> here as it will generate a warning message - letting our function proceed - rather than an error. More info <a href="https://www.r-bloggers.com/difference-between-library-and-require-in-r/">here</a>.)</p>
 <p>We can also require that packages be loaded in an R session, using code like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">summary_describe &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+<pre class="sourceCode r"><code class="sourceCode r">summary_describe &lt;-<span class="st"> </span><span class="cf">function</span>(x){
   <span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(psych)){
     <span class="kw">install.packages</span>(<span class="st">&quot;psych&quot;</span>)
     <span class="kw">library</span>(psych)
@@ -548,7 +574,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">Summary =</span> <span class="kw">summary</span>(x), <span class="dt">Describe =</span> <span class="kw">describe</span>(x)))
   }
 }  
-<span class="kw">summary_describe</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
+<span class="kw">summary_describe</span>(iris<span class="op">$</span>Sepal.Length)</code></pre>
 <pre><code>## $Summary
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   4.300   5.100   5.800   5.843   6.400   7.900 
@@ -561,11 +587,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="sidenote-2" class="section level4">
 <h4><span class="header-section-number">8.5.0.1</span> Sidenote:</h4>
 <p>Note that I had to use “list” in <code>summary_describe()</code> above to return more than one object - and that both objects are written with a $ in front of their name. One cool side effect of this is that I can ask R to return only one of the outputs:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary_describe</span>(iris<span class="op">$</span>Sepal.Length)<span class="op">$</span>Describe</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary_describe</span>(iris<span class="op">$</span>Sepal.Length)<span class="op">$</span>Describe</code></pre>
 <pre><code>##    vars   n mean   sd median trimmed  mad min max range skew kurtosis   se
 ## X1    1 150 5.84 0.83    5.8    5.81 1.04 4.3 7.9   3.6 0.31    -0.61 0.07</code></pre>
 <p>This has some actual applications when using tidyverse functions - for instance, <code>summarise()</code> can only use single-output functions. We can get around this by doing the following:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
 <pre><code>## Registered S3 methods overwritten by &#39;ggplot2&#39;:
 ##   method         from 
 ##   [.quosures     rlang
@@ -574,20 +600,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## Registered S3 method overwritten by &#39;rvest&#39;:
 ##   method            from
 ##   read_xml.response xml2</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.1.1       ✔ purrr   0.3.2  
 ## ✔ tibble  2.1.1       ✔ dplyr   0.8.0.1
 ## ✔ tidyr   0.8.3       ✔ stringr 1.4.0  
 ## ✔ readr   1.3.1       ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ ggplot2::%+%()   masks psych::%+%()
 ## ✖ ggplot2::alpha() masks psych::alpha()
 ## ✖ dplyr::filter()  masks stats::filter()
 ## ✖ dplyr::lag()     masks stats::lag()</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Estimate =</span> <span class="kw">cor.test</span>(Sepal.Length, Sepal.Width)<span class="op">$</span>estimate, 
-            <span class="dt">pValue =</span> <span class="kw">cor.test</span>(Sepal.Length, Sepal.Width)<span class="op">$</span>p.value)</code></pre></div>
+            <span class="dt">pValue =</span> <span class="kw">cor.test</span>(Sepal.Length, Sepal.Width)<span class="op">$</span>p.value)</code></pre>
 <pre><code>## # A tibble: 3 x 3
 ##   Species    Estimate   pValue
 ##   &lt;fct&gt;         &lt;dbl&gt;    &lt;dbl&gt;
@@ -606,12 +632,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">8.7</span> Loops</h2>
 <p>You may have noticed a theme throughout this reader - repetition is bad. Repeating your code makes it easy to make mistakes, and makes it harder to edit things as needed. As such, there’s a concept in R - and most other programming languages - called looping, designed to cut down on repetitions.</p>
 <p>For instance, say we had a tibble:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df1 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">a =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),
-              <span class="dt">b =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">df1 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">a =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),
+              <span class="dt">b =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>))</code></pre>
 <p>If we wanted to multiply each column by 2, we could do the following:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df1<span class="op">$</span>a &lt;-<span class="st"> </span>df1<span class="op">$</span>a <span class="op">*</span><span class="st"> </span><span class="dv">2</span>
+<pre class="sourceCode r"><code class="sourceCode r">df1<span class="op">$</span>a &lt;-<span class="st"> </span>df1<span class="op">$</span>a <span class="op">*</span><span class="st"> </span><span class="dv">2</span>
 df1<span class="op">$</span>b &lt;-<span class="st"> </span>df1<span class="op">$</span>b <span class="op">*</span><span class="st"> </span><span class="dv">2</span>
-df1</code></pre></div>
+df1</code></pre>
 <pre><code>## # A tibble: 4 x 2
 ##       a     b
 ##   &lt;dbl&gt; &lt;dbl&gt;
@@ -620,14 +646,14 @@ df1</code></pre></div>
 ## 3     2     4
 ## 4     2     4</code></pre>
 <p>But as usual, we want to find a way to reduce that repetition. The best tool in R for this sort of thing is what’s known as a <em>for loop</em>, which will repeat an action a specified number of times. To complete this task, we’d write a for loop that looked something like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),
+<pre class="sourceCode r"><code class="sourceCode r">df1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),
               <span class="dt">b =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>))
 
 <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(df1)){
   df1[[i]] &lt;-<span class="st"> </span>df1[[i]] <span class="op">*</span><span class="st"> </span><span class="dv">2</span>
 }
 
-df1</code></pre></div>
+df1</code></pre>
 <pre><code>##   a b
 ## 1 2 4
 ## 2 2 4
@@ -635,14 +661,14 @@ df1</code></pre></div>
 ## 4 2 4</code></pre>
 <p>Alright, so let’s break that down.</p>
 <p>The <code>for()</code> statement initializes the loop, telling R that we’re going to want to do something repeatedly. Inside the parentheses, the <code>i in seq_along(df1)</code> defines how many times we want to loop the code. This will make a little more sense if we see what we get from running <code>seq_along(df1)</code> by itself:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq_along</span>(df1)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq_along</span>(df1)</code></pre>
 <pre><code>## [1] 1 2</code></pre>
 <p><code>seq_along()</code> returns the position of each column of a dataframe or each element in a vector - so for a dataframe with <em>n</em> columns, we’ll get the output “1, 2, …, n”. While this isn’t particularly useful by itself, it becomes powerful when used to make loops.</p>
 <p>The code <code>i in seq_along(df1)</code> then tells our code to repeat itself as many times as there are positions. It does this by incrementing <code>i</code> by 1 each time the code is run, with the first iteration having a value of 1. I should note that it doesn’t matter what you use to represent <code>i</code> - while <code>i</code> is extremely common, you could use almost any object name.</p>
 <p>We then are able to act on each column of our dataframe by selecting it using <code>[[i]]</code>. Since <code>i</code> increases by 1 each time the code is looped, we keep selecting the next column in order, until we’re completely done with our loop.</p>
 <p>If we want to make a new dataframe with our output, we have to be careful to initalize it with the proper number of columns before we start our loop - if we don’t, our code will slow down significantly.</p>
 <p>Say we wanted our function to return the median of each column. Doing this the right way looks something like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),
+<pre class="sourceCode r"><code class="sourceCode r">df1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),
               <span class="dt">b =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>))
 
 out &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>, <span class="kw">length</span>(df1))
@@ -651,7 +677,7 @@ out[<span class="dv">1</span>] &lt;-<span class="st"> </span>df1[<span class="dv
   out[[i]] &lt;-<span class="st"> </span><span class="kw">median</span>(df1[[i]])
 }
 
-out</code></pre></div>
+out</code></pre>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -672,12 +698,12 @@ out</code></pre></div>
 <li><code>map_chr()</code> for character strings</li>
 </ul>
 <p>For instance, we could replace our last for loop with the following:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map_dbl</span>(df1, median)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map_dbl</span>(df1, median)</code></pre>
 <pre><code>## a b 
 ## 1 2</code></pre>
 <p>Which, with the pipe, looks like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df1 <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">map_dbl</span>(median)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">df1 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">map_dbl</span>(median)</code></pre>
 <pre><code>## a b 
 ## 1 2</code></pre>
 <p>Which is a lot cleaner to read, and easier to write!</p>
@@ -693,8 +719,8 @@ out</code></pre></div>
 <li>Write a function that will say “Hi!” if given the input “hi”, “Bye!” if it gets the input “bye”, and “How rude!” if the input isn’t either of those.</li>
 <li>Use a loop to find the mean and median of each column of this dataframe:</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">57</span>, <span class="dv">24</span>, <span class="dv">245</span>, <span class="dv">3526</span>),
-                 <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">67</span>, <span class="dv">234</span>, <span class="dv">574</span>, <span class="dv">57</span>))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">57</span>, <span class="dv">24</span>, <span class="dv">245</span>, <span class="dv">3526</span>),
+                 <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">67</span>, <span class="dv">234</span>, <span class="dv">574</span>, <span class="dv">57</span>))</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Replace that loop with map functions.</li>
 <li>Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”.</li>
@@ -758,7 +784,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

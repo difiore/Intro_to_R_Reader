@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2019-06-19">
+<meta name="date" content="2019-06-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -63,41 +63,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -393,7 +419,7 @@ Or rather, a very <em>literal</em> machine - if you do things out of order, or m
 <h2><span class="header-section-number">1.4</span> Conventions of the book</h2>
 <p>We’ll go over standard code styles a bit later in the course - there is a Right Way<strong><sup>tm</sup></strong> to write code, but we won’t worry about that for a few more chapters. But so you can understand a few basics, here’s a few styles we’ll use in the text:</p>
 <p>If text is <code>preformatted</code>, it means it’s something from R - a function, some data, or anything else that you’d use in your code. Blocks of code will be represented as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</code></pre>
 <p>This format both makes it obvious that this is code - not text - and lets you copy and paste it into your R session to see the results for yourself. Code outputs, meanwhile, will mostly be shown like this:</p>
 <pre><code>## [1] &quot;Hello, World!&quot;</code></pre>
 <p>Where text is commented out (that is, has a # in front, so R won’t parse it), so it won’t do anything if you put it in your session.</p>
@@ -425,72 +451,72 @@ Or rather, a very <em>literal</em> machine - if you do things out of order, or m
 <p>Secondly, if you hit “enter” while working in the console, you’ll tell R to process your code and give you the output. If you want to type more than one line at a time, hold shift while pressing enter.</p>
 <p>Okay, now let’s get going.<br />
 Type the following into the console - but be careful, everything R does is case-sensitive:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="st">&quot;Hello, world!&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="st">&quot;Hello, world!&quot;</span>)</code></pre>
 <p>What happened? If you did it right, you should have gotten the following:</p>
 <pre><code>## [1] &quot;Hello, world!&quot;</code></pre>
 <p>It’s cool, right? Congratulations, you’re officially a programmer!</p>
 <p>What we just did was use a <em>function</em> (<code>print()</code>), R commands that take inputs in the form of <em>arguments</em> (inside the parenthesis) and use them to return an <em>output</em>. We’ll get under the hood of functions in unit 5 - for now, we’re going to use the many functions other people have put together for us.</p>
 <p>In addition to saying hi, you can use the R console to do math:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">4</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">4</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span></code></pre>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">6</span><span class="op">^</span><span class="dv">7</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">6</span><span class="op">^</span><span class="dv">7</span></code></pre>
 <pre><code>## [1] 279936</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">18</span><span class="op">%%</span><span class="dv">7</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">18</span><span class="op">%%</span><span class="dv">7</span></code></pre>
 <pre><code>## [1] 4</code></pre>
 <p>Note that R <em>generally</em> follows PEMDAS, with a few exceptions - we’ll cover those exceptions in another chapter.<br />
 Also, <code>%%</code> is an operator (in the same way that <code>+</code>, <code>*</code>, <code>-</code>, and <code>/</code> are all operators - mathematical symbols that represent a function) which returns the remainder - the integer (whole number) which remains after you’ve divided as much as you can. So while 7 fits into 18 twice (7*2 = 14), it leaves 4 “left over” afterwards.</p>
 <p>R can also do a lot of more complicated things. By putting a list of values inside <code>c()</code>, you create what’s known as a <em>vector</em> - a list of objects that R can interact with.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</code></pre>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">18</span>, <span class="st">&quot;ESF&quot;</span>, <span class="dv">98</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">18</span>, <span class="st">&quot;ESF&quot;</span>, <span class="dv">98</span>)</code></pre>
 <pre><code>## [1] &quot;18&quot;  &quot;ESF&quot; &quot;98&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="st">&quot;ESF&quot;</span>, <span class="st">&quot;Acorns&quot;</span>, <span class="st">&quot;Stumpies&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="st">&quot;ESF&quot;</span>, <span class="st">&quot;Acorns&quot;</span>, <span class="st">&quot;Stumpies&quot;</span>)</code></pre>
 <pre><code>## [1] &quot;ESF&quot;      &quot;Acorns&quot;   &quot;Stumpies&quot;</code></pre>
 <p>(The “c” stands for <em>combine</em>, by the way.)</p>
 <p>R can use vectors to perform all sorts of matrix algebra operations. For instance, if you try to divide a vector by a scalar (a single number), it will dissolve every object in the vector by the scalar:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">/</span><span class="st"> </span><span class="dv">3</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">/</span><span class="st"> </span><span class="dv">3</span></code></pre>
 <pre><code>## [1] 0.3333333 0.6666667 1.0000000</code></pre>
 <p>Meanwhile, dividing a vector by a vector will divide each element in turn - so the first element of the first vector will be divided by the first element of the second, and so on:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">/</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">/</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</code></pre>
 <pre><code>## [1] 1 1 1</code></pre>
 <p>(For more information on matrix algebra, <a href="https://www.khanacademy.org/math/algebra-home/alg-matrices">click here</a>. More information on matrix algebra implementation in R may be found <a href="https://www.statmethods.net/advstats/matrix.html">here</a>)</p>
 <p>That’s about as much matrix algebra as we have to worry about for this book, luckily enough. Let’s go back to our earlier example, where we defined three different vectors:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</code></pre>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">18</span>, <span class="st">&quot;ESF&quot;</span>, <span class="dv">98</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">18</span>, <span class="st">&quot;ESF&quot;</span>, <span class="dv">98</span>)</code></pre>
 <pre><code>## [1] &quot;18&quot;  &quot;ESF&quot; &quot;98&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="st">&quot;ESF&quot;</span>, <span class="st">&quot;Acorns&quot;</span>, <span class="st">&quot;Stumpies&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="st">&quot;ESF&quot;</span>, <span class="st">&quot;Acorns&quot;</span>, <span class="st">&quot;Stumpies&quot;</span>)</code></pre>
 <pre><code>## [1] &quot;ESF&quot;      &quot;Acorns&quot;   &quot;Stumpies&quot;</code></pre>
 <p>Look at the difference between that first and that second output - see how the numbers are in quotes the second time around? While R is capable of holding a lot of different types of data, a single vector isn’t. A vector has to either be a <em>numeric</em> or a <em>character</em> vector - it’s either numbers or symbols. This matters, because you can’t do math with symbols.</p>
 <p>For instance, if we divide the first vector by 3:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">/</span><span class="st"> </span><span class="dv">3</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">/</span><span class="st"> </span><span class="dv">3</span></code></pre>
 <pre><code>## [1] 0.3333333 0.6666667 1.0000000</code></pre>
 <p>Meanwhile, if we tried to divide our second vector:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">18</span>, <span class="st">&quot;ESF&quot;</span>, <span class="dv">98</span>) <span class="op">/</span><span class="st"> </span><span class="dv">3</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">18</span>, <span class="st">&quot;ESF&quot;</span>, <span class="dv">98</span>) <span class="op">/</span><span class="st"> </span><span class="dv">3</span></code></pre>
 <pre><code># Error in c(18, &quot;ESF&quot;, 98)/3 : non-numeric argument to binary operator</code></pre>
 <p>We get our first error message of the course.</p>
 <p>I should mention that I lied a little bit - vectors can also be a third type, <em>logical</em>. If a vector is made up of <code>TRUE</code> and <code>FALSE</code> elements - and no other elements - then the vector is considered logical.</p>
 <p>Logical values are exactly what they sound like - they return <code>TRUE</code> if something is true, and <code>FALSE</code> if not. For instance:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">6</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">6</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span></code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">6</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">6</span></code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <p>(The <code>&gt;</code> and <code>&lt;</code> symbols are also a type of operator, known as a <em>logical operator</em>. These compare two values and return a logical value of either <code>TRUE</code> or <code>FALSE</code>. You can find a full list of operators <a href="https://www.statmethods.net/management/operators.html">at this link</a>.)</p>
 <p>Now, the reason I only lied a little is that R understands logical values as binary values - <code>TRUE</code> is 1 and <code>FALSE</code> is 0. For instance:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span></code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">FALSE</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="ot">FALSE</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span></code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> </code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> </code></pre>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">18</span><span class="op">^</span><span class="ot">FALSE</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">18</span><span class="op">^</span><span class="ot">FALSE</span></code></pre>
 <pre><code>## [1] 1</code></pre>
 <p>By the way, see how I used <code>==</code> to prove two things were equal? In R, <code>=</code> does something completely different than <code>==</code> - it assigns a value, which we’ll get into in unit 2. For now, just know that you should always use <code>==</code> to check if two values are equivalent.</p>
 <p>Still, vectors can only hold one type of data - a vector with a value of <code>TRUE</code> and a value of <code>ESF</code> will become a character vector, while <code>c(TRUE, 18, 2)</code> is a numeric vector.</p>
 <p>If you need to hold more than one type of data, you need a table - or, as they’re called in R, a dataframe. It is possible to make dataframes by hand in R - note, you can press SHIFT+Enter to start a new line:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),
            <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>),
-           <span class="dt">z =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>))</code></pre></div>
+           <span class="dt">z =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>))</code></pre>
 <pre><code>##   x y     z
 ## 1 1 a  TRUE
 ## 2 2 b  TRUE
@@ -502,7 +528,7 @@ Also, <code>%%</code> is an operator (in the same way that <code>+</code>, <code
 <h2><span class="header-section-number">1.8</span> The iris Dataset</h2>
 <p>What’s very cool for our purposes is that R comes preloaded with a number of different datasets. Now, if you just type in the name of the dataset, you might overwhelm R for a moment - it will print out every single row of that dataset, no matter how long it is.<br />
 Luckily for us, the <code>head()</code> command lets us see just the first few rows of the data. If we use the dataset <code>iris</code> (included in base R), for instance, we’d get the following result:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(iris)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(iris)</code></pre>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -511,7 +537,7 @@ Luckily for us, the <code>head()</code> command lets us see just the first few r
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
 <p>Note that while the default is to print six rows, you can choose how many rows to print by specifying <code>n = ##</code> in the <code>head()</code> function. You can even call the last few rows of your dataset by using the similar function <code>tail()</code> - for instance:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(iris, <span class="dt">n =</span> <span class="dv">3</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(iris, <span class="dt">n =</span> <span class="dv">3</span>)</code></pre>
 <pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
 ## 148          6.5         3.0          5.2         2.0 virginica
 ## 149          6.2         3.4          5.4         2.3 virginica
@@ -521,7 +547,7 @@ Luckily for us, the <code>head()</code> command lets us see just the first few r
 <div id="graphing-with-r" class="section level2">
 <h2><span class="header-section-number">1.9</span> Graphing with R</h2>
 <p>This dataset contains measurements on 150 different irises, and is the data that was used to develop the first ever linear regressions. Even if you aren’t a stats nerd, this dataset lets us do some cool things. For instance, we can see that there are columns containing information on sepal length and sepal width - I wonder if they might be correlated? What would happen if we asked R to <code>plot()</code> them for us? Here, we’re going to use the <code>$</code> operator for the first time - we’ll go over what exactly it does in unit 2, but for now, just know it’s how we specify which columns we want the <code>plot()</code> function to use:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Sepal.Width)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Sepal.Width)</code></pre>
 <p><img src="01_Introduction_to_R_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>As you can see, R has some basic plotting functions built right in. However, these plots can be pretty complex to fuss with - and it seems like this plot needs fussing, as right now it claims sepal width and length are unrelated!</p>
 <p>Luckily, there are better tools for creating graphics in the modern era. The next chapter will cover how to use those to create effective graphs for data exploration and communication.</p>
@@ -597,7 +623,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

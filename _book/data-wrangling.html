@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2019-06-19">
+<meta name="date" content="2019-06-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -63,41 +63,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -409,12 +435,12 @@ In God we trust. All others must bring data.
 <pre><code>## Registered S3 method overwritten by &#39;rvest&#39;:
 ##   method            from
 ##   read_xml.response xml2</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.1.1       ✔ purrr   0.3.2  
 ## ✔ tibble  2.1.1       ✔ dplyr   0.8.0.1
 ## ✔ tidyr   0.8.3       ✔ stringr 1.4.0  
 ## ✔ readr   1.3.1       ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <pre><code>## Warning in kableExtra::kable_styling(.): Please specify format in kable.
@@ -472,14 +498,14 @@ In God we trust. All others must bring data.
 <div id="tidying-data" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> Tidying Data</h3>
 <p>As you might guess from the name, the <code>tidyverse</code> is specifically designed to work with tidy datasets. Let’s load it now:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
 <p>By storing all data in a tidy format, we’re able to quickly apply the same sets of tools to multiple different types of data. For instance, imagine a dataframe of seasonal temperatures, built as such:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SeasonalTemps &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Year =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2016</span>, <span class="dv">2017</span>, <span class="dv">2018</span>),
+<pre class="sourceCode r"><code class="sourceCode r">SeasonalTemps &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Year =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2016</span>, <span class="dv">2017</span>, <span class="dv">2018</span>),
            <span class="dt">Winter =</span> <span class="kw">c</span>(<span class="dv">40</span>, <span class="dv">38</span>, <span class="dv">42</span>, <span class="dv">44</span>),
            <span class="dt">Spring =</span> <span class="kw">c</span>(<span class="dv">46</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">48</span>),
            <span class="dt">Summer =</span> <span class="kw">c</span>(<span class="dv">70</span>, <span class="dv">62</span>, <span class="dv">81</span>, <span class="dv">76</span>),
            <span class="dt">Fall =</span> <span class="kw">c</span>(<span class="dv">52</span>, <span class="dv">46</span>, <span class="dv">54</span>, <span class="dv">56</span>))
-SeasonalTemps</code></pre></div>
+SeasonalTemps</code></pre>
 <pre><code>##   Year Winter Spring Summer Fall
 ## 1 2015     40     46     70   52
 ## 2 2016     38     40     62   46
@@ -487,12 +513,13 @@ SeasonalTemps</code></pre></div>
 ## 4 2018     44     48     76   56</code></pre>
 <p>(By the way, if you’re working in notebooks, I’d suggest typing each of these blocks of code into their own chunk - press Ctrl/Cmd + Alt + I in order to quickly add a new code chunk to your document.)</p>
 <p>This dataframe makes some sense - it’s pretty easy to understand as a human reader, and would probably be a good layout for a printed table. But the problems with this format become obvious when we, for instance, try to graph the data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(SeasonalTemps, <span class="kw">aes</span>(<span class="dt">x =</span> Year)) <span class="op">+</span><span class="st"> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(SeasonalTemps, <span class="kw">aes</span>(<span class="dt">x =</span> Year)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Winter), <span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Spring), <span class="dt">color =</span> <span class="st">&quot;green&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Summer), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Fall), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
-<p><img src="04_Data_Wrangling_files/figure-html/unnamed-chunk-4-1.png" width="672" /> What a mess! That took far too long to type - a good general rule of thumb is that if you have to repeat yourself more than twice to do something, there’s a better way to do it. And, even after all our effort, our graph doesn’t have a legend, and the Y axis is labeled wrong.</p>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Fall), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)</code></pre>
+<p><img src="04_Data_Wrangling_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+What a mess! That took far too long to type - a good general rule of thumb is that if you have to repeat yourself more than twice to do something, there’s a better way to do it. And, even after all our effort, our graph doesn’t have a legend, and the Y axis is labeled wrong.</p>
 <p>This is a good time for us to use those tools I mentioned earlier, to turn our data tidy! Luckily enough, the <code>tidyverse</code> contains a package designed for making our data tidier - called, helpfully enough, <code>tidyr</code>. We already loaded this package when we called the tidyverse earlier.</p>
 <p><code>tidyr</code> provides two essential functions for “reshaping” the data - changing back and forth between the <em>wide</em> format we used above and a <em>long</em> format, easier used by our functions. To change our <code>SeasonalTemps</code> data to a long format, we can use the <code>gather()</code> function. This function <em>gathers</em> values stores in multiple columns into a single variable, and makes another variable - the <em>key</em> variable - representing what column the data was originally in.</p>
 <p><code>gather()</code> takes three important arguments:</p>
@@ -505,8 +532,8 @@ SeasonalTemps</code></pre></div>
 </ul>
 <p>Additionally, we can specify columns that we want to preserve in the new, long dataframe by putting <code>-ColumnName</code> at the end of the function.</p>
 <p>What this looks like for our seasonal data is something like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps &lt;-<span class="st"> </span><span class="kw">gather</span>(<span class="dt">data =</span> SeasonalTemps, <span class="dt">key =</span> Season, <span class="dt">value =</span> AvgTemp, <span class="op">-</span>Year)
-LongTemps</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">LongTemps &lt;-<span class="st"> </span><span class="kw">gather</span>(<span class="dt">data =</span> SeasonalTemps, <span class="dt">key =</span> Season, <span class="dt">value =</span> AvgTemp, <span class="op">-</span>Year)
+LongTemps</code></pre>
 <pre><code>##    Year Season AvgTemp
 ## 1  2015 Winter      40
 ## 2  2016 Winter      38
@@ -526,34 +553,34 @@ LongTemps</code></pre></div>
 ## 16 2018   Fall      56</code></pre>
 <p>Note that you don’t have to type <code>data =</code>, <code>key =</code>, and <code>value =</code> - if you don’t, R assumes that you’ve listed the arguments in this order.</p>
 <p>This format makes graphing significantly easier:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(LongTemps, <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> AvgTemp, <span class="dt">color =</span> Season)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(LongTemps, <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> AvgTemp, <span class="dt">color =</span> Season)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>()</code></pre>
 <p><img src="04_Data_Wrangling_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>If, after all our hard work, we want to get back to our original wide format, we can undo our <code>gather()</code> using <code>spread()</code>. Again, I’m giving spread a data, key, and value argument - but this time, the function is making a new column for each value of our key:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">WideTemps &lt;-<span class="st"> </span><span class="kw">spread</span>(LongTemps, Season, AvgTemp)
-WideTemps</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">WideTemps &lt;-<span class="st"> </span><span class="kw">spread</span>(LongTemps, Season, AvgTemp)
+WideTemps</code></pre>
 <pre><code>##   Year Fall Spring Summer Winter
 ## 1 2015   52     46     70     40
 ## 2 2016   46     40     62     38
 ## 3 2017   54     50     81     42
 ## 4 2018   56     48     76     44</code></pre>
 <p>This new dataframe isn’t quite the same as our original - the columns are now in alphabetical order! If we wanted to rearrage them, I find the easiest way is using the <code>select()</code> function from <code>dplyr()</code>, another package in the tidyverse. By giving <code>select()</code> an argument for data and a vector of column names, we can rearrange the order the columns appear:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">OrderWideTemps &lt;-<span class="st"> </span><span class="kw">select</span>(WideTemps, <span class="kw">c</span>(Year, Winter, Spring, Summer, Fall))
-OrderWideTemps</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">OrderWideTemps &lt;-<span class="st"> </span><span class="kw">select</span>(WideTemps, <span class="kw">c</span>(Year, Winter, Spring, Summer, Fall))
+OrderWideTemps</code></pre>
 <pre><code>##   Year Winter Spring Summer Fall
 ## 1 2015     40     46     70   52
 ## 2 2016     38     40     62   46
 ## 3 2017     42     50     81   54
 ## 4 2018     44     48     76   56</code></pre>
 <p>When doing this, though, we have to be careful we don’t accidentally forget a column:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">select</span>(WideTemps, <span class="kw">c</span>(Year, Winter, Spring, Fall))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">select</span>(WideTemps, <span class="kw">c</span>(Year, Winter, Spring, Fall))</code></pre>
 <pre><code>##   Year Winter Spring Fall
 ## 1 2015     40     46   52
 ## 2 2016     38     40   46
 ## 3 2017     42     50   54
 ## 4 2018     44     48   56</code></pre>
 <p>Although, if we wanted to drop a column, we can do so by using a <code>-</code> sign:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">select</span>(WideTemps, <span class="op">-</span>Summer)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">select</span>(WideTemps, <span class="op">-</span>Summer)</code></pre>
 <pre><code>##   Year Fall Spring Winter
 ## 1 2015   52     46     40
 ## 2 2016   46     40     38
@@ -563,11 +590,11 @@ OrderWideTemps</code></pre></div>
 <div id="separating-values" class="section level3">
 <h3><span class="header-section-number">4.3.3</span> Separating Values</h3>
 <p>Another way many datasets break the tidy format is by storing more than one value in a cell. For instance, say we had a dataframe of horse race results from three races, where the results were all written in the same column:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Horses =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>),
+<pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Horses =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>),
              <span class="dt">Results =</span> <span class="kw">c</span>(<span class="st">&quot;1-2-3&quot;</span>, <span class="st">&quot;3-1-2&quot;</span>, <span class="st">&quot;2-3-1&quot;</span>),
              <span class="dt">TotalMinutes =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>),
              <span class="dt">TotalSeconds =</span> <span class="kw">c</span>(<span class="dv">12</span>, <span class="dv">44</span>, <span class="dv">15</span>))
-df</code></pre></div>
+df</code></pre>
 <pre><code>## # A tibble: 3 x 4
 ##   Horses Results TotalMinutes TotalSeconds
 ##   &lt;chr&gt;  &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;
@@ -583,8 +610,8 @@ df</code></pre></div>
 <li><code>sep</code>, the character that separates each of your values (in this case, <code>&quot;-&quot;</code>).</li>
 </ul>
 <p>Altogether, that gives us a function that works something like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df2 &lt;-<span class="st"> </span><span class="kw">separate</span>(df, Results, <span class="kw">c</span>(<span class="st">&quot;FirstRace&quot;</span>, <span class="st">&quot;SecondRace&quot;</span>, <span class="st">&quot;ThirdRace&quot;</span>), <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>)
-df2</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">df2 &lt;-<span class="st"> </span><span class="kw">separate</span>(df, Results, <span class="kw">c</span>(<span class="st">&quot;FirstRace&quot;</span>, <span class="st">&quot;SecondRace&quot;</span>, <span class="st">&quot;ThirdRace&quot;</span>), <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>)
+df2</code></pre>
 <pre><code>## # A tibble: 3 x 6
 ##   Horses FirstRace SecondRace ThirdRace TotalMinutes TotalSeconds
 ##   &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;            &lt;dbl&gt;        &lt;dbl&gt;
@@ -592,7 +619,7 @@ df2</code></pre></div>
 ## 2 B      3         1          2                    3           44
 ## 3 C      2         3          1                    3           15</code></pre>
 <p>We can also see that there are some times, split into two columns (minutes and seconds) off to the right side of the table. If we’d rather those be in a single column, we can use the <code>unite()</code> function. This function works pretty similarly to <code>separate()</code>, with one important difference: while in <code>separate()</code>, the second argument was the column to be <em>split</em>, in <code>unite()</code> the second argument is the name of the column you want to combine values into:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unite</span>(df2, TotalTime, TotalMinutes, TotalSeconds, <span class="dt">sep =</span> <span class="st">&quot;:&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unite</span>(df2, TotalTime, TotalMinutes, TotalSeconds, <span class="dt">sep =</span> <span class="st">&quot;:&quot;</span>)</code></pre>
 <pre><code>## # A tibble: 3 x 5
 ##   Horses FirstRace SecondRace ThirdRace TotalTime
 ##   &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;    
@@ -604,14 +631,14 @@ df2</code></pre></div>
 <div id="the-pipe" class="section level2">
 <h2><span class="header-section-number">4.4</span> The Pipe</h2>
 <p>Looking back to our weather data, we can pick out a common problem facing young analysts. At this point, we’ve created four dataframes - <code>SeasonalTemps</code>, <code>LongTemps</code>, <code>WideTemps</code>, and <code>OrderedWideTemps</code> - which all contain the same data. When repeatedly making similar but different dataframes, it can be hard to keep track of which object has which data - and it can be hard to keep coming up with simple, descriptive names, too. One solution could be to keep overwriting the same object with the new data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="dv">10</span>
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="dv">10</span>
 a &lt;-<span class="st"> </span>a<span class="op">*</span><span class="dv">2</span>
-a &lt;-<span class="st"> </span><span class="kw">sqrt</span>(a)</code></pre></div>
+a &lt;-<span class="st"> </span><span class="kw">sqrt</span>(a)</code></pre>
 <p>But this breaks our rule - that if you have to repeat yourself more than twice, there’s a better way to do it. Plus, if you make a mistake while writing over a value that had your original data in it, you have to start all over again - assuming that your data was saved anywhere else!</p>
 <p>You could also try and do it all in a single statement:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">10</span><span class="op">*</span><span class="dv">2</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">10</span><span class="op">*</span><span class="dv">2</span>)</code></pre>
 <p>But with bigger demands, this gets more complicated and harder to read:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unite</span>(
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unite</span>(
   (separate
    (df, 
      Results, 
@@ -620,7 +647,7 @@ a &lt;-<span class="st"> </span><span class="kw">sqrt</span>(a)</code></pre></di
   TotalTime, 
   TotalMinutes, 
   TotalSeconds, 
-  <span class="dt">sep =</span> <span class="st">&quot;:&quot;</span>)</code></pre></div>
+  <span class="dt">sep =</span> <span class="st">&quot;:&quot;</span>)</code></pre>
 <pre><code>## # A tibble: 3 x 5
 ##   Horses FirstRace SecondRace ThirdRace TotalTime
 ##   &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;    
@@ -629,15 +656,15 @@ a &lt;-<span class="st"> </span><span class="kw">sqrt</span>(a)</code></pre></di
 ## 3 C      2         3          1         3:15</code></pre>
 <p>This is an example of what we call <em>nested functions</em>, where one function (in this case, <code>separate()</code>) is nested inside of another (<code>unite()</code>). These work like you might expect from your past algebra classes - <code>f(g(x))</code> is the same as <code>(f * g)(x)</code>. But even knowing that, this sort of code is what nightmares are born from!</p>
 <p>Luckily, the tidyverse also introduces a new operator <code>%&gt;%</code>, called the pipe, in the package <code>magrittr</code>. What the pipe does is pretty intuitive - it takes the output of whatever’s on the <em>left</em> side of the pipe, and uses it as the first input to whatever’s on the <em>right</em> side. For instance:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">20</span>,<span class="dv">25</span>)
+<pre class="sourceCode r"><code class="sourceCode r">Numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">20</span>,<span class="dv">25</span>)
 
 Numbers <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mean</span>()</code></pre></div>
+<span class="st">  </span><span class="kw">mean</span>()</code></pre>
 <pre><code>## [1] 15</code></pre>
 <p>Since all of the tidyverse functions take <code>data</code> as their first argument, this lets us <em>chain</em> together multiple functions and skip those assignment steps without having to nest functions inside of each other:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">spread</span>(Season, AvgTemp) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Summer)</code></pre></div>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Summer)</code></pre>
 <pre><code>##   Year Fall Spring Winter
 ## 1 2015   52     46     40
 ## 2 2016   46     40     38
@@ -645,33 +672,34 @@ Numbers <span class="op">%&gt;%</span>
 ## 4 2018   56     48     44</code></pre>
 <p>This makes our code much more easy to understand than constantly using the <code>&lt;-</code> operator, plus it’s an improved way to perform multiple steps in a way that’s easy to read and harder to make serious mistakes doing.</p>
 <p>Even when a function doesn’t have data as its first input, you can still use a pipe by typing <code>data = .</code> into the function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">spread</span>(<span class="dt">data =</span> ., Season, AvgTemp) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Summer)</code></pre></div>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Summer)</code></pre>
 <pre><code>##   Year Fall Spring Winter
 ## 1 2015   52     46     40
 ## 2 2016   46     40     38
 ## 3 2017   54     50     42
 ## 4 2018   56     48     44</code></pre>
 <p>And pipes work well with ggplot2, too:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> AvgTemp, <span class="dt">color =</span> Season)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
-<p><img src="04_Data_Wrangling_files/figure-html/unnamed-chunk-20-1.png" width="672" /> (Note the change from <code>%&gt;%</code> to <code>+</code> once you’re inside the graph-building process - <code>ggplot</code> was designed before its creator learned to love the pipe, and as such uses <code>+</code> to combine steps.)</p>
+<span class="st">  </span><span class="kw">geom_line</span>()</code></pre>
+<p><img src="04_Data_Wrangling_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+(Note the change from <code>%&gt;%</code> to <code>+</code> once you’re inside the graph-building process - <code>ggplot</code> was designed before its creator learned to love the pipe, and as such uses <code>+</code> to combine steps.)</p>
 </div>
 <div id="data-transformations" class="section level2">
 <h2><span class="header-section-number">4.5</span> Data Transformations</h2>
 <div id="mutate" class="section level3">
 <h3><span class="header-section-number">4.5.1</span> Mutate</h3>
 <p>The pipe becomes useful when we want to transform our data itself for a graph, rather than transform the axes. For example, remember how we made our log-log graph last chapter?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> AvgTemp, <span class="dt">color =</span> Season)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_y_log10</span>()</code></pre></div>
+<span class="st">  </span><span class="kw">scale_y_log10</span>()</code></pre>
 <p><img src="04_Data_Wrangling_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p>This is useful, but ggplot only has a certain number of transformations built in (type <code>?scale_y_continuous()</code> for more info). Additionally, sometimes we’ll want to transform our data for analyses - not just graphing. For this purpose, we can use <code>dplyr</code>’s <code>mutate()</code> function. Mutate takes three arguments: the dataframe (which it can get from <code>%&gt;%</code>), the name of your new column, and what value the new column should have. Say, for example, we wanted to multiply our average temperatures by two:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TwiceTemp =</span> AvgTemp <span class="op">*</span><span class="st"> </span><span class="dv">2</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TwiceTemp =</span> AvgTemp <span class="op">*</span><span class="st"> </span><span class="dv">2</span>)</code></pre>
 <pre><code>##    Year Season AvgTemp TwiceTemp
 ## 1  2015 Winter      40        80
 ## 2  2016 Winter      38        76
@@ -690,10 +718,10 @@ Numbers <span class="op">%&gt;%</span>
 ## 15 2017   Fall      54       108
 ## 16 2018   Fall      56       112</code></pre>
 <p>You can make multiple columns in the same <code>mutate()</code> call, even referring to columns made earlier in the same block of code:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TwiceTemp =</span> AvgTemp <span class="op">*</span><span class="st"> </span><span class="dv">2</span>,
          <span class="dt">TwiceSquaredTemp =</span> TwiceTemp<span class="op">^</span><span class="dv">2</span>,
-         <span class="dt">YearSeason =</span> <span class="kw">paste</span>(Year, Season))</code></pre></div>
+         <span class="dt">YearSeason =</span> <span class="kw">paste</span>(Year, Season))</code></pre>
 <pre><code>##    Year Season AvgTemp TwiceTemp TwiceSquaredTemp  YearSeason
 ## 1  2015 Winter      40        80             6400 2015 Winter
 ## 2  2016 Winter      38        76             5776 2016 Winter
@@ -712,8 +740,8 @@ Numbers <span class="op">%&gt;%</span>
 ## 15 2017   Fall      54       108            11664   2017 Fall
 ## 16 2018   Fall      56       112            12544   2018 Fall</code></pre>
 <p>Notice I used a new function, <code>paste()</code>, for that last column. Similarly to <code>unite()</code>, this function pastes together values into a single cell. However, unlike <code>unite()</code>, it can use other values in a dataframe, vectors, or strings. For instance:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">YearSeason =</span> <span class="kw">paste</span>(<span class="st">&quot;The&quot;</span>, Season, <span class="st">&quot;of&quot;</span>, Year))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">YearSeason =</span> <span class="kw">paste</span>(<span class="st">&quot;The&quot;</span>, Season, <span class="st">&quot;of&quot;</span>, Year))</code></pre>
 <pre><code>##    Year Season AvgTemp         YearSeason
 ## 1  2015 Winter      40 The Winter of 2015
 ## 2  2016 Winter      38 The Winter of 2016
@@ -733,11 +761,11 @@ Numbers <span class="op">%&gt;%</span>
 ## 16 2018   Fall      56   The Fall of 2018</code></pre>
 <p>Anyway.</p>
 <p>If you’re transforming your data and only want to preserve your new columns, use <code>transmute()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">LongTemps <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">TwiceTemp =</span> AvgTemp <span class="op">*</span><span class="st"> </span><span class="dv">2</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">transmute</span>(<span class="dt">AvgTemp =</span> AvgTemp,
             <span class="dt">TwiceSquaredTemp =</span> TwiceTemp<span class="op">^</span><span class="dv">2</span>,
-            <span class="dt">YearSeason =</span> <span class="kw">paste</span>(Year, Season))</code></pre></div>
+            <span class="dt">YearSeason =</span> <span class="kw">paste</span>(Year, Season))</code></pre>
 <pre><code>##    AvgTemp TwiceSquaredTemp  YearSeason
 ## 1       40             6400 2015 Winter
 ## 2       38             5776 2016 Winter
@@ -766,10 +794,10 @@ Numbers <span class="op">%&gt;%</span>
 <div id="subsetting-data" class="section level3">
 <h3><span class="header-section-number">4.5.3</span> Subsetting Data</h3>
 <p>Let’s go back to our <code>iris</code> dataset. I’m going to turn it into a tibble and then view it:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris &lt;-<span class="st"> </span><span class="kw">as.tibble</span>(iris)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">iris &lt;-<span class="st"> </span><span class="kw">as.tibble</span>(iris)</code></pre>
 <pre><code>## Warning: `as.tibble()` is deprecated, use `as_tibble()` (but mind the new semantics).
 ## This warning is displayed once per session.</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">iris</code></pre>
 <pre><code>## # A tibble: 150 x 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
@@ -785,7 +813,7 @@ Numbers <span class="op">%&gt;%</span>
 ## 10          4.9         3.1          1.5         0.1 setosa 
 ## # … with 140 more rows</code></pre>
 <p>If we only wanted to work with part of this dataset, R gives us a lot of options to <em>subset</em> the data. For instance, if we only wanted the first column containing sepal length, we could type this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[, <span class="dv">1</span>]</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">iris[, <span class="dv">1</span>]</code></pre>
 <pre><code>## # A tibble: 150 x 1
 ##    Sepal.Length
 ##           &lt;dbl&gt;
@@ -801,13 +829,13 @@ Numbers <span class="op">%&gt;%</span>
 ## 10          4.9
 ## # … with 140 more rows</code></pre>
 <p>If we wanted the first row, meanwhile, we’d type this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[<span class="dv">1</span>, ]</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">iris[<span class="dv">1</span>, ]</code></pre>
 <pre><code>## # A tibble: 1 x 5
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
 ## 1          5.1         3.5          1.4         0.2 setosa</code></pre>
 <p>If we wanted several rows, we can specify them with <code>c()</code> or, if they’re consecutive, <code>:</code>. For instance:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), ]</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">iris[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), ]</code></pre>
 <pre><code>## # A tibble: 4 x 5
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
@@ -815,7 +843,7 @@ Numbers <span class="op">%&gt;%</span>
 ## 2          4.9         3            1.4         0.2 setosa 
 ## 3          4.7         3.2          1.3         0.2 setosa 
 ## 4          4.6         3.1          1.5         0.2 setosa</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, ]</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">iris[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, ]</code></pre>
 <pre><code>## # A tibble: 4 x 5
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
@@ -824,16 +852,16 @@ Numbers <span class="op">%&gt;%</span>
 ## 3          4.7         3.2          1.3         0.2 setosa 
 ## 4          4.6         3.1          1.5         0.2 setosa</code></pre>
 <p>And if we wanted the value in the first row of the first column, we’d type this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[<span class="dv">1</span>,<span class="dv">1</span>]</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">iris[<span class="dv">1</span>,<span class="dv">1</span>]</code></pre>
 <pre><code>## # A tibble: 1 x 1
 ##   Sepal.Length
 ##          &lt;dbl&gt;
 ## 1          5.1</code></pre>
 <p>The pattern should be clear now - inside of the braces, you type the row number, a comma, and then the column number. Notice that <code>[]</code> always gives us a tibble (or dataframe) back. If we wanted a vector, we could use <code>[[]]</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[[<span class="dv">1</span>, <span class="dv">1</span>]]</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">iris[[<span class="dv">1</span>, <span class="dv">1</span>]]</code></pre>
 <pre><code>## [1] 5.1</code></pre>
 <p>If we want to use column names instead of numbers, we could use <code>$</code> in the place of <code>[[]]</code> - note that this always returns a vector, not a dataframe:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris<span class="op">$</span>Sepal.Length</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">iris<span class="op">$</span>Sepal.Length</code></pre>
 <pre><code>##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4
 ##  [18] 5.1 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5
 ##  [35] 4.9 5.0 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0
@@ -844,11 +872,11 @@ Numbers <span class="op">%&gt;%</span>
 ## [120] 6.0 6.9 5.6 7.7 6.3 6.7 7.2 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7
 ## [137] 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9</code></pre>
 <p>The <code>$</code> is really helpful in using other base R functions:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(iris<span class="op">$</span>Sepal.Length)</code></pre>
 <pre><code>## [1] 5.843333</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(iris<span class="op">$</span>Sepal.Length)</code></pre>
 <pre><code>## [1] 0.8280661</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Sepal.Width)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Sepal.Width)</code></pre>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -862,7 +890,7 @@ Numbers <span class="op">%&gt;%</span>
 ## -0.1175698</code></pre>
 <p>(Note that “cor.test()” runs Pearson’s correlation test for whatever vectors you feed it - more on that test later, or <a href="https://bookdown.org/ndphillips/YaRrr/correlation-cor-test.html">here</a>).</p>
 <p>And <code>$</code> also lets us filter our data with conditionals - getting values that are equal to something, larger or smaller than it, and so on. For instance, if we want a dataframe (so <code>[]</code>) where the rows (<code>[, ]</code>) all have a Species value of (<code>==</code>) “setosa”:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[iris<span class="op">$</span>Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>, ]</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">iris[iris<span class="op">$</span>Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>, ]</code></pre>
 <pre><code>## # A tibble: 50 x 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
@@ -878,7 +906,7 @@ Numbers <span class="op">%&gt;%</span>
 ## 10          4.9         3.1          1.5         0.1 setosa 
 ## # … with 40 more rows</code></pre>
 <p>Note that the species name is in quotes, because it’s a character string. We don’t have to do that for numeric values:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[iris<span class="op">$</span>Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="fl">7.5</span>, ]</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">iris[iris<span class="op">$</span>Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="fl">7.5</span>, ]</code></pre>
 <pre><code>## # A tibble: 6 x 5
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species  
 ##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;    
@@ -893,8 +921,8 @@ Numbers <span class="op">%&gt;%</span>
 <div id="filtering-with-the-tidyverse" class="section level3">
 <h3><span class="header-section-number">4.5.4</span> Filtering with the Tidyverse</h3>
 <p>This code is hard to read as a human, and doesn’t work well with other functions. Instead, for more involved subsets, dplyr has a useful <code>filter()</code> function. It takes two arguments - your dataframe and the condition it should filter based on:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>)</code></pre>
 <pre><code>## # A tibble: 50 x 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
@@ -910,23 +938,23 @@ Numbers <span class="op">%&gt;%</span>
 ## 10          4.9         3.1          1.5         0.1 setosa 
 ## # … with 40 more rows</code></pre>
 <p><code>filter()</code> can use all the same operators as the <code>[]</code> methods of subsetting. Additionally, you can use <code>&amp;</code> (“and”) and <code>|</code> (“or”) to chain filters together:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span> <span class="op">&amp;</span><span class="st"> </span>Sepal.Length <span class="op">==</span><span class="st"> </span><span class="fl">5.1</span> <span class="op">&amp;</span><span class="st"> </span>Sepal.Width <span class="op">==</span><span class="st"> </span><span class="fl">3.3</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span> <span class="op">&amp;</span><span class="st"> </span>Sepal.Length <span class="op">==</span><span class="st"> </span><span class="fl">5.1</span> <span class="op">&amp;</span><span class="st"> </span>Sepal.Width <span class="op">==</span><span class="st"> </span><span class="fl">3.3</span>)</code></pre>
 <pre><code>## # A tibble: 1 x 5
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
 ## 1          5.1         3.3          1.7         0.5 setosa</code></pre>
 <p>It’s important to remember that <code>&amp;</code> means things which satisfy EACH condition. A common mistake is to type:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span> <span class="op">&amp;</span><span class="st"> </span>Species <span class="op">==</span><span class="st"> &quot;versicolor&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span> <span class="op">&amp;</span><span class="st"> </span>Species <span class="op">==</span><span class="st"> &quot;versicolor&quot;</span>)</code></pre>
 <pre><code>## # A tibble: 0 x 5
 ## # … with 5 variables: Sepal.Length &lt;dbl&gt;, Sepal.Width &lt;dbl&gt;,
 ## #   Petal.Length &lt;dbl&gt;, Petal.Width &lt;dbl&gt;, Species &lt;fct&gt;</code></pre>
 <p>Which, because no flower is both species, returns nothing.</p>
 <p>In this case, you can either use an <code>|</code> (“or”) operator, or - particularly if you have several cases you want to accept - <code>%in%</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">filter</span>(Species <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;setosa&quot;</span>,
-                        <span class="st">&quot;versicolor&quot;</span>))</code></pre></div>
+                        <span class="st">&quot;versicolor&quot;</span>))</code></pre>
 <pre><code>## # A tibble: 100 x 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
@@ -947,10 +975,10 @@ Numbers <span class="op">%&gt;%</span>
 <div id="working-with-groups" class="section level3">
 <h3><span class="header-section-number">4.5.5</span> Working with Groups</h3>
 <p>Say we wanted to find the mean sepal length in our dataset. That’s pretty easy:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(iris<span class="op">$</span>Sepal.Length)</code></pre>
 <pre><code>## [1] 5.843333</code></pre>
 <p>But we already know from our graphs that sepal length differs dramatically between species. If we wanted to find the mean for each species, we could calculate it individually for each group:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">setosa &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">setosa &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>)
 virginica &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>)
@@ -959,16 +987,16 @@ versicolor &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span>
 
 
 <span class="kw">mean</span>(setosa<span class="op">$</span>Sepal.Length)
-## [1] 5.006
+<span class="co">## [1] 5.006</span>
 <span class="kw">mean</span>(virginica<span class="op">$</span>Sepal.Length)
-## [1] 6.588
+<span class="co">## [1] 6.588</span>
 <span class="kw">mean</span>(versicolor<span class="op">$</span>Sepal.Length)
-## [1] 5.936</code></pre></div>
+<span class="co">## [1] 5.936</span></code></pre>
 <p>But that code is messy, the output is without any context, and it goes against our rule - that if you have to repeat yourself more than twice, there’s a better way to do it.</p>
 <p>The better way in the tidyverse is to use <em>grouping</em> and <em>summary</em> functions. In the following example, we’ll use <code>group_by()</code> to group our dataframes by the species types, and <code>summarise()</code> to calculate the mean for each of them (in a column called “MeanSepalLength”):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">MeanSepalLength =</span> <span class="kw">mean</span>(Sepal.Length))</code></pre></div>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">MeanSepalLength =</span> <span class="kw">mean</span>(Sepal.Length))</code></pre>
 <pre><code>## # A tibble: 3 x 2
 ##   Species    MeanSepalLength
 ##   &lt;fct&gt;                &lt;dbl&gt;
@@ -977,9 +1005,9 @@ versicolor &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span>
 ## 3 virginica             6.59</code></pre>
 <p>This is a faster and easier to understand way to perform functions on groups of data. Note that <code>summarise()</code> uses the British spelling - almost all functions in R have British and American spellings built in (you can use <code>color</code> or <code>colour</code> aesthetics in ggplot, for instance), but this is an important exception. While there is a function called <code>summarize()</code>, it’s highly glitchy and its use is highly discouraged.</p>
 <p>You can use <code>group_by()</code> to calculate all sorts of things - for instance, we can calculate the distance of each plant’s sepal length from the group mean, as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">SLDistanceFromMean =</span> Sepal.Length <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(Sepal.Length))</code></pre></div>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">SLDistanceFromMean =</span> Sepal.Length <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(Sepal.Length))</code></pre>
 <pre><code>## # A tibble: 150 x 6
 ## # Groups:   Species [3]
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -996,12 +1024,12 @@ versicolor &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span>
 ## 10          4.9         3.1          1.5         0.1 setosa 
 ## # … with 140 more rows, and 1 more variable: SLDistanceFromMean &lt;dbl&gt;</code></pre>
 <p>If you want to calculate variables for the whole dataset again, you’ll have to ungroup your data - dataframes will stay grouped until you actively ungroup them with <code>ungroup()</code>. For instance, to calculate the distance of each plant’s sepal length from the overall mean:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">select</span>(<span class="kw">c</span>(Sepal.Length, Species)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">SLDistanceFromGroupMean =</span> Sepal.Length <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(Sepal.Length)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">SLDistanceFromTotalMean =</span> Sepal.Length <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(Sepal.Length))</code></pre></div>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">SLDistanceFromTotalMean =</span> Sepal.Length <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(Sepal.Length))</code></pre>
 <pre><code>## # A tibble: 150 x 4
 ##    Sepal.Length Species SLDistanceFromGroupMean SLDistanceFromTotalMean
 ##           &lt;dbl&gt; &lt;fct&gt;                     &lt;dbl&gt;                   &lt;dbl&gt;
@@ -1024,11 +1052,11 @@ versicolor &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span>
 <div id="explicit-missing-values" class="section level3">
 <h3><span class="header-section-number">4.6.1</span> Explicit Missing Values</h3>
 <p>Working with data, there are often two types of missing values we have to worry about. The obvious one are <em>explicit</em> missing values, represented in R as <code>NA</code> (or, sometimes, <code>NaN</code>). Let’s make a dataframe:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MissingExample &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">w =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),
+<pre class="sourceCode r"><code class="sourceCode r">MissingExample &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">w =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),
                          <span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>),
                          <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&quot;do&quot;</span>, <span class="st">&quot;re&quot;</span>, <span class="ot">NA</span>),
                          <span class="dt">z =</span> <span class="kw">c</span>(<span class="dv">807</span>, <span class="ot">NA</span>, <span class="dv">780</span>))
-MissingExample</code></pre></div>
+MissingExample</code></pre>
 <pre><code>## # A tibble: 3 x 4
 ##       w x     y         z
 ##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
@@ -1037,30 +1065,30 @@ MissingExample</code></pre></div>
 ## 3     3 C     &lt;NA&gt;    780</code></pre>
 <p>(I’m using <code>tibble()</code> in place of <code>dataframe()</code> here, but the outcome is almost identical.)</p>
 <p><code>NA</code> values are a little tricky to work with - look what happens when we try to find the mean of <code>z</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(MissingExample<span class="op">$</span>z)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(MissingExample<span class="op">$</span>z)</code></pre>
 <pre><code>## [1] NA</code></pre>
 <p>The reason this happens is because we <em>don’t know</em> what the mean is - that NA value could be anything, so it’s impossible to know what the mean is. To get around this, we can set the <code>na.rm</code> argument to <code>TRUE</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(MissingExample<span class="op">$</span>z, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(MissingExample<span class="op">$</span>z, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre>
 <pre><code>## [1] 793.5</code></pre>
 <p>We can also solve the problem with filtering out the <code>NA</code> values. We can use <code>is.na()</code> to find out where certain values are, and then ask <code>filter()</code> to remove those rows from our dataset as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MissingExample <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">MissingExample <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(z)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean =</span> <span class="kw">mean</span>(z))</code></pre></div>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean =</span> <span class="kw">mean</span>(z))</code></pre>
 <pre><code>## # A tibble: 1 x 1
 ##    Mean
 ##   &lt;dbl&gt;
 ## 1  794.</code></pre>
 <p><code>!</code> means “negation” in R, or “opposite” - so we’re asking <code>filter()</code> to return the <em>opposite</em> of any row where <code>z</code> is <code>NA</code>, or, alternatively, all the rows where it has a value.</p>
 <p>If we wanted to drop <em>every</em> row that has a <code>NA</code>, we could use the following <code>tidyr</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MissingExample <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">drop_na</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">MissingExample <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">drop_na</span>()</code></pre>
 <pre><code>## # A tibble: 1 x 4
 ##       w x     y         z
 ##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
 ## 1     1 A     do      807</code></pre>
 <p>Or, if we knew the values we wanted those <code>NA</code> to represent, we could use <code>replace_na()</code>, also from <code>tidyr</code>. We just have to specify a list of what we want those values to be:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MissingExample <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">y =</span> <span class="st">&quot;mi&quot;</span>, <span class="dt">z =</span> <span class="st">&quot;078&quot;</span>))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">MissingExample <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">y =</span> <span class="st">&quot;mi&quot;</span>, <span class="dt">z =</span> <span class="st">&quot;078&quot;</span>))</code></pre>
 <pre><code>## # A tibble: 3 x 4
 ##       w x     y     z    
 ##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
@@ -1073,10 +1101,10 @@ MissingExample</code></pre></div>
 <div id="implicit-missing-values" class="section level3">
 <h3><span class="header-section-number">4.6.2</span> Implicit Missing Values</h3>
 <p>The other, harder to identify type of missing value is the <em>implicit</em> missing value. Say we have a dataframe <code>TreeData</code>, which lists the species that are present at two different sites:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TreeData &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Site =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>),
+<pre class="sourceCode r"><code class="sourceCode r">TreeData &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Site =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>),
                    <span class="dt">Species =</span> <span class="kw">c</span>(<span class="st">&quot;Red Maple&quot;</span>, <span class="st">&quot;Sugar Maple&quot;</span>, <span class="st">&quot;Black Cherry&quot;</span>, <span class="st">&quot;Red Maple&quot;</span>, <span class="st">&quot;Sugar Maple&quot;</span>),
                    <span class="dt">Count =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">5</span>,<span class="dv">15</span>,<span class="dv">8</span>,<span class="dv">19</span>))
-TreeData</code></pre></div>
+TreeData</code></pre>
 <pre><code>## # A tibble: 5 x 3
 ##   Site  Species      Count
 ##   &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt;
@@ -1086,9 +1114,9 @@ TreeData</code></pre></div>
 ## 4 B     Red Maple        8
 ## 5 B     Sugar Maple     19</code></pre>
 <p>This system makes a lot of sense - each row represents something you found at each site. The problem with this comes when we try to calculate summary statistics for each species:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TreeData <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">TreeData <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean =</span> <span class="kw">mean</span>(Count), <span class="dt">StandardDev =</span> <span class="kw">sd</span>(Count))</code></pre></div>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean =</span> <span class="kw">mean</span>(Count), <span class="dt">StandardDev =</span> <span class="kw">sd</span>(Count))</code></pre>
 <pre><code>## # A tibble: 3 x 3
 ##   Species       Mean StandardDev
 ##   &lt;chr&gt;        &lt;dbl&gt;       &lt;dbl&gt;
@@ -1097,8 +1125,8 @@ TreeData</code></pre></div>
 ## 3 Sugar Maple     12        9.90</code></pre>
 <p>Black cherry has a missing (<code>NaN</code>) standard deviation, because as far as R knows, it only has one observation to make estimates with. In reality, the fact that black cherry was missing from site B is a data point in and of itself - it’s an <em>implicit</em> value of 0.</p>
 <p>To fix that, we can use the <code>complete()</code> command from <code>tidyr</code>. This function takes column names as arguments, and returns a dataframe with every combination of the values in those columns. We can also specify what to replace <code>NA</code> values with, much like we did in <code>replace_na()</code>, with <code>fill</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TreeData <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">complete</span>(Site, Species, <span class="dt">fill =</span> <span class="kw">list</span>(<span class="dt">Count =</span> <span class="dv">0</span>))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">TreeData <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">complete</span>(Site, Species, <span class="dt">fill =</span> <span class="kw">list</span>(<span class="dt">Count =</span> <span class="dv">0</span>))</code></pre>
 <pre><code>## # A tibble: 6 x 3
 ##   Site  Species      Count
 ##   &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt;
@@ -1109,10 +1137,10 @@ TreeData</code></pre></div>
 ## 5 B     Red Maple        8
 ## 6 B     Sugar Maple     19</code></pre>
 <p>This way, when we go to calculate our summary statistics, we get better answers:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TreeData <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">TreeData <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">complete</span>(Site, Species, <span class="dt">fill =</span> <span class="kw">list</span>(<span class="dt">Count =</span> <span class="dv">0</span>)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean =</span> <span class="kw">mean</span>(Count), <span class="dt">StandardDev =</span> <span class="kw">sd</span>(Count))</code></pre></div>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean =</span> <span class="kw">mean</span>(Count), <span class="dt">StandardDev =</span> <span class="kw">sd</span>(Count))</code></pre>
 <pre><code>## # A tibble: 3 x 3
 ##   Species       Mean StandardDev
 ##   &lt;chr&gt;        &lt;dbl&gt;       &lt;dbl&gt;
@@ -1125,10 +1153,10 @@ TreeData</code></pre></div>
 <h2><span class="header-section-number">4.7</span> Count Data</h2>
 <p>One other common issue with field data is that it’s in a summary form - for instance, our tree data summarizes the number of trees at each site into one column. This is often easier to record in the field and easier to read as a human - but it makes some analyses much harder!</p>
 <p>The function <code>uncount()</code> makes this pretty easy for us:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTreeData &lt;-<span class="st"> </span>TreeData <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">LongTreeData &lt;-<span class="st"> </span>TreeData <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">uncount</span>(Count)
 
-LongTreeData</code></pre></div>
+LongTreeData</code></pre>
 <pre><code>## # A tibble: 57 x 2
 ##    Site  Species  
 ##    &lt;chr&gt; &lt;chr&gt;    
@@ -1144,8 +1172,8 @@ LongTreeData</code></pre></div>
 ## 10 A     Red Maple
 ## # … with 47 more rows</code></pre>
 <p>And if we wanted to get back to the summary table, we can use <code>count()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTreeData <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">count</span>(Site, Species)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">LongTreeData <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">count</span>(Site, Species)</code></pre>
 <pre><code>## # A tibble: 5 x 3
 ##   Site  Species          n
 ##   &lt;chr&gt; &lt;chr&gt;        &lt;int&gt;
@@ -1155,9 +1183,9 @@ LongTreeData</code></pre></div>
 ## 4 B     Red Maple        8
 ## 5 B     Sugar Maple     19</code></pre>
 <p>If we want to change that column <code>n</code>’s name to something more descriptive, we can use <code>rename()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LongTreeData <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">LongTreeData <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">count</span>(Site, Species) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">Count =</span> n)</code></pre></div>
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">Count =</span> n)</code></pre>
 <pre><code>## # A tibble: 5 x 3
 ##   Site  Species      Count
 ##   &lt;chr&gt; &lt;chr&gt;        &lt;int&gt;
@@ -1235,7 +1263,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

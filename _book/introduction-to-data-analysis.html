@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2019-06-19">
+<meta name="date" content="2019-06-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -63,41 +63,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -397,9 +423,9 @@ John W. Tukey, <a href="https://projecteuclid.org/download/pdf_1/euclid.aoms/117
 <h2><span class="header-section-number">5.2</span> gapminder</h2>
 <p>We’re going to use the <code>gapminder</code> dataset for this unit, in order to see more a more realistic application of exploratory data analysis that you might perform when working with a new dataset for the first time. In order to do this, we’re going to install the <code>gapminder</code> package, then load it as usual:</p>
 <pre><code>install.package(&quot;gapminder&quot;)</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gapminder)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gapminder)</code></pre>
 <p>This package includes five data tables, all focusing on GDP and life expectancy values for a set of countries. The largest of these datasets is <code>gapminder_unfiltered</code>, which is what we’ll be working with now. Let’s take a look using <code>head()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(gapminder_unfiltered)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(gapminder_unfiltered)</code></pre>
 <pre><code>## # A tibble: 6 x 6
 ##   country     continent  year lifeExp      pop gdpPercap
 ##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -414,7 +440,7 @@ John W. Tukey, <a href="https://projecteuclid.org/download/pdf_1/euclid.aoms/117
 <div id="summarizing-data" class="section level2">
 <h2><span class="header-section-number">5.3</span> Summarizing Data</h2>
 <p>It would now be helpful for us to get a bit broader sense of what each column contains. One of the easiest ways to do that is with <code>summary()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(gapminder_unfiltered)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(gapminder_unfiltered)</code></pre>
 <pre><code>##            country        continent         year         lifeExp     
 ##  Czech Republic:  58   Africa  : 637   Min.   :1950   Min.   :23.60  
 ##  Denmark       :  58   Americas: 470   1st Qu.:1967   1st Qu.:58.33  
@@ -433,8 +459,8 @@ John W. Tukey, <a href="https://projecteuclid.org/download/pdf_1/euclid.aoms/117
 ## </code></pre>
 <p>You can see that <code>summary()</code> gives us some basic summary statistics of each column - and that these views are different for numeric and text columns. We can also start seeing how these values are distributed - it seems like the values cover six continents (though I’m a little iffy on what “FSU” means, and it looks like the Americas are merged), and 57 years (from 1950 to 2007). The numeric columns, meanwhile, have simple summary statistics listed. We can dig down a little deeper into these statistics using the <code>describe()</code> function, from the <code>psych</code> package:</p>
 <pre><code>install.packages(&quot;psych&quot;)</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(psych)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">describe</span>(gapminder_unfiltered)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(psych)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">describe</span>(gapminder_unfiltered)</code></pre>
 <pre><code>##            vars    n        mean           sd     median     trimmed
 ## country*      1 3313       93.30        53.42      92.00       93.47
 ## continent*    2 3313        3.12         1.40       3.00        3.08
@@ -458,13 +484,13 @@ John W. Tukey, <a href="https://projecteuclid.org/download/pdf_1/euclid.aoms/117
 ## gdpPercap      197.52</code></pre>
 <p>Now in addition to the values from <code>summary()</code>, we get the number of observations, each column’s standard deviation, trimmed mean, median absolute deviation, range, skew, kurtosis, and standard error.</p>
 <p>We can also, if we wanted, check to see how many unique countries are represented in the dataset, by checking the <code>length()</code> of a vector of all the <code>unique()</code> values of the country column:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(<span class="kw">unique</span>(gapminder_unfiltered<span class="op">$</span>country))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(<span class="kw">unique</span>(gapminder_unfiltered<span class="op">$</span>country))</code></pre>
 <pre><code>## [1] 187</code></pre>
 <p>If we wanted to make that a little simpler, by the way, we can use the <code>n_distinct()</code> function from <code>dplyr</code>. As a sidenote, we can use a function from a package without loading it (via <code>library</code>) by typing the package name followed by <code>::</code>, like so:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dplyr<span class="op">::</span><span class="kw">n_distinct</span>(gapminder_unfiltered<span class="op">$</span>country)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">dplyr<span class="op">::</span><span class="kw">n_distinct</span>(gapminder_unfiltered<span class="op">$</span>country)</code></pre>
 <pre><code>## [1] 187</code></pre>
 <p>However, it makes sense for us to load the package explicitly, since we’ll be using a lot of the functions from it for the rest of this chapter.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
@@ -474,21 +500,21 @@ John W. Tukey, <a href="https://projecteuclid.org/download/pdf_1/euclid.aoms/117
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
 <p>So looking at those values, I’m noticing some extreme numbers in the life expectancy and GDP columns - specifically, the minimums seem much lower than I’d expect. We can pull those rows out of the dataset using <code>filter()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder_unfiltered <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(lifeExp <span class="op">==</span><span class="st"> </span><span class="kw">min</span>(lifeExp))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">gapminder_unfiltered <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(lifeExp <span class="op">==</span><span class="st"> </span><span class="kw">min</span>(lifeExp))</code></pre>
 <pre><code>## # A tibble: 1 x 6
 ##   country continent  year lifeExp     pop gdpPercap
 ##   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;
 ## 1 Rwanda  Africa     1992    23.6 7290203      737.</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder_unfiltered <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(gdpPercap <span class="op">==</span><span class="st"> </span><span class="kw">min</span>(gdpPercap))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">gapminder_unfiltered <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(gdpPercap <span class="op">==</span><span class="st"> </span><span class="kw">min</span>(gdpPercap))</code></pre>
 <pre><code>## # A tibble: 1 x 6
 ##   country          continent  year lifeExp      pop gdpPercap
 ##   &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
 ## 1 Congo, Dem. Rep. Africa     2002    45.0 55379852      241.</code></pre>
 <p>As history buffs might know, these values are both (sadly) explained by politics and history. The other oddball I want to check is what the “FSU” continent is meant to represent:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder_unfiltered <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;FSU&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">gapminder_unfiltered <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;FSU&quot;</span>)</code></pre>
 <pre><code>## # A tibble: 139 x 6
 ##    country continent  year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -505,7 +531,7 @@ John W. Tukey, <a href="https://projecteuclid.org/download/pdf_1/euclid.aoms/117
 ## # … with 129 more rows</code></pre>
 <p>Ahh! These countries are all <strong>F</strong>ormer <strong>S</strong>oviet <strong>U</strong>nion states, so are broken out from the other countries - and have a lot of incomplete data.</p>
 <p>The other notable values I’d like to check out are the super high <em>skew</em> and <em>kurtosis</em> values that <code>describe()</code> gave us for the GDP column. These values demonstrate that our data really doesn’t follow the normal distribution (which has a value of 0 for both metrics) - but I’d like to visualize how:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre>
 <pre><code>## Registered S3 methods overwritten by &#39;ggplot2&#39;:
 ##   method         from 
 ##   [.quosures     rlang
@@ -516,21 +542,21 @@ John W. Tukey, <a href="https://projecteuclid.org/download/pdf_1/euclid.aoms/117
 <pre><code>## The following objects are masked from &#39;package:psych&#39;:
 ## 
 ##     %+%, alpha</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>()</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="05_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>So our data is less variable than we’d expect (that’s the high kurtosis, implying that the mode is more common than it would be in the normal distribution), and right-skewed (meaning that our mean is higher than the median, since there are a number of high outlier values). That’s not a <em>bad</em> thing, but it’s worth knowing how our data is structured and wondering why, and how it might affect the other variables we can measure.</p>
 <p>This graph could probably be made more effective if we split it up by continent. Let’s use <code>facet_wrap()</code> to create six panels of the graph, one for each continent:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap)) <span class="op">+</span><span class="st"> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>continent)</code></pre></div>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>continent)</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="05_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>If we wanted to calculate our values as a relative measurement rather than an absolute count - so that we can better see the patterns in other areas, and lower the high outlier in Africa - we can provide <code>..density..</code> as the y argument in <code>aes</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap, ..density..)) <span class="op">+</span><span class="st"> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap, ..density..)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>continent)</code></pre></div>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>continent)</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="05_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>Now our Y axis represents the proportion of all values that particular GDP makes up, rather than the absolute count of values in that bin.</p>
@@ -538,14 +564,14 @@ John W. Tukey, <a href="https://projecteuclid.org/download/pdf_1/euclid.aoms/117
 <div id="sidenote-1" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> Sidenote</h3>
 <p>Often, people dislike using histograms, and instead choose to use frequency polygons - implemented in ggplot using the <code>geom_freqpoly()</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap, ..density..)) <span class="op">+</span><span class="st"> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap, ..density..)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_freqpoly</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>continent)</code></pre></div>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>continent)</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="05_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>This sometimes then gives rise to a thought - since these lines take up so much less space, why not just combine them all into one panel, rather than six? And so they make graphs that look like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap, ..density.., <span class="dt">color =</span> continent)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_freqpoly</span>() </code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap, ..density.., <span class="dt">color =</span> continent)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_freqpoly</span>() </code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="05_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p>This is a Bad Graph, as I hope should be obvious. It’s almost impossible to pick out any individual line, and the whole thing just looks like a jumbled mess - which has led the community to name this sort of visualization as a “spaghetti graph”. In cases like this, where a graph contains more than one or two lines (with obvious separations), it makes much more sense to facet your graphs.</p>
@@ -554,15 +580,15 @@ John W. Tukey, <a href="https://projecteuclid.org/download/pdf_1/euclid.aoms/117
 <div id="visualizing-data" class="section level2">
 <h2><span class="header-section-number">5.4</span> Visualizing Data</h2>
 <p>Anyway. These are the first visualizations we’ve made to start seeing what our data looks like. It’s worthwhile to make a lot of these fast graphics in order to get a handle on your datasets, so you can see what angles might be useful for your analysis. One of the most useful is <code>pairs</code>, which will show you scatterplots between each of your variables. Let’s try running it on the gapminder data now:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(gapminder_unfiltered)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(gapminder_unfiltered)</code></pre>
 <p><img src="05_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>To interpret this graph, understand that each text box (“country”, “continent” and so on) represents that variable - in any given column, that text box is on the X axis, while for any given row the text box represents the Y axis.</p>
 <p>Even knowing that, the graph is still a little hard to understand - the boxes are small, and the “country” and “continent” graphs don’t make a ton of sense. To get rid of those (and hopefully fix both problems at once), we could use <code>select()</code> from last chapter and make a new dataset:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gp &lt;-<span class="st"> </span><span class="kw">select</span>(gapminder_unfiltered, <span class="dv">3</span><span class="op">:</span><span class="dv">6</span>)
-<span class="kw">pairs</span>(gp)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">gp &lt;-<span class="st"> </span><span class="kw">select</span>(gapminder_unfiltered, <span class="dv">3</span><span class="op">:</span><span class="dv">6</span>)
+<span class="kw">pairs</span>(gp)</code></pre>
 <p><img src="05_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>But an even cleaner method is to skip the new dataset altogether, and just use <code>select_if()</code>. This function lets us only select columns that return <code>TRUE</code> when passed to a function, and works like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">select_if</span>(gapminder_unfiltered, is.numeric))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">select_if</span>(gapminder_unfiltered, is.numeric))</code></pre>
 <pre><code>## # A tibble: 6 x 4
 ##    year lifeExp      pop gdpPercap
 ##   &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -573,10 +599,10 @@ John W. Tukey, <a href="https://projecteuclid.org/download/pdf_1/euclid.aoms/117
 ## 5  1972    36.1 13079460      740.
 ## 6  1977    38.4 14880372      786.</code></pre>
 <p>Note how instead of column names we provided the name of a function, <code>is.numeric()</code>. We also didn’t put parentheses after the <code>is.numeric</code> function - we just pass it the name. That lets us easily and cleanly select all the numeric columns, making sure we didn’t skip any. We can then make the graph in a single line of code like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(<span class="kw">select_if</span>(gapminder_unfiltered, is.numeric))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(<span class="kw">select_if</span>(gapminder_unfiltered, is.numeric))</code></pre>
 <p><img src="05_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>This is a bit easier to read! It looks like life expectancy generally increases over time and with higher GDP, and that population and GDP both also increase over time. If we want a more numeric version of these graphs, we can calculate the actual correlation coefficients by swapping <code>cor()</code> in for <code>pairs()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(<span class="kw">select_if</span>(gapminder_unfiltered, is.numeric))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(<span class="kw">select_if</span>(gapminder_unfiltered, is.numeric))</code></pre>
 <pre><code>##                 year      lifeExp          pop   gdpPercap
 ## year      1.00000000  0.383616006  0.013368315  0.31440915
 ## lifeExp   0.38361601  1.000000000 -0.006116394  0.63376069
@@ -588,19 +614,19 @@ John W. Tukey, <a href="https://projecteuclid.org/download/pdf_1/euclid.aoms/117
 <h2><span class="header-section-number">5.5</span> Analyzing Patterns</h2>
 <p>Now we’re moving into the next piece of EDA - exploring the patterns that we pick up on. This isn’t something you need to save until you’re done summarizing and visualizing your data - rather, it’s a process that you should follow every time you find something that seems interesting in the data. A lot of these paths may be dead ends, but the ones that are worth following will often wind up shaping your analysis, providing insights into your dataset that you hadn’t been expecting when you started.</p>
 <p>I’d be interested in looking a little more into how GDP and life expectancy interact. Let’s make a scatter plot for just those two variables:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap, lifeExp)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap, lifeExp)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
 <p><img src="05_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p>This is already an interesting pattern, in and of itself - it seems like higher GDP results in higher life expectancy, but only to a point. This sort of shape - where there’s an obvious and single curve to the data - always makes me think that log-transforming the data might make the relationship more linear:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap, lifeExp)) <span class="op">+</span><span class="st"> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap, lifeExp)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_x_log10</span>()</code></pre></div>
+<span class="st">  </span><span class="kw">scale_x_log10</span>()</code></pre>
 <p><img src="05_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <p>And in this case it does, very dramatically. Now, I don’t particularly like log-transformed graphs, as I discussed in chapter 2. However, it will be important for us to know that our data has this relationship when we go to perform our analyses. That, however, is a matter for the next chapter.</p>
 <p>I’ve started to wonder now how other variables play into this pattern. For instance, I know that people lived less long back in 1950 than they do today, and I know that life expectancy in some areas of the world is significantly lower than others. Luckily enough, we have the ability now to add both these factors to our visualization - here, I’ve split the graph into facets by continent, while recoloring the points by the year.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap, lifeExp, <span class="dt">color =</span> year)) <span class="op">+</span><span class="st"> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_unfiltered, <span class="kw">aes</span>(gdpPercap, lifeExp, <span class="dt">color =</span> year)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>continent)</code></pre></div>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>continent)</code></pre>
 <p><img src="05_Exploratory_Data_Analysis_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <p>Splitting the graph into panels by continent was very effective, I think - Africa has notably lower life expectancy and GDP than other countries do, while Europe seems to always be higher than average. I don’t know that coloring the points by year has quite the same effect, probably due to there being too many points on this graph - my guess is that we’ll see that impact more while we’re modeling the data in our next chapter.</p>
 <p>I’m feeling very comfortable with how we’ve progressed in this chapter - we’ve moved from downloading a brand new dataset to more thoroughly exploring it, and have picked up on a pattern that we’re going to subject to a more thorough analysis. We could totally keep using our EDA skills in order to investigate patterns further - for instance, it might be interesting to examine what factors impact population over time, or see how rates of population change dependent upon life expectancy and GDP! However, the skeleton here demonstrating the steps of EDA should be enough to give you ideas of how to apply this framework to your own analyses moving forward. Instead, we’re going to continue on with the <code>gapminder</code> package in our next unit, as we begin making models to actually analyze this pattern we’ve found.</p>
@@ -672,7 +698,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

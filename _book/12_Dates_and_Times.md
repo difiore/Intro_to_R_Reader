@@ -24,7 +24,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
@@ -35,7 +35,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ```
@@ -57,7 +57,7 @@ library(lubridate)
 
 Time series data is essential to a huge number of analysis tasks, now that data readers can collect information every hour - or every second. Knowing how a process changes over time - whether it's how warm soil is, how many animals a camera has seen, or how often people have clicked on your link - allows insight into a large variety of questions.
 
-However, dates and times can be surprisingly hard to deal with. For instance, the date the last time I compiled this book was 2019-06-19 - that's YYYY-MM-DD format, which we'll talk about in a minute. At first, this format makes a lot of sense - every 24 hours, we add a 1 to the day; after a certain number of days, we add a 1 to the month; and after 12 months (or 365 days), we add a 1 to the year. It's just a slightly different form of numerical data.
+However, dates and times can be surprisingly hard to deal with. For instance, the date the last time I compiled this book was 2019-06-27 - that's YYYY-MM-DD format, which we'll talk about in a minute. At first, this format makes a lot of sense - every 24 hours, we add a 1 to the day; after a certain number of days, we add a 1 to the month; and after 12 months (or 365 days), we add a 1 to the year. It's just a slightly different form of numerical data.
 
 But there's a lot of messiness under those easy rules. For instance, not every year has 365 days, and not every day has 24 hours - thanks to the leap year's lesser-known cousin, the leap-second, but also due to daylight savings time, where we sometimes have 23 or 25 hours in a day. There's really no standardization of how many days a month has. Things are complicated.
 

@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2019-06-19">
+<meta name="date" content="2019-06-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -63,41 +63,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -380,7 +406,7 @@ Don’t worry if it doesn’t work right. If everything did, you’d be out of a
 <p>So far, we’ve been using the command line interface in the console to type our programs. While this works, you might have noticed how annoying it can be to type longer programs in. Additionally, you’re probably going to want to save your work at some point - and right now, you’d have to use Notepad or a similar program to save anything you’ve done.</p>
 <p>Luckily, there’s a better way. In the top left corner of R Studio, there’s a menu button called “File”. Click this, then click “New Project”. If you click “New Directory”, and then “New Project”, you’ll be able to create a folder where you can automatically store all of your R code and files. This will also create an R Project file, which you can load to return to where you left off the last time you closed R Studio.</p>
 <p>Let’s load the tidyverse again, now that we’re in a new directory:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
 <pre><code>## Registered S3 methods overwritten by &#39;ggplot2&#39;:
 ##   method         from 
 ##   [.quosures     rlang
@@ -389,30 +415,30 @@ Don’t worry if it doesn’t work right. If everything did, you’d be out of a
 <pre><code>## Registered S3 method overwritten by &#39;rvest&#39;:
 ##   method            from
 ##   read_xml.response xml2</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.1.1       ✔ purrr   0.3.2  
 ## ✔ tibble  2.1.1       ✔ dplyr   0.8.0.1
 ## ✔ tidyr   0.8.3       ✔ stringr 1.4.0  
 ## ✔ readr   1.3.1       ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <p>Now that you’re working in a new directory, go back into “File” and hover over “New File”. There’s a lot of options, but right now we care about two of them: <strong>R Scripts</strong> and <strong>R Notebooks</strong>. Open one of each.</p>
 <p>In your new script file, type the following:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Petal.Length, Petal.Width)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Petal.Length, Petal.Width)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
 <p>Highlight everything and then press Cmd/Ctrl and Enter at the same time. A graph should appear in your Viewer window.</p>
 <p>Whoops, looks like we forgot to color the points by species - add the color aesthetic to your plot.</p>
 <p><img src="03_Workflow_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>It should already be clear what the advantage of working with R Scripts is - you can change pieces of your code quickly, without having to worry about retyping things into the console. You can also save and open your scripts (Cmd/Ctrl+S, Cmd/Ctrl+O), which makes working on big projects much easier.</p>
 <p>Now change your code so it looks like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Petal.Length, Petal.Width)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>Species))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Petal.Length, Petal.Width)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>Species))</code></pre>
 <p>What we’re doing here is <em>assigning</em> the plot to <code>a</code>. Now, anytime you call <code>a</code>, the plot will appear - run your script, then call “a” from the console!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">a</code></pre>
 <p><img src="03_Workflow_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Now add the following line under the first two:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">a <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>)</code></pre>
 <p><img src="03_Workflow_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>This will move the legend to the top of our graph, much as if we had included the <code>theme()</code> function in our original plot. Run your script to see the difference!</p>
 <p>Your program now has - for the first time in this book - two steps to it: the assignment step (where we make <code>a</code> a plot), and the print step (where we add our <code>theme()</code> and print the plot). While in an R script, there are three ways you can run the whole program:</p>
@@ -437,50 +463,50 @@ Don’t worry if it doesn’t work right. If everything did, you’d be out of a
 <div id="memory-objects-and-names" class="section level2">
 <h2><span class="header-section-number">3.2</span> Memory, Objects, and Names</h2>
 <p>Let’s go back to when we assigned a plot to <code>a</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Petal.Length, Petal.Width)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Species))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Petal.Length, Petal.Width)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Species))</code></pre>
 <p>The <code>&lt;-</code> symbol is the <em>assignment</em> operator. We can use it to define the object <code>a</code> as all sorts of different objects:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Assign a the value 10</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Assign a the value 10</span>
 a &lt;-<span class="st"> </span><span class="dv">10</span>
 <span class="co"># Print out the object a</span>
-a</code></pre></div>
+a</code></pre>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">50</span>,<span class="dv">200</span>)
-a</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">50</span>,<span class="dv">200</span>)
+a</code></pre>
 <pre><code>## [1]   1  50 200</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> &quot;Hello, world!&quot;</span>
-a</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> &quot;Hello, world!&quot;</span>
+a</code></pre>
 <pre><code>## [1] &quot;Hello, world!&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(Petal.Length, Petal.Width, <span class="dt">color =</span> Species))
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(Petal.Length, Petal.Width, <span class="dt">color =</span> Species))
 <span class="kw">ggplot</span>() <span class="op">+</span>
-<span class="st">  </span>a</code></pre></div>
+<span class="st">  </span>a</code></pre>
 <p><img src="03_Workflow_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>As you can see, every time we use <code>&lt;-</code>, we completely overwrite what was there before. This is part of the power of R, as it lets us update data and functions as needed - but at the same time it can be dangerous, as it can let us overwrite things we actually need! For instance, R won’t stop you from redefining functions (like <code>ggplot()</code>), operators (like <code>+</code>) or even numbers (like <code>1</code>) as you wish - which might really screw things up later!</p>
 <p>You’ll notice that <code>a</code> is now listed in the upper-left hand corner of R Studio, under the “Environment” tab. That’s because a is now defined in memory - we can use it in any of our code, anywhere we want. In fact, you can even define <code>a</code> in one file and call it in another, so long as you’ve already run the code defining it in your current R Studio session.</p>
 <p>This is really cool for a lot of reasons - it lets us do more complicated things with R - but can also cause some problems. If you keep defining objects with names like <code>a</code>, it’s easy to forget which variable stands for what - and so you can wind up making mistakes when using those variables later on. For instance, we just overwrote <code>a</code> 3 times in that last example - imagine if we had important data stored in there!</p>
 <p>In order to avoid that sort of confusion, you should use descriptive names when creating objects. You should also decide on a standard way you’re going to format those object names - some people prefer <code>snake_case_names</code>, others <code>use.periods</code>, and I personally prefer what’s known as <code>CamelCase</code>. Different organizations and groups have different preferred styles (here’s <a href="https://google.github.io/styleguide/Rguide.xml">Google’s</a>), but what’s important right now is that you pick a style that makes sense to you. Be consistent using this style whenever you code - R won’t understand you if you mess up your capitalization!</p>
 <p>By the way - you might remember that I mentioned last unit that <code>=</code> could also be used as an assignment operator. That’s true, but you should try to never do it - it makes your code much harder to understand - for instance, compare these two formats:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="dv">10</span>
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="dv">10</span>
 a &lt;-<span class="st"> </span>a <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
 
 b =<span class="st"> </span><span class="dv">10</span>
 b =<span class="st"> </span>b<span class="op">+</span><span class="dv">1</span>
 
-a <span class="op">==</span><span class="st"> </span>b</code></pre></div>
+a <span class="op">==</span><span class="st"> </span>b</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <p>R’s telling us that these two formats do exactly the same thing - define a variable as 10, and then overwrite the variable as the original value, plus one. But the top block of code makes a bit more sense than the lower one, which at a glance looks like we’re trying to test if <code>b</code> is equal to <code>b + 1</code>, which is nonsense. This is just one of the reasons it’s usually better to use <code>&lt;-</code> for assignments.</p>
 </div>
 <div id="dataframes" class="section level2">
 <h2><span class="header-section-number">3.3</span> Dataframes</h2>
 <p>Earlier in this course, we went over the different classes of vectors - character, numeric, and logical. If you’re ever trying to find out what class a vector belongs to, you can call the <code>class()</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SampleVector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
-<span class="kw">class</span>(SampleVector)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">SampleVector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
+<span class="kw">class</span>(SampleVector)</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <p>Note that we don’t put object names (such as the name of our vector) in quotes. The general distinction is that if something exists in the global environment, we don’t put it in quotes. If it isn’t, we do. You can see what’s in the current environment by looking at the “Environment” tab that I mentioned earlier - that tab is a list of all the objects you’ve defined so far in this session. Remember that even though your installed packages aren’t in that list, you still don’t put them in quotes when you call <code>library()</code>.</p>
 <p>A matrix made of vectors is known, in R, as a <code>dataframe</code>. We’ve already seen some simple dataframes in the past unit built using <code>data.frame</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
            <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>),
-           <span class="dt">z =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>))</code></pre></div>
+           <span class="dt">z =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>))</code></pre>
 <pre><code>##   x y     z
 ## 1 1 a  TRUE
 ## 2 2 b  TRUE
@@ -490,15 +516,15 @@ a <span class="op">==</span><span class="st"> </span>b</code></pre></div>
 <div id="oddballs" class="section level2">
 <h2><span class="header-section-number">3.4</span> Oddballs</h2>
 <p>Predict what will happen when you run the following code - then run it!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">2</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">2</span>
 
-<span class="dv">1</span><span class="op">/</span><span class="dv">49</span> <span class="op">*</span><span class="st"> </span><span class="dv">49</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span></code></pre></div>
+<span class="dv">1</span><span class="op">/</span><span class="dv">49</span> <span class="op">*</span><span class="st"> </span><span class="dv">49</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span></code></pre>
 <p>You’d expect both of these things to be true, but R seems to think otherwise.</p>
 <p>That’s because R has to estimate the true value of things like 1/49 - it only calculates to so many digits, because it can’t store an infinite number of decimal places. As such, 1/49 * 49 <em>isn’t</em> exactly equal to 1 - it’s just near it. To catch these sorts of things, use <code>near()</code> instead of <code>==</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">/</span><span class="dv">49</span> <span class="op">*</span><span class="st"> </span><span class="dv">49</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>
-## [1] FALSE
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">/</span><span class="dv">49</span> <span class="op">*</span><span class="st"> </span><span class="dv">49</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>
+<span class="co">## [1] FALSE</span>
 <span class="kw">near</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">49</span> <span class="op">*</span><span class="st"> </span><span class="dv">49</span>, <span class="dv">1</span>)
-## [1] TRUE</code></pre></div>
+<span class="co">## [1] TRUE</span></code></pre>
 </div>
 <div id="r-studio-tips-and-tricks" class="section level2">
 <h2><span class="header-section-number">3.5</span> R Studio Tips and Tricks</h2>
@@ -520,9 +546,9 @@ a <span class="op">==</span><span class="st"> </span>b</code></pre></div>
 <li>What class is the vector <code>c(1, TRUE, 3)</code>? Why is it not a character vector?</li>
 <li>Make and print this tibble. What do the abbreviations under each column name mean?</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),
        <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>),
-       <span class="dt">z =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>))</code></pre></div>
+       <span class="dt">z =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>))</code></pre>
 
 </div>
 </div>
@@ -583,7 +609,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

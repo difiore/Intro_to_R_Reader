@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2019-06-19">
+<meta name="date" content="2019-06-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -63,41 +63,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -379,10 +405,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="working-with-stringr" class="section level2">
 <h2><span class="header-section-number">11.1</span> Working with Stringr</h2>
 <p>Let’s say we have some text in a vector - known as a <em>string</em>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">string &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;lzGDHgldkh3orange2o5ghte&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">string &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;lzGDHgldkh3orange2o5ghte&quot;</span>)</code></pre>
 <p>(I never said it would be a pretty string.)</p>
 <p>We’re going to be working with this data using the <code>stringr</code> package, conveniently located in the <code>tidyverse</code> suite. As such, let’s load the tidyverse now:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
 <pre><code>## Registered S3 methods overwritten by &#39;ggplot2&#39;:
 ##   method         from 
 ##   [.quosures     rlang
@@ -391,30 +417,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## Registered S3 method overwritten by &#39;rvest&#39;:
 ##   method            from
 ##   read_xml.response xml2</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.1.1       ✔ purrr   0.3.2  
 ## ✔ tibble  2.1.1       ✔ dplyr   0.8.0.1
 ## ✔ tidyr   0.8.3       ✔ stringr 1.4.0  
 ## ✔ readr   1.3.1       ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <p><code>stringr</code> contains a bunch of useful tools for analyzing and working with strings via the use of <em>patterns</em> - that is, the things you want to detect in the string itself. For instance, you may have noticed that there’s the word “orange” hidden in our string of text. If we just wanted to know if that word was there, we could do the following:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_detect</span>(string, <span class="st">&quot;orange&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_detect</span>(string, <span class="st">&quot;orange&quot;</span>)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <p>(By the way, all these functions that start with <code>str_</code> are provided by the <code>stringr</code> package. While we’ll use a few functions from base R, <code>stringr</code> simplifies a lot of the hassle of working with strings, and so we’ll primarily be using those.)</p>
 <p>If we wanted to know where in the string it was, we could try this instead:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_locate</span>(string, <span class="st">&quot;orange&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_locate</span>(string, <span class="st">&quot;orange&quot;</span>)</code></pre>
 <pre><code>##      start end
 ## [1,]    12  17</code></pre>
 <p>We can use this information to extract the word from our string using <code>str_sub()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_sub</span>(string, <span class="dv">12</span>, <span class="dv">17</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_sub</span>(string, <span class="dv">12</span>, <span class="dv">17</span>)</code></pre>
 <pre><code>## [1] &quot;orange&quot;</code></pre>
 <p>Or even use the <code>str_extract()</code> function to do so:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract</span>(string, <span class="st">&quot;orange&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract</span>(string, <span class="st">&quot;orange&quot;</span>)</code></pre>
 <pre><code>## [1] &quot;orange&quot;</code></pre>
 <p>We can also replace the fruit, if we so desire:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_replace</span>(string, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;apple&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_replace</span>(string, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;apple&quot;</span>)</code></pre>
 <pre><code>## [1] &quot;lzGDHgldkh3apple2o5ghte&quot;</code></pre>
 <p>(Note that if we wanted to update our <code>string</code> object, we’d have to assign the new value using <code>string &lt;- str_replace()</code>.)</p>
 <p>You can find a listing of all the other useful <code>stringr</code> functions on the <a href="http://edrub.in/CheatSheets/cheatSheetStringr.pdf">package cheatsheet</a> or the accompanying <a href="https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html">vignette</a>.</p>
@@ -429,41 +455,41 @@ Some people, when confronted with a problem, think “I know, I’ll use regular
 </blockquote>
 <p>This is all pretty neat, but what happens if we didn’t know exactly what we’re looking for - just specific parts of the string that we want? For instance, GPS data is often stored in a messy text file, where the latitude and longitude - that is, the data we care about - are specifically marked with start and end brackets or similar markings. In those cases, we can’t type out each datapoint that we want - by introducing human errors and taking a long time to complete, that would seem to defeat the entire purpose of coding in the first place!</p>
 <p>In this case, we’d have to begin wading into the world of <code>regular expressions</code>, also known as <code>regex</code> or <code>regexp</code>. These are concise statements that let us find specific chunks of strings that we’re interested in by generalizing our problems slightly. For instance, the <code>.</code> operator in regex lets us select any character:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string, <span class="st">&quot;o....e&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string, <span class="st">&quot;o....e&quot;</span>)</code></pre>
 <pre><code>## [[1]]
 ## [1] &quot;orange&quot; &quot;o5ghte&quot;</code></pre>
 <p>Note that we’re using <code>str_extract_all()</code> here, so that our regex doesn’t just pick up the first match and terminate. While that would actually help in this situation - what’s that ugly thing doing in our output? - there’s better ways to only get what we’re interested in. For instance, the <code>\\D</code> operator will select any character that <em>isn’t</em> a number - so switching it out for <code>.</code> should do the trick:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string, <span class="st">&quot;o</span><span class="ch">\\</span><span class="st">D</span><span class="ch">\\</span><span class="st">D</span><span class="ch">\\</span><span class="st">D</span><span class="ch">\\</span><span class="st">De&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string, <span class="st">&quot;o</span><span class="ch">\\</span><span class="st">D</span><span class="ch">\\</span><span class="st">D</span><span class="ch">\\</span><span class="st">D</span><span class="ch">\\</span><span class="st">De&quot;</span>)</code></pre>
 <pre><code>## [[1]]
 ## [1] &quot;orange&quot;</code></pre>
 <p>If we wanted to select the ugly thing instead (for instance, to correct it to whatever it should be), we can use the <code>\\d</code> operator, which will select any numeric digit.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string, <span class="st">&quot;o</span><span class="ch">\\</span><span class="st">d</span><span class="ch">\\</span><span class="st">D</span><span class="ch">\\</span><span class="st">D</span><span class="ch">\\</span><span class="st">De&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string, <span class="st">&quot;o</span><span class="ch">\\</span><span class="st">d</span><span class="ch">\\</span><span class="st">D</span><span class="ch">\\</span><span class="st">D</span><span class="ch">\\</span><span class="st">De&quot;</span>)</code></pre>
 <pre><code>## [[1]]
 ## [1] &quot;o5ghte&quot;</code></pre>
 <p>You’ll notice this pattern throughout regex expressions, by the way - a lowercase letter will select any of the things it stands for (so <code>\\d</code> selects any digit, while <code>\\s</code> will select any blank space) while an uppercase letter will select everything BUT that thing (so <code>\\D</code> doesn’t select digits, <code>\\S</code> will erase blank spaces, and so on).</p>
 <p>Another commonly used operator is the <code>*</code> function, which means “as many times as it shows up”. For instance, say we had a string that looked like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">string2 &lt;-<span class="st"> &quot;aeeeeeeeeeeeaeee&quot;</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">string2 &lt;-<span class="st"> &quot;aeeeeeeeeeeeaeee&quot;</span></code></pre>
 <p>If we wanted to select everything from the first a to the second, we <em>could</em> type out all the e’s. But rather than trying to make sure we typed the right number, it’s a lot easier for us to do something like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract</span>(string2, <span class="st">&quot;ae*a&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract</span>(string2, <span class="st">&quot;ae*a&quot;</span>)</code></pre>
 <pre><code>## [1] &quot;aeeeeeeeeeeea&quot;</code></pre>
 <p>This function also works with other operators - for instance, you can type <code>.*</code> to select all the characters within your other specifications:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string, <span class="st">&quot;o.*e&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string, <span class="st">&quot;o.*e&quot;</span>)</code></pre>
 <pre><code>## [[1]]
 ## [1] &quot;orange2o5ghte&quot;</code></pre>
 <p>Note, though, that <code>*</code> always looks for the longest string it can find. To make it select the shortest string instead, add <code>?</code> after the <code>*</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string, <span class="st">&quot;o.*?e&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string, <span class="st">&quot;o.*?e&quot;</span>)</code></pre>
 <pre><code>## [[1]]
 ## [1] &quot;orange&quot; &quot;o5ghte&quot;</code></pre>
 <p>So now <code>*</code> splits the strings at each e, rather than continuing on to the last e in the string.</p>
 <p>This becomes helpful if you’re trying to extract multiple strings with the same pattern - for instance, let’s say we had a string with multiple o_e words in it, like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">string3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;lzGDHodegldopenkh3orange2o5ghte&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">string3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;lzGDHodegldopenkh3orange2o5ghte&quot;</span>)</code></pre>
 <p>We can get each of our words out by combining the operators we’ve discussed above:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string3, <span class="st">&quot;o</span><span class="ch">\\</span><span class="st">D*?e&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_extract_all</span>(string3, <span class="st">&quot;o</span><span class="ch">\\</span><span class="st">D*?e&quot;</span>)</code></pre>
 <pre><code>## [[1]]
 ## [1] &quot;ode&quot;    &quot;ope&quot;    &quot;orange&quot;</code></pre>
 <p>And if we want to incorporate those words into a dataframe, it’s as easy as <code>unlist()</code>ing them:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,
-       <span class="dt">y =</span> <span class="kw">unlist</span>(<span class="kw">str_extract_all</span>(string3, <span class="st">&quot;o</span><span class="ch">\\</span><span class="st">D*?e&quot;</span>)))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,
+       <span class="dt">y =</span> <span class="kw">unlist</span>(<span class="kw">str_extract_all</span>(string3, <span class="st">&quot;o</span><span class="ch">\\</span><span class="st">D*?e&quot;</span>)))</code></pre>
 <pre><code>## # A tibble: 3 x 2
 ##       x y     
 ##   &lt;int&gt; &lt;chr&gt; 
@@ -479,18 +505,18 @@ Some people, when confronted with a problem, think “I know, I’ll use regular
 <code>wpt lat=&quot;43.485087&quot; lon=&quot;-74.949118&quot;</code>
 </div>
 <p>Since these are consistently labeled, I can extract them from the text file using my sick new regex skills. First, I’ll load the file into R:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LatLong &lt;-<span class="st"> </span><span class="kw">read_file</span>(<span class="st">&quot;LatLongFile.txt&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">LatLong &lt;-<span class="st"> </span><span class="kw">read_file</span>(<span class="st">&quot;LatLongFile.txt&quot;</span>)</code></pre>
 <p>I’m now going to work on the regex expressions, starting with the one for latitude. Since our latitude is always signified by <code>lat = &quot;</code>, that’s how I’ll start my expression. However, remember that R will assume the <code>&quot;</code> means you’ve finished entering your pattern, and will throw an error about anything following the quote mark. As such, we’ll have to <em>escape</em> that character using <code>\</code> - writing <code>\&quot;</code> in the place of <code>&quot;</code> will tell R to interpret the quote as part of the string, rather than as the end of the pattern.</p>
 <p>After the quote comes a whole bunch of data - the digits of our latitude - and then the string ends with another quote mark. As such, we can represent all the data inside the quotes using <code>.*?</code> - we can’t just use <code>\\d*?</code>, since we need to extract a period as well, and we need <code>*?</code> instead of <code>*</code> alone, in order to not just select the majority of the document text.</p>
 <p>We now have a regex that looks something like <code>lat=\&quot;.*?</code>, which is very close to being finished. The last thing we’re going to do is tell R what the last character in the string is - another quotation mark. As such, we add <code>\&quot;</code> to the end of our regex, for a final product of <code>lat=\&quot;.*?\&quot;</code>. Even though it looks like something a comic book character might swear at someone, that little expression is powerful enough to extract every single latitude in our file.</p>
 <p>We can actually use the exact same formula to get our longitudes - we just have to swap “lon” for “lat” in the expression. In practice, this looks something like:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lat &lt;-<span class="st"> </span><span class="kw">str_extract_all</span>(LatLong, <span class="st">&quot;lat=</span><span class="ch">\&quot;</span><span class="st">.*?</span><span class="ch">\&quot;</span><span class="st">&quot;</span>)
-lon &lt;-<span class="st"> </span><span class="kw">str_extract_all</span>(LatLong, <span class="st">&quot;lon=</span><span class="ch">\&quot;</span><span class="st">.*?</span><span class="ch">\&quot;</span><span class="st">&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">lat &lt;-<span class="st"> </span><span class="kw">str_extract_all</span>(LatLong, <span class="st">&quot;lat=</span><span class="ch">\&quot;</span><span class="st">.*?</span><span class="ch">\&quot;</span><span class="st">&quot;</span>)
+lon &lt;-<span class="st"> </span><span class="kw">str_extract_all</span>(LatLong, <span class="st">&quot;lon=</span><span class="ch">\&quot;</span><span class="st">.*?</span><span class="ch">\&quot;</span><span class="st">&quot;</span>)</code></pre>
 <p>If we want to then convert those objects into vectors, we can use <code>unlist</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lat &lt;-<span class="st"> </span><span class="kw">unlist</span>(lat)
-lon &lt;-<span class="st"> </span><span class="kw">unlist</span>(lon)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">lat &lt;-<span class="st"> </span><span class="kw">unlist</span>(lat)
+lon &lt;-<span class="st"> </span><span class="kw">unlist</span>(lon)</code></pre>
 <p>And then we can look at our results by making a tibble:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">tibble</span>(<span class="dt">lon =</span> lon, <span class="dt">lat =</span> lat))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">tibble</span>(<span class="dt">lon =</span> lon, <span class="dt">lat =</span> lat))</code></pre>
 <pre><code>## # A tibble: 6 x 2
 ##   lon                  lat                
 ##   &lt;chr&gt;                &lt;chr&gt;              
@@ -502,11 +528,11 @@ lon &lt;-<span class="st"> </span><span class="kw">unlist</span>(lon)</code></pr
 ## 6 &quot;lon=\&quot;-74.948725\&quot;&quot; &quot;lat=\&quot;43.485268\&quot;&quot;</code></pre>
 <p>It looks like we have a little work left for us! If we want to use the latitude and longitude for anything, we’re going to need to extract those numbers out from the text they’re in.</p>
 <p>For latitude, we want our expression to start at the first digit and select everything it can until the last digit in the cell. For longitude, we want our expression to start at the negative sign (since all our longitudes are negative - I recorded this data in the Western Hemisphere) and select everything it can until the last digit in the cell. As such, both of our patterns will make use of <code>.*\\d</code> - that is, “select everything until the last digit”. The only difference is that latitude will start with <code>\\d</code>, while longitude will start with <code>-</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lat2 &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">str_extract_all</span>(lat, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">d.*</span><span class="ch">\\</span><span class="st">d&quot;</span>))
-lon2 &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">str_extract_all</span>(lon, <span class="st">&quot;-.*</span><span class="ch">\\</span><span class="st">d&quot;</span>))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">lat2 &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">str_extract_all</span>(lat, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">d.*</span><span class="ch">\\</span><span class="st">d&quot;</span>))
+lon2 &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">str_extract_all</span>(lon, <span class="st">&quot;-.*</span><span class="ch">\\</span><span class="st">d&quot;</span>))</code></pre>
 <p>Let’s see what that looks like:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LatLonTib &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">lon =</span> lon2, <span class="dt">lat =</span> lat2)
-<span class="kw">head</span>(LatLonTib)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">LatLonTib &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">lon =</span> lon2, <span class="dt">lat =</span> lat2)
+<span class="kw">head</span>(LatLonTib)</code></pre>
 <pre><code>## # A tibble: 6 x 2
 ##   lon        lat      
 ##   &lt;chr&gt;      &lt;chr&gt;    
@@ -518,9 +544,9 @@ lon2 &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="k
 ## 6 -74.948725 43.485268</code></pre>
 <p>While we could have done this all in one step, I was feeling like those regex were getting complicated enough as they were - I decided splitting things up might make it easier to learn.</p>
 <p>Either way, our output is a much neater table than we started out with! You might notice that our columns are still character vectors, though. That’s an easy enough fix, using <code>mutate_all</code> from <code>dplyr</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LatLonTib &lt;-<span class="st"> </span>LatLonTib <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">LatLonTib &lt;-<span class="st"> </span>LatLonTib <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate_all</span>(as.numeric)
-<span class="kw">head</span>(LatLonTib)</code></pre></div>
+<span class="kw">head</span>(LatLonTib)</code></pre>
 <pre><code>## # A tibble: 6 x 2
 ##     lon   lat
 ##   &lt;dbl&gt; &lt;dbl&gt;
@@ -601,7 +627,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

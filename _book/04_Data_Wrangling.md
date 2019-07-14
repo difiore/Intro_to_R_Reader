@@ -50,7 +50,7 @@ Instead, in this course, we'll almost always be working with a very specific typ
 ```
 
 ```
-## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
@@ -61,7 +61,7 @@ Instead, in this course, we'll almost always be working with a very specific typ
 ```
 
 ```
-## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ```

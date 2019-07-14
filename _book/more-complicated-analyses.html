@@ -25,7 +25,7 @@
 <meta name="author" content="Michael Mahoney">
 
 
-<meta name="date" content="2019-06-19">
+<meta name="date" content="2019-06-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -63,41 +63,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -381,7 +407,7 @@ Computers are cheap, and thinking hurts.
 <p>These datasets are from the website <a href="https://www.kaggle.com/">Kaggle</a>, where a number of data professionals share methods and datasets. Specifically, we’ll be working with two datasets concerning <a href="https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results">all Olympic athletes from the first 120 years of the game</a>. Additionally, we’ll use data on <a href="https://www.kaggle.com/drgilermo/nba-players-stats-20142015">NBA athletes from the 2014-2015 season</a>. I’m not a huge sports guy myself, but there’s a huge amount of sports-related data available publicly online, so it’s a good tool for our analyses.</p>
 <p>We’re going to be assuming that your data are located in the same folder as your script - this is usually the easiest way to manage datasets. Otherwise, you’ll have to wrestle a little with using relative pathways and directory names - Hadley Wickham explains these in more detail here.</p>
 <p>In order to do this, we’ll be using the <code>readr</code> package, which is included in the base tidyverse:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
 <pre><code>## Registered S3 methods overwritten by &#39;ggplot2&#39;:
 ##   method         from 
 ##   [.quosures     rlang
@@ -390,23 +416,23 @@ Computers are cheap, and thinking hurts.
 <pre><code>## Registered S3 method overwritten by &#39;rvest&#39;:
 ##   method            from
 ##   read_xml.response xml2</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.1.1       ✔ purrr   0.3.2  
 ## ✔ tibble  2.1.1       ✔ dplyr   0.8.0.1
 ## ✔ tidyr   0.8.3       ✔ stringr 1.4.0  
 ## ✔ readr   1.3.1       ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <p>All the datasets included in our example use different <em>delimiters</em> - the character that tells R (or Excel, or whatever program you’re using) where one column stops and the next one begins. No matter what your delimiter is, we can parse the file using <code>read_delim()</code> - the first argument is the filename to read, while the second is the delimiter used. For instance, our text file is tab delimited - and since tabs are represented in R as <code>\t</code>, we’ll tell <code>read_delim()</code> to use that as a delimiter:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NOCRegions &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;noc_regions.txt&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">NOCRegions &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;noc_regions.txt&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   NOC = col_character(),
 ##   region = col_character(),
 ##   notes = col_character()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NOCRegions</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">NOCRegions</code></pre>
 <pre><code>## # A tibble: 230 x 3
 ##    NOC   region      notes               
 ##    &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;               
@@ -422,7 +448,7 @@ Computers are cheap, and thinking hurts.
 ## 10 ARM   Armenia     &lt;NA&gt;                
 ## # … with 220 more rows</code></pre>
 <p>We can do the same thing with documents that have comma separated values (known as CSVs):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;athlete_events.csv&quot;</span>, <span class="st">&quot;,&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">AthleteEvents &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;athlete_events.csv&quot;</span>, <span class="st">&quot;,&quot;</span>)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   ID = col_double(),
@@ -439,7 +465,7 @@ Computers are cheap, and thinking hurts.
 ##   Event = col_character(),
 ##   Medal = col_character()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">AthleteEvents</code></pre>
 <pre><code>## # A tibble: 271,116 x 13
 ##       ID Name  Sex     Age Height Weight NOC   Games  Year Season Sport
 ##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;
@@ -456,7 +482,7 @@ Computers are cheap, and thinking hurts.
 ## # … with 271,106 more rows, and 2 more variables: Event &lt;chr&gt;, Medal &lt;chr&gt;</code></pre>
 <p>(You may have noticed that took a second to load - at least, if your computer is middle-of-the-road. This dataset has 271,116 rows - even more than our <code>diamonds</code> dataset - so analyses might take slightly longer with it. Imagine how long “big data” problems would take on your computer, when datasets have several million rows of observations!)</p>
 <p>However, <code>readr</code> also includes a pretty good tool specifically for CSV files:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;athlete_events.csv&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">AthleteEvents &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;athlete_events.csv&quot;</span>)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   ID = col_double(),
@@ -473,7 +499,7 @@ Computers are cheap, and thinking hurts.
 ##   Event = col_character(),
 ##   Medal = col_character()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">AthleteEvents</code></pre>
 <pre><code>## # A tibble: 271,116 x 13
 ##       ID Name  Sex     Age Height Weight NOC   Games  Year Season Sport
 ##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;
@@ -491,9 +517,9 @@ Computers are cheap, and thinking hurts.
 <p>Now, <code>readr</code> doesn’t have native support for more complicated files, like Excel files. Philosphically, you shouldn’t store data in Excel format for long periods of time - we have no idea how long Microsoft will be around for, and the encoding used by Excel may someday disappear and take your data with it. CSVs are generally preferred for long-term data storage, as they’re easy to understand visually and are easily parsed by computers.</p>
 <p>However, data entry is much easier in Excel, and plenty of data professionals still use the format. Luckily, there’s a package - <code>readxl</code> - designed to parse these types of files:</p>
 <pre><code>install.packages(&quot;readxl&quot;)</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readxl)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NBAStats &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;players_stats.xlsx&quot;</span>)
-NBAStats</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readxl)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">NBAStats &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;players_stats.xlsx&quot;</span>)
+NBAStats</code></pre>
 <pre><code>## # A tibble: 490 x 34
 ##    Name  `Games Played`   MIN   PTS   FGM   FGA `FG%` `3PM` `3PA` `3P%`
 ##    &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -518,14 +544,14 @@ NBAStats</code></pre></div>
 <div id="exporting-data" class="section level3">
 <h3><span class="header-section-number">9.1.2</span> Exporting Data</h3>
 <p>Writing data to a file is also pretty painless using <code>readr</code>. There are as many options for delimiters as before - you can use <code>write_delim()</code> to specify which you want to use with your data - but more commonly data is imported and exported as CSV files using <code>write_csv()</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_csv</span>(AthleteEvents, <span class="st">&quot;athlete_events.csv&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_csv</span>(AthleteEvents, <span class="st">&quot;athlete_events.csv&quot;</span>)</code></pre>
 <p>Note that, like all other <code>tidyverse</code> functions, the dataset is the first thing you specify.</p>
 </div>
 <div id="data-exploration" class="section level3">
 <h3><span class="header-section-number">9.1.3</span> Data Exploration</h3>
 <p>Let’s put <code>NBAStats</code> off to the side for a moment, and look at our other two datasets. <code>AthleteEvents</code> is a list of all olympic competitors from 1892 to 2016, including basic statistics about each and any medals they may have won. <code>NOCRegions</code>, meanwhile, maps codes used by the National Olympic Committee (NOC) to the countries they represent.</p>
 <p>We can get a sense of the variables this dataset measures using <code>psych::describe()</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">psych<span class="op">::</span><span class="kw">describe</span>(AthleteEvents)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">psych<span class="op">::</span><span class="kw">describe</span>(AthleteEvents)</code></pre>
 <pre><code>## Warning in psych::describe(AthleteEvents): NAs introduced by coercion
 
 ## Warning in psych::describe(AthleteEvents): NAs introduced by coercion
@@ -617,7 +643,7 @@ NBAStats</code></pre></div>
 ## Medal*    -Inf    NA       NA    NA</code></pre>
 <p>Wow, R didn’t like that!</p>
 <p>R didn’t know how to calculate most of the fields in <code>describe()</code> for character vectors. We can try that process again with only the numeric columns by using <code>select_if()</code> from <code>dplyr</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">psych<span class="op">::</span><span class="kw">describe</span>(<span class="kw">select_if</span>(AthleteEvents, is.numeric))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">psych<span class="op">::</span><span class="kw">describe</span>(<span class="kw">select_if</span>(AthleteEvents, is.numeric))</code></pre>
 <pre><code>##        vars      n     mean       sd median  trimmed      mad  min    max
 ## ID        1 271116 68248.95 39022.29  68205 68290.17 50019.96    1 135571
 ## Age       2 261642    25.56     6.39     24    24.87     4.45   10     97
@@ -637,14 +663,14 @@ NBAStats</code></pre></div>
 <li>Looking at mean, skew and kurtosis, it seems like we have a lot more athletes in recent years - the distribution is centered around 1978, almost 100 years into our 120 year dataset - and that while an incredible number of athletes are young (25, with a kurtosis of 6.27!), we have plenty of older competitors.</li>
 </ul>
 <p>If we want to get a sense of correlations in the data, we can try using <code>pairs()</code> again - but be warned, this one might take a while due to the size of the data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(<span class="kw">select_if</span>(AthleteEvents, is.numeric))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(<span class="kw">select_if</span>(AthleteEvents, is.numeric))</code></pre>
 <p><img src="09_More_Complicated_Analyses_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>(Pop quiz for the history nerds: what are those vertical bars in the <code>Year</code> column?)</p>
 <p>That’s a little chaotic, but we can still see trends nicely enough. It looks like height and weight have increased in variance over the years, probably due to the increased number of athletes overall. Height and weight look tightly correlated, as do age and the other statistics, interestingly enough. If we look at the actual correlation coefficients, we can see these trends numerically. We’re going to have to remove the NAs manually, first, using dplyr’s <code>drop_na</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">AthleteEvents <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">select_if</span>(is.numeric) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">cor</span>()</code></pre></div>
+<span class="st">  </span><span class="kw">cor</span>()</code></pre>
 <pre><code>##                  ID          Age      Height       Weight        Year
 ## ID      1.000000000 -0.002100308 -0.01219033 -0.009038648 0.007066518
 ## Age    -0.002100308  1.000000000  0.14168449  0.212040722 0.089142499
@@ -653,8 +679,8 @@ NBAStats</code></pre></div>
 ## Year    0.007066518  0.089142499  0.04814153  0.022175179 1.000000000</code></pre>
 <p>So we’re right in thinking that height and weight are correlated, but maybe not age. It is interesting to see that year is more correlated with age than any other variable!</p>
 <p>Moving back to the full dataset, I have a few other questions I want to ask. First off, when did women start competing? It would be useful to know if our gender distributions have significantly different lengths. Let’s <code>count()</code> the number of male and female athletes per year:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">count</span>(Year, Sex)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">AthleteEvents <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">count</span>(Year, Sex)</code></pre>
 <pre><code>## # A tibble: 69 x 3
 ##     Year Sex       n
 ##    &lt;dbl&gt; &lt;chr&gt; &lt;int&gt;
@@ -672,11 +698,11 @@ NBAStats</code></pre></div>
 <p>The first women appear in 1900! That’s very cool.</p>
 <p>I do wonder if the male or female athletes have it harder - that is, are there more male or female medal recipients, as a proportion of the whole? For instance, if fewer countries send female participants, each participant might be more statistically more likely to win.</p>
 <p>We can eyeball this by calculating the percentage of each gender who hold each type of medal, out of the total number of athletes who have participated. To do so, we’ll count the number of recipients of each type of medal, rename the <code>NA</code> medal value “none”, group our data by sex, and then divide the number of people who have received each medal by the total number of contestants:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">AthleteEvents <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">count</span>(Sex, Medal) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">Medal =</span> <span class="ot">NA</span>)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(Sex) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PercentReceiving =</span> n <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(n))</code></pre></div>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PercentReceiving =</span> n <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(n))</code></pre>
 <pre><code>## # A tibble: 8 x 4
 ## # Groups:   Sex [2]
 ##   Sex   Medal       n PercentReceiving
@@ -694,9 +720,9 @@ NBAStats</code></pre></div>
 <div id="modeling-winners" class="section level3">
 <h3><span class="header-section-number">9.1.4</span> Modeling Winners</h3>
 <p>Personally, I’m interested in predicting if someone will win a medal at the Olympics. We could do this a number of inferential ways - for instance, dropping all the values where an athlete <em>didn’t</em> win, and looking at the summary statistics of the athletes who did:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">AthleteEvents <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(Medal)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summary</span>(<span class="dt">object =</span> .)</code></pre></div>
+<span class="st">  </span><span class="kw">summary</span>(<span class="dt">object =</span> .)</code></pre>
 <pre><code>##        ID             Name               Sex                 Age       
 ##  Min.   :     4   Length:39783       Length:39783       Min.   :10.00  
 ##  1st Qu.: 36494   Class :character   Class :character   1st Qu.:22.00  
@@ -731,20 +757,20 @@ NBAStats</code></pre></div>
 ## </code></pre>
 <p>This doesn’t help us that much - it appears that these athletes are slightly older, taller, and heavier than the whole dataset, but that’s not a lot to go off of when making predictions - no one wants to bet on the oldest and heaviest high jumper.</p>
 <p>One way we could try to do this is using our old friend, the <code>lm()</code> tool, with all the data we have. We can make a new binary column <code>Winner</code>, which will be 1 if the athlete won a medal, and then try to model it:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span>AthleteEvents<span class="op">$</span>Medal
+<pre class="sourceCode r"><code class="sourceCode r">AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span>AthleteEvents<span class="op">$</span>Medal
 AthleteEvents<span class="op">$</span>Winner[<span class="kw">which</span>(<span class="op">!</span><span class="kw">is.na</span>((AthleteEvents<span class="op">$</span>Winner)))] &lt;-<span class="st"> </span><span class="dv">1</span>
 AthleteEvents<span class="op">$</span>Winner[<span class="kw">which</span>(<span class="kw">is.na</span>(AthleteEvents<span class="op">$</span>Winner))] &lt;-<span class="st"> </span><span class="dv">0</span>
-AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(AthleteEvents<span class="op">$</span>Winner)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteEvents <span class="op">%&gt;%</span>
+AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(AthleteEvents<span class="op">$</span>Winner)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">AthleteEvents <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">Winner =</span> <span class="dv">0</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">lm</span>(Winner <span class="op">~</span><span class="st"> </span>ID <span class="op">*</span><span class="st"> </span>Name <span class="op">*</span><span class="st"> </span>Sex <span class="op">*</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight <span class="op">*</span><span class="st"> </span>NOC <span class="op">*</span><span class="st"> </span>Games <span class="op">*</span><span class="st"> </span>Year <span class="op">*</span><span class="st"> </span>Season <span class="op">*</span><span class="st"> </span>Sport <span class="op">*</span><span class="st"> </span>Event, <span class="dt">data =</span> .)</code></pre></div>
+<span class="st">  </span><span class="kw">lm</span>(Winner <span class="op">~</span><span class="st"> </span>ID <span class="op">*</span><span class="st"> </span>Name <span class="op">*</span><span class="st"> </span>Sex <span class="op">*</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight <span class="op">*</span><span class="st"> </span>NOC <span class="op">*</span><span class="st"> </span>Games <span class="op">*</span><span class="st"> </span>Year <span class="op">*</span><span class="st"> </span>Season <span class="op">*</span><span class="st"> </span>Sport <span class="op">*</span><span class="st"> </span>Event, <span class="dt">data =</span> .)</code></pre>
 <pre><code>## Error: cannot allocate vector of size 72.4 Gb</code></pre>
 <p>But R doesn’t like that much.</p>
 <p>This process is pretty excessive - we’re asking R to calculate a <em>lot</em> of stuff - and also has the downside of probably being <em>too</em> specific. After all, if we tell R what ID each athlete has, plus the year and the event, it can tell 100% of the time who won the medal!</p>
 <p>Instead, we want to be able to guess what <em>traits</em> make someone more likely to win. As such, we should only test the variables that we think are scientifically relevant - most likely, things like their age, height, and weight. If we make a model more like that:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteLinearModel &lt;-<span class="st"> </span><span class="kw">lm</span>(Winner <span class="op">~</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight, <span class="dt">data =</span> AthleteEvents) 
+<pre class="sourceCode r"><code class="sourceCode r">AthleteLinearModel &lt;-<span class="st"> </span><span class="kw">lm</span>(Winner <span class="op">~</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight, <span class="dt">data =</span> AthleteEvents) 
 
-<span class="kw">summary</span>(AthleteLinearModel)</code></pre></div>
+<span class="kw">summary</span>(AthleteLinearModel)</code></pre>
 <pre><code>## 
 ## Call:
 ## lm(formula = Winner ~ Age * Height * Weight, data = AthleteEvents)
@@ -776,18 +802,18 @@ AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span
 <h2><span class="header-section-number">9.2</span> Logistic Models</h2>
 <p>Wow! Every single term in our model is significant, but the R<sup>2</sup> is horrible!</p>
 <p>As for why that might be, let’s visualize our response variable against one of its predictors - again, this might take a second to run:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(AthleteEvents, <span class="kw">aes</span>(Height, Winner)) <span class="op">+</span><span class="st"> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(AthleteEvents, <span class="kw">aes</span>(Height, Winner)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre>
 <pre><code>## Warning: Removed 60171 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 60171 rows containing missing values (geom_point).</code></pre>
 <p><img src="09_More_Complicated_Analyses_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>This here is the root of our problem - we’re trying to model a binary outcome (a yes or no, a medal or not) with a straight line, which is useless. This sort of problem comes up all the time in real world situations - in science, whether or not a trap will catch something, or in business, whether or not a customer will click.</p>
 <p>These problems are known as <em>classification</em> problems, where the outcome is a categorical variable, and linear models are really bad at them. Instead, we can choose to use a <em>logistic model</em>, one of the types of <em>generalized linear models</em> from chapter 3. These models serve to measure the probability of a binary event - while a linear model will tell you the value of your response variable, logistic models will tell you the probability your response variable is 1.</p>
 <p>R convieniently has a function <code>glm()</code> for doing exactly this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteLogisticModel &lt;-<span class="st"> </span><span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight, <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>) 
+<pre class="sourceCode r"><code class="sourceCode r">AthleteLogisticModel &lt;-<span class="st"> </span><span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight, <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>) 
 
-<span class="kw">summary</span>(AthleteLogisticModel)</code></pre></div>
+<span class="kw">summary</span>(AthleteLogisticModel)</code></pre>
 <pre><code>## 
 ## Call:
 ## glm(formula = Winner ~ Age * Height * Weight, family = &quot;binomial&quot;, 
@@ -828,7 +854,7 @@ AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span
 <h3><span class="header-section-number">9.3.1</span> Pseudo-R<sup>2</sup></h3>
 <p>One package that gives pretty decent results is the <code>pscl</code> package by Simon Jackman. After we install it, we can use the <code>pR2()</code> function to give us some pseudo-R<sup>2</sup> values:</p>
 <pre><code>install.packages(&quot;pscl&quot;)</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pscl<span class="op">::</span><span class="kw">pR2</span>(AthleteLogisticModel)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">pscl<span class="op">::</span><span class="kw">pR2</span>(AthleteLogisticModel)</code></pre>
 <pre><code>##           llh       llhNull            G2      McFadden          r2ML 
 ## -8.485169e+04 -1.130577e+05  5.641209e+04  2.494835e-01  2.393834e-01 
 ##          r2CU 
@@ -838,7 +864,7 @@ AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span
 <div id="area-under-the-roc-curve-auc" class="section level3">
 <h3><span class="header-section-number">9.3.2</span> Area Under the ROC Curve (AUC)</h3>
 <p>More common in data analytics is to find the area under the receiver operating curve - abbreviated as AUC. To understand how we get there, let’s first take a look at our model object:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteLogisticModel</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">AthleteLogisticModel</code></pre>
 <pre><code>## 
 ## Call:  glm(formula = Winner ~ Age * Height * Weight, family = &quot;binomial&quot;, 
 ##     data = AthleteEvents)
@@ -856,7 +882,7 @@ AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span
 ## Null Deviance:       171700 
 ## Residual Deviance: 169700    AIC: 169700</code></pre>
 <p>Wow! R stores models as <em>list objects</em>, containing a number of elements of different data types. We can get a sense of what’s going on under the hood using <code>str()</code> - that is, asking R to show us the <code>str</code>ucture of the data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(AthleteLogisticModel)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(AthleteLogisticModel)</code></pre>
 <pre><code>## List of 31
 ##  $ coefficients     : Named num [1:8] -4.023117 0.122794 -0.002067 0.030834 -0.000226 ...
 ##   ..- attr(*, &quot;names&quot;)= chr [1:8] &quot;(Intercept)&quot; &quot;Age&quot; &quot;Height&quot; &quot;Weight&quot; ...
@@ -994,7 +1020,7 @@ AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span
 <p>There’s a ton going on in there!</p>
 <p>Luckily enough, we don’t have to worry about most of it. The two elements I do want to point out, though, are the <code>y</code> and <code>fitted.values</code> columns. <code>y</code> contains our response variable - whether or not an athlete medaled - as a binary value of 1 or 0. <code>fitted.values</code>, meanwhile, stores the probability our model gives of <code>y</code> being 1. We can take advantage of this using the package <code>pROC</code>, which will let us calculate how close our model got. Let’s first install and load <code>pROC</code>:</p>
 <pre><code>install.packages(&quot;pROC&quot;)</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pROC)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pROC)</code></pre>
 <pre><code>## Type &#39;citation(&quot;pROC&quot;)&#39; for a citation.</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;pROC&#39;</code></pre>
@@ -1002,14 +1028,14 @@ AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span
 ## 
 ##     cov, smooth, var</code></pre>
 <p>What we’re going to do now is to build a receiver operating characteristic curve - a ROC - in order to understand graphically exactly what we’re computing. <code>pROC</code> makes that easy, using the function <code>roc()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LogModelROC &lt;-<span class="st"> </span><span class="kw">roc</span>(AthleteLogisticModel<span class="op">$</span>y, AthleteLogisticModel<span class="op">$</span>fitted.values)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">LogModelROC &lt;-<span class="st"> </span><span class="kw">roc</span>(AthleteLogisticModel<span class="op">$</span>y, AthleteLogisticModel<span class="op">$</span>fitted.values)</code></pre>
 <p>We can then plot our ROC object using <code>plot.roc()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot.roc</span>(LogModelROC)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot.roc</span>(LogModelROC)</code></pre>
 <p><img src="09_More_Complicated_Analyses_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <p>This is cool! What the hell is it?</p>
 <p>This is what we mean when we say receiver operating characteristic curve. That light grey line in the middle represents what would happen if we just randomly guessed whether or not each athlete got a medal, using a 50/50 chance. The black line represents how well our model did - everywhere that it’s higher than the grey line, we were more accurate than random chance. We don’t need to worry about exactly what the axes mean (basically, the x axis represents how confident our model is in guessing someone medaled, while the y is how surprised it is about the result), but you can read more for yourself <a href="https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5">here</a>.</p>
 <p>The curve is cool and all, but is hard to interpret. Luckily for us, there’s a single value - similar to R<sup>2</sup> for linear models - which we can use to identify how well our model did. That number is the area under the curve (AUC, sometimes called the c-statistic) that I mentioned earlier, which we can calculate with pROC by printing out our ROC object:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LogModelROC</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">LogModelROC</code></pre>
 <pre><code>## 
 ## Call:
 ## roc.default(response = AthleteLogisticModel$y, predictor = AthleteLogisticModel$fitted.values)
@@ -1025,15 +1051,15 @@ AthleteEvents<span class="op">$</span>Winner &lt;-<span class="st"> </span><span
 <h4><span class="header-section-number">9.3.3.1</span> AUC</h4>
 <p>So while our model is doing better than chance, it’s still not doing great - 0.57 leaves a lot of room to improve. For instance, since we know the sex of each athlete in our dataset, what would happen if we added that variable to our formula?</p>
 <p>We can calculate the new formula following all the steps above. I’m also going to use <code>pscl</code> and <code>pROC</code> to find the pseduo-R<sup>2</sup> and AUC of our new model, as well:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AthleteLogisticModel2 &lt;-<span class="st"> </span><span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight <span class="op">*</span><span class="st"> </span>Sex, <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>) 
+<pre class="sourceCode r"><code class="sourceCode r">AthleteLogisticModel2 &lt;-<span class="st"> </span><span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight <span class="op">*</span><span class="st"> </span>Sex, <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>) 
 
-pscl<span class="op">::</span><span class="kw">pR2</span>(AthleteLogisticModel2)</code></pre></div>
+pscl<span class="op">::</span><span class="kw">pR2</span>(AthleteLogisticModel2)</code></pre>
 <pre><code>##           llh       llhNull            G2      McFadden          r2ML 
 ## -8.413737e+04 -1.130577e+05  5.784073e+04  2.558018e-01  2.446360e-01 
 ##          r2CU 
 ##  3.672928e-01</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LogModel2ROC &lt;-<span class="st"> </span><span class="kw">roc</span>(AthleteLogisticModel2<span class="op">$</span>y, AthleteLogisticModel2<span class="op">$</span>fitted.values)
-LogModel2ROC</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">LogModel2ROC &lt;-<span class="st"> </span><span class="kw">roc</span>(AthleteLogisticModel2<span class="op">$</span>y, AthleteLogisticModel2<span class="op">$</span>fitted.values)
+LogModel2ROC</code></pre>
 <pre><code>## 
 ## Call:
 ## roc.default(response = AthleteLogisticModel2$y, predictor = AthleteLogisticModel2$fitted.values)
@@ -1041,7 +1067,7 @@ LogModel2ROC</code></pre></div>
 ## Data: AthleteLogisticModel2$fitted.values in 175984 controls (AthleteLogisticModel2$y 0) &lt; 30181 cases (AthleteLogisticModel2$y 1).
 ## Area under the curve: 0.6051</code></pre>
 <p>So, under each metric, our new model seems to be a slightly better fit to the data. The benefits of working with AUC - and, specifically, with <code>pROC</code> - is that testing to see if one model is better than the other is a piece of cake with <code>roc.test</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">roc.test</span>(LogModelROC, LogModel2ROC)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">roc.test</span>(LogModelROC, LogModel2ROC)</code></pre>
 <pre><code>## 
 ##  DeLong&#39;s test for two correlated ROC curves
 ## 
@@ -1060,13 +1086,13 @@ LogModel2ROC</code></pre></div>
 <p>AIC can’t be used to rank random models against one another without actual experimental design. More rants about this may be found <a href="https://dynamicecology.wordpress.com/2015/05/21/why-aic-appeals-to-ecologists-lowest-instincts/">here</a>.</p>
 <p>As such, our example here - only comparing two models, with no strong hypothesis as to why these are the two that deserve to be compared - isn’t the best way to demonstrate the use of AIC. We’ll follow up with a more clear example in a moment.</p>
 <p>AIC can be calculated using the <code>broom</code> package’s <code>glance()</code> on any model object you have:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(broom)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glance</span>(AthleteLogisticModel)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(broom)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glance</span>(AthleteLogisticModel)</code></pre>
 <pre><code>## # A tibble: 1 x 7
 ##   null.deviance df.null  logLik     AIC     BIC deviance df.residual
 ##           &lt;dbl&gt;   &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt;
 ## 1       171694.  206164 -84852. 169719. 169801.  169703.      206157</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glance</span>(AthleteLogisticModel2)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glance</span>(AthleteLogisticModel2)</code></pre>
 <pre><code>## # A tibble: 1 x 7
 ##   null.deviance df.null  logLik     AIC     BIC deviance df.residual
 ##           &lt;dbl&gt;   &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt;
@@ -1093,14 +1119,14 @@ Model improvement doesn’t make it into papers for the same reason people don�
 </blockquote>
 <p>Lets say with our Olympic athlete dataset I can justify expecting sex, age, height, and weight as predictors for the model, as well as the interactions between each of these terms. After all, we can expect age, height, and weight to vary together somewhat - and each of these likely differs between male and female athletes.</p>
 <p>One way I could compare the combinations of these variables would be to <code>glance()</code> at each of them individually, like so:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Glancing at the full model
-<span class="kw">glance</span>(<span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span>Sex <span class="op">*</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight, <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Glancing at the full model</span>
+<span class="kw">glance</span>(<span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span>Sex <span class="op">*</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight, <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>))</code></pre>
 <pre><code>## # A tibble: 1 x 7
 ##   null.deviance df.null  logLik     AIC     BIC deviance df.residual
 ##           &lt;dbl&gt;   &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt;
 ## 1       171694.  206164 -84137. 168307. 168471.  168275.      206149</code></pre>
 <p>However, this is inefficient, requires a lot of typing, and makes it really hard to compare AICs directly - or to export them to somewhere like Excel, for inclusion in a document. A somewhat better way is to define each model as its own function, taking the argument <code>df</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">FullMod &lt;-<span class="st"> </span><span class="cf">function</span>(df){
+<pre class="sourceCode r"><code class="sourceCode r">FullMod &lt;-<span class="st"> </span><span class="cf">function</span>(df){
   <span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span>Sex <span class="op">*</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight, <span class="dt">data =</span> df, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)
 }
 
@@ -1162,10 +1188,10 @@ Fourteen &lt;-<span class="st"> </span><span class="cf">function</span>(df){
 
 NullMod &lt;-<span class="st"> </span><span class="cf">function</span>(df){
   <span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> df, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)
-}</code></pre></div>
+}</code></pre>
 <p>That last item in the list is what’s known as the <em>null model</em> - it’s a similar concept to the null hypothesis in hypothesis testing. Its purpose is to serve as a baseline for judging the rest of our models - we’re hoping it has a <span class="math inline">\(\Delta\)</span>AIC &gt; 4!</p>
 <p>Now that we have our models defined, we’re able to run each of them against the dataset. Fair warning, this step will take a long time to complete - we’re asking R to compute estimates for something like 4.8 million observations by doing this. We’ll then overwrite the columns we just created, replacing them with the values from <code>glance()</code> so we can make model comparisons:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LogModelGlances &lt;-<span class="st"> </span>AthleteEvents <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">LogModelGlances &lt;-<span class="st"> </span>AthleteEvents <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">nest</span>() <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">FullMod =</span> <span class="kw">map</span>(data, FullMod),
          <span class="dt">FullMod =</span> <span class="kw">map</span>(FullMod, glance),
@@ -1200,7 +1226,7 @@ NullMod &lt;-<span class="st"> </span><span class="cf">function</span>(df){
          <span class="dt">NullMod =</span> <span class="kw">map</span>(data, NullMod),
          <span class="dt">NullMod =</span> <span class="kw">map</span>(NullMod, glance))
 
-LogModelGlances</code></pre></div>
+LogModelGlances</code></pre>
 <pre><code>## # A tibble: 1 x 17
 ##   data  FullMod One   Two   Three Four  Five  Six   Seven Eight Nine  Ten  
 ##   &lt;lis&gt; &lt;list&gt;  &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt;
@@ -1209,14 +1235,14 @@ LogModelGlances</code></pre></div>
 ## #   Fourteen &lt;list&gt;, NullMod &lt;list&gt;</code></pre>
 <p>(This is why you need to have smart hypotheses about which variables matter - imagine having to wait for thirty-two models to process, or even more!)</p>
 <p>We then want to get from this wide dataframe to a tidy dataframe, by <code>gather()</code>ing the model types into a column, paired with the dataframe their column contains:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LogModelGlances &lt;-<span class="st"> </span>LogModelGlances <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">LogModelGlances &lt;-<span class="st"> </span>LogModelGlances <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">gather</span>(Model, Value) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">slice</span>(<span class="op">-</span><span class="dv">1</span>)</code></pre></div>
+<span class="st">  </span><span class="kw">slice</span>(<span class="op">-</span><span class="dv">1</span>)</code></pre>
 <p>I also used <code>slice(-1)</code> to drop the first row containing our data, since we don’t need it anymore.</p>
 <p>Now all that’s left is to unlist our value columns. I’m also going to arrange the table by AIC, to show us which models performed best (and worst!)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LogModelGlances <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">LogModelGlances <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">unnest</span>(Value, <span class="dt">.drop =</span> T) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">arrange</span>(AIC)</code></pre></div>
+<span class="st">  </span><span class="kw">arrange</span>(AIC)</code></pre>
 <pre><code>## # A tibble: 16 x 8
 ##    Model  null.deviance df.null   logLik    AIC    BIC deviance df.residual
 ##    &lt;chr&gt;          &lt;dbl&gt;   &lt;int&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt;
@@ -1237,16 +1263,16 @@ LogModelGlances</code></pre></div>
 ## 15 Eleven       226115.  271115 -113050. 2.26e5 2.26e5  226101.      271114
 ## 16 NullM…       226115.  271115 -113058. 2.26e5 2.26e5  226115.      271115</code></pre>
 <p>Tada! Looks like all our models outperformed the null model by a good margin - and our full model is the best model of the set, with no other model getting particularly close to it. If we wanted, we could now measure just how accurate our best model is, using either AUC or a pseudo-R<sup>2</sup>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ROCMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span>Sex <span class="op">*</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight, <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r">ROCMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span>Sex <span class="op">*</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight, <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)
 
-pROC<span class="op">::</span><span class="kw">roc</span>(ROCMod<span class="op">$</span>y, ROCMod<span class="op">$</span>fitted.values)</code></pre></div>
+pROC<span class="op">::</span><span class="kw">roc</span>(ROCMod<span class="op">$</span>y, ROCMod<span class="op">$</span>fitted.values)</code></pre>
 <pre><code>## 
 ## Call:
 ## roc.default(response = ROCMod$y, predictor = ROCMod$fitted.values)
 ## 
 ## Data: ROCMod$fitted.values in 175984 controls (ROCMod$y 0) &lt; 30181 cases (ROCMod$y 1).
 ## Area under the curve: 0.6051</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pscl<span class="op">::</span><span class="kw">pR2</span>(<span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span>Sex <span class="op">*</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight, <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">pscl<span class="op">::</span><span class="kw">pR2</span>(<span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span>Sex <span class="op">*</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight, <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>))</code></pre>
 <pre><code>##           llh       llhNull            G2      McFadden          r2ML 
 ## -8.413737e+04 -1.130577e+05  5.784073e+04  2.558018e-01  2.446360e-01 
 ##          r2CU 
@@ -1267,23 +1293,23 @@ pROC<span class="op">::</span><span class="kw">roc</span>(ROCMod<span class="op"
 <p>As such, a better practice is to figure out which variables are most likely to matter before you start building your models - as we did, with our correlation plots and tables. This method is a lot more sound scientifically, as well - rather than throwing things at the wall until you got one to stick, you’re better able to explain your analysis methods, and the reason those terms matter.</p>
 <p>However, if you want to throw things at the wall anyway, the statistically preferred way to do so is stepwise selection (one informative link <a href="https://people.duke.edu/~rnau/regstep.htm">here</a>, another - this one including information on the true “stepwise” bidirectional selection - <a href="https://stats.stackexchange.com/questions/317625/what-is-stepwise-linear-regression">here</a>, and a third - this one explaining things better, but including coding tips for non-R programs, <a href="http://www.markirwin.net/stat135/Lecture/Lecture32.pdf">here</a>).</p>
 <p>The basic process to do this is to fit two models - a null model and a full model - and then pass them to the <code>step()</code> function. First, though, we have to drop all the rows where our predictor values have a value of <code>NA</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">StepWiseData &lt;-<span class="st"> </span>AthleteEvents <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">                    </span><span class="kw">drop_na</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">14</span>) ## Numbers specify columns to drop NA in</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">StepWiseData &lt;-<span class="st"> </span>AthleteEvents <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">                    </span><span class="kw">drop_na</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">14</span>) <span class="co">## Numbers specify columns to drop NA in</span></code></pre>
 <p>We can choose which type of stepwise selection we want by specifying certain parameters within this function - for instance, given our models:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">StepWiseFullMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span>Sex <span class="op">*</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight, <span class="dt">data =</span> StepWiseData, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)
-StepWiseNullMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> StepWiseData, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">StepWiseFullMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span>Sex <span class="op">*</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Height <span class="op">*</span><span class="st"> </span>Weight, <span class="dt">data =</span> StepWiseData, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)
+StepWiseNullMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> StepWiseData, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</code></pre>
 <p>We can perform a backwards selection by typing:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">step</span>(StepWiseFullMod)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">step</span>(StepWiseFullMod)</code></pre>
 <p>A forward selection via:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">step</span>(StepWiseNullMod, 
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">step</span>(StepWiseNullMod, 
      <span class="dt">scope =</span> <span class="kw">list</span>(<span class="dt">lower =</span> <span class="kw">formula</span>(StepWiseNullMod), 
                   <span class="dt">upper =</span> <span class="kw">formula</span>(StepWiseFullMod)),
-     <span class="dt">direction =</span> <span class="st">&quot;forward&quot;</span>)</code></pre></div>
+     <span class="dt">direction =</span> <span class="st">&quot;forward&quot;</span>)</code></pre>
 <p>And a bi-directional bothways function via the following:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">step</span>(StepWiseNullMod, 
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">step</span>(StepWiseNullMod, 
      <span class="dt">scope =</span> <span class="kw">list</span>(<span class="dt">lower =</span> <span class="kw">formula</span>(StepWiseNullMod), 
                   <span class="dt">upper =</span> <span class="kw">formula</span>(StepWiseFullMod)),
-     <span class="dt">direction =</span> <span class="st">&quot;both&quot;</span>)</code></pre></div>
+     <span class="dt">direction =</span> <span class="st">&quot;both&quot;</span>)</code></pre>
 <p>I’m not running them here, because they take a ton of space. Note that these methods give us slightly different formulas, due to how each calculates which terms to include.</p>
 <p>This method is becoming disfavored, as it doesn’t require you to think about <em>why</em> you want a given variable in the model. But I can’t stop you from doing whatever you’re gonna do.</p>
 </div>
@@ -1291,17 +1317,17 @@ StepWiseNullMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Winner
 <h4><span class="header-section-number">9.4.1.2</span> The Better (…Faster) Way</h4>
 <p>Before we launch into this, note that this section is a little more techy and a little more obscure. It shouldn’t be that hard to follow, if you fully understand how for loops and map functions work. But if this is a little above your level right now, that’s totally fine - think of this section as more of a template, showing how we can combine tools to make our code faster and more efficient.</p>
 <p>There <em>is</em> a way to programmatically generate all the models, using the <code>map()</code> family of functions. Before we get to that, though, let’s create a smaller dataframe - <code>Predictors</code> - that only contains our predictor variables. We’ll also get the <code>names()</code> of all our predictors, and store that in our column <code>Cols</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Predictors &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Sex =</span> AthleteEvents<span class="op">$</span>Sex,
+<pre class="sourceCode r"><code class="sourceCode r">Predictors &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Sex =</span> AthleteEvents<span class="op">$</span>Sex,
                          <span class="dt">Age =</span> AthleteEvents<span class="op">$</span>Age,
                          <span class="dt">Height =</span> AthleteEvents<span class="op">$</span>Height,
                          <span class="dt">Weight =</span> AthleteEvents<span class="op">$</span>Weight)
 
-Cols &lt;-<span class="st"> </span><span class="kw">names</span>(Predictors)</code></pre></div>
+Cols &lt;-<span class="st"> </span><span class="kw">names</span>(Predictors)</code></pre>
 <p>We’re now going to find the <code>length()</code> of our <code>Cols</code> vector and store it in <code>n</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="kw">length</span>(Cols)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="kw">length</span>(Cols)</code></pre>
 <p>Alright, here’s where things get a little more complicated.</p>
 <p>What we want to do is use the <code>combn()</code> function to find all the combinations of our variables, so that we can use those to programmatically build formulas. The way we do this is to build what’s known as an <em>anonymous function</em> inside of <code>combn()</code> by typing <code>~</code>, using our <code>.</code> pronoun to iterate through a dataset. We’ll also set <code>simplify</code> inside of the <code>combn()</code> function to <code>FALSE</code>. If we pass this to <code>map()</code>, we get the following output:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="op">~</span><span class="st"> </span><span class="kw">combn</span>(<span class="dv">1</span><span class="op">:</span>n, ., <span class="dt">simplify =</span> <span class="ot">FALSE</span>))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="op">~</span><span class="st"> </span><span class="kw">combn</span>(<span class="dv">1</span><span class="op">:</span>n, ., <span class="dt">simplify =</span> <span class="ot">FALSE</span>))</code></pre>
 <pre><code>## [[1]]
 ## [[1]][[1]]
 ## [1] 1
@@ -1354,10 +1380,10 @@ Cols &lt;-<span class="st"> </span><span class="kw">names</span>(Predictors)</co
 ## [[4]][[1]]
 ## [1] 1 2 3 4</code></pre>
 <p>Which is very close to what we want. The issue is, each of these combinations is buried inside a list - while we want a list of combinations, what we have is a list of lists of combinations. To get rid of that higher-level list, we can use the <code>unlist()</code> function - specifying <code>recursive = FALSE</code> to make sure we only get rid of the top-level list. I’m going to assign that to <code>id</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">id &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="op">~</span><span class="st"> </span><span class="kw">combn</span>(<span class="dv">1</span><span class="op">:</span>n, ., <span class="dt">simplify =</span> <span class="ot">FALSE</span>)), <span class="dt">recursive =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">id &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="op">~</span><span class="st"> </span><span class="kw">combn</span>(<span class="dv">1</span><span class="op">:</span>n, ., <span class="dt">simplify =</span> <span class="ot">FALSE</span>)), <span class="dt">recursive =</span> <span class="ot">FALSE</span>)</code></pre>
 <p>We now have everything we need to find our formulas - the names of our predictor variables and all the combinations we want of them. We’re now going to use <code>map_chr()</code> to <code>paste()</code> together each of our formulas - by indexing <code>Cols</code> with <code>[.]</code> in our anonymous function, we can call each combination of column names we have specified in <code>id</code>. <code>collapse = &quot;*&quot;</code> will separate each of our predictors with the <code>*</code> operator:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Formulas &lt;-<span class="st"> </span><span class="kw">map_chr</span>(id, <span class="op">~</span><span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Winner ~&quot;</span>, <span class="kw">paste</span>(Cols[.], <span class="dt">collapse=</span><span class="st">&quot;*&quot;</span>)))
-Formulas</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Formulas &lt;-<span class="st"> </span><span class="kw">map_chr</span>(id, <span class="op">~</span><span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Winner ~&quot;</span>, <span class="kw">paste</span>(Cols[.], <span class="dt">collapse=</span><span class="st">&quot;*&quot;</span>)))
+Formulas</code></pre>
 <pre><code>##  [1] &quot;Winner ~ Sex&quot;                   &quot;Winner ~ Age&quot;                  
 ##  [3] &quot;Winner ~ Height&quot;                &quot;Winner ~ Weight&quot;               
 ##  [5] &quot;Winner ~ Sex*Age&quot;               &quot;Winner ~ Sex*Height&quot;           
@@ -1367,29 +1393,29 @@ Formulas</code></pre></div>
 ## [13] &quot;Winner ~ Sex*Height*Weight&quot;     &quot;Winner ~ Age*Height*Weight&quot;    
 ## [15] &quot;Winner ~ Sex*Age*Height*Weight&quot;</code></pre>
 <p>Now, my desired outputs here are two dataframes: one of the outputs from <code>tidy()</code>, and one of the outputs from <code>glance()</code>. As such, I’m going to initalize two dataframes, <code>Glances</code> and <code>Tidies</code>, with the outputs from those functions. I’m also going to create a column in <code>Tidies</code> to store which formula the output is from:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Glances &lt;-<span class="st"> </span><span class="kw">glance</span>(<span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>))
+<pre class="sourceCode r"><code class="sourceCode r">Glances &lt;-<span class="st"> </span><span class="kw">glance</span>(<span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>))
 Tidies &lt;-<span class="st"> </span><span class="kw">tidy</span>(<span class="kw">glm</span>(Winner <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>))
-Tidies<span class="op">$</span>FormNum &lt;-<span class="st"> </span><span class="dv">0</span></code></pre></div>
+Tidies<span class="op">$</span>FormNum &lt;-<span class="st"> </span><span class="dv">0</span></code></pre>
 <p>And now we want to actually calculate these models for our data. For this, we have to use a for loop, running as many times as we have formulas. Rather than explain everything in the loop up here, I’ve commented the code below, with explanations following the <code>##</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_along</span>(Formulas)){
-## Convert the current (index i) formula into a logistic model
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_along</span>(Formulas)){
+<span class="co">## Convert the current (index i) formula into a logistic model</span>
   CurrentModel &lt;-<span class="st"> </span><span class="kw">glm</span>(<span class="kw">as.formula</span>(Formulas[[i]]), <span class="dt">data =</span> AthleteEvents, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)
   
-## Store the glance of the current model in CurrentGlance
+<span class="co">## Store the glance of the current model in CurrentGlance</span>
   CurrentGlance &lt;-<span class="st"> </span><span class="kw">glance</span>(CurrentModel)
   
-## Make row i of Glances the current model&#39;s glance
+<span class="co">## Make row i of Glances the current model&#39;s glance</span>
   Glances[i, ] &lt;-<span class="st">  </span><span class="kw">as.vector</span>(CurrentGlance)
   
-## Store the tidy of the current model, label it with the model number, and convert it to a vector
+<span class="co">## Store the tidy of the current model, label it with the model number, and convert it to a vector</span>
   CurrentTidy &lt;-<span class="st"> </span><span class="kw">tidy</span>(CurrentModel)
   CurrentTidy<span class="op">$</span>FormNum &lt;-<span class="st"> </span>i
   CurrentTidy &lt;-<span class="st"> </span><span class="kw">as.vector</span>(CurrentTidy)
-## Append the current tidy to your table with all tidy outputs
+<span class="co">## Append the current tidy to your table with all tidy outputs</span>
   Tidies &lt;-<span class="st">  </span><span class="kw">rbind</span>(Tidies, CurrentTidy)
-}</code></pre></div>
+}</code></pre>
 <p>And if everything worked properly, we can print out our dataframes to make sure we got everything right:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Glances</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Glances</code></pre>
 <pre><code>## # A tibble: 15 x 7
 ##    null.deviance df.null   logLik     AIC     BIC deviance df.residual
 ##  *         &lt;dbl&gt;   &lt;int&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt;
@@ -1418,10 +1444,10 @@ Tidies<span class="op">$</span>FormNum &lt;-<span class="st"> </span><span class
 <li>I’m going to convert the row names (those unlabeled numbers on the left) into a column called <code>FormNum</code></li>
 <li>I’m going to only select our columns of <code>FormNum</code> and <code>AIC</code>:</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Glances &lt;-<span class="st"> </span>Glances <span class="op">%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r">Glances &lt;-<span class="st"> </span>Glances <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">FormNum =</span> <span class="kw">as.numeric</span>(<span class="kw">row.names</span>(.))) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">select</span>(FormNum, AIC)
-Glances</code></pre></div>
+Glances</code></pre>
 <pre><code>## # A tibble: 15 x 2
 ##    FormNum     AIC
 ##      &lt;dbl&gt;   &lt;dbl&gt;
@@ -1441,52 +1467,52 @@ Glances</code></pre></div>
 ## 14      14 169719.
 ## 15      15 168307.</code></pre>
 <p>I also want to point out one important difference between our dataframes - the <code>Glances</code> dataframe doesn’t include our null model, while <code>Tidies</code> has it as <code>FormNum == 0</code>. We can check to make sure by <code>factor()</code>ing our dataframes’ <code>FormNum</code> fields, which identifies each unique level in the vector. We can then find all the <code>levels()</code> contained in that factor, confirming that <code>0</code> is only present in the <code>Tidies</code> dataframe:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(<span class="kw">factor</span>(Glances<span class="op">$</span>FormNum))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(<span class="kw">factor</span>(Glances<span class="op">$</span>FormNum))</code></pre>
 <pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot; &quot;13&quot; &quot;14&quot;
 ## [15] &quot;15&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(<span class="kw">factor</span>(Tidies<span class="op">$</span>FormNum))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(<span class="kw">factor</span>(Tidies<span class="op">$</span>FormNum))</code></pre>
 <pre><code>##  [1] &quot;0&quot;  &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot; &quot;13&quot;
 ## [15] &quot;14&quot; &quot;15&quot;</code></pre>
 <p>What we’ll be doing now is working on <em>joining</em> datasets, combining two dataframes into a single output. All of these functions take the form <code>f(x, y)</code>, where <code>f()</code> is the function name and <code>x, y</code> are the arguments. What this function does is find columns with the same name - known as <em>keys</em> - and combine your dataframes based on the values in those columns. For our examples, our key column will be the FormNum column.</p>
 <div id="inner-join" class="section level3">
 <h3><span class="header-section-number">9.5.1</span> Inner Join</h3>
 <p>An inner join will preserve only the rows in your data which have keys present in both datasets - so, in this case, the null model will be dropped:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">inner_join</span>(Glances, Tidies)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">inner_join</span>(Glances, Tidies)</code></pre>
 </div>
 <div id="left-join" class="section level3">
 <h3><span class="header-section-number">9.5.2</span> Left Join</h3>
 <p>A left join will preserve all the values in your <code>x</code> dataset - here, in Glances.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">left_join</span>(Glances, Tidies)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">left_join</span>(Glances, Tidies)</code></pre>
 </div>
 <div id="right-join" class="section level3">
 <h3><span class="header-section-number">9.5.3</span> Right Join</h3>
 <p>A right join will preserve all the values in your <code>y</code> dataset - here in Tidies. As you can see, the AIC for the null model is left as NA, but the null model stays in the dataframe.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">right_join</span>(Glances, Tidies)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">right_join</span>(Glances, Tidies)</code></pre>
 </div>
 <div id="full-join" class="section level3">
 <h3><span class="header-section-number">9.5.4</span> Full Join</h3>
 <p>A full join will save all values in both your <code>x</code> and <code>y</code> dataframes.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">full_join</span>(Glances, Tidies)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">full_join</span>(Glances, Tidies)</code></pre>
 </div>
 <div id="semi-join" class="section level3">
 <h3><span class="header-section-number">9.5.5</span> Semi Join</h3>
 <p>A semi join returns a row from <code>x</code> if that key value has a match in <code>y</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">semi_join</span>(Glances, Tidies)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">semi_join</span>(Glances, Tidies)</code></pre>
 </div>
 <div id="anti-join" class="section level3">
 <h3><span class="header-section-number">9.5.6</span> Anti Join</h3>
 <p>An anti join returns a row from <code>x</code> if that key value <em>doesn’t</em> have a match in <code>y</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anti_join</span>(Glances, Tidies)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anti_join</span>(Glances, Tidies)</code></pre>
 </div>
 <div id="specifying-key-columns" class="section level3">
 <h3><span class="header-section-number">9.5.7</span> Specifying Key Columns</h3>
 <p>Sometimes it’s helpful to specify <em>which</em> columns you want to join your data by - particularly when you have columns with the same name but different values. In those situations, use <code>by =</code> to specify which columns you want to join by:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">full_join</span>(Glances, Tidies, <span class="dt">by =</span> <span class="st">&quot;FormNum&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">full_join</span>(Glances, Tidies, <span class="dt">by =</span> <span class="st">&quot;FormNum&quot;</span>)</code></pre>
 </div>
 <div id="merging-multiple-dataframes" class="section level3">
 <h3><span class="header-section-number">9.5.8</span> Merging Multiple Dataframes</h3>
 <p>In order to merge more than two dataframes at the same time, use <code>reduce()</code> with any of the above joins - all your dataframes have to be in a <code>list()</code> inside the <code>reduce()</code> call:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Creating example dataframes:
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Creating example dataframes:</span>
 x &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">key =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>),
                 <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">4</span>))
 y &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">key =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>),
@@ -1494,7 +1520,7 @@ y &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="
 z &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">key =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>),
                 <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">31</span>, <span class="dv">4</span>, <span class="dv">14</span>, <span class="dv">124</span>))
 
-## Using &quot;reduce&quot; to merge all dataframes:
+<span class="co">## Using &quot;reduce&quot; to merge all dataframes:</span>
 <span class="kw">reduce</span>(
   <span class="kw">list</span>(
     x,
@@ -1503,25 +1529,25 @@ z &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="
   ), 
   full_join, 
   <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>
-)</code></pre></div>
+)</code></pre>
 </div>
 <div id="binding-dataframes" class="section level3">
 <h3><span class="header-section-number">9.5.9</span> Binding Dataframes</h3>
 <p>Sometimes, however, we don’t have a key column to work with. In these cases, we usually just want to combine all of our data. Consider the dataframes:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df1 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Name =</span> <span class="kw">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bob&quot;</span>),
+<pre class="sourceCode r"><code class="sourceCode r">df1 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Name =</span> <span class="kw">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bob&quot;</span>),
               <span class="dt">EyeColor =</span> <span class="kw">c</span>(<span class="st">&quot;Blue&quot;</span>, <span class="st">&quot;Brown&quot;</span>))
 
 df2 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">BestFriend =</span> <span class="kw">c</span>(<span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Alice&quot;</span>),
-              <span class="dt">HairColor =</span> <span class="kw">c</span>(<span class="st">&quot;Brown&quot;</span>, <span class="st">&quot;Blue&quot;</span>))</code></pre></div>
+              <span class="dt">HairColor =</span> <span class="kw">c</span>(<span class="st">&quot;Brown&quot;</span>, <span class="st">&quot;Blue&quot;</span>))</code></pre>
 <p>If the rows of each dataframe represent the same observation - that is, row 1 in dataframe 1 is the same as row 1 in dataframe 2 - we can combine the tables using <code>cbind()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">combineddf &lt;-<span class="st"> </span><span class="kw">cbind</span>(df1, df2)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">combineddf &lt;-<span class="st"> </span><span class="kw">cbind</span>(df1, df2)</code></pre>
 <p>But say we forgot someone, whose records are stored in dataframe 3:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df3 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Name =</span> <span class="st">&quot;Eve&quot;</span>,
+<pre class="sourceCode r"><code class="sourceCode r">df3 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Name =</span> <span class="st">&quot;Eve&quot;</span>,
               <span class="dt">EyeColor =</span> <span class="st">&quot;Grey&quot;</span>,
               <span class="dt">BestFriend =</span> <span class="st">&quot;Alice&quot;</span>,
-              <span class="dt">HairColor =</span> <span class="st">&quot;Grey&quot;</span>)</code></pre></div>
+              <span class="dt">HairColor =</span> <span class="st">&quot;Grey&quot;</span>)</code></pre>
 <p>If we want to add her to the table, we can use <code>rbind()</code> - so long as she has all the same columns as our original table!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rbind</span>(combineddf, df3)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rbind</span>(combineddf, df3)</code></pre>
 <pre><code>##    Name EyeColor BestFriend HairColor
 ## 1 Alice     Blue        Bob     Brown
 ## 2   Bob    Brown      Alice      Blue
@@ -1594,7 +1620,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
