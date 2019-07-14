@@ -34,7 +34,7 @@ I mentioned earlier that we'd be primarily working with structured data, like yo
 
 Instead, in this course, we'll almost always be working with a very specific type of rectangular data known as _tidy data_. Tidy dataframes always take the same shape:
 
-```{r echo = FALSE}
+```{r echo = FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 data.frame("." = c("Observation 1", "Observation 2","...", "Observation n"),
            "Variable_1" = c("Value", "Value", "...", "Value"),
@@ -51,7 +51,7 @@ Tidy data is organized as follows:
 * Each row is a single **observation**
 * Each cell is a single **value**
 
-You can't expect most data you encounter in the wild to already be tidy - but that's why data workers make the big bucks. Luckily enough, there are tools designed to get you from untidy to tidy data easily, so you can then follow up with the fun parts of analyses. We'll be working
+You can't expect most data you encounter in the wild to already be tidy - but that's why data workers make the big bucks. Luckily enough, there are tools designed to get you from untidy to tidy data easily, so you can then follow up with the fun parts of analyses.
 
 ### Tidying Data
 As you might guess from the name, the `tidyverse` is specifically designed to work with tidy datasets. Let's load it now:
